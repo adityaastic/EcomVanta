@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scraper & migration dumps
+*.html
+download-assets.js
+download_*.js
+dump_*.js
+extract_*.js
+fetch_*.js
+inspect_*.js
+parse_*.js
+print_*.js
+blogs_data.js
+css_ab-1.css
+css_service.css
+include_css_style.css

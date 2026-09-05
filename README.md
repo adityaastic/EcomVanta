@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcomVanta - Powering Brands. Scaling E-commerce 🚀
 
-## Getting Started
+> **Your Marketplace Growth Partner — From Setup to Sales**
 
-First, run the development server:
+EcomVanta is a high-performance eCommerce agency website and full-featured Admin CMS built with **Next.js 16 (Turbopack)**, **Tailwind CSS**, and **TypeScript**.
+
+---
+
+## 🌟 Key Features
+
+- **🛍️ Complete Marketplace Solutions:** Dedicated service pages for Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, and D2C Brand Websites.
+- **🎨 Custom Admin Panel & CMS:** Full administrative control at `/admin` to edit banners, text, logos, services, blogs, case studies, careers, and contact info in real-time.
+- **🖼️ Drag-and-Drop Media Library:** Instant file uploads saved to `/public/uploads/` with 1-click URL copying and image preview lightbox.
+- **📥 Unified Leads Inbox:** Inquiries captured from contact forms and popup modals with status tracking (`New`, `Contacted`, `In Progress`, `Converted`) and 1-click CSV export.
+- **⚡ Fast & SEO Optimized:** Built with Next.js App Router, dynamic JSON storage, and responsive Tailwind styling.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Installation
+
+```bash
+git clone https://github.com/adityaastic/EcomVanta.git
+cd EcomVanta
+npm install
+```
+
+### 2. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔑 Admin CMS Access
 
-## Learn More
+- **Admin Dashboard:** `http://localhost:3000/admin`
+- **Default Password:** `arvian2026` *(or `admin123`)*
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework:** Next.js 16 (Turbopack & App Router)
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide React
+- **Language:** TypeScript
+- **Database / CMS Storage:** Local JSON (`data/site-content.json` & `data/leads.json`) + Supabase support
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📞 Contact Information
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Brand:** EcomVanta
+- **Director & Founder:** Shivam Dubey
+- **Email:** ecomvanta40@gmail.com
+- **Phone:** +91 878 724 9407
+- **Location:** New Delhi, India
+

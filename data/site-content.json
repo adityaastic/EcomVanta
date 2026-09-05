@@ -1,0 +1,1267 @@
+{
+  "branding": {
+    "siteName": "EcomVanta",
+    "siteTagline": "Powering Brands. Scaling E-commerce",
+    "metaDescription": "EcomVanta - Your Marketplace Growth Partner from Setup to Sales. Account Management Services for Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix & D2C.",
+    "headerLogo": "/images/images/arvian-logo.png",
+    "darkLogo": "/images/images/arvian-logo.png",
+    "footerLogo": "/images/images/arvian-logo.png",
+    "favicon": "/favicon.ico",
+    "topbarPhone": "+918787249407",
+    "tollFreePhone": "+91 878 724 9407",
+    "email": "ecomvanta40@gmail.com",
+    "workingHours": "9:00 AM to 7:00 PM (Mon - Sat)",
+    "socialLinks": {
+      "facebook": "https://facebook.com/ecomvanta",
+      "instagram": "https://instagram.com/ecomvanta",
+      "linkedin": "https://linkedin.com/company/ecomvanta",
+      "twitter": "https://twitter.com/ecomvanta",
+      "youtube": "https://youtube.com/@ecomvanta"
+    }
+  },
+  "homepage": {
+    "hero": {
+      "badgeText": "🚀 Your Marketplace Growth Partner — From Setup to Sales",
+      "titlePart1": "Powering Brands. Scaling",
+      "titleHighlight": "Amazon, Flipkart, Meesho & Blinkit",
+      "titlePart2": "with End-to-End Account Management",
+      "subtitle": "Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites. Whether you're just starting out or scaling up, we handle everything — from product listings to ad campaigns.",
+      "primaryCtaText": "Get Free Audit Call",
+      "primaryCtaLink": "/contact-us",
+      "secondaryCtaText": "View Case Studies",
+      "secondaryCtaLink": "/portfolio",
+      "heroImage": "/image/ecommerce-growth-partners.webp",
+      "heroBadgeNumber": "₹50Cr+",
+      "heroBadgeText": "GMV Generated for Clients",
+      "trustRating": "4.9 / 5.0",
+      "trustRatingCount": "Based on 250+ Seller Reviews"
+    },
+    "stats": [
+      {
+        "id": "1",
+        "number": "500+",
+        "label": "Active Brands Managed",
+        "description": "Across all major Indian marketplaces"
+      },
+      {
+        "id": "2",
+        "number": "₹50Cr+",
+        "label": "Client Revenue Generated",
+        "description": "Proven high ROI scaling strategies"
+      },
+      {
+        "id": "3",
+        "number": "4.8X",
+        "label": "Average ROAS Achieved",
+        "description": "On Amazon & Flipkart Sponsored Ads"
+      },
+      {
+        "id": "4",
+        "number": "99.4%",
+        "label": "Listing Accuracy & SLA",
+        "description": "Zero policy strikes or BuyBox loss"
+      }
+    ],
+    "brandLogos": [
+      {
+        "id": "1",
+        "name": "Deshi",
+        "logo": "/Deshi.png"
+      },
+      {
+        "id": "2",
+        "name": "Krishna",
+        "logo": "/Krishna logo .png"
+      },
+      {
+        "id": "3",
+        "name": "Forest Found",
+        "logo": "/Forest Found.png"
+      },
+      {
+        "id": "4",
+        "name": "SS Logo",
+        "logo": "/SS logo .png"
+      },
+      {
+        "id": "5",
+        "name": "RPURE",
+        "logo": "/RPURE logo .png"
+      },
+      {
+        "id": "6",
+        "name": "Nufyt",
+        "logo": "/Nufyt.png"
+      },
+      {
+        "id": "7",
+        "name": "Rasaveda",
+        "logo": "/Rasaveda.png"
+      },
+      {
+        "id": "8",
+        "name": "Bubz",
+        "logo": "/Bubz.png"
+      },
+      {
+        "id": "9",
+        "name": "Ninety Two",
+        "logo": "/Ninety Two.png"
+      }
+    ],
+    "platforms": [
+      {
+        "id": "1",
+        "name": "Amazon",
+        "logo": "/images/images/amazon-logo.webp",
+        "title": "Amazon Account Management",
+        "desc": "Complete end-to-end management including A+ cataloging, Buy Box optimization, Sponsored Ads, and FBA fulfillment.",
+        "link": "/amazon-seller-account-management-services"
+      },
+      {
+        "id": "2",
+        "name": "Flipkart",
+        "logo": "/flipkart-logo.webp",
+        "title": "Flipkart Account Management",
+        "desc": "Listing quality score enhancement, Flipkart Ads, Big Billion Days preparation, and PLA / PCA campaign scaling.",
+        "link": "/flipkart-account-management-services"
+      },
+      {
+        "id": "3",
+        "name": "Meesho",
+        "logo": "/Meesho_logo.png",
+        "title": "Meesho Account Management",
+        "desc": "Bulk product cataloging, zero-commission price optimization, next-day dispatch handling, and organic rank boosting.",
+        "link": "/meesho-account-management-services"
+      },
+      {
+        "id": "4",
+        "name": "Shopify",
+        "logo": "/shopify-logo.webp",
+        "title": "Shopify Store Management",
+        "desc": "High-converting custom store development, app integrations, payment gateways, and Meta/Google conversion ads.",
+        "link": "/shopify-store-management-services"
+      },
+      {
+        "id": "5",
+        "name": "Blinkit",
+        "logo": "/header-img/Blinkit-logo.svg",
+        "title": "Blinkit Onboarding & Growth",
+        "desc": "Quick commerce onboarding, dark store inventory distribution, micro-warehouse planning, and brand visibility.",
+        "link": "/blinkit-seller-account-management-services"
+      },
+      {
+        "id": "6",
+        "name": "Myntra",
+        "logo": "/myntra-logo.webp",
+        "title": "Myntra Account Management",
+        "desc": "Fashion & apparel catalog curation, style tag setup, End of Reason Sale (EORS) campaigns, and inventory sync.",
+        "link": "/myntra-account-management-services"
+      }
+    ],
+    "listingServices": [
+      {
+        "id": "1",
+        "icon": "/home-img/SEO-Optimized Product Titles.png",
+        "title": "Optimized for Search & Sales",
+        "desc": "SEO-rich titles, compelling bullet points, and descriptions that convert browsers into buyers."
+      },
+      {
+        "id": "2",
+        "icon": "/home-img/Image Enhancement & Infographics.png",
+        "title": "Visuals That Grab Attention",
+        "desc": "High-quality image uploads and stunning A+ content modules that make your listings stand out."
+      },
+      {
+        "id": "3",
+        "icon": "/home-img/Keyword-rich Descriptions & bullet points.png",
+        "title": "A+ Content That Builds Trust",
+        "desc": "Enhanced brand storytelling and rich media that elevate your product pages to market leaders."
+      },
+      {
+        "id": "4",
+        "icon": "/home-img/Category & Keyword Mapping.png",
+        "title": "Category & Attribute Mapping",
+        "desc": "Precise taxonomy mapping to boost discoverability and marketplace search visibility."
+      },
+      {
+        "id": "5",
+        "icon": "/home-img/Variations, Pricing, and Inventory Setup.png",
+        "title": "Real-Time Inventory & Order Sync",
+        "desc": "We monitor your stock in real time across all platforms — always accurate, always live, zero delays."
+      },
+      {
+        "id": "6",
+        "icon": "/home-img/Bulk Upload & Catalog Management.png",
+        "title": "Low Stock Alerts & Restock Planning",
+        "desc": "Proactive notifications before stock runs out, maintaining the right inventory levels for peak performance."
+      }
+    ],
+    "advantages": {
+      "title": "Why Choose EcomVanta As Your Growth Partner",
+      "subtitle": "Right Ads. Right Audience. Right Results.",
+      "items": [
+        {
+          "id": "1",
+          "title": "Sponsored Ads & Budget Optimization",
+          "desc": "Search, Display & Product Ads on Amazon, Flipkart, Meesho & more with precision budget tuning."
+        },
+        {
+          "id": "2",
+          "title": "Keyword Research & Precision Targeting",
+          "desc": "Targeting strategies designed to extract the maximum ROI and lowest ACOS on every rupee spent."
+        },
+        {
+          "id": "3",
+          "title": "Deals, Coupons & Seasonal Campaigns",
+          "desc": "Festival, Big Billion Days, and seasonal campaign planning to boost discoverability and volume spikes."
+        },
+        {
+          "id": "4",
+          "title": "Account Setup & 100% Policy Compliance",
+          "desc": "Brand registry support, account health monitoring, suspension appeal assistance, and proactive policy protection."
+        }
+      ]
+    },
+    "clientVideos": [
+      {
+        "id": "1",
+        "name": "Amardeep",
+        "role": "Founder, Home & Kitchen Brand",
+        "videoUrl": "/image/Amardeep.mp4",
+        "quote": "Arvian scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.",
+        "rating": 5
+      },
+      {
+        "id": "2",
+        "name": "Arjun",
+        "role": "D2C Apparel Brand Owner",
+        "videoUrl": "/image/Arjun.mp4",
+        "quote": "Their Flipkart ad management reduced our ACOS from 34% down to 15%.",
+        "rating": 5
+      },
+      {
+        "id": "3",
+        "name": "Diksha",
+        "role": "Cosmetics Brand Director",
+        "videoUrl": "/image/Diksha.mp4",
+        "quote": "The onboarding on Blinkit & Zepto was seamless and super fast!",
+        "rating": 5
+      },
+      {
+        "id": "4",
+        "name": "Kamna",
+        "role": "Ayurvedic Wellness Brand",
+        "videoUrl": "/image/Kamna Video.mp4",
+        "quote": "Best eCommerce agency in India. Professional and always available.",
+        "rating": 5
+      }
+    ],
+    "faqs": [
+      {
+        "id": "1",
+        "question": "How quickly can Arvian start managing my seller account?",
+        "answer": "Once you provide delegate or child account access, our team conducts a comprehensive account audit within 24-48 hours and rolls out the growth roadmap immediately."
+      },
+      {
+        "id": "2",
+        "question": "Which eCommerce platforms does Arvian support?",
+        "answer": "We provide full-service management for Amazon India, Amazon Global, Flipkart, Meesho, Shopify, Blinkit, Zepto, Swiggy Instamart, Myntra, Nykaa, Tata Cliq, and Etsy."
+      },
+      {
+        "id": "3",
+        "question": "Will I have a dedicated account manager?",
+        "answer": "Yes! Every brand is assigned a dedicated Account Manager along with a team of listing specialists, graphic designers, and PPC ad strategists."
+      },
+      {
+        "id": "4",
+        "question": "What is your pricing model for account management?",
+        "answer": "We offer flexible plans including fixed monthly retainer or performance-linked growth models tailored to your brand stage and catalog size."
+      }
+    ],
+    "bottomCta": {
+      "tagline": "Ready to Scale Your E-Commerce Revenue?",
+      "title": "Let’s Grow Your E-Commerce Business Together",
+      "description": "Reach out to EcomVanta today for an in-depth audit of your listings, competitor gaps, and an actionable ad strategy.",
+      "buttonText": "Claim Your Free Consultation",
+      "buttonLink": "/contact-us",
+      "backgroundImage": "/contact-bg.webp"
+    }
+  },
+  "services": {
+    "flipkart-account-management-services": {
+      "slug": "flipkart-account-management-services",
+      "badge": "Official Flipkart Partner Network",
+      "title": "Flipkart Account Management Services",
+      "subtitle": "Scale your revenue on Flipkart with end-to-end account handling, listing score optimization, Flipkart Ads (PCA/PLA), and Big Billion Days strategy.",
+      "heroImage": "/flipkart-account/product-dashboard.png",
+      "aboutImage": "/abt-img/flipkart-web-about.png",
+      "aboutTitle": "Maximize Your Brand Visibility on Flipkart",
+      "aboutDesc": "With over 500M+ registered customers on Flipkart, achieving organic rank requires algorithmic listing precision. Our certified managers handle daily catalog maintenance, inventory sync, and ad spend efficiency.",
+      "servicesGrid": [
+        {
+          "icon": "/Flipkart Product listing optimisation.png",
+          "title": "Listing Optimization & LQS",
+          "desc": "Keyword-rich titles, rich infographics, video uploads, and high listing quality scores."
+        },
+        {
+          "icon": "/Flipkart Inventory management.png",
+          "title": "Flipkart Fulfilment & Smart FBF",
+          "desc": "Inventory allocation, Tier 1/2 warehouse stocking, and stockout prevention."
+        },
+        {
+          "icon": "/Flipkart Advertising campaigns.png",
+          "title": "Flipkart PLA & PCA Advertising",
+          "desc": "Targeted ad placement, bid management, and ROAS scaling during festival sales."
+        },
+        {
+          "icon": "/Flipkart Performance monitoring.png",
+          "title": "Daily Performance Analytics",
+          "desc": "Tracking Buy Box share, cancellation rates, return rates, and GMV growth."
+        },
+        {
+          "icon": "/Flipkart Account health.png",
+          "title": "Account Health Maintenance",
+          "desc": "Proactive protection against seller tier downgrades and policy violations."
+        },
+        {
+          "icon": "/Flipkart Competitor analysis.png",
+          "title": "Competitor Benchmarking",
+          "desc": "Price monitoring, discount vouchers, and festival flash deal submissions."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Flipkart Certified Account Experts",
+          "desc": "Direct experience managing high-GMV Diamond & Gold tier sellers."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "Proven Festival Sale Multiplier",
+          "desc": "5X to 10X revenue spikes during Big Billion Days and Grand Kitchen sales."
+        },
+        {
+          "icon": "/css/Active issue resolution (2).png",
+          "title": "Rapid Dispute Resolution",
+          "desc": "Fast resolution on SPF returns, weight disputes, and customer returns."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do you improve Flipkart Listing Quality Score (LQS)?",
+          "answer": "We optimize character lengths for titles, upload 5+ HD images including infographics, add key attribute specifications, and upload product demonstration videos."
+        },
+        {
+          "question": "Can you help resolve Flipkart account suspension or warnings?",
+          "answer": "Yes, our team drafts comprehensive Plans of Action (POA) addressing RTD breaches, high return rates, and policy compliance."
+        }
+      ]
+    },
+    "meesho-account-management-services": {
+      "slug": "meesho-account-management-services",
+      "badge": "Zero Commission Marketplace Growth",
+      "title": "Meesho Account Management Services",
+      "subtitle": "Dominate India’s fastest growing Tier-2 and Tier-3 consumer base with zero-commission cataloging, Next Day Dispatch, and Meesho Ads.",
+      "heroImage": "/Meesho/meesho-web-about.webp",
+      "aboutImage": "/Meesho/Meesho Product Listing Services.webp",
+      "aboutTitle": "Scale Your Sales on Meesho with Arvian",
+      "aboutDesc": "Meesho is transforming social and regional commerce in India. We help sellers leverage zero commission, optimized price tiers, and high-velocity daily order dispatching.",
+      "servicesGrid": [
+        {
+          "icon": "/abt-img/Meesho Account set-up and verification.png",
+          "title": "Account Setup & Verification",
+          "desc": "Fast onboarding, bank verification, GST configuration, and category whitelisting."
+        },
+        {
+          "icon": "/abt-img/Meesho Chronic listing and catalogue management.png",
+          "title": "Bulk Catalog & Listing",
+          "desc": "High-volume Excel flat file uploads, variation mapping, and tag optimization."
+        },
+        {
+          "icon": "/abt-img/Meesho Inventory management.png",
+          "title": "Inventory & Stock Sync",
+          "desc": "Real-time multi-channel inventory management to avoid out-of-stock cancellations."
+        },
+        {
+          "icon": "/abt-img/Meesho Order management.png",
+          "title": "Next Day Dispatch (NDD)",
+          "desc": "NDD badge enrollment to get prioritized organic display on the Meesho app."
+        },
+        {
+          "icon": "/abt-img/Meesho Advertising and promotion.png",
+          "title": "Meesho Ads Optimization",
+          "desc": "Smart budget allocation, low CPC bidding, and catalog boost campaigns."
+        },
+        {
+          "icon": "/abt-img/Meesho Performance monitoring.png",
+          "title": "Price Competitiveness Analysis",
+          "desc": "Competitive price benchmarking to win top visibility in recommended feeds."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Tier 2/3 Regional Expertise",
+          "desc": "Proven success in apparel, footwear, home decor, and fashion jewelry."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "High Order Volume Strategy",
+          "desc": "Strategies designed to generate 500+ daily orders with healthy profit margins."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do Meesho Ads work?",
+          "answer": "Meesho operates on a Cost-Per-Click (CPC) model. We target the most relevant shopper search terms to maximize orders while keeping ad spend low."
+        },
+        {
+          "question": "What is Next Day Dispatch on Meesho?",
+          "answer": "NDD gives your products a special badge and higher organic feed ranking by committing to shipping orders within 24 hours."
+        }
+      ]
+    },
+    "shopify-store-management-services": {
+      "slug": "shopify-store-management-services",
+      "badge": "D2C Brand Scaling Experts",
+      "title": "Shopify Store Management Services",
+      "subtitle": "From high-converting custom UI/UX design to Meta/Google conversion ads and retention marketing, we build sustainable D2C businesses.",
+      "heroImage": "/Shopify/About (7).webp",
+      "aboutImage": "/Shopify/Shopify Seller Account Management Services.webp",
+      "aboutTitle": "Scale Your Independent D2C Brand",
+      "aboutDesc": "Own your customer data and build repeat brand loyalty. Our Shopify engineers and performance marketers handle store design, app integrations, and conversion rate optimization.",
+      "servicesGrid": [
+        {
+          "icon": "/abt-img/Shopify Store set-up and customisation..png",
+          "title": "Custom Store Design & Themes",
+          "desc": "Fast, mobile-first responsive Shopify theme development optimized for checkout speed."
+        },
+        {
+          "icon": "/abt-img/Shopify Product listing and inventory management.png",
+          "title": "Catalog & Collection Setup",
+          "desc": "Rich product landing pages, video media, size charts, and bundles."
+        },
+        {
+          "icon": "/abt-img/Shopify Order processing and fulfilment.png",
+          "title": "Logistics & 3PL Integration",
+          "desc": "Integration with Shiprocket, Delhivery, Bluedart, and automated NDR workflows."
+        },
+        {
+          "icon": "/abt-img/Shopify Customer support management.png",
+          "title": "WhatsApp Automation & Retention",
+          "desc": "Abandoned cart recovery, order tracking notifications, and WhatsApp CRM integration."
+        },
+        {
+          "icon": "/abt-img/Shopify Performance analytics and reporting.png",
+          "title": "Meta & Google Conversion Ads",
+          "desc": "Targeted ROAS-focused ad campaigns driving qualified buyer traffic."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Certified Shopify Developers",
+          "desc": "Custom Liquid theme modification and app optimization."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "Conversion Rate Optimization (CRO)",
+          "desc": "A/B testing checkout funnels to elevate store conversion rates above 3.5%."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do you manage ads for Shopify stores?",
+          "answer": "Yes! We run complete full-funnel Meta (Facebook/Instagram) and Google Performance Max campaigns to drive profitable D2C sales."
+        }
+      ]
+    },
+    "blinkit-seller-account-management-services": {
+      "slug": "blinkit-seller-account-management-services",
+      "badge": "Quick Commerce 10-Minute Growth",
+      "title": "Blinkit Account Management & Onboarding",
+      "subtitle": "Launch and scale your brand on India’s leading 10-minute delivery platform with dark store inventory planning and brand visibility.",
+      "heroImage": "/zepto-page-images/Expand your brand with 10-minute commerce1.webp",
+      "aboutImage": "/zepto-page-images/What Is Zepto Seller Onboarding and Why Does It Matter1.webp",
+      "aboutTitle": "Lead the Quick Commerce Revolution",
+      "aboutDesc": "Consumers now demand instant 10-minute delivery. We handle complete Blinkit onboarding, city dark store inventory replenishment, and in-app sponsored ads.",
+      "servicesGrid": [
+        {
+          "icon": "/brand-img/report.png",
+          "title": "Blinkit Brand Onboarding",
+          "desc": "Brand verification, agreement signing, FSSAI compliance, and catalog activation."
+        },
+        {
+          "icon": "/brand-img/inventory-management.png",
+          "title": "Dark Store Stock Allocation",
+          "desc": "Demand forecasting across micro-warehouses in Delhi NCR, Mumbai, Bangalore, Jaipur."
+        },
+        {
+          "icon": "/brand-img/bullhorn.png",
+          "title": "Blinkit Sponsored Ads",
+          "desc": "Category banner placements, search bar keyword targeting, and flash promotions."
+        },
+        {
+          "icon": "/brand-img/dashboard.png",
+          "title": "Stockout Prevention & PO Tracking",
+          "desc": "Real-time Purchase Order (PO) tracking and automated reordering schedules."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Dedicated Quick Commerce Team",
+          "desc": "Experienced in daily dark store inventory logistics and instant delivery algorithms."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What documents are required to sell on Blinkit?",
+          "answer": "GST certificate, PAN card, FSSAI license (for food/supplements), trademark/brand authorization, and bank details."
+        }
+      ]
+    },
+    "myntra-account-management-services": {
+      "slug": "myntra-account-management-services",
+      "badge": "Premium Fashion & Lifestyle",
+      "title": "Myntra Account Management Services",
+      "subtitle": "Elevate your apparel, footwear, and accessory brand on India’s top fashion marketplace with curated listings and EORS campaign strategy.",
+      "heroImage": "/myntra/about (8).webp",
+      "aboutImage": "/myntra/Myntra Seller Account Setup & Onboarding.webp",
+      "aboutTitle": "Dominate Fashion & Lifestyle on Myntra",
+      "aboutDesc": "Myntra is India’s premier destination for style. We ensure your brand complies with strict catalog guidelines, lifestyle imagery standards, and participates in blockbuster sales events.",
+      "servicesGrid": [
+        {
+          "icon": "/Platform expertise.png",
+          "title": "Seller Onboarding & Curation",
+          "desc": "Brand gate approvals, style code allocation, and brand registry approval."
+        },
+        {
+          "icon": "/content-creation.png",
+          "title": "Fashion Catalog & Style Tags",
+          "desc": "Attributes, fabric specs, color swatches, model size guides, and HD lifestyle shots."
+        },
+        {
+          "icon": "/planning.png",
+          "title": "Inventory & Warehouse Sync",
+          "desc": "JIT (Just In Time) and PPMP (Partner Portal Marketplace Model) inventory fulfillment."
+        },
+        {
+          "icon": "/financial-analysis.png",
+          "title": "Myntra Ads & Visibility",
+          "desc": "Targeted fashion banners, brand days, and End of Reason Sale (EORS) promotions."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Fashion Algorithm Mastery",
+          "desc": "Curated style indexing ensuring top spots in category trends."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can any brand sell on Myntra?",
+          "answer": "Myntra has a curated onboarding process. We help submit brand portfolios and secure fast-track approvals for quality brands."
+        }
+      ]
+    },
+    "seo-company-in-india": {
+      "slug": "seo-company-in-india",
+      "badge": "Organic Search Engine Dominance",
+      "title": "Search Engine Optimization (SEO) Company in India",
+      "subtitle": "Drive high-intent organic traffic and achieve #1 Google rankings with data-backed technical SEO, keyword architecture, and quality link building.",
+      "heroImage": "/new-images/seo-services-featured-image.png 1.png",
+      "aboutImage": "/new-images/happy-young-man-wearing-jeans-shirt-standing-using-tablet-studio-grey-wall 1.png",
+      "aboutTitle": "Dominate Search Engines with ROI-Focused SEO",
+      "aboutDesc": "Over 90% of online experiences begin with a search engine. We implement white-hat on-page, off-page, and technical SEO frameworks that turn organic searches into customers.",
+      "servicesGrid": [
+        {
+          "icon": "/new-images/image 20.png",
+          "title": "Technical SEO & Core Web Vitals",
+          "desc": "Speed optimization, mobile responsiveness, XML sitemaps, and schema markup."
+        },
+        {
+          "icon": "/new-images/image 21.png",
+          "title": "High-Intent Keyword Research",
+          "desc": "Identifying transactional keywords with high search volume and commercial intent."
+        },
+        {
+          "icon": "/new-images/image 22.png",
+          "title": "E-Commerce SEO & Architecture",
+          "desc": "Category page structure, faceted navigation optimization, and product schema."
+        },
+        {
+          "icon": "/new-images/image 23.png",
+          "title": "Authority Link Building",
+          "desc": "High DA editorial backlinks, guest posting, and brand mentions."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Guaranteed Ranking Growth",
+          "desc": "Transparent Google Search Console analytics and keyword tracking."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long does SEO take to show results?",
+          "answer": "Most clients see noticeable keyword movements and organic impression gains within 60 to 90 days, with substantial traffic growth by months 4-6."
+        }
+      ]
+    },
+    "meta-ads-management-company-in-india": {
+      "slug": "meta-ads-management-company-in-india",
+      "badge": "High-ROAS Social Advertising",
+      "title": "Meta Ads Management (Facebook & Instagram)",
+      "subtitle": "Generate profitable sales and scale customer acquisition with high-converting creative ads, lookalike audiences, and full-funnel pixel tracking.",
+      "heroImage": "/new-images/meta-banner.png",
+      "aboutImage": "/new-images/meta-2.png",
+      "aboutTitle": "Scale Your Sales with Meta Advertising",
+      "aboutDesc": "We craft compelling video ads, carousel formats, and UGC creatives paired with advanced audience segmentation to achieve 3.5X+ ROAS for D2C brands.",
+      "servicesGrid": [
+        {
+          "icon": "/new-images/image 28.png",
+          "title": "Creative Ad Design & Copywriting",
+          "desc": "High-hook video creatives, carousels, and benefit-driven ad copy."
+        },
+        {
+          "icon": "/new-images/image 29.png",
+          "title": "Full-Funnel Campaign Architecture",
+          "desc": "Top of funnel prospecting, middle of funnel engagement, and bottom of funnel retargeting."
+        },
+        {
+          "icon": "/new-images/image 30.png",
+          "title": "CAPI & Pixel Integration",
+          "desc": "Conversions API setup for accurate tracking and iOS privacy compliance."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Meta Certified Media Buyers",
+          "desc": "Managing over ₹1Cr+ in monthly advertising spend across industries."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a good ROAS for Meta Ads in India?",
+          "answer": "Depending on product gross margins, we typically target between 3.0X and 5.0X blended ROAS for healthy profitability."
+        }
+      ]
+    },
+    "google-ads-management-company-in-india": {
+      "slug": "google-ads-management-company-in-india",
+      "badge": "Certified Google Premier Partner",
+      "title": "Google Ads & PPC Management Company",
+      "subtitle": "Capture high-intent buyers with Google Search, Performance Max (PMax), Shopping Ads, and YouTube Video campaigns.",
+      "heroImage": "/new-images/google-banner.png",
+      "aboutImage": "/new-images/google-2.png",
+      "aboutTitle": "Drive Instant Sales with Google PPC",
+      "aboutDesc": "Reach customers at the exact moment they are searching for your products. We optimize Google Merchant Center feeds, search keyword bids, and smart shopping campaigns.",
+      "servicesGrid": [
+        {
+          "icon": "/new-images/image 31.png",
+          "title": "Performance Max (PMax) Campaigns",
+          "desc": "Unified advertising across Search, Shopping, YouTube, Gmail, and Discover."
+        },
+        {
+          "icon": "/new-images/image 32.png",
+          "title": "Google Shopping & Merchant Center",
+          "desc": "Feed optimization, negative keyword filtering, and product title enrichment."
+        },
+        {
+          "icon": "/new-images/image 33.png",
+          "title": "Search Ads & High Intent Keywords",
+          "desc": "Exact & phrase match keyword bidding with high Quality Scores."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Maximized Ad Spend Efficiency",
+          "desc": "Negative keyword sculpting to eliminate wasteful click expenditure."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is Google Performance Max (PMax)?",
+          "answer": "PMax is an AI-powered campaign type that finds converting customers across all of Google’s channels with optimized automated bidding."
+        }
+      ]
+    },
+    "graphic-design-company-in-india": {
+      "slug": "graphic-design-company-in-india",
+      "badge": "Creative Visual Excellence",
+      "title": "E-Commerce Graphic Design Services",
+      "subtitle": "Transform your brand perception with stunning Amazon A+ content, Brand Storefronts, packaging, infographics, and digital ad banners.",
+      "heroImage": "/new-images/graphic-banner.png",
+      "aboutImage": "/new-images/graphic-2.png",
+      "aboutTitle": "Design That Sells",
+      "aboutDesc": "Visuals determine conversion rates. Our creative team produces high-end lifestyle renders, infographic overlays, and interactive brand stores that inspire customer trust.",
+      "servicesGrid": [
+        {
+          "icon": "/new-images/image 36.png",
+          "title": "Amazon A+ Content / EBC",
+          "desc": "Enhanced Brand Content modules highlighting product USP and comparisons."
+        },
+        {
+          "icon": "/new-images/image 37.png",
+          "title": "Multi-Page Brand Storefronts",
+          "desc": "Responsive, immersive Amazon storefronts designed to cross-sell catalogs."
+        },
+        {
+          "icon": "/new-images/image 38.png",
+          "title": "Product Infographics & Retouching",
+          "desc": "Feature callouts, dimension charts, and realistic 3D shadow enhancements."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "Conversion-Focused Visuals",
+          "desc": "Designed scientifically to answer customer questions and boost conversions by 25%+."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Does A+ content really increase sales?",
+          "answer": "According to Amazon data, adding high-quality A+ Content can increase sales conversion rates by 5% to 20%."
+        }
+      ]
+    }
+  },
+  "caseStudies": {
+    "kay-kay-industries-amazon-case-study": {
+      "slug": "kay-kay-industries-amazon-case-study",
+      "brandName": "Kay Kay Industries",
+      "brandLogo": "/abt-img/Kay kay - logo.png",
+      "category": "Industrial Tools & Hardware",
+      "title": "How Kay Kay Industries Scaled Amazon Revenue by +340%",
+      "subtitle": "Transforming catalog discoverability, optimizing ad spend from 35% down to 14% ACOS, and capturing #1 Bestseller rank.",
+      "snapshot": [
+        {
+          "metric": "+340%",
+          "label": "Revenue Growth",
+          "sublabel": "Month-over-month sales surge"
+        },
+        {
+          "metric": "14%",
+          "label": "ACOS Reduced",
+          "sublabel": "Down from 35% initial burn"
+        },
+        {
+          "metric": "4,000+",
+          "label": "Monthly Orders",
+          "sublabel": "Consistent high velocity"
+        },
+        {
+          "metric": "#1",
+          "label": "Bestseller Badges",
+          "sublabel": "Across 4 primary SKUs"
+        }
+      ],
+      "challengeTitle": "The Business Challenge",
+      "challenges": [
+        "High ad spend with an unsustainable 35%+ ACOS draining profitability.",
+        "Unoptimized catalog listings leading to low organic click-through and high customer bounce rates.",
+        "Frequent Buy Box suppression due to price mismatches and seller rating issues.",
+        "Lack of variation grouping resulting in split customer reviews across duplicate listings."
+      ],
+      "solutionTitle": "Our Strategic Solution",
+      "solutions": [
+        {
+          "icon": "/abt-img/Product Listing Optimization.png",
+          "title": "Listing SEO & Infographics",
+          "desc": "Keyword-packed titles, benefit-driven bullets, and 3D lifestyle infographic renders."
+        },
+        {
+          "icon": "/abt-img/Catalog Management.png",
+          "title": "Parent-Child Variation Grouping",
+          "desc": "Consolidated reviews and ratings into unified high-converting variation listings."
+        },
+        {
+          "icon": "/abt-img/Amazon Advertising.png",
+          "title": "Full-Funnel Amazon PPC",
+          "desc": "Negative keyword sculpting, dayparting, and Top of Search placement bid multipliers."
+        },
+        {
+          "icon": "/abt-img/Performance Monitoring.png",
+          "title": "Daily Buy Box Defense",
+          "desc": "Real-time price monitoring and Buy Box win rate optimization."
+        },
+        {
+          "icon": "/abt-img/revenue growth.png",
+          "title": "Lightning & Festival Deals",
+          "desc": "Strategic deal calendar alignment to capture Prime Day and Great Indian Festival traffic."
+        },
+        {
+          "icon": "/abt-img/Strengthen Marketplace Presence.png",
+          "title": "Premium Brand Storefront",
+          "desc": "Interactive storefront design leading to +45% multi-unit basket orders."
+        }
+      ],
+      "resultsTitle": "Documented Results & Milestones",
+      "results": [
+        {
+          "stat": "+340%",
+          "title": "Overall GMV Growth",
+          "desc": "Sustained 4X sales velocity within 90 days."
+        },
+        {
+          "stat": "14%",
+          "title": "Targeted Ad ACOS",
+          "desc": "Lowered advertising cost while doubling ad revenue."
+        },
+        {
+          "stat": "4 Badges",
+          "title": "Amazon Choice & Bestseller",
+          "desc": "Ranked in top 3 organic spots for primary keywords."
+        }
+      ],
+      "dashboardImage": "/abt-img/Seller-Dashboard-Kay-Kay.png",
+      "listingImage": "/abt-img/kay-listing.png",
+      "testimonial": {
+        "quote": "Arvian Business Solutions completely revolutionized our Amazon seller account. Our sales quadrupled while our ad expenses were cut in half.",
+        "author": "Managing Director",
+        "designation": "Kay Kay Industries"
+      }
+    },
+    "gataca-performance-supplements-amazon-case-study": {
+      "slug": "gataca-performance-supplements-amazon-case-study",
+      "brandName": "GATACA Supplements",
+      "brandLogo": "/abt-img/Gataca-logo.png",
+      "category": "Health, Fitness & Supplements",
+      "title": "How GATACA Multiplied Monthly Orders by 10X on Amazon",
+      "subtitle": "Overcoming fierce fitness competition with Premium A+ Content, Sponsored Brand Video Ads, and FBA stock positioning.",
+      "snapshot": [
+        {
+          "metric": "10X",
+          "label": "Order Volume Growth",
+          "sublabel": "Scaled from 200 to 2,000+ orders"
+        },
+        {
+          "metric": "4.2X",
+          "label": "Average ROAS",
+          "sublabel": "Delivered by video ads"
+        },
+        {
+          "metric": "4.8★",
+          "label": "Customer Rating",
+          "sublabel": "Maintained across all SKUs"
+        },
+        {
+          "metric": "Top 3",
+          "label": "Organic Search Rank",
+          "sublabel": "For high volume fitness keywords"
+        }
+      ],
+      "challengeTitle": "The Business Challenge",
+      "challenges": [
+        "Intense competition from established legacy supplement brands dominating search results.",
+        "Low consumer trust due to lack of certified lab reports and authentic video testimonials.",
+        "High return and cancellation rates due to unclear dosage and ingredient transparency.",
+        "Sub-optimal Sponsored Products campaigns burning budget on non-converting broad terms."
+      ],
+      "solutionTitle": "Our Strategic Solution",
+      "solutions": [
+        {
+          "icon": "/abt-img/Product Listing Optimization.png",
+          "title": "Nutritional A+ Brand Story",
+          "desc": "Lab-tested certification badges, ingredient breakdown charts, and usage guide modules."
+        },
+        {
+          "icon": "/abt-img/Catalog Management.png",
+          "title": "Flavor & Size Variation Setup",
+          "desc": "Allowed buyers to easily switch flavors and combo-packs without leaving the page."
+        },
+        {
+          "icon": "/abt-img/Amazon Advertising.png",
+          "title": "Sponsored Brand Video Ads",
+          "desc": "High-hook unboxing and workout videos targeting competitor product pages."
+        },
+        {
+          "icon": "/abt-img/Performance Monitoring.png",
+          "title": "Amazon Vine & Review Strategy",
+          "desc": "Accelerated verified buyer feedback and 5-star customer ratings."
+        },
+        {
+          "icon": "/abt-img/revenue growth.png",
+          "title": "Subscribe & Save Enrollment",
+          "desc": "Built recurring monthly revenue streams with 20%+ repeat customer orders."
+        },
+        {
+          "icon": "/abt-img/Strengthen Marketplace Presence.png",
+          "title": "Storefront Cross-Selling",
+          "desc": "Designed dynamic category pages for Whey Protein, Pre-Workouts, and Creatine."
+        }
+      ],
+      "resultsTitle": "Documented Results & Milestones",
+      "results": [
+        {
+          "stat": "10X",
+          "title": "Monthly Unit Sales",
+          "desc": "Scaled into a leading D2C sports nutrition brand."
+        },
+        {
+          "stat": "4.2X",
+          "title": "Return on Ad Spend",
+          "desc": "Consistently beating industry benchmark ROAS."
+        },
+        {
+          "stat": "20%+",
+          "title": "Repeat Order Velocity",
+          "desc": "Established loyal monthly subscribers on Amazon."
+        }
+      ],
+      "dashboardImage": "/abt-img/Gataca dashboard.png",
+      "listingImage": "/abt-img/Gataca-listing.png",
+      "testimonial": {
+        "quote": "The team at Arvian understands e-commerce algorithms better than anyone. They positioned GATACA right alongside the biggest legacy brands in our category.",
+        "author": "Founder & CEO",
+        "designation": "GATACA Performance Nutrition"
+      }
+    },
+    "sai-gallery-agarbatti-brand-amazon-case-study": {
+      "slug": "sai-gallery-agarbatti-brand-amazon-case-study",
+      "brandName": "Sai Gallery",
+      "brandLogo": "/abt-img/Sai-gellery-logo.jpg",
+      "category": "Home Fragrance & Puja Essentials",
+      "title": "Sai Gallery: 18,000+ Annual Orders on Amazon India",
+      "subtitle": "Generating ₹88L+ revenue with multi-pack variations, Amazon Choice badges, and zero stockouts.",
+      "snapshot": [
+        {
+          "metric": "₹88L+",
+          "label": "Annual Revenue",
+          "sublabel": "Consistent month-on-month sales"
+        },
+        {
+          "metric": "18,000+",
+          "label": "Orders Fulfilled",
+          "sublabel": "Across 21,000+ units"
+        },
+        {
+          "metric": "4.8★",
+          "label": "Average Rating",
+          "sublabel": "Over 5,000 customer reviews"
+        },
+        {
+          "metric": "12",
+          "label": "Amazon Choice Badges",
+          "sublabel": "Secured for primary fragrance keywords"
+        }
+      ],
+      "challengeTitle": "The Business Challenge",
+      "challenges": [
+        "Fragrance is a sensory product where online buyers cannot smell before purchasing.",
+        "Low average order value (AOV) making single-item unit logistics unprofitable.",
+        "Severe price competition from unbranded regional manufacturers.",
+        "High shipping weight costs eating into thin product margins."
+      ],
+      "solutionTitle": "Our Strategic Solution",
+      "solutions": [
+        {
+          "icon": "/abt-img/Product Listing Optimization.png",
+          "title": "Sensory Copywriting & Infographics",
+          "desc": "Detailed fragrance note breakdowns (top, heart, base notes) and burning duration charts."
+        },
+        {
+          "icon": "/abt-img/Catalog Management.png",
+          "title": "Combo & Multi-Pack Bundles",
+          "desc": "Created 3-pack and 6-pack festive gift boxes, raising average order value by +65%."
+        },
+        {
+          "icon": "/abt-img/Amazon Advertising.png",
+          "title": "Festival Season PPC Aggression",
+          "desc": "Dominated search share during Diwali, Navratri, and Ganesh Chaturthi seasons."
+        },
+        {
+          "icon": "/abt-img/Performance Monitoring.png",
+          "title": "FBA Inventory Regional Stocking",
+          "desc": "Distributed inventory across North, West, and South Amazon fulfillment centers."
+        },
+        {
+          "icon": "/abt-img/revenue growth.png",
+          "title": "Amazon Choice Optimization",
+          "desc": "Focused conversion rate push to capture top search badge status."
+        },
+        {
+          "icon": "/abt-img/Strengthen Marketplace Presence.png",
+          "title": "Divine Storefront Experience",
+          "desc": "Created a serene devotional brand storefront highlighting natural herbs and zero charcoal."
+        }
+      ],
+      "resultsTitle": "Documented Results & Milestones",
+      "results": [
+        {
+          "stat": "₹88L+",
+          "title": "Annual Sales Volume",
+          "desc": "Established as a top-selling puja fragrance brand."
+        },
+        {
+          "stat": "18K+",
+          "title": "Orders Dispatched",
+          "desc": "Zero listing suspensions or fulfillment delays."
+        },
+        {
+          "stat": "12 Badges",
+          "title": "Amazon Choice Dominance",
+          "desc": "Dominating organic search results across categories."
+        }
+      ],
+      "dashboardImage": "/abt-img/Sai Gallery dashboard.png",
+      "listingImage": "/new-pages/Sai-Gellery_img.png",
+      "testimonial": {
+        "quote": "Arvian took our traditional agarbatti business and built a thriving nationwide online brand. Their bundle strategy changed our unit economics completely.",
+        "author": "Director of Marketing",
+        "designation": "Sai Gallery"
+      }
+    },
+    "nut-o-nut-dry-fruits-brand-amazon-case-study": {
+      "slug": "nut-o-nut-dry-fruits-brand-amazon-case-study",
+      "brandName": "Nut o Nut Dry Fruits",
+      "brandLogo": "/abt-img/Nut o nut.png",
+      "category": "Gourmet & Premium Dry Fruits",
+      "title": "Nut o Nut: Scaling Gourmet Dry Fruits to ₹43L+ Revenue",
+      "subtitle": "How Arvian achieved +185% organic search impressions, 99.8% FBA dispatch, and top category ranking on Amazon.",
+      "snapshot": [
+        {
+          "metric": "₹43L+",
+          "label": "Annual GMV",
+          "sublabel": "6,000+ orders processed"
+        },
+        {
+          "metric": "7,000+",
+          "label": "Units Dispatched",
+          "sublabel": "99.8% on-time fulfillment"
+        },
+        {
+          "metric": "+185%",
+          "label": "Search Impressions",
+          "sublabel": "Driven by reverse-ASIN SEO"
+        },
+        {
+          "metric": "4.7★",
+          "label": "Average Rating",
+          "sublabel": "Over 2,500 verified reviews"
+        }
+      ],
+      "challengeTitle": "The Business Challenge",
+      "challenges": [
+        "Perishable commodity category with strict expiry and packaging freshness requirements.",
+        "Intense competition during festive seasons with heavy price discounting from mass brands.",
+        "Low initial customer review velocity hindering organic conversion rates.",
+        "Inconsistent FBA stock inbound planning causing frequent out-of-stock periods."
+      ],
+      "solutionTitle": "Our Strategic Solution",
+      "solutions": [
+        {
+          "icon": "/abt-img/Product Listing Optimization.png",
+          "title": "Vacuum-Seal Freshness Story",
+          "desc": "Highlighting nitrogen-flushed packaging, California almond grades, and premium jumbo sizing."
+        },
+        {
+          "icon": "/abt-img/Catalog Management.png",
+          "title": "Gifting & Festive Hamper Variations",
+          "desc": "Engineered Diwali and corporate gift box variations that sold out during Q4."
+        },
+        {
+          "icon": "/abt-img/Amazon Advertising.png",
+          "title": "Harvested Keyword Bidding",
+          "desc": "Targeted high-intent search terms like \"organic jumbo cashews\" and \"roasted pistachios\"."
+        },
+        {
+          "icon": "/abt-img/Performance Monitoring.png",
+          "title": "Automated Inbound Restocking",
+          "desc": "Set up algorithmic lead-time buffer alerts preventing stockouts during peak months."
+        },
+        {
+          "icon": "/abt-img/revenue growth.png",
+          "title": "Amazon Lightning Deals",
+          "desc": "Scheduled time-limited deals during Great Freedom Festival and Prime Day."
+        },
+        {
+          "icon": "/abt-img/Strengthen Marketplace Presence.png",
+          "title": "Gourmet Brand Storefront",
+          "desc": "Showcasing health benefits, recipe ideas, and healthy snack pairings."
+        }
+      ],
+      "resultsTitle": "Documented Results & Milestones",
+      "results": [
+        {
+          "stat": "₹43L+",
+          "title": "Annual GMV",
+          "desc": "Achieved sustainable 6-figure monthly run-rate."
+        },
+        {
+          "stat": "99.8%",
+          "title": "FBA Dispatch Reliability",
+          "desc": "Zero stranded inventory or freshness returns."
+        },
+        {
+          "stat": "+185%",
+          "title": "Organic Search Impressions",
+          "desc": "Capturing top search results across all dry fruit SKUs."
+        }
+      ],
+      "dashboardImage": "/abt-img/Nut o Nut dashboard.png",
+      "listingImage": "/abt-img/Nut-O-Nut-listing.png",
+      "testimonial": {
+        "quote": "Arvian’s operational precision and festive advertising strategies propelled Nut o Nut to become one of the top dry fruit sellers on Amazon India.",
+        "author": "Co-Founder",
+        "designation": "Nut o Nut Foods"
+      }
+    }
+  },
+  "blogs": [
+    {
+      "id": "1",
+      "slug": "ecommerce-account-management",
+      "title": "eCommerce Account Management: What Does an Account Manager Actually Do?",
+      "category": "eCommerce",
+      "image": "/arvian-blogs.jpeg",
+      "author": "Arvind Ajmera",
+      "date": "August 31, 2026",
+      "excerpt": "Discover the exact responsibilities of a professional eCommerce account manager and how they multiply your marketplace sales.",
+      "content": "Full end-to-end marketplace management involves product cataloging, listing optimization, price strategy, Buy Box monitoring, ad campaign management, stock planning, and daily customer sentiment tracking.",
+      "link": "/blogs"
+    },
+    {
+      "id": "2",
+      "slug": "how-to-sell-on-ajio-seller-registration-guide",
+      "title": "How to Sell on AJIO: Complete Seller Registration and Account Setup Guide",
+      "category": "Ajio",
+      "image": "/header-img/Ajio logo.png",
+      "author": "Arvind Ajmera",
+      "date": "August 22, 2026",
+      "excerpt": "Step-by-step tutorial on registering as a brand partner on AJIO, listing catalog products, and scaling fashion sales.",
+      "content": "AJIO is one of Reliance Retail’s premier digital platforms with strict catalog standards. Learn how to onboard smoothly with brand authorization, trademark certificates, and high-resolution lookbooks.",
+      "link": "/blogs"
+    },
+    {
+      "id": "3",
+      "slug": "how-to-sell-on-myntra-seller-onboarding-guide",
+      "title": "How to Sell on Myntra: Seller Onboarding Guide 2026",
+      "category": "Myntra",
+      "image": "/myntra-logo.webp",
+      "author": "Arvind Ajmera",
+      "date": "August 11, 2026",
+      "excerpt": "Complete walkthrough of getting your apparel or lifestyle brand listed on Myntra Seller Portal in 2026.",
+      "content": "Myntra provides unprecedented brand prestige in fashion & lifestyle. Here are the core documents, style tag formats, and EORS sale participation guidelines to get approved.",
+      "link": "/blogs"
+    },
+    {
+      "id": "4",
+      "slug": "amazon-selling-mistakes-that-reduce-sales-and-profits",
+      "title": "10 Amazon Selling Mistakes That Reduce Sales and Profits",
+      "category": "Amazon",
+      "image": "/images/images/amazon-logo.webp",
+      "author": "Arvind Ajmera",
+      "date": "July 23, 2026",
+      "excerpt": "Avoid these critical mistakes in keyword targeting, FBA inventory limits, Buy Box pricing, and PPC bidding.",
+      "content": "From ignoring negative keywords to poor infographic design and stockouts, learn the top 10 pitfalls costing sellers thousands in lost revenue.",
+      "link": "/blogs"
+    },
+    {
+      "id": "5",
+      "slug": "blinkit-seller-onboarding-guide",
+      "title": "Blinkit Seller Onboarding Guide: How to Sell on Blinkit Successfully",
+      "category": "Blinkit Seller",
+      "image": "/header-img/Blinkit-logo.svg",
+      "author": "Arvind Ajmera",
+      "date": "July 10, 2026",
+      "excerpt": "Quick Commerce is exploding in India. Learn how to list your products in Blinkit dark stores across major metros.",
+      "content": "Discover the requirements for FSSAI licenses, GST state registrations, micro-warehouse inventory dispatch, and sponsored banner advertising on Blinkit.",
+      "link": "/blogs"
+    },
+    {
+      "id": "6",
+      "slug": "zepto-seller-registration-guide",
+      "title": "How to Sell on Zepto: Complete Zepto Seller Registration Guide",
+      "category": "Zepto Seller",
+      "image": "/header-img/zepto-logo.webp",
+      "author": "Arvind Ajmera",
+      "date": "June 20, 2026",
+      "excerpt": "Detailed process for D2C FMCG and grocery brands to partner with Zepto for 10-minute delivery.",
+      "content": "Zepto seller onboarding requires active inventory allocation and regional pricing sync. Explore our step-by-step guidance on maximizing dark store sales.",
+      "link": "/blogs"
+    }
+  ],
+  "careers": [
+    {
+      "id": "1",
+      "title": "Senior eCommerce Account Manager",
+      "department": "Operations",
+      "location": "Delhi / Hybrid",
+      "type": "Full-time",
+      "experience": "2-4 Years",
+      "description": "Lead Amazon & Flipkart brand management, PPC ad strategy, and client relations for top D2C brands.",
+      "requirements": [
+        "Experience managing Amazon Seller Central and Flipkart Vendor/Seller Hub",
+        "Hands-on PPC ad campaign optimization",
+        "Strong analytical and communication skills"
+      ],
+      "status": "Open"
+    },
+    {
+      "id": "2",
+      "title": "PPC & Performance Marketing Specialist",
+      "department": "Marketing",
+      "location": "Delhi / Remote",
+      "type": "Full-time",
+      "experience": "1-3 Years",
+      "description": "Manage Amazon Sponsored Ads, Meta Ads, and Google Ads campaigns to drive high ROAS.",
+      "requirements": [
+        "Proven track record with Amazon Ads (SP, SB, SD)",
+        "Experience in Meta & Google Ads conversion campaigns",
+        "Data analysis using Excel / Google Sheets"
+      ],
+      "status": "Open"
+    },
+    {
+      "id": "3",
+      "title": "eCommerce Catalog & Graphic Designer",
+      "department": "Creative",
+      "location": "Delhi / Hybrid",
+      "type": "Full-time",
+      "experience": "1-3 Years",
+      "description": "Design high-converting Amazon A+ Content, Brand Story modules, product infographics, and banners.",
+      "requirements": [
+        "Proficiency in Photoshop, Illustrator, and Canva",
+        "Understanding of eCommerce image guidelines and dimensions",
+        "Portfolio of Amazon A+ or product listing designs"
+      ],
+      "status": "Open"
+    }
+  ],
+  "aboutUs": {
+    "heroTitle": "WHO WE ARE & WHAT WE DO",
+    "heroSubtitle": "Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
+    "heroImage": "/arvian-team-image.jpeg",
+    "storyTitle": "Who We Are & What We Do",
+    "storyDesc": "Whether you're just starting out or scaling up, we handle everything — from product listings to ad campaigns. EcomVanta provides complete end-to-end marketplace management helping brands sell smarter, grow faster, and stay stress-free in today's competitive e-commerce world.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "To help you sell smarter, grow faster, and stay stress-free in today's competitive e-commerce world.",
+    "visionTitle": "Our Vision",
+    "visionDesc": "To be India's premier marketplace growth partner, turning brand potential into sustainable, multi-channel e-commerce market leadership.",
+    "team": [
+      {
+        "id": "1",
+        "name": "Shivam Dubey",
+        "designation": "Director & Founder",
+        "image": "/image/Aadil.png"
+      }
+    ]
+  },
+  "contactFooter": {
+    "officeAddress": "New Delhi, India",
+    "supportEmail": "ecomvanta40@gmail.com",
+    "contactPhone": "+91 878 724 9407",
+    "salesPhone": "+91 878 724 9407",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114876615554!2d77.36!3d28.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzEyLjAiTiA3N8KwMjEnMzYuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
+    "footerAboutText": "EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites. Powering Brands. Scaling E-commerce.",
+    "copyrightText": "© 2026 EcomVanta. All rights reserved. Powering Brands. Scaling E-commerce."
+  }
+}
