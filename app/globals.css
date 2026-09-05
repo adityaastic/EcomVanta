@@ -41,7 +41,7 @@
     box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(0, 102, 255, 0);
+    box-shadow: 0 0 0 16px rgba(0, 102, 255, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
@@ -53,7 +53,7 @@
     box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(0, 102, 255, 0);
+    box-shadow: 0 0 0 16px rgba(0, 102, 255, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
@@ -62,10 +62,10 @@
 
 @keyframes ctaPulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.5), 0 10px 25px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.6), 0 10px 25px rgba(0, 102, 255, 0.3);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(0, 194, 255, 0), 0 10px 25px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 0 0 16px rgba(0, 194, 255, 0), 0 10px 25px rgba(0, 102, 255, 0.3);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0, 102, 255, 0), 0 10px 25px rgba(0, 102, 255, 0.3);
@@ -90,15 +90,37 @@
   100% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0); }
 }
 
-@keyframes waveRed {
-  0% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.6); }
-  70% { box-shadow: 0 0 0 15px rgba(0, 102, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0); }
-}
-
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-2deg); }
+}
+
+/* Custom Grid & Card Classes */
+.hero-grid-pattern {
+  background-image: radial-gradient(rgba(0, 102, 255, 0.12) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+
+.arvian-card {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arvian-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(0, 102, 255, 0.16), 0 0 0 1px rgba(0, 102, 255, 0.2);
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
 }
 
 /* Custom Utility Classes */

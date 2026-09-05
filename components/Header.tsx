@@ -64,18 +64,18 @@ export default function Header({ onOpenPopup }: HeaderProps) {
 
         {/* Main Navigation Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Brand Logo */}
-            <Link href="/" className="flex-shrink-0 flex items-center py-2">
+          <div className="flex justify-between items-center h-22 md:h-24">
+            {/* Brand Logo - Prominent & High Resolution */}
+            <Link href="/" className="flex-shrink-0 flex items-center py-2 group">
               <img 
                 src={branding.headerLogo || '/images/ecomvanta-logo.png'} 
                 alt={branding.siteName || 'EcomVanta'} 
-                className="h-14 w-auto object-contain max-w-[210px]"
+                className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain max-w-[220px] sm:max-w-[260px] md:max-w-[300px] transition-transform duration-300 group-hover:scale-102"
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8 text-[15px] font-semibold text-slate-800">
+            <nav className="hidden lg:flex items-center gap-7 xl:gap-8 text-[15px] font-bold text-slate-800">
               <Link href="/" className="hover:text-[#0066FF] transition-colors py-2">
                 Home
               </Link>
@@ -324,7 +324,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
           <img 
             src={branding.headerLogo || '/images/ecomvanta-logo.png'} 
             alt={branding.siteName || 'EcomVanta'} 
-            className="h-11 w-auto object-contain max-w-[170px]"
+            className="h-13 w-auto object-contain max-w-[200px]"
           />
           <button 
             onClick={() => setMobileMenuOpen(false)}

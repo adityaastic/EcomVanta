@@ -50,11 +50,11 @@ export default function Footer() {
           
           {/* Column 1: Brand & About */}
           <div className="space-y-5">
-            <Link href="/" className="inline-block bg-white/95 p-3 rounded-2xl shadow-lg shadow-blue-500/10">
+            <Link href="/" className="inline-block bg-white p-3.5 rounded-2xl shadow-xl shadow-blue-500/10 transition-transform duration-300 hover:scale-102">
               <img 
                 src={branding.footerLogo || branding.darkLogo || '/images/ecomvanta-logo.png'} 
                 alt={branding.siteName || 'EcomVanta'} 
-                className="h-12 w-auto object-contain max-w-[190px]"
+                className="h-14 sm:h-16 md:h-18 w-auto object-contain max-w-[230px] sm:max-w-[260px]"
               />
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed">
