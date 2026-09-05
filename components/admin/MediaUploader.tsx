@@ -11,6 +11,65 @@ interface MediaUploaderProps {
   previewHeight?: string;
 }
 
+async function compressImageFile(file: File, maxWidth = 1200, maxHeight = 1200, quality = 0.85): Promise<File> {
+  // If not an image or is SVG / GIF animation, don't compress with canvas
+  if (!file.type.startsWith('image/') || file.type === 'image/svg+xml' || file.type === 'image/gif') {
+    return file;
+  }
+
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxWidth || height > maxHeight) {
+          if (width > height) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          } else {
+            width = Math.round((width * maxHeight) / height);
+            height = maxHeight;
+          }
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          resolve(file);
+          return;
+        }
+
+        ctx.drawImage(img, 0, 0, width, height);
+
+        // Convert to lightweight WebP or fallback to original mime
+        const targetMime = 'image/webp';
+        canvas.toBlob(
+          (blob) => {
+            if (blob && (blob.size < file.size || file.size > 200 * 1024)) {
+              const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, '.webp'), {
+                type: targetMime,
+                lastModified: Date.now(),
+              });
+              resolve(compressedFile);
+            } else {
+              resolve(file);
+            }
+          },
+          targetMime,
+          quality
+        );
+      };
+      img.onerror = () => resolve(file);
+      img.src = e.target?.result as string;
+    };
+    reader.onerror = () => resolve(file);
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function MediaUploader({
   label,
   value,
@@ -24,13 +83,16 @@ export default function MediaUploader({
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const uploadFile = async (file: File) => {
-    if (!file) return;
+  const uploadFile = async (rawFile: File) => {
+    if (!rawFile) return;
 
     setUploading(true);
     setError(null);
 
     try {
+      // Auto-compress high-res images in browser before uploading
+      const file = await compressImageFile(rawFile);
+
       const formData = new FormData();
       formData.append('file', file);
 
@@ -39,7 +101,14 @@ export default function MediaUploader({
         body: formData,
       });
 
-      const data = await res.json();
+      let data: any = {};
+      try {
+        data = await res.json();
+      } catch {
+        const text = await res.text().catch(() => '');
+        data = { success: false, error: text || `HTTP ${res.status} response` };
+      }
+
       if (data.success && data.url) {
         onChange(data.url);
       } else {

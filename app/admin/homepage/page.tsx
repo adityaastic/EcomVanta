@@ -63,7 +63,14 @@ export default function HomepageEditorPage() {
         }),
       });
 
-      const data = await res.json();
+      let data: any = {};
+      try {
+        data = await res.json();
+      } catch {
+        const text = await res.text().catch(() => '');
+        data = { success: false, error: text || `HTTP ${res.status} response` };
+      }
+
       if (data.success) {
         setSavedSuccess(true);
         setTimeout(() => setSavedSuccess(false), 3000);
