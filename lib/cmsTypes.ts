@@ -286,7 +286,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       primaryCtaLink: '/contact-us',
       secondaryCtaText: 'View Case Studies',
       secondaryCtaLink: '/portfolio',
-      heroImage: '/image/ecommerce-growth-partners.webp',
+      heroImage: '/home-img/arvian-home-banner-img.webp',
       heroBadgeNumber: '₹50Cr+',
       heroBadgeText: 'GMV Generated for Clients',
       trustRating: '4.9 / 5.0',
