@@ -72,7 +72,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-500">
         <div className="animate-pulse flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-10 h-10 border-4 border-[#0066FF] border-t-transparent rounded-full animate-spin"></div>
           <p className="text-sm font-medium">Loading EcomVanta CMS...</p>
         </div>
       </div>
@@ -91,19 +91,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Sidebar Navigation */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 bg-slate-900 text-slate-100 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 bg-[#081325] text-slate-100 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-blue-950/60 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Brand Header */}
-        <div className="h-16 px-5 flex items-center justify-between border-b border-slate-800">
+        <div className="h-16 px-5 flex items-center justify-between border-b border-blue-950/80">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-red-600 to-rose-500 flex items-center justify-center font-black text-white text-base shadow-md">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#0066FF] to-[#00C2FF] flex items-center justify-center font-black text-white text-base shadow-md shadow-blue-500/30">
               E
             </div>
             <div>
               <h1 className="font-bold text-sm tracking-wide text-white">EcomVanta Admin</h1>
-              <p className="text-[10px] text-slate-400 font-medium">Enterprise CMS Control</p>
+              <p className="text-[10px] text-blue-300 font-medium">Enterprise CMS Control</p>
             </div>
           </div>
           <button
@@ -126,11 +126,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                   isActive
-                    ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
-                    : 'text-slate-300 hover:bg-slate-800/80 hover:text-white'
+                    ? 'bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white shadow-lg shadow-blue-600/30 font-bold'
+                    : 'text-slate-300 hover:bg-blue-950/50 hover:text-white'
                 }`}
               >
-                <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-300'}`} />
                 <span className="flex-1 truncate">{item.name}</span>
                 {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-80" />}
               </Link>
@@ -139,17 +139,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </nav>
 
         {/* Live Site & Logout Footer */}
-        <div className="p-3 border-t border-slate-800 space-y-2">
+        <div className="p-3 border-t border-blue-950/80 space-y-2">
           <Link
             href="/"
             target="_blank"
-            className="flex items-center justify-between px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 rounded-xl transition-all"
+            className="flex items-center justify-between px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-blue-950/40 hover:bg-blue-950/70 rounded-xl transition-all border border-blue-900/40"
           >
             <span className="flex items-center gap-2">
-              <ExternalLink className="w-3.5 h-3.5 text-red-400" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#00C2FF]" />
               <span>View Live Website</span>
             </span>
-            <span className="px-1.5 py-0.5 text-[9px] bg-red-950 text-red-300 rounded font-semibold border border-red-800/50">
+            <span className="px-1.5 py-0.5 text-[9px] bg-blue-950 text-[#00C2FF] rounded font-semibold border border-blue-800/50">
               Live
             </span>
           </Link>
@@ -187,14 +187,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Link
               href="/"
               target="_blank"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-[#0066FF] bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors border border-blue-100"
             >
-              <ExternalLink className="w-3.5 h-3.5 text-gray-500" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#0066FF]" />
               <span>Preview Site</span>
             </Link>
 
             <div className="flex items-center gap-2.5 pl-3 border-l border-gray-200">
-              <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 font-bold text-xs flex items-center justify-center border border-red-200">
+              <div className="w-8 h-8 rounded-full bg-blue-50 text-[#0066FF] font-bold text-xs flex items-center justify-center border border-blue-200">
                 AD
               </div>
               <div className="hidden sm:block text-left">

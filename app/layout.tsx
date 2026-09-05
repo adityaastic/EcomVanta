@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={sora.variable}>
-      <body className="min-h-screen bg-white font-sans text-[#1A1A1A] antialiased selection:bg-[#f71735] selection:text-white">
+      <body className="min-h-screen bg-white font-sans text-[#1A1A1A] antialiased selection:bg-[#0066FF] selection:text-white">
         {children}
       </body>
     </html>

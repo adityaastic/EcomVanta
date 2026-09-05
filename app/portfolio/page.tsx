@@ -248,34 +248,34 @@ export default function PortfolioPage() {
         
         {/* SECTION 1: Exact Hero Section with second-bg.png */}
         <section
-          className="relative py-16 lg:py-24 bg-cover bg-center overflow-hidden"
+          className="relative py-16 lg:py-24 bg-cover bg-center overflow-hidden border-b border-gray-100"
           style={{
             backgroundImage: "url('/abt-img/second-bg.png')",
             backgroundColor: '#ffffff',
           }}
         >
           {/* Ambient Lighting Blurs */}
-          <div className="absolute -top-10 -left-10 w-72 h-72 bg-red-400/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-10 -left-10 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-400/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#f71735] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#0066FF] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
               Proven Case Studies &amp; Results
             </span>
 
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-[#1A1A1A] leading-[1.15] tracking-tight max-w-4xl mx-auto">
-              Businesses Don&apos;t <br />
-              <span className="text-[#f71735]">Just Grow Here,</span> They Dominate.
+              Brands Don&apos;t <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#00C2FF]">Just Grow Here,</span> They Dominate.
             </h1>
 
             <p className="text-gray-700 text-base sm:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
-              Every project in our portfolio reflects a commitment to solving problems, creating value, and driving measurable outcomes.
+              Every project in our portfolio reflects a data-driven commitment to scaling GMV, increasing Buy Box win rate, and creating sustainable marketplace leadership.
             </p>
 
             {/* Metrics */}
             <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-10 pt-8 border-t border-gray-200/60 max-w-3xl mx-auto">
               <div>
-                <p className="text-3xl sm:text-4xl font-black text-[#f71735]">8+ Yrs</p>
+                <p className="text-3xl sm:text-4xl font-black text-[#0066FF]">8+ Yrs</p>
                 <p className="text-xs text-gray-600 uppercase tracking-wider mt-1 font-semibold">Experience</p>
               </div>
               <div>
@@ -283,7 +283,7 @@ export default function PortfolioPage() {
                 <p className="text-xs text-gray-600 uppercase tracking-wider mt-1 font-semibold">Projects Scaled</p>
               </div>
               <div>
-                <p className="text-3xl sm:text-4xl font-black text-[#f71735]">10X</p>
+                <p className="text-3xl sm:text-4xl font-black text-[#0066FF]">10X</p>
                 <p className="text-xs text-gray-600 uppercase tracking-wider mt-1 font-semibold">Avg ROI Growth</p>
               </div>
             </div>
@@ -296,10 +296,13 @@ export default function PortfolioPage() {
             
             {/* Filter Header */}
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-5xl font-black text-[#1A1A1A]">
+              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+                Our Work
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-black text-[#1A1A1A] mt-1">
                 Featured Portfolio
               </h2>
-              <div className="w-16 h-1 bg-[#f71735] mx-auto mt-3 rounded-full" />
+              <div className="w-16 h-1 bg-gradient-to-r from-[#0066FF] to-[#00C2FF] mx-auto mt-3 rounded-full" />
             </div>
 
             {/* Filter Buttons */}
@@ -308,7 +311,7 @@ export default function PortfolioPage() {
                 onClick={() => setActiveFilter('all')}
                 className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 shadow-xs cursor-pointer ${
                   activeFilter === 'all'
-                    ? 'bg-[#f71735] text-white shadow-lg shadow-red-500/30 scale-105'
+                    ? 'bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white shadow-lg shadow-blue-500/25 scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
@@ -319,7 +322,7 @@ export default function PortfolioPage() {
                 onClick={() => setActiveFilter('amazon')}
                 className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 shadow-xs cursor-pointer ${
                   activeFilter === 'amazon'
-                    ? 'bg-[#f71735] text-white shadow-lg shadow-red-500/30 scale-105'
+                    ? 'bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white shadow-lg shadow-blue-500/25 scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
@@ -330,7 +333,7 @@ export default function PortfolioPage() {
                 onClick={() => setActiveFilter('brandstore')}
                 className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 shadow-xs cursor-pointer ${
                   activeFilter === 'brandstore'
-                    ? 'bg-[#f71735] text-white shadow-lg shadow-red-500/30 scale-105'
+                    ? 'bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white shadow-lg shadow-blue-500/25 scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
@@ -341,7 +344,7 @@ export default function PortfolioPage() {
                 onClick={() => setActiveFilter('web')}
                 className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 shadow-xs cursor-pointer ${
                   activeFilter === 'web'
-                    ? 'bg-[#f71735] text-white shadow-lg shadow-red-500/30 scale-105'
+                    ? 'bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white shadow-lg shadow-blue-500/25 scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
@@ -354,7 +357,7 @@ export default function PortfolioPage() {
               {filteredItems.map((item) => (
                 <div
                   key={item.id}
-                  className="group bg-white rounded-[30px] overflow-hidden border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col justify-between"
+                  className="group bg-white rounded-[30px] overflow-hidden border border-gray-100 shadow-md hover:shadow-2xl hover:border-blue-200 transition-all duration-500 flex flex-col justify-between"
                 >
                   {/* Media Section (Image or Video) */}
                   <div className="overflow-hidden relative aspect-[16/10] bg-gray-100">
@@ -370,7 +373,7 @@ export default function PortfolioPage() {
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                          <span className="p-3 bg-[#f71735] rounded-full shadow-lg">
+                          <span className="p-3 bg-[#0066FF] rounded-full shadow-lg">
                             <ZoomIn className="w-5 h-5" />
                           </span>
                         </div>
@@ -389,7 +392,7 @@ export default function PortfolioPage() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                          <span className="p-3.5 bg-[#f71735] rounded-full shadow-lg">
+                          <span className="p-3.5 bg-[#0066FF] rounded-full shadow-lg">
                             <Play className="w-5 h-5 fill-white ml-0.5" />
                           </span>
                         </div>
@@ -401,7 +404,7 @@ export default function PortfolioPage() {
                   <div className="p-8 flex flex-col justify-between flex-1">
                     <div>
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="inline-block px-3.5 py-1 bg-red-50 text-[#f71735] rounded-full text-xs font-bold">
+                        <span className="inline-block px-3.5 py-1 bg-blue-50 text-[#0066FF] border border-blue-200/60 rounded-full text-xs font-bold">
                           {item.categoryLabel}
                         </span>
                         {item.subCategory && (
@@ -416,10 +419,10 @@ export default function PortfolioPage() {
                           href={item.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-2xl font-black text-gray-900 hover:text-[#f71735] transition-colors mt-2 inline-flex items-center gap-2 group/link"
+                          className="text-2xl font-black text-gray-900 hover:text-[#0066FF] transition-colors mt-2 inline-flex items-center gap-2 group/link"
                         >
                           <span>{item.title}</span>
-                          <ArrowRight className="w-5 h-5 group-hover/link:translate-x-1.5 transition-transform text-[#f71735]" />
+                          <ArrowRight className="w-5 h-5 group-hover/link:translate-x-1.5 transition-transform text-[#0066FF]" />
                         </a>
                       ) : (
                         <h3 className="text-2xl font-black text-gray-900 mt-2">
@@ -435,27 +438,27 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* SECTION 4: Exact Red Call to Action Banner */}
+        {/* SECTION 4: Blue/Navy CTA Banner */}
         <section className="py-14 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#f71735] rounded-[40px] p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+            <div className="bg-gradient-to-r from-[#081325] via-[#0066FF] to-[#00C2FF] rounded-[40px] p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden">
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-black/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-black/20 rounded-full blur-2xl pointer-events-none" />
 
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white relative z-10 leading-tight">
                 Let&apos;s Build Your Next Success Story
               </h2>
 
-              <p className="text-base sm:text-xl mt-6 opacity-95 max-w-3xl mx-auto leading-relaxed relative z-10">
-                From marketplace growth to Shopify scaling, Arvian helps brands unlock sustainable growth.
+              <p className="text-base sm:text-xl mt-6 opacity-95 max-w-3xl mx-auto leading-relaxed relative z-10 text-blue-100">
+                From marketplace scaling to Shopify D2C domination, EcomVanta helps brands unlock exponential growth.
               </p>
 
               <div className="mt-8 relative z-10">
                 <button
                   onClick={() => setPopupOpen(true)}
-                  className="px-9 py-4 rounded-full bg-white text-[#f71735] font-black text-base hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all shadow-xl cursor-pointer"
+                  className="px-9 py-4 rounded-full bg-white text-[#0066FF] font-black text-base hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all shadow-xl cursor-pointer"
                 >
-                  Book Free Consultation
+                  Book Free Growth Audit
                 </button>
               </div>
             </div>

@@ -8,7 +8,9 @@ import {
   MapPin, 
   Mail, 
   Phone, 
-  ArrowUp
+  ArrowUp,
+  Sparkles,
+  ShieldCheck
 } from 'lucide-react';
 
 export default function Footer() {
@@ -38,34 +40,39 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0A0A24] text-white pt-16 pb-6 relative overflow-hidden">
+    <footer className="bg-[#07101E] text-white pt-16 pb-8 relative overflow-hidden border-t border-slate-800">
       {/* Background radial glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#f71735]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#7000ff]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-10 w-[500px] h-[500px] bg-[#0066FF]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-[#00C2FF]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
           
           {/* Column 1: Brand & About */}
-          <div className="space-y-6">
-            <Link href="/" className="inline-block">
+          <div className="space-y-5">
+            <Link href="/" className="inline-block bg-white/95 p-3 rounded-2xl shadow-lg shadow-blue-500/10">
               <img 
-                src={branding.footerLogo || branding.darkLogo || '/include/images/light-logo.png'} 
-                alt={branding.siteName || 'Arvian Business Solutions'} 
-                className="h-14 w-auto object-contain max-w-[200px]"
+                src={branding.footerLogo || branding.darkLogo || '/images/ecomvanta-logo.png'} 
+                alt={branding.siteName || 'EcomVanta'} 
+                className="h-12 w-auto object-contain max-w-[190px]"
               />
             </Link>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              {contactFooter.footerAboutText || 'Arvian Business Solutions is one of the top e-commerce service providers with 8+ years of experience. We assist companies in growing their businesses online through professional services for Amazon, Flipkart, Meesho, Blinkit, Zepto, Jiomart, Nykaa, and Myntra.'}
+            <p className="text-slate-300 text-sm leading-relaxed">
+              {contactFooter.footerAboutText || 'EcomVanta is your dedicated marketplace growth partner from setup to sales. We scale eCommerce businesses across Amazon, Flipkart, Meesho, Blinkit, Zepto, Myntra, and Brand D2C Websites.'}
             </p>
             
-            {/* Social Icons (SVGs) */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-2 text-xs text-cyan-400 font-semibold">
+              <ShieldCheck className="w-4 h-4 text-cyan-400" />
+              <span>Certified E-commerce Scaling Agency</span>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-2.5 pt-1">
               <a 
-                href={branding.socialLinks?.facebook || 'https://www.facebook.com/ArvianBusinessSolutions/'} 
+                href={branding.socialLinks?.facebook || 'https://facebook.com/ecomvanta'} 
                 target="_blank" 
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#f71735] hover:border-[#f71735] transition-all duration-300 shadow-sm"
+                className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#0066FF] hover:border-[#0066FF] transition-all duration-300 shadow-sm"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -73,10 +80,10 @@ export default function Footer() {
                 </svg>
               </a>
               <a 
-                href={branding.socialLinks?.twitter || 'https://twitter.com/ArvianSolutions'} 
+                href={branding.socialLinks?.twitter || 'https://twitter.com/ecomvanta'} 
                 target="_blank" 
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#f71735] hover:border-[#f71735] transition-all duration-300 shadow-sm"
+                className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#0066FF] hover:border-[#0066FF] transition-all duration-300 shadow-sm"
                 aria-label="Twitter / X"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -84,10 +91,10 @@ export default function Footer() {
                 </svg>
               </a>
               <a 
-                href={branding.socialLinks?.instagram || 'https://www.instagram.com/arvian_ecommerce/'} 
+                href={branding.socialLinks?.instagram || 'https://instagram.com/ecomvanta'} 
                 target="_blank" 
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#f71735] hover:border-[#f71735] transition-all duration-300 shadow-sm"
+                className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#0066FF] hover:border-[#0066FF] transition-all duration-300 shadow-sm"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -95,25 +102,14 @@ export default function Footer() {
                 </svg>
               </a>
               <a 
-                href={branding.socialLinks?.linkedin || 'https://www.linkedin.com/company/arvian-business-solutions'} 
+                href={branding.socialLinks?.linkedin || 'https://linkedin.com/company/ecomvanta'} 
                 target="_blank" 
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#f71735] hover:border-[#f71735] transition-all duration-300 shadow-sm"
+                className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#0066FF] hover:border-[#0066FF] transition-all duration-300 shadow-sm"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
-              </a>
-              <a 
-                href="https://in.pinterest.com/arvianbusinesssolutions_/" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#f71735] hover:border-[#f71735] transition-all duration-300 shadow-sm"
-                aria-label="Pinterest"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.238-.19.288-.438.172-1.637-.762-2.66-3.155-2.66-5.079 0-4.135 3.004-7.935 8.667-7.935 4.549 0 8.087 3.242 8.087 7.578 0 4.521-2.85 8.16-6.806 8.16-1.329 0-2.578-.69-3.006-1.506l-.818 3.121c-.296 1.143-1.099 2.574-1.637 3.448 1.196.368 2.463.567 3.78.567 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
                 </svg>
               </a>
             </div>
@@ -121,149 +117,125 @@ export default function Footer() {
 
           {/* Column 2: E-Commerce Services */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6 border-b border-[#f71735]/40 pb-2 inline-block">
+            <h3 className="text-base font-bold text-white mb-6 border-b border-blue-500/30 pb-2 inline-flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#00C2FF]"></span>
               E-Commerce Services
             </h3>
-            <ul className="space-y-2.5 text-sm text-gray-300">
+            <ul className="space-y-2.5 text-sm text-slate-300">
               <li>
-                <Link href="/amazon-seller-account-management-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
+                <Link href="/amazon-seller-account-management-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
                   Amazon Account Management
                 </Link>
               </li>
               <li>
-                <Link href="/flipkart-account-management-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
+                <Link href="/flipkart-account-management-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
                   Flipkart Account Management
                 </Link>
               </li>
               <li>
-                <Link href="/blinkit-seller-account-management-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Blinkit Account Management
+                <Link href="/blinkit-seller-account-management-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
+                  Blinkit Quick Commerce
                 </Link>
               </li>
               <li>
-                <Link href="/meesho-account-management-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
+                <Link href="/meesho-account-management-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
                   Meesho Account Management
                 </Link>
               </li>
               <li>
-                <Link href="/shopify-store-management-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Shopify Account Management
+                <Link href="/shopify-store-management-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
+                  Shopify Store Management
                 </Link>
               </li>
               <li>
-                <Link href="/myntra-account-management-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
+                <Link href="/myntra-account-management-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
                   Myntra Account Management
                 </Link>
               </li>
               <li>
-                <Link href="/amazon-product-listing-catalogue-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Amazon Product Listing
+                <Link href="/amazon-product-listing-catalogue-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
+                  Amazon Product Listing &amp; A+
                 </Link>
               </li>
               <li>
-                <Link href="/ecommerce-product-listing-services" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Ecommerce Product Upload Listing
-                </Link>
-              </li>
-              <li>
-                <Link href="/ecommerce-service-provider-in-delhi" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform font-medium text-white">
-                  Delhi E-Commerce Solutions
+                <Link href="/ecommerce-product-listing-services" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">
+                  Ecommerce Catalog Management
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Cities & Quick Links */}
+          {/* Column 3: Quick Navigation */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6 border-b border-[#f71735]/40 pb-2 inline-block">
-              Ecommerce In Cities
+            <h3 className="text-base font-bold text-white mb-6 border-b border-blue-500/30 pb-2 inline-flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#0066FF]"></span>
+              Quick Navigation
             </h3>
-            <ul className="space-y-2 text-sm text-gray-300 mb-6">
-              <li>
-                <Link href="/ecommerce-service-provider-in-delhi" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Delhi
-                </Link>
-              </li>
-              <li>
-                <Link href="/ecommerce-service-provider-in-surat" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Surat
-                </Link>
-              </li>
-              <li>
-                <Link href="/ecommerce-service-provider-in-meerut" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Meerut
-                </Link>
-              </li>
-              <li>
-                <Link href="/ecommerce-service-provider-in-kolkata" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Kolkata
-                </Link>
-              </li>
-              <li>
-                <Link href="/ecommerce-service-provider-in-ludhiana" className="hover:text-[#f71735] hover:translate-x-1 inline-block transition-transform">
-                  Ludhiana
-                </Link>
-              </li>
+            <ul className="space-y-2.5 text-sm text-slate-300 mb-6">
+              <li><Link href="/about-us" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">About EcomVanta</Link></li>
+              <li><Link href="/portfolio" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">Success Portfolio</Link></li>
+              <li><Link href="/blogs" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">E-commerce Insights Blog</Link></li>
+              <li><Link href="/career" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">Careers &amp; Openings</Link></li>
+              <li><Link href="/contact-us" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">Contact Us</Link></li>
             </ul>
 
-            <h4 className="text-sm font-bold uppercase tracking-wider text-[#f71735] mb-3">
-              Quick Links
+            <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">
+              Case Studies
             </h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><Link href="/about-us" className="hover:text-[#f71735] transition-colors">About Us</Link></li>
-              <li><Link href="/portfolio" className="hover:text-[#f71735] transition-colors">Portfolio</Link></li>
-              <li><Link href="/blogs" className="hover:text-[#f71735] transition-colors">Blog</Link></li>
-              <li><Link href="/career" className="hover:text-[#f71735] transition-colors">Careers</Link></li>
+            <ul className="space-y-1.5 text-xs text-slate-400">
+              <li><Link href="/kay-kay-industries-amazon-case-study" className="hover:text-white">Kay Kay Industries</Link></li>
+              <li><Link href="/gataca-performance-supplements-amazon-case-study" className="hover:text-white">GATACA Supplements</Link></li>
+              <li><Link href="/sai-gallery-agarbatti-brand-amazon-case-study" className="hover:text-white">Sai Gallery</Link></li>
             </ul>
           </div>
 
           {/* Column 4: Contact Us */}
-          <div className="space-y-5">
-            <h3 className="text-lg font-bold text-white mb-6 border-b border-[#f71735]/40 pb-2 inline-block">
-              Contact Us
+          <div className="space-y-4">
+            <h3 className="text-base font-bold text-white mb-6 border-b border-blue-500/30 pb-2 inline-flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+              Connect With Us
             </h3>
             
-            <div className="flex items-start gap-3.5 text-sm text-gray-300">
-              <MapPin className="w-5 h-5 text-[#f71735] flex-shrink-0 mt-1" />
+            <div className="flex items-start gap-3 text-sm text-slate-300">
+              <MapPin className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" />
               <p className="leading-relaxed">
-                {contactFooter.officeAddress || 'Arvian Business Solutions, 3rd Floor, Tower B, Sector 62, Noida, NCR, India'}
+                {contactFooter.officeAddress || 'EcomVanta Business Solutions, New Delhi, India'}
               </p>
             </div>
 
-            <div className="flex items-center gap-3.5 text-sm text-gray-300">
-              <Mail className="w-5 h-5 text-[#f71735] flex-shrink-0" />
-              <a href={`mailto:${contactFooter.supportEmail || 'info@arvian.in'}`} className="hover:text-[#f71735] transition-colors">
-                {contactFooter.supportEmail || 'info@arvian.in'}
+            <div className="flex items-center gap-3 text-sm text-slate-300">
+              <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+              <a href={`mailto:${contactFooter.supportEmail || 'ecomvanta40@gmail.com'}`} className="hover:text-cyan-300 transition-colors">
+                {contactFooter.supportEmail || 'ecomvanta40@gmail.com'}
               </a>
             </div>
 
-            <div className="flex items-center gap-3.5 text-sm text-gray-300">
-              <Phone className="w-5 h-5 text-[#f71735] flex-shrink-0" />
+            <div className="flex items-center gap-3 text-sm text-slate-300">
+              <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
               <div>
-                <p className="text-xs text-gray-400">Toll Free</p>
-                <a href={`tel:${branding.topbarPhone || '+9118008901413'}`} className="font-semibold hover:text-[#f71735] transition-colors">
-                  {branding.tollFreePhone || '1800 890 1413'}
+                <p className="text-[11px] text-slate-400 font-medium">Direct Support</p>
+                <a href={`tel:${contactFooter.contactPhone || '+918787249407'}`} className="font-bold text-white hover:text-cyan-300 transition-colors">
+                  {contactFooter.contactPhone || '+91 878 724 9407'}
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5 text-sm text-gray-300">
-              <Phone className="w-5 h-5 text-[#f71735] flex-shrink-0" />
-              <div>
-                <p className="text-xs text-gray-400">Direct Support</p>
-                <a href={`tel:${contactFooter.contactPhone || '+916377709027'}`} className="font-semibold hover:text-[#f71735] transition-colors">
-                  {contactFooter.contactPhone || '+91 6377709027'}
-                </a>
-              </div>
+            <div className="pt-2">
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#00C2FF] text-white text-xs font-bold shadow-lg shadow-blue-500/20 hover:brightness-110 transition-all"
+              >
+                Schedule Free Audit Call
+              </Link>
             </div>
           </div>
 
         </div>
 
         {/* Bottom Copyright and Legal Links */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-4">
           <p>
-            {contactFooter.copyrightText || `Copyright © 2020-${new Date().getFullYear()} Arvian Business Solutions. All rights reserved.`}
+            {contactFooter.copyrightText || `Copyright © ${new Date().getFullYear()} EcomVanta. All rights reserved. Powering Brands. Scaling E-commerce.`}
           </p>
           <div className="flex items-center gap-6">
             <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
@@ -277,7 +249,7 @@ export default function Footer() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-[#f71735] text-white flex items-center justify-center shadow-2xl hover:bg-[#cc0000] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border border-white/20"
+          className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#0066FF] to-[#00C2FF] text-white flex items-center justify-center shadow-2xl shadow-blue-500/40 hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border border-white/20"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5" />
@@ -286,3 +258,4 @@ export default function Footer() {
     </footer>
   );
 }
+

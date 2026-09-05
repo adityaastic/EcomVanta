@@ -121,7 +121,7 @@ export default function ClientReviewsSlider() {
         <div className="relative px-2 sm:px-8">
           <button
             onClick={handlePrev}
-            className="absolute -left-2 sm:left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#f71735] hover:text-white transition-all cursor-pointer"
+            className="absolute -left-2 sm:left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#0066FF] hover:text-white transition-all cursor-pointer hover:border-[#0066FF]"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -129,7 +129,7 @@ export default function ClientReviewsSlider() {
 
           <button
             onClick={handleNext}
-            className="absolute -right-2 sm:right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#f71735] hover:text-white transition-all cursor-pointer"
+            className="absolute -right-2 sm:right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#0066FF] hover:text-white transition-all cursor-pointer hover:border-[#0066FF]"
             aria-label="Next review"
           >
             <ChevronRight className="w-5 h-5" />
@@ -140,7 +140,7 @@ export default function ClientReviewsSlider() {
             {visibleReviews.map((review, idx) => (
               <div
                 key={`${review.name}-${idx}`}
-                className="bg-white rounded-lg p-5 shadow-[0_1px_4px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col justify-between min-h-[220px] hover:shadow-lg transition-all"
+                className="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col justify-between min-h-[220px] hover:shadow-xl hover:border-blue-100 transition-all"
               >
                 <div>
                   {/* Avatar & Author */}
@@ -192,7 +192,7 @@ export default function ClientReviewsSlider() {
                     <span className="text-xs">
                       Posted on{' '}
                       <a
-                        href="https://www.google.com/search?q=arvian"
+                        href="https://www.google.com/search?q=ecomvanta"
                         target="_blank"
                         rel="noreferrer"
                         className="text-gray-800 font-semibold hover:underline"
@@ -202,10 +202,10 @@ export default function ClientReviewsSlider() {
                     </span>
                   </div>
                   <a
-                    href="https://www.google.com/search?q=arvian"
+                    href="https://www.google.com/search?q=ecomvanta"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[#2563eb] font-semibold hover:underline"
+                    className="text-[#0066FF] font-semibold hover:underline"
                   >
                     Read more
                   </a>
@@ -218,10 +218,10 @@ export default function ClientReviewsSlider() {
         {/* Read All Reviews Button matching .manual-add-review-btn-read-all */}
         <div className="text-center mt-10">
           <a
-            href="https://www.google.com/search?q=arvian"
+            href="https://www.google.com/search?q=ecomvanta"
             target="_blank"
             rel="noreferrer"
-            className="inline-block px-8 py-3 rounded-md bg-[#3b82f6] text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-sm"
+            className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-bold text-sm hover:from-[#0052cc] hover:to-[#003d99] transition-all shadow-md shadow-blue-500/20"
           >
             Read all reviews
           </a>

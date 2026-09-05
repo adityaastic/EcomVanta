@@ -77,35 +77,35 @@ export default function ContactUsPage() {
         <section
           className="relative py-20 bg-cover bg-center text-white overflow-hidden"
           style={{
-            backgroundImage: "linear-gradient(rgba(10, 10, 36, 0.85), rgba(10, 10, 36, 0.9)), url('/contact-bg.webp')",
+            backgroundImage: "linear-gradient(rgba(8, 19, 37, 0.9), rgba(7, 16, 30, 0.95)), url('/contact-bg.webp')",
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="space-y-4 max-w-xl">
-              <span className="inline-block px-4 py-1 rounded-full bg-white/10 text-red-300 text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
+              <span className="inline-block px-4 py-1 rounded-full bg-blue-500/20 text-[#00C2FF] text-xs font-bold uppercase tracking-widest backdrop-blur-sm border border-blue-400/30">
                 Get In Touch
               </span>
               <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
                 EcomVanta | Contact Us
               </h1>
-              <p className="text-gray-300 text-base italic">
-                Your Marketplace Growth Partner — From Setup to Sales
+              <p className="text-blue-100 text-base italic">
+                Your Marketplace Growth Partner — From Setup to Scaled Revenue
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <a
                   href="tel:+918787249407"
-                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold hover:bg-[#f71735] hover:border-[#f71735] transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold hover:bg-[#0066FF] hover:border-[#0066FF] transition-all"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#f71735]" />
+                  <Phone className="w-3.5 h-3.5 text-[#00C2FF]" />
                   <span>+91 878 724 9407</span>
                 </a>
 
                 <a
                   href="mailto:ecomvanta40@gmail.com"
-                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold hover:bg-[#f71735] hover:border-[#f71735] transition-all"
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold hover:bg-[#0066FF] hover:border-[#0066FF] transition-all"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#f71735]" />
+                  <Mail className="w-3.5 h-3.5 text-[#00C2FF]" />
                   <span>ecomvanta40@gmail.com</span>
                 </a>
               </div>
@@ -134,7 +134,7 @@ export default function ContactUsPage() {
               We will be happy to answer your questions
             </h2>
             
-            <span className="inline-block text-[#f71735] font-extrabold text-lg uppercase tracking-wider">
+            <span className="inline-block text-[#0066FF] font-extrabold text-lg uppercase tracking-wider">
               Let&apos;s Talk
             </span>
 
@@ -156,14 +156,14 @@ export default function ContactUsPage() {
         </section>
 
         {/* MAIN CONTACT DETAILS & FORM */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50/60">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
               
               {/* Left Column: Office Details */}
               <div className="lg:col-span-5 space-y-8">
                 <div>
-                  <span className="text-xs font-bold text-[#f71735] uppercase tracking-widest">Our Office</span>
+                  <span className="text-xs font-extrabold text-[#0066FF] uppercase tracking-widest">Our Office</span>
                   <h3 className="text-3xl font-black text-gray-900 mt-2">Visit EcomVanta HQ</h3>
                   <p className="text-gray-600 text-sm mt-3">
                     Feel free to reach out to our team or schedule a consultation call with our marketplace specialists.
@@ -171,8 +171,8 @@ export default function ContactUsPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-200 shadow-xs">
-                    <MapPin className="w-6 h-6 text-[#f71735] flex-shrink-0 mt-1" />
+                  <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-200 shadow-xs hover:border-blue-200 transition-all">
+                    <MapPin className="w-6 h-6 text-[#0066FF] flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm">Location</h4>
                       <p className="text-xs text-gray-600 mt-1 leading-relaxed">
@@ -181,8 +181,8 @@ export default function ContactUsPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-200 shadow-xs">
-                    <Phone className="w-6 h-6 text-[#f71735] flex-shrink-0 mt-1" />
+                  <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-200 shadow-xs hover:border-blue-200 transition-all">
+                    <Phone className="w-6 h-6 text-[#0066FF] flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm">Call &amp; Mobile Support</h4>
                       <p className="text-xs text-gray-600 mt-1">Phone: +91 878 724 9407</p>
@@ -190,8 +190,8 @@ export default function ContactUsPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-200 shadow-xs">
-                    <Mail className="w-6 h-6 text-[#f71735] flex-shrink-0 mt-1" />
+                  <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-200 shadow-xs hover:border-blue-200 transition-all">
+                    <Mail className="w-6 h-6 text-[#0066FF] flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm">Email Inquiries</h4>
                       <p className="text-xs text-gray-600 mt-1">ecomvanta40@gmail.com</p>
@@ -219,16 +219,16 @@ export default function ContactUsPage() {
 
                 {submitted ? (
                   <div className="text-center py-12 space-y-4">
-                    <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                    <div className="w-16 h-16 bg-blue-50 text-[#0066FF] rounded-full flex items-center justify-center mx-auto border border-blue-200">
                       <CheckCircle2 className="w-10 h-10" />
                     </div>
                     <h4 className="text-2xl font-bold text-gray-900">Message Received!</h4>
                     <p className="text-sm text-gray-600 max-w-md mx-auto">
-                      Thank you for contacting Arvian Business Solutions. Our account manager will get back to you within 2-4 hours.
+                      Thank you for contacting EcomVanta. Our account strategist will get back to you within 2-4 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-full bg-[#f71735] text-white text-xs font-bold hover:bg-[#cc0000]"
+                      className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white text-xs font-bold hover:from-[#0052cc] hover:to-[#003d99]"
                     >
                       Send Another Message
                     </button>
@@ -236,7 +236,7 @@ export default function ContactUsPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     {error && (
-                      <div className="p-3 bg-red-50 text-[#f71735] text-xs font-semibold rounded-xl border border-red-200">
+                      <div className="p-3 bg-red-50 text-red-700 text-xs font-semibold rounded-xl border border-red-200">
                         {error}
                       </div>
                     )}
@@ -248,7 +248,7 @@ export default function ContactUsPage() {
                         placeholder="First Name *"
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-[#f71735] outline-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none"
                       />
                       <input
                         type="text"
@@ -256,7 +256,7 @@ export default function ContactUsPage() {
                         placeholder="Last Name *"
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-[#f71735] outline-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none"
                       />
                     </div>
 
@@ -267,7 +267,7 @@ export default function ContactUsPage() {
                         placeholder="Email Address *"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-[#f71735] outline-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none"
                       />
                       <input
                         type="tel"
@@ -275,7 +275,7 @@ export default function ContactUsPage() {
                         placeholder="Phone Number *"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-[#f71735] outline-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none"
                       />
                     </div>
 
@@ -286,13 +286,13 @@ export default function ContactUsPage() {
                         placeholder="City *"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-[#f71735] outline-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none"
                       />
                       <select
                         required
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm text-gray-700 focus:border-[#f71735] outline-none cursor-pointer"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none cursor-pointer"
                       >
                         <option value="" disabled>Select Service *</option>
                         <option value="Amazon Account Management">Amazon Account Management</option>
@@ -309,13 +309,13 @@ export default function ContactUsPage() {
                       placeholder="How can we help your e-commerce brand grow?..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full p-4 rounded-xl border border-gray-300 text-sm focus:border-[#f71735] outline-none resize-none"
+                      className="w-full p-4 rounded-xl border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none resize-none"
                     />
 
                     <button
                       type="submit"
                       disabled={loading}
-                      className="arvianPulseBtn w-full py-4 rounded-xl bg-[#f71735] text-white font-extrabold text-sm hover:bg-[#cc0000] shadow-lg cursor-pointer transition-all flex items-center justify-center gap-2"
+                      className="ecomvantaPulseBtn w-full py-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-sm hover:from-[#0052cc] hover:to-[#003d99] shadow-lg shadow-blue-500/25 cursor-pointer transition-all flex items-center justify-center gap-2"
                     >
                       {loading ? (
                         <>

@@ -137,7 +137,7 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
   if (loading) {
     return (
       <div className="py-20 flex justify-center items-center">
-        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-[#0066FF] animate-spin" />
       </div>
     );
   }
@@ -145,8 +145,8 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
   if (!service) {
     return (
       <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center space-y-4">
-        <p className="text-sm text-red-600 font-bold">{error || 'Service not found'}</p>
-        <Link href="/admin/services" className="text-xs text-blue-600 hover:underline">
+        <p className="text-sm text-[#0066FF] font-bold">{error || 'Service not found'}</p>
+        <Link href="/admin/services" className="text-xs text-[#0066FF] hover:underline">
           Return to Services List
         </Link>
       </div>
@@ -189,7 +189,7 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+            className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
           >
             {saving ? (
               <>
@@ -350,7 +350,7 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
               ];
               setService({ ...service, servicesGrid: newGrid });
             }}
-            className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
           >
             <Plus className="w-3.5 h-3.5" /> Add Feature Card
           </button>
@@ -432,7 +432,7 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
               ];
               setService({ ...service, faqs: newFaqs });
             }}
-            className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+            className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
           >
             <Plus className="w-3.5 h-3.5" /> Add FAQ
           </button>
@@ -496,7 +496,7 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
         <button
           type="submit"
           disabled={saving}
-          className="px-6 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl text-xs shadow-lg transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
           {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>{saving ? 'Saving...' : 'Save Service'}</span>

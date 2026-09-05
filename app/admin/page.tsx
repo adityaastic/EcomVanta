@@ -105,8 +105,8 @@ export default function AdminDashboardPage() {
       {/* Welcome Banner */}
       <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-xl border border-slate-700/60">
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/30 border border-red-500/40 text-red-300 text-xs font-semibold mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-red-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0066FF]/30 border border-[#0066FF]/40 text-blue-300 text-xs font-semibold mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-[#00C2FF]" />
             <span>Master Content Management System</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
@@ -118,7 +118,7 @@ export default function AdminDashboardPage() {
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/admin/homepage"
-              className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5"
+              className="px-4 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-[#0066FF]/25 flex items-center gap-1.5"
             >
               <span>Edit Homepage Sections</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -133,7 +133,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Decorative background circle */}
-        <div className="absolute right-0 top-0 bottom-0 w-96 bg-radial from-red-600/20 to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-96 bg-radial from-[#0066FF]/20 to-transparent pointer-events-none" />
       </div>
 
       {/* Metrics Row */}
@@ -175,18 +175,18 @@ export default function AdminDashboardPage() {
               <Link
                 key={action.title}
                 href={action.href}
-                className="bg-white p-5 rounded-2xl border border-gray-200/80 hover:border-red-300 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
+                className="bg-white p-5 rounded-2xl border border-gray-200/80 hover:border-blue-300 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-3 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-3 group-hover:bg-[#0066FF] group-hover:text-white transition-colors">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-[#0066FF] transition-colors">
                     {action.title}
                   </h3>
                   <p className="text-xs text-gray-500 mt-1 leading-relaxed">{action.desc}</p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-red-600">
+                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-[#0066FF]">
                   <span>Open Section</span>
                   <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -205,7 +205,7 @@ export default function AdminDashboardPage() {
           </div>
           <Link
             href="/admin/leads"
-            className="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1"
+            className="text-xs font-bold text-[#0066FF] hover:text-[#0052cc] flex items-center gap-1"
           >
             <span>View All Leads</span>
             <ArrowRight className="w-3.5 h-3.5" />

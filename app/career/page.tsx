@@ -61,19 +61,19 @@ export default function CareerPage() {
       <main className="min-h-screen pt-20">
         
         {/* HERO */}
-        <header className="relative py-16 lg:py-24 bg-gradient-to-b from-[#FFFFED] via-white to-white text-center overflow-hidden">
-          <div className="absolute top-10 right-10 w-72 h-72 bg-red-400/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-10 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl pointer-events-none" />
+        <header className="relative py-16 lg:py-24 bg-gradient-to-b from-blue-50/50 via-white to-white text-center overflow-hidden border-b border-gray-100">
+          <div className="absolute top-10 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-10 w-80 h-80 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-red-50 text-[#f71735] text-xs font-bold uppercase tracking-wider">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200 text-xs font-bold uppercase tracking-wider">
               We Are Hiring!
             </span>
             <h1 className="text-4xl sm:text-6xl font-black text-gray-900 tracking-tight">
-              Careers at Arvian Business Solutions
+              Careers at <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#00C2FF]">EcomVanta</span>
             </h1>
             <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Build Your Career in eCommerce, Digital Marketing &amp; Business Growth. Join an elite team scaling top brands on Amazon, Flipkart, Myntra, and Blinkit.
+              Build Your Career in eCommerce, Digital Marketing &amp; Brand Growth. Join an elite team scaling top brands on Amazon, Flipkart, Myntra, Zepto, and Blinkit.
             </p>
           </div>
         </header>
@@ -81,27 +81,27 @@ export default function CareerPage() {
         {/* PITCH CARD */}
         <section className="py-8 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="p-8 sm:p-12 rounded-3xl bg-gray-50 border border-gray-200 shadow-sm text-center space-y-6">
+            <div className="p-8 sm:p-12 rounded-3xl bg-gray-50/70 border border-gray-200 shadow-sm text-center space-y-6">
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-                Whether you&apos;re an experienced professional or looking to launch your career in the fast-growing e-commerce industry, Arvian offers dynamic opportunities to learn, execute, and make a measurable impact.
+                Whether you&apos;re an experienced marketplace strategist or looking to launch your career in the hyper-growing e-commerce ecosystem, EcomVanta offers dynamic opportunities to learn, execute, and make a measurable impact.
               </p>
 
               <div className="flex flex-wrap justify-center gap-3">
                 <span className="px-4 py-2 bg-white rounded-full border border-gray-200 text-xs font-bold text-gray-800 shadow-xs">
-                  📍 Jaipur, Rajasthan
+                  📍 New Delhi, India
                 </span>
                 <span className="px-4 py-2 bg-white rounded-full border border-gray-200 text-xs font-bold text-gray-800 shadow-xs">
-                  📈 Fast-Growing Agency
+                  📈 High-Growth Agency
                 </span>
                 <span className="px-4 py-2 bg-white rounded-full border border-gray-200 text-xs font-bold text-gray-800 shadow-xs">
-                  🎓 Continuous Learning
+                  🎓 Continuous Learning &amp; Upskilling
                 </span>
               </div>
 
               <div>
                 <a
                   href="#vacancies"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#f71735] text-white font-bold text-xs hover:bg-[#cc0000] shadow-lg transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-xs shadow-lg shadow-blue-500/25 hover:from-[#0052cc] hover:to-[#003d99] transition-all"
                 >
                   <span>View Open Positions</span>
                   <ArrowRight className="w-4 h-4" />
@@ -117,7 +117,7 @@ export default function CareerPage() {
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
               <Image
                 src="/arvian-team-image.jpeg"
-                alt="Arvian Team"
+                alt="EcomVanta Team"
                 width={1200}
                 height={600}
                 className="w-full h-auto object-cover max-h-[500px]"
@@ -127,27 +127,27 @@ export default function CareerPage() {
         </section>
 
         {/* WHY JOIN & WHAT YOU GET */}
-        <section className="py-16 bg-gray-50 border-y border-gray-100">
+        <section className="py-16 bg-gray-50/60 border-y border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               
               <div className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm space-y-4">
-                <h2 className="text-2xl font-black text-gray-900">Why Join Arvian?</h2>
+                <h2 className="text-2xl font-black text-gray-900">Why Join EcomVanta?</h2>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  At Arvian Business Solutions, we believe our people are our greatest asset. When you join Arvian, you become part of a culture centered on innovation, transparency, and rapid skill progression.
+                  At EcomVanta, we believe our talent is our core engine. When you join EcomVanta, you become part of a merit-based culture focused on innovation, autonomy, and continuous growth.
                 </p>
                 <div className="space-y-2.5 pt-2">
                   <div className="flex items-center gap-2.5 text-xs font-bold text-gray-800">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Cross-functional learning across 10+ marketplaces</span>
+                    <CheckCircle2 className="w-4 h-4 text-[#0066FF]" />
+                    <span>Cross-functional management across 10+ marketplaces</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs font-bold text-gray-800">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Performance bonuses and rapid career advancements</span>
+                    <CheckCircle2 className="w-4 h-4 text-[#0066FF]" />
+                    <span>Quarterly performance bonuses and rapid role promotions</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs font-bold text-gray-800">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Collaborative workspace in Jaipur&apos;s tech hub</span>
+                    <CheckCircle2 className="w-4 h-4 text-[#0066FF]" />
+                    <span>Vibrant and collaborative modern workspace</span>
                   </div>
                 </div>
               </div>
@@ -155,21 +155,21 @@ export default function CareerPage() {
               <div className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm space-y-4">
                 <h2 className="text-2xl font-black text-gray-900">What You&apos;ll Get</h2>
                 <div className="space-y-3 pt-2">
-                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100 flex items-center gap-3">
-                    <span className="text-[#f71735] font-black text-sm">01</span>
-                    <span className="text-xs font-bold text-gray-800">Hands-On High GMV Brand Management Experience</span>
+                  <div className="p-3 bg-blue-50/40 rounded-xl border border-blue-100 flex items-center gap-3">
+                    <span className="text-[#0066FF] font-black text-sm">01</span>
+                    <span className="text-xs font-bold text-gray-800">Hands-On High GMV Brand Scaling Experience</span>
                   </div>
-                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100 flex items-center gap-3">
-                    <span className="text-[#f71735] font-black text-sm">02</span>
-                    <span className="text-xs font-bold text-gray-800">Sponsored Certifications (Amazon SPN, Flipkart, Google Ads)</span>
+                  <div className="p-3 bg-blue-50/40 rounded-xl border border-blue-100 flex items-center gap-3">
+                    <span className="text-[#0066FF] font-black text-sm">02</span>
+                    <span className="text-xs font-bold text-gray-800">Sponsored Certifications (Amazon SPN, Flipkart, Meta, Google)</span>
                   </div>
-                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100 flex items-center gap-3">
-                    <span className="text-[#f71735] font-black text-sm">03</span>
-                    <span className="text-xs font-bold text-gray-800">Direct Mentorship from Industry Veterans</span>
+                  <div className="p-3 bg-blue-50/40 rounded-xl border border-blue-100 flex items-center gap-3">
+                    <span className="text-[#0066FF] font-black text-sm">03</span>
+                    <span className="text-xs font-bold text-gray-800">Direct Mentorship from Senior Marketplace Leaders</span>
                   </div>
-                  <div className="p-3 bg-gray-50 rounded-xl border border-gray-100 flex items-center gap-3">
-                    <span className="text-[#f71735] font-black text-sm">04</span>
-                    <span className="text-xs font-bold text-gray-800">Competitive Compensation &amp; Growth Incentives</span>
+                  <div className="p-3 bg-blue-50/40 rounded-xl border border-blue-100 flex items-center gap-3">
+                    <span className="text-[#0066FF] font-black text-sm">04</span>
+                    <span className="text-xs font-bold text-gray-800">Competitive Compensation &amp; High-Impact Incentives</span>
                   </div>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default function CareerPage() {
         <section id="vacancies" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="text-xs uppercase font-bold text-[#f71735] tracking-widest">Job Openings</span>
+              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">Job Openings</span>
               <h2 className="text-3xl sm:text-5xl font-black text-gray-900 mt-2">
                 Current Open Positions
               </h2>
@@ -192,11 +192,11 @@ export default function CareerPage() {
               {openings.map((job: any) => (
                 <div
                   key={job.title}
-                  className="p-8 rounded-3xl bg-white border border-gray-200 hover:border-[#f71735]/40 shadow-xs hover:shadow-xl transition-all flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+                  className="p-8 rounded-3xl bg-white border border-gray-200 hover:border-[#0066FF]/40 shadow-xs hover:shadow-xl hover:shadow-blue-500/5 transition-all flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
                 >
                   <div className="space-y-2">
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 rounded-full bg-red-50 text-[#f71735] text-xs font-bold">
+                      <span className="px-3 py-1 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200 text-xs font-bold">
                         {job.department || job.dept}
                       </span>
                       <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium">
@@ -205,7 +205,7 @@ export default function CareerPage() {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
                     <p className="text-xs text-gray-500 flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#f71735]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#0066FF]" />
                       {job.location}
                     </p>
                     <p className="text-sm text-gray-600 pt-1 leading-relaxed max-w-2xl">{job.description || job.desc}</p>
@@ -213,7 +213,7 @@ export default function CareerPage() {
 
                   <button
                     onClick={() => setPopupOpen(true)}
-                    className="arvianPulseBtn px-8 py-3.5 rounded-full bg-[#f71735] text-white text-xs font-bold hover:bg-[#cc0000] transition-colors whitespace-nowrap shadow-md cursor-pointer"
+                    className="ecomvantaPulseBtn px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white text-xs font-extrabold hover:from-[#0052cc] hover:to-[#003d99] transition-colors whitespace-nowrap shadow-md shadow-blue-500/20 cursor-pointer"
                   >
                     Apply Now
                   </button>

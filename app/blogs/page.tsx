@@ -295,33 +295,33 @@ export default function BlogsPage() {
 
       <main className="min-h-screen pt-20 bg-white">
         
-        {/* BANNER SECTION matching live site */}
+        {/* HERO SECTION */}
         <section
-          className="relative py-20 bg-gradient-to-r from-gray-950 via-[#0A0A24] to-red-950 text-white text-center overflow-hidden"
+          className="relative py-20 bg-gradient-to-r from-[#081325] via-[#0B1E36] to-[#07101E] text-white text-center overflow-hidden border-b border-blue-950"
           style={{
-            backgroundImage: "linear-gradient(rgba(10, 10, 36, 0.88), rgba(10, 10, 36, 0.94)), url('/abt-img/second-bg.png')",
+            backgroundImage: "linear-gradient(rgba(8, 19, 37, 0.92), rgba(7, 16, 30, 0.96)), url('/abt-img/second-bg.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-red-500/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-            <span className="inline-block px-4 py-1 rounded-full bg-white/10 text-red-300 text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
-              Ecommerce Tips &amp; Insights
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-500/20 text-[#00C2FF] text-xs font-bold uppercase tracking-widest backdrop-blur-sm border border-blue-400/30">
+              Ecommerce Strategies &amp; Insights
             </span>
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
-              Blogs
+              EcomVanta Insights &amp; Blogs
             </h1>
-            <p className="text-gray-300 text-sm sm:text-base italic max-w-2xl mx-auto leading-relaxed">
-              Let&apos;s explore diverse technologies in our blogs. With Arvian, you can stay ahead with the latest tech stacks and marketplace insights for continuous sales growth.
+            <p className="text-blue-100 text-sm sm:text-base italic max-w-2xl mx-auto leading-relaxed">
+              Explore battle-tested strategies in our blog. With EcomVanta, you stay ahead of algorithmic updates, PPC trends, and catalog optimization techniques to scale GMV.
             </p>
           </div>
         </section>
 
         {/* SEARCH & FILTER SECTION */}
-        <section className="py-8 bg-gray-50 border-b border-gray-200">
+        <section className="py-8 bg-gray-50/70 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
               
@@ -330,7 +330,7 @@ export default function BlogsPage() {
                 <select
                   value={selectedCategory}
                   onChange={(e) => handleCategoryChange(e.target.value)}
-                  className="px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm font-semibold text-gray-700 outline-none focus:border-[#f71735] focus:ring-2 focus:ring-red-500/10 cursor-pointer shadow-xs"
+                  className="px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 outline-none focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 cursor-pointer shadow-xs"
                 >
                   {CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>
@@ -345,7 +345,7 @@ export default function BlogsPage() {
                     value={searchQuery}
                     onChange={handleSearchChange}
                     placeholder="Search Blog Ecommerce..."
-                    className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-xl text-sm placeholder:text-gray-400 outline-none focus:border-[#f71735] focus:ring-2 focus:ring-red-500/10 shadow-xs"
+                    className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm placeholder:text-gray-400 outline-none focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 shadow-xs"
                   />
                   <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 </div>
@@ -372,7 +372,7 @@ export default function BlogsPage() {
                     setSelectedCategory('All');
                     setSearchQuery('');
                   }}
-                  className="mt-4 px-6 py-2 bg-[#f71735] text-white text-xs font-bold rounded-full hover:bg-[#cc0000]"
+                  className="mt-4 px-6 py-2 bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white text-xs font-bold rounded-full hover:from-[#0052cc] hover:to-[#003d99]"
                 >
                   Clear Filters
                 </button>
@@ -382,7 +382,7 @@ export default function BlogsPage() {
                 {currentPosts.map((post) => (
                   <div
                     key={post.id}
-                    className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-2xl hover:border-[#f71735]/40 transition-all duration-300 flex flex-col justify-between group"
+                    className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-2xl hover:border-[#0066FF]/40 transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div>
                       {/* Image Preview */}
@@ -393,7 +393,7 @@ export default function BlogsPage() {
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 backdrop-blur-sm text-[#f71735] text-xs font-extrabold rounded-full shadow-xs">
+                        <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 backdrop-blur-sm text-[#0066FF] text-xs font-extrabold rounded-full shadow-xs">
                           {post.category}
                         </span>
                       </div>
@@ -402,7 +402,7 @@ export default function BlogsPage() {
                       <div className="p-6">
                         <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
                           <span className="flex items-center gap-1">
-                            <User className="w-3.5 h-3.5 text-[#f71735]" />
+                            <User className="w-3.5 h-3.5 text-[#0066FF]" />
                             {post.author}
                           </span>
                           <span className="flex items-center gap-1">
@@ -411,7 +411,7 @@ export default function BlogsPage() {
                           </span>
                         </div>
 
-                        <h3 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-[#f71735] transition-colors line-clamp-2">
+                        <h3 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-[#0066FF] transition-colors line-clamp-2">
                           {post.title}
                         </h3>
                       </div>
@@ -420,7 +420,7 @@ export default function BlogsPage() {
                     <div className="p-6 pt-0 border-t border-gray-100 flex items-center justify-between">
                       <Link
                         href={post.link}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#f71735] group-hover:underline pt-3"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0066FF] group-hover:underline pt-3"
                       >
                         <span>Read More</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -451,7 +451,7 @@ export default function BlogsPage() {
                       onClick={() => setCurrentPage(pageNum)}
                       className={`w-10 h-10 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         currentPage === pageNum
-                          ? 'bg-[#f71735] text-white shadow-md shadow-red-500/30'
+                          ? 'bg-[#0066FF] text-white shadow-md shadow-blue-500/30'
                           : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
                       }`}
                     >

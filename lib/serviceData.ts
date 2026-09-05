@@ -101,7 +101,7 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
     subtitle: 'Dominate India’s fastest growing Tier-2 and Tier-3 consumer base with zero-commission cataloging, Next Day Dispatch, and Meesho Ads.',
     heroImage: '/Meesho/meesho-web-about.webp',
     aboutImage: '/Meesho/Meesho Product Listing Services.webp',
-    aboutTitle: 'Scale Your Sales on Meesho with Arvian',
+    aboutTitle: 'Scale Your Sales on Meesho with EcomVanta',
     aboutDesc: 'Meesho is transforming social and regional commerce in India. We help sellers leverage zero commission, optimized price tiers, and high-velocity daily order dispatching.',
     servicesGrid: [
       {

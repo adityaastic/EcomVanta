@@ -87,7 +87,7 @@ export default function HomepageEditorPage() {
   if (loading || !homepage) {
     return (
       <div className="py-20 flex justify-center items-center">
-        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-[#0066FF] animate-spin" />
       </div>
     );
   }
@@ -121,7 +121,7 @@ export default function HomepageEditorPage() {
           type="button"
           onClick={() => handleSave()}
           disabled={saving}
-          className="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
+          className="px-6 py-2.5 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
         >
           {saving ? (
             <>
@@ -215,8 +215,8 @@ export default function HomepageEditorPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-red-600 uppercase tracking-wider mb-1.5">
-                  Heading Highlight (Red)
+                <label className="block text-xs font-bold text-[#0066FF] uppercase tracking-wider mb-1.5">
+                  Heading Highlight (Electric Blue / Cyan)
                 </label>
                 <input
                   type="text"
@@ -227,7 +227,7 @@ export default function HomepageEditorPage() {
                       hero: { ...homepage.hero, titleHighlight: e.target.value },
                     })
                   }
-                  className="w-full px-3.5 py-2.5 text-xs border border-red-300 rounded-xl bg-red-50/30 text-red-900 font-semibold"
+                  className="w-full px-3.5 py-2.5 text-xs border border-blue-300 rounded-xl bg-blue-50/30 text-blue-900 font-semibold"
                 />
               </div>
 
@@ -405,7 +405,7 @@ export default function HomepageEditorPage() {
                 ];
                 setHomepage({ ...homepage, stats: newStats });
               }}
-              className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
             >
               <Plus className="w-3.5 h-3.5" /> Add Stat Counter
             </button>
@@ -497,7 +497,7 @@ export default function HomepageEditorPage() {
                 ];
                 setHomepage({ ...homepage, brandLogos: newBrands });
               }}
-              className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
             >
               <Plus className="w-3.5 h-3.5" /> Add Brand Logo
             </button>
@@ -575,7 +575,7 @@ export default function HomepageEditorPage() {
                 ];
                 setHomepage({ ...homepage, platforms: newPlatforms });
               }}
-              className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
             >
               <Plus className="w-3.5 h-3.5" /> Add Platform Card
             </button>
@@ -585,7 +585,7 @@ export default function HomepageEditorPage() {
             {homepage.platforms.map((platform, index) => (
               <div key={platform.id || index} className="p-5 bg-gray-50 rounded-2xl border border-gray-200 relative space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-red-600 uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#0066FF] uppercase tracking-wider">
                     #{index + 1} Platform: {platform.name}
                   </span>
                   <button
@@ -708,7 +708,7 @@ export default function HomepageEditorPage() {
                 ];
                 setHomepage({ ...homepage, listingServices: newListing });
               }}
-              className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
             >
               <Plus className="w-3.5 h-3.5" /> Add Listing Card
             </button>
@@ -833,7 +833,7 @@ export default function HomepageEditorPage() {
                       advantages: { ...homepage.advantages, items: newItems },
                     });
                   }}
-                  className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+                  className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
                 >
                   <Plus className="w-3.5 h-3.5" /> Add Advantage
                 </button>
@@ -921,13 +921,13 @@ export default function HomepageEditorPage() {
                     name: 'Client Name',
                     role: 'Brand Founder',
                     videoUrl: '/image/Amardeep.mp4',
-                    quote: 'Outstanding growth results with Arvian team.',
+                    quote: 'Outstanding growth results with EcomVanta team.',
                     rating: 5,
                   },
                 ];
                 setHomepage({ ...homepage, clientVideos: newVideos });
               }}
-              className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
             >
               <Plus className="w-3.5 h-3.5" /> Add Client Video
             </button>
@@ -1037,7 +1037,7 @@ export default function HomepageEditorPage() {
                 ];
                 setHomepage({ ...homepage, faqs: newFaqs });
               }}
-              className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
             >
               <Plus className="w-3.5 h-3.5" /> Add FAQ
             </button>
@@ -1213,7 +1213,7 @@ export default function HomepageEditorPage() {
           type="button"
           onClick={() => handleSave()}
           disabled={saving}
-          className="px-6 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl text-xs shadow-lg transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
           {saving ? (
             <Loader2 className="w-4 h-4 animate-spin" />

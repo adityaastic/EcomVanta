@@ -71,7 +71,7 @@ export default function BrandingSettingsPage() {
   if (loading || !branding) {
     return (
       <div className="py-20 flex justify-center items-center">
-        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-[#0066FF] animate-spin" />
       </div>
     );
   }
@@ -92,7 +92,7 @@ export default function BrandingSettingsPage() {
         <button
           type="submit"
           disabled={saving}
-          className="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
+          className="px-6 py-2.5 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
         >
           {saving ? (
             <>
@@ -123,7 +123,7 @@ export default function BrandingSettingsPage() {
       {/* 1. Logos & Visual Identity */}
       <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
         <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3 flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-red-600" />
+          <Sparkles className="w-4 h-4 text-[#0066FF]" />
           <span>1. Website Logos & Visuals</span>
         </h2>
 
@@ -338,7 +338,7 @@ export default function BrandingSettingsPage() {
         <button
           type="submit"
           disabled={saving}
-          className="px-6 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl text-xs shadow-lg transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
           {saving ? (
             <Loader2 className="w-4 h-4 animate-spin" />

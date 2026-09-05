@@ -43,7 +43,7 @@ const EMPTY_CASE_STUDY: CaseStudyData = {
   dashboardImage: '/abt-img/kay-kay-1.png',
   listingImage: '/abt-img/kay-kay-2.png',
   testimonial: {
-    quote: 'Arvian completely turned around our eCommerce performance.',
+    quote: 'EcomVanta completely turned around our eCommerce performance.',
     author: 'Founder & Managing Director',
     designation: 'Client Brand',
   },
@@ -66,20 +66,21 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
     async function loadData() {
       try {
         const res = await fetch('/api/admin/content');
+        if (!res.ok) throw new Error('Failed to load content');
         const data = await res.json();
-        if (data.success && data.data) {
-          const map = data.data.caseStudies || {};
-          setAllCaseStudies(map);
-          if (isNew) {
-            setCaseStudy({ ...EMPTY_CASE_STUDY });
-          } else if (map[slugParam]) {
-            setCaseStudy({ ...map[slugParam] });
-          } else {
-            setError(`Case study "${slugParam}" not found.`);
-          }
+        const existing = data.caseStudies || {};
+        setAllCaseStudies(existing);
+
+        if (isNew) {
+          setCaseStudy({ ...EMPTY_CASE_STUDY });
+        } else if (existing[slugParam]) {
+          setCaseStudy({ ...EMPTY_CASE_STUDY, ...existing[slugParam] });
+        } else {
+          setError(`Case study "${slugParam}" not found.`);
         }
-      } catch (err: any) {
-        setError(err.message || 'Error loading case study');
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : 'Unknown error';
+        setError(msg);
       } finally {
         setLoading(false);
       }
@@ -90,53 +91,43 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!caseStudy) return;
-
-    if (!caseStudy.slug || !caseStudy.brandName || !caseStudy.title) {
-      setError('Please provide a valid slug, brand name, and title.');
-      return;
-    }
-
     setSaving(true);
-    setSavedSuccess(false);
     setError(null);
-
-    const formattedSlug = caseStudy.slug.toLowerCase().replace(/[^a-z0-9-]/g, '-');
-    const updatedCaseStudy = { ...caseStudy, slug: formattedSlug };
-    const updatedMap = { ...allCaseStudies, [formattedSlug]: updatedCaseStudy };
-
-    if (!isNew && slugParam !== formattedSlug) {
-      delete updatedMap[slugParam];
-    }
+    setSavedSuccess(false);
 
     try {
+      const slug = (caseStudy.slug || '').trim();
+      if (!slug) {
+        setError('Slug cannot be empty.');
+        setSaving(false);
+        return;
+      }
+
+      const updatedCaseStudies = {
+        ...allCaseStudies,
+        [slug]: caseStudy,
+      };
+
       const res = await fetch('/api/admin/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           section: 'caseStudies',
-          data: updatedMap,
+          data: updatedCaseStudies,
         }),
       });
 
-      let data: any = {};
-      try {
-        data = await res.json();
-      } catch {
-        const text = await res.text().catch(() => '');
-        data = { success: false, error: text || `HTTP ${res.status} response` };
-      }
+      if (!res.ok) throw new Error('Failed to save case study');
+      setAllCaseStudies(updatedCaseStudies);
+      setSavedSuccess(true);
+      setTimeout(() => setSavedSuccess(false), 3000);
 
-      if (data.success) {
-        setSavedSuccess(true);
-        setTimeout(() => setSavedSuccess(false), 3000);
-        if (isNew) {
-          router.push(`/admin/case-studies/${formattedSlug}`);
-        }
-      } else {
-        setError(data.error || 'Failed to save case study');
+      if (isNew) {
+        router.push(`/admin/case-studies/${slug}`);
       }
-    } catch (err: any) {
-      setError(err.message || 'Error saving case study');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unknown error';
+      setError(msg);
     } finally {
       setSaving(false);
     }
@@ -144,48 +135,56 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
 
   if (loading) {
     return (
-      <div className="py-20 flex justify-center items-center">
-        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="w-8 h-8 text-[#0066FF] animate-spin" />
       </div>
     );
   }
 
-  if (!caseStudy) {
+  if (error && !caseStudy) {
     return (
-      <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center space-y-4">
-        <p className="text-sm text-red-600 font-bold">{error || 'Case study not found'}</p>
-        <Link href="/admin/case-studies" className="text-xs text-blue-600 hover:underline">
-          Return to Case Studies
+      <div className="p-8 text-center bg-white rounded-2xl border border-gray-200 space-y-4">
+        <AlertCircle className="w-12 h-12 text-[#0066FF] mx-auto" />
+        <p className="text-sm text-[#0066FF] font-bold">{error || 'Case study not found'}</p>
+        <Link
+          href="/admin/case-studies"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold rounded-xl"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to Case Studies
         </Link>
       </div>
     );
   }
 
+  if (!caseStudy) return null;
+
   return (
-    <form onSubmit={handleSave} className="space-y-8 max-w-4xl pb-16">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+    <form onSubmit={handleSave} className="space-y-8 pb-20">
+      {/* Top Action Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-gray-200/80 shadow-xs">
         <div className="flex items-center gap-3">
           <Link
             href="/admin/case-studies"
-            className="p-2 text-gray-500 hover:text-gray-900 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-xl transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-5 h-5" />
           </Link>
           <div>
-            <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-              {isNew ? 'Create New Case Study' : `Edit: ${caseStudy.brandName}`}
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-blue-50 text-[#0066FF] rounded">
+                {isNew ? 'New Entry' : 'Editing Case Study'}
+              </span>
+            </div>
+            <h1 className="text-xl font-black text-gray-900 mt-1">
+              {caseStudy.brandName || 'Untitled Case Study'}
             </h1>
-            <p className="text-xs text-gray-500 mt-0.5">
-              URL: /{caseStudy.slug || 'case-study-slug'}
-            </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           {!isNew && (
             <Link
-              href={`/${caseStudy.slug}`}
+              href={`/case-studies/${caseStudy.slug}`}
               target="_blank"
               className="px-3.5 py-2 text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-xl transition-colors flex items-center gap-1.5"
             >
@@ -197,7 +196,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+            className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
           >
             {saving ? (
               <>
@@ -320,7 +319,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {caseStudy.snapshot?.map((item, index) => (
             <div key={index} className="p-3 bg-gray-50 rounded-xl border border-gray-200 space-y-2">
-              <span className="text-[10px] font-bold text-red-600 uppercase">Metric #{index + 1}</span>
+              <span className="text-[10px] font-bold text-[#0066FF] uppercase">Metric #{index + 1}</span>
               <div className="grid grid-cols-3 gap-2">
                 <input
                   type="text"
@@ -397,7 +396,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
               const newChallenges = [...(caseStudy.challenges || []), 'New client challenge'];
               setCaseStudy({ ...caseStudy, challenges: newChallenges });
             }}
-            className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+            className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
           >
             <Plus className="w-3.5 h-3.5" /> Add Challenge
           </button>
@@ -461,7 +460,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
               ];
               setCaseStudy({ ...caseStudy, solutions: newSolutions });
             }}
-            className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+            className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
           >
             <Plus className="w-3.5 h-3.5" /> Add Solution
           </button>
@@ -479,7 +478,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-4">
           {caseStudy.solutions?.map((sol, index) => (
             <div key={index} className="p-4 bg-gray-50 rounded-xl border border-gray-200 relative space-y-3">
               <button
@@ -493,59 +492,62 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
                 <Trash2 className="w-4 h-4" />
               </button>
 
-              <div>
-                <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
-                  Solution Title
-                </label>
-                <input
-                  type="text"
-                  value={sol.title}
-                  onChange={(e) => {
-                    const updated = [...(caseStudy.solutions || [])];
-                    updated[index].title = e.target.value;
-                    setCaseStudy({ ...caseStudy, solutions: updated });
-                  }}
-                  className="w-full px-3 py-1.5 text-xs font-bold border border-gray-300 rounded-lg bg-white"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="sm:col-span-1">
+                  <MediaUploader
+                    label="Solution Icon"
+                    value={sol.icon}
+                    onChange={(url) => {
+                      const updated = [...(caseStudy.solutions || [])];
+                      updated[index].icon = url;
+                      setCaseStudy({ ...caseStudy, solutions: updated });
+                    }}
+                  />
+                </div>
+                <div className="sm:col-span-2 space-y-2">
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
+                      Title
+                    </label>
+                    <input
+                      type="text"
+                      value={sol.title}
+                      onChange={(e) => {
+                        const updated = [...(caseStudy.solutions || [])];
+                        updated[index].title = e.target.value;
+                        setCaseStudy({ ...caseStudy, solutions: updated });
+                      }}
+                      className="w-full px-3 py-1.5 text-xs font-bold border border-gray-300 rounded-lg bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
+                      Description
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={sol.desc}
+                      onChange={(e) => {
+                        const updated = [...(caseStudy.solutions || [])];
+                        updated[index].desc = e.target.value;
+                        setCaseStudy({ ...caseStudy, solutions: updated });
+                      }}
+                      className="w-full px-3 py-1 text-xs border border-gray-300 rounded-lg bg-white"
+                    />
+                  </div>
+                </div>
               </div>
-
-              <div>
-                <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
-                  Description
-                </label>
-                <textarea
-                  rows={2}
-                  value={sol.desc}
-                  onChange={(e) => {
-                    const updated = [...(caseStudy.solutions || [])];
-                    updated[index].desc = e.target.value;
-                    setCaseStudy({ ...caseStudy, solutions: updated });
-                  }}
-                  className="w-full px-3 py-1 text-xs border border-gray-300 rounded-lg bg-white"
-                />
-              </div>
-
-              <MediaUploader
-                label="Solution Icon"
-                value={sol.icon}
-                onChange={(url) => {
-                  const updated = [...(caseStudy.solutions || [])];
-                  updated[index].icon = url;
-                  setCaseStudy({ ...caseStudy, solutions: updated });
-                }}
-                previewHeight="h-14"
-              />
             </div>
           ))}
         </div>
       </div>
 
-      {/* 7. Results & ROI Cards */}
+      {/* 7. Results & Key Milestones */}
       <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-4">
         <div className="flex justify-between items-center border-b border-gray-100 pb-3">
           <div>
             <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
-              7. Transformative Results & ROI
+              7. Documented Results & Metrics
             </h2>
             <p className="text-xs text-gray-500">Key performance highlights and outcomes</p>
           </div>
@@ -558,7 +560,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
               ];
               setCaseStudy({ ...caseStudy, results: newResults });
             }}
-            className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg text-xs font-bold flex items-center gap-1"
+            className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
           >
             <Plus className="w-3.5 h-3.5" /> Add Result Card
           </button>
@@ -592,7 +594,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-[11px] font-bold text-red-600 uppercase tracking-wider mb-1">
+                  <label className="block text-[11px] font-bold text-[#0066FF] uppercase tracking-wider mb-1">
                     Stat / Metric
                   </label>
                   <input
@@ -604,7 +606,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
                       setCaseStudy({ ...caseStudy, results: updated });
                     }}
                     placeholder="e.g. +250%"
-                    className="w-full px-3 py-1.5 text-xs font-bold border border-red-300 rounded-lg bg-red-50/40 text-red-900"
+                    className="w-full px-3 py-1.5 text-xs font-bold border border-blue-300 rounded-lg bg-blue-50/40 text-blue-900"
                   />
                 </div>
 
@@ -715,7 +717,7 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
         <button
           type="submit"
           disabled={saving}
-          className="px-6 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl text-xs shadow-lg transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
           {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>{saving ? 'Saving...' : 'Save Case Study'}</span>

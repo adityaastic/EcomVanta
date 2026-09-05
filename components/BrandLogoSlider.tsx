@@ -47,7 +47,7 @@ export default function BrandLogoSlider() {
             {brandLogos.map((brand: any, idx: number) => (
               <div
                 key={`brand-1-${idx}`}
-                className="w-48 h-24 sm:w-56 sm:h-28 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-lg transition-all duration-300 hover:border-[#f71735]/30 hover:scale-105 flex-shrink-0"
+                className="w-48 h-24 sm:w-56 sm:h-28 flex items-center justify-center p-4 bg-white rounded-xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:border-[#0066FF]/30 hover:scale-105 flex-shrink-0"
               >
                 <img
                   src={brand.logo || brand.src}
@@ -61,7 +61,7 @@ export default function BrandLogoSlider() {
             {brandLogos.map((brand: any, idx: number) => (
               <div
                 key={`brand-2-${idx}`}
-                className="w-48 h-24 sm:w-56 sm:h-28 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-lg transition-all duration-300 hover:border-[#f71735]/30 hover:scale-105 flex-shrink-0"
+                className="w-48 h-24 sm:w-56 sm:h-28 flex items-center justify-center p-4 bg-white rounded-xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:border-[#0066FF]/30 hover:scale-105 flex-shrink-0"
               >
                 <img
                   src={brand.logo || brand.src}

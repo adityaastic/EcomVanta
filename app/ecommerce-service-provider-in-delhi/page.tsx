@@ -30,34 +30,34 @@ export default function EcommerceDelhiPage() {
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Can Arvian help my online business grow?",
+                "name": "Can EcomVanta help my online business grow?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes, with lots of experience and wide ranges of services Arvian can help you to make relevant strategies for growing your business."
+                  "text": "Yes, with deep expertise and full-stack services EcomVanta creates customized strategies for scaling your eCommerce revenue."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How can Arvian help improve my product listings?",
+                "name": "How can EcomVanta help improve my product listings?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The Arvian team uses its skills to create product listings. They optimize these listings with SEO. This includes clear descriptions, quality images, and the right keywords. These strategies help increase visibility and engage customers."
+                  "text": "The EcomVanta team crafts high-converting product listings optimized with SEO, compelling descriptions, infographics, and keyword architecture."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Does Arvian provide advertising services for e-commerce platforms?",
+                "name": "Does EcomVanta provide advertising services for e-commerce platforms?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Arvian makes and manages custom ads across various channels. This helps to increase product visibility and sales."
+                  "text": "EcomVanta creates and manages high-ROAS PPC ad campaigns across Amazon, Flipkart, Blinkit, Meta, and Google."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Can Arvian assist with account health monitoring?",
+                "name": "Can EcomVanta assist with account health monitoring?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Arvian regularly checks account performance. This ensures compliance with platform guidelines and helps prevent suspensions. It also supports operational efficiency."
+                  "text": "EcomVanta monitors seller metrics 24/7, maintaining policy compliance and preventing account suspensions."
                 }
               }
             ]
@@ -71,19 +71,19 @@ export default function EcommerceDelhiPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org/",
             "@type": "Product",
-            "name": "E-Commerce Service Provider in Delhi | Arvian Business Solutions",
+            "name": "E-Commerce Service Provider in Delhi | EcomVanta",
             "image": "/abt-img/flipkart-web-about.png",
-            "description": "We are a one-stop eCommerce solution provider in Delhi, offering complete listings, product optimisation & order management to boost your online business.",
+            "description": "We are a premier eCommerce solution provider in Delhi, offering complete listings, product optimisation & order management to boost your online business.",
             "brand": {
               "@type": "Brand",
-              "name": "Arvian Business Solutions Pvt Ltd."
+              "name": "EcomVanta"
             },
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "5",
               "bestRating": "5",
               "worstRating": "5",
-              "ratingCount": "72"
+              "ratingCount": "120"
             }
           }),
         }}
@@ -96,7 +96,7 @@ export default function EcommerceDelhiPage() {
         <HeroSection
           onOpenPopup={() => setPopupOpen(true)}
           title="E-Commerce Service Provider in Delhi"
-          description="We are a one-stop eCommerce solution provider in Delhi, offering complete listings, product optimisation & order management to boost your online business."
+          description="We are a premier eCommerce solution provider in Delhi, offering complete listings, product optimisation & order management to boost your online business."
         />
 
         {/* Brand Logos Slider */}
@@ -124,21 +124,21 @@ export default function EcommerceDelhiPage() {
               {/* Right Content */}
               <div className="lg:col-span-6 space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
                 <p>
-                  In Delhi&apos;s competitive digital landscape, businesses need a trusted partner to drive their online sales. <strong className="text-gray-950">Arvian Business Solutions</strong> has earned its reputation as the leading <b className="text-[#f71735]">E-Commerce service provider in Delhi</b>, offering comprehensive, platform-specific solutions tailored to each client&apos;s needs.
+                  In Delhi&apos;s competitive digital landscape, businesses need a trusted partner to drive their online sales. <strong className="text-gray-950">EcomVanta</strong> has earned its reputation as the leading <b className="text-[#0066FF]">E-Commerce service provider in Delhi</b>, offering comprehensive, platform-specific solutions tailored to each client&apos;s needs.
                 </p>
                 <p>
-                  We understand the unique challenges businesses face when establishing a presence on eCommerce platforms. At Arvian, we specialise in customising inventory management, customer service, and operational solutions that streamline processes and deliver exceptional results. Our commitment to outstanding customer service and operational excellence sets us apart as a top choice for eCommerce support in Delhi.
+                  We understand the unique challenges businesses face when establishing a presence on eCommerce platforms. At EcomVanta, we specialise in customising inventory management, customer service, and operational solutions that streamline processes and deliver exceptional results. Our commitment to outstanding customer service and operational excellence sets us apart as a top choice for eCommerce support in Delhi.
                 </p>
                 <p>
-                  Unlike other agencies that offer generic services, Arvian takes the time to understand your specific needs, goals, and sales targets. Every strategy we implement is designed to propel your business to the next level. We provide expert services for top platforms like Amazon, Flipkart, Myntra, and Shopify, helping you succeed in the ever-evolving world of online commerce.
+                  Unlike other agencies that offer generic services, EcomVanta takes the time to understand your specific needs, goals, and sales targets. Every strategy we implement is designed to propel your business to the next level. We provide expert services for top platforms like Amazon, Flipkart, Myntra, and Shopify, helping you succeed in the ever-evolving world of online commerce.
                 </p>
                 
                 <div className="pt-2">
                   <button
                     onClick={() => setPopupOpen(true)}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#f71735] text-white font-bold text-sm hover:bg-[#cc0000] shadow-md transition-all cursor-pointer"
+                    className="ecomvantaPulseBtn inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-sm shadow-xl shadow-blue-500/25 hover:from-[#0052cc] hover:to-[#003d99] cursor-pointer transition-all"
                   >
-                    <span>Get Custom Strategy</span>
+                    <span>Get Custom Growth Strategy</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -148,96 +148,99 @@ export default function EcommerceDelhiPage() {
           </div>
         </section>
 
-        {/* Why Choose Arvian Section */}
-        <section className="py-16 sm:py-20 bg-gray-50/50 border-b border-gray-100">
+        {/* Why Choose EcomVanta Section */}
+        <section className="py-16 sm:py-20 bg-gray-50/60 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1A1A1A]">
-                Why Choose Arvian Business Solutions for Your E-Commerce Success?
+              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+                Delhi Marketplace Leaders
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1A1A1A] mt-2">
+                Why Choose EcomVanta for Your E-Commerce Success?
               </h2>
               <p className="text-gray-600 text-sm sm:text-base mt-3">
-                Selecting the right services for your e-commerce business is important. Businesses in Delhi choose Arvian Business Solutions for many reasons. Here are some advantages of working with us:
+                Selecting the right services for your e-commerce business is important. Businesses in Delhi choose EcomVanta for many reasons:
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
               {/* Card 1 */}
-              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#f71735] flex items-center justify-center mb-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-4 border border-blue-100">
                   <CheckCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  <span className="text-[#f71735]">Expertise &amp; Experience:</span> Proven Knowledge
+                  <span className="text-[#0066FF]">Expertise &amp; Experience:</span> Proven Knowledge
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Our years of experience and knowledge make for great e-commerce strategies to make your business successful. The Arvian team’s knowledge of different platforms and online business methods can be proven effective and successful for your business.
+                  Our years of experience and knowledge make for great e-commerce strategies to make your business successful. The EcomVanta team’s deep platform mastery can be proven effective and profitable for your brand.
                 </p>
               </div>
 
               {/* Card 2 */}
-              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#f71735] flex items-center justify-center mb-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-4 border border-blue-100">
                   <CheckCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  <span className="text-[#f71735]">End-to-End Services:</span> Complete Management
+                  <span className="text-[#0066FF]">End-to-End Services:</span> Complete Management
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Arvian provides a complete set of services. This includes product listing, inventory management, advertising, and account health monitoring. The exclusive services manage the growth of your online businesses.
+                  EcomVanta provides a complete set of services. This includes product listing, inventory management, advertising, and account health monitoring.
                 </p>
               </div>
 
               {/* Card 3 */}
-              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#f71735] flex items-center justify-center mb-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-4 border border-blue-100">
                   <CheckCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  <span className="text-[#f71735]">All-in-One Services:</span> Hassle-Free Growth
+                  <span className="text-[#0066FF]">All-in-One Services:</span> Hassle-Free Growth
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  We keep track of your online services. This includes product listings and customer support. This helps you to focus on important tasks of a business.
+                  We handle every operational detail of your online storefronts, letting you focus on manufacturing and scaling product lines.
                 </p>
               </div>
 
               {/* Card 4 */}
-              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#f71735] flex items-center justify-center mb-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-4 border border-blue-100">
                   <CheckCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  <span className="text-[#f71735]">Competitive Pricing:</span> High ROI
+                  <span className="text-[#0066FF]">Competitive Pricing:</span> High ROI
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  We are a top e-commerce service provider in Delhi. We supply affordable solutions that generate high investment returns for every rupee spent.
+                  We supply affordable solutions that generate high investment returns for every rupee spent on advertising and management.
                 </p>
               </div>
 
               {/* Card 5 */}
-              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#f71735] flex items-center justify-center mb-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-4 border border-blue-100">
                   <CheckCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  <span className="text-[#f71735]">Transparency:</span> Honest Communication
+                  <span className="text-[#0066FF]">Transparency:</span> Honest Communication
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  We make sure that all the services and fee structures will be clear to you. We maintain transparent reporting and active communication at every milestone.
+                  We maintain transparent reporting, real-time KPI dashboards, and active communication at every weekly milestone.
                 </p>
               </div>
 
               {/* Card 6 */}
-              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#f71735] flex items-center justify-center mb-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-4 border border-blue-100">
                   <CheckCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  <span className="text-[#f71735]">Dedicated Support:</span> 24/7 Availability
+                  <span className="text-[#0066FF]">Dedicated Support:</span> 24/7 Availability
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Arvian is the best and most specialised service provider in Delhi for your business. This ensures a seamless shopping experience on various online platforms.
+                  EcomVanta is the most specialized service provider in Delhi, delivering rapid response times and dedicated escalation managers.
                 </p>
               </div>
 
@@ -250,11 +253,14 @@ export default function EcommerceDelhiPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1A1A1A]">
-                Our E-Commerce Services Tailored for Delhi Entrepreneurs
+              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+                Tailored Capabilities
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1A1A1A] mt-2">
+                Our E-Commerce Services Tailored for Delhi Brands
               </h2>
               <p className="text-gray-600 text-sm sm:text-base mt-3">
-                <strong className="text-[#f71735]">Arvian Business Solutions</strong> offers services for e-commerce entrepreneurs in Delhi. We help them succeed in a competitive market. Here are some customised services we offer:
+                <strong className="text-[#0066FF]">EcomVanta</strong> offers end-to-end growth solutions for e-commerce entrepreneurs in Delhi.
               </p>
             </div>
 
@@ -275,54 +281,54 @@ export default function EcommerceDelhiPage() {
 
               {/* Right Services List */}
               <div className="lg:col-span-6 space-y-4">
-                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-red-200 transition-all">
+                <div className="p-4 rounded-xl bg-gray-50/70 border border-gray-100 hover:border-blue-200 transition-all">
                   <h4 className="font-bold text-gray-900 text-base mb-1">
-                    <span className="text-[#f71735]">Inventory &amp; Order Management:</span>
+                    <span className="text-[#0066FF]">Inventory &amp; Order Management:</span>
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    We keep a track of all your inventories to ensure products are always in stock. This prevents delays in deliveries and maintains customer satisfaction.
+                    We keep track of all your inventories to ensure products are always in stock. This prevents delays in deliveries and maintains customer satisfaction.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-red-200 transition-all">
+                <div className="p-4 rounded-xl bg-gray-50/70 border border-gray-100 hover:border-blue-200 transition-all">
                   <h4 className="font-bold text-gray-900 text-base mb-1">
-                    <span className="text-[#f71735]">Product Listing &amp; Optimisation:</span>
+                    <span className="text-[#0066FF]">Product Listing &amp; Optimisation:</span>
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Our team creates high-quality product listings that enhance visibility and improve conversion rates, giving your platform a competitive edge.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-red-200 transition-all">
+                <div className="p-4 rounded-xl bg-gray-50/70 border border-gray-100 hover:border-blue-200 transition-all">
                   <h4 className="font-bold text-gray-900 text-base mb-1">
-                    <span className="text-[#f71735]">Customer Support:</span>
+                    <span className="text-[#0066FF]">Customer Support:</span>
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     We provide reliable and responsive customer service. Our team quickly resolves issues and answers queries, helping you build lasting customer relationships.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-red-200 transition-all">
+                <div className="p-4 rounded-xl bg-gray-50/70 border border-gray-100 hover:border-blue-200 transition-all">
                   <h4 className="font-bold text-gray-900 text-base mb-1">
-                    <span className="text-[#f71735]">Marketing &amp; SEO:</span>
+                    <span className="text-[#0066FF]">Marketing &amp; SEO:</span>
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     We drive traffic to your store through pay-per-click campaigns, SEO strategies, and social media marketing, boosting visibility and increasing sales.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-red-200 transition-all">
+                <div className="p-4 rounded-xl bg-gray-50/70 border border-gray-100 hover:border-blue-200 transition-all">
                   <h4 className="font-bold text-gray-900 text-base mb-1">
-                    <span className="text-[#f71735]">Marketplace Management:</span>
+                    <span className="text-[#0066FF]">Marketplace Management:</span>
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     As a leading e-commerce service provider in Delhi, we ensure smooth management of your e-commerce store across platforms, helping your business run efficiently.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-red-200 transition-all">
+                <div className="p-4 rounded-xl bg-gray-50/70 border border-gray-100 hover:border-blue-200 transition-all">
                   <h4 className="font-bold text-gray-900 text-base mb-1">
-                    <span className="text-[#f71735]">Business Analytics:</span>
+                    <span className="text-[#0066FF]">Business Analytics:</span>
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     We provide clear, regular reports that offer valuable insights into your business performance. These analytics help identify areas for improvement and growth.
@@ -346,20 +352,20 @@ export default function EcommerceDelhiPage() {
           title="FAQs on E-Commerce Solutions in Delhi"
           faqs={[
             {
-              question: "Can Arvian help my online business grow?",
-              answer: "Yes, with lots of experience and wide ranges of services Arvian can help you to make relevant strategies for growing your business."
+              question: "Can EcomVanta help my online business grow?",
+              answer: "Yes, with deep expertise and full-stack services EcomVanta creates customized strategies for scaling your eCommerce revenue."
             },
             {
-              question: "How can Arvian help improve my product listings?",
-              answer: "The Arvian team uses its skills to create product listings. They optimize these listings with SEO. This includes clear descriptions, quality images, and the right keywords. These strategies help increase visibility and engage customers."
+              question: "How can EcomVanta help improve my product listings?",
+              answer: "The EcomVanta team crafts high-converting product listings optimized with SEO, compelling descriptions, infographics, and keyword architecture."
             },
             {
-              question: "Does Arvian provide advertising services for e-commerce platforms?",
-              answer: "Arvian makes and manages custom ads across various channels. This helps to increase product visibility and sales."
+              question: "Does EcomVanta provide advertising services for e-commerce platforms?",
+              answer: "EcomVanta creates and manages high-ROAS PPC ad campaigns across Amazon, Flipkart, Blinkit, Meta, and Google."
             },
             {
-              question: "Can Arvian assist with account health monitoring?",
-              answer: "Arvian regularly checks account performance. This ensures compliance with platform guidelines and helps prevent suspensions. It also supports operational efficiency."
+              question: "Can EcomVanta assist with account health monitoring?",
+              answer: "EcomVanta monitors seller metrics 24/7, maintaining policy compliance and preventing account suspensions."
             }
           ]}
         />

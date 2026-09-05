@@ -23,13 +23,16 @@ export default function AboutUsPage() {
       <main className="min-h-screen pt-20">
         
         {/* HERO SECTION */}
-        <section className="relative py-16 lg:py-24 bg-gradient-to-b from-[#FFFFED] via-white to-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-16 lg:py-24 bg-gradient-to-b from-blue-50/50 via-white to-white border-b border-gray-100 overflow-hidden">
+          <div className="absolute top-10 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-10 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               <div className="lg:col-span-7 space-y-6">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-red-50 text-[#f71735] text-xs font-bold uppercase tracking-wider">
-                  About Arvian Business Solutions
+                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200 text-xs font-bold uppercase tracking-wider">
+                  About EcomVanta
                 </span>
                 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
@@ -37,7 +40,7 @@ export default function AboutUsPage() {
                 </h1>
 
                 <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                  {about?.heroSubtitle || about?.storyDesc || 'Arvian Business Solutions is one of India\'s leading e-commerce management and growth agencies. With over 8+ years of dedicated marketplace experience, we empower D2C brands, manufacturers, and sellers to dominate Amazon, Flipkart, Blinkit, Meesho, Myntra, and Shopify.'}
+                  {about?.heroSubtitle || about?.storyDesc || 'EcomVanta is one of India\'s leading e-commerce management and growth agencies. With over 8+ years of dedicated marketplace experience, we empower D2C brands, manufacturers, and sellers to dominate Amazon, Flipkart, Blinkit, Meesho, Myntra, and Shopify.'}
                 </p>
 
                 {/* Rating Badges from live site */}
@@ -69,7 +72,7 @@ export default function AboutUsPage() {
                 <div className="pt-2">
                   <button
                     onClick={() => setPopupOpen(true)}
-                    className="arvianPulseBtn px-8 py-4 rounded-full bg-[#f71735] text-white font-bold text-sm hover:bg-[#cc0000] shadow-lg cursor-pointer transition-transform duration-300"
+                    className="ecomvantaPulseBtn px-8 py-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-sm shadow-xl shadow-blue-500/25 hover:from-[#0052cc] hover:to-[#003d99] cursor-pointer transition-all duration-300"
                   >
                     Partner With Us
                   </button>
@@ -80,7 +83,7 @@ export default function AboutUsPage() {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                   <img
                     src={about?.heroImage || '/abt-img/About-new-left.png'}
-                    alt="About Arvian"
+                    alt="About EcomVanta"
                     className="w-full h-auto object-cover max-h-[450px]"
                   />
                 </div>
@@ -91,18 +94,18 @@ export default function AboutUsPage() {
         </section>
 
         {/* 4 CORE VALUE PILLARS */}
-        <section className="py-16 bg-gray-50 border-y border-gray-100">
+        <section className="py-16 bg-gray-50/60 border-y border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="text-xs uppercase font-bold text-[#f71735] tracking-widest">Our Foundation</span>
+              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">Our Foundation</span>
               <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mt-2">
-                Why Brands Trust Arvian
+                Why Brands Trust EcomVanta
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#f71735]/40 hover:shadow-xl transition-all">
-                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#0066FF]/40 hover:shadow-xl hover:shadow-blue-500/5 transition-all">
+                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 border border-blue-100">
                   <Image src="/abt-img/Icon-01.png" alt="Expertise" width={36} height={36} className="w-9 h-9 object-contain" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Marketplace Mastery</h3>
@@ -111,8 +114,8 @@ export default function AboutUsPage() {
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#f71735]/40 hover:shadow-xl transition-all">
-                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#0066FF]/40 hover:shadow-xl hover:shadow-blue-500/5 transition-all">
+                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 border border-blue-100">
                   <Image src="/abt-img/Icon-02.png" alt="Growth" width={36} height={36} className="w-9 h-9 object-contain" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">ROI-Driven PPC</h3>
@@ -121,8 +124,8 @@ export default function AboutUsPage() {
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#f71735]/40 hover:shadow-xl transition-all">
-                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#0066FF]/40 hover:shadow-xl hover:shadow-blue-500/5 transition-all">
+                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 border border-blue-100">
                   <Image src="/abt-img/Icon-03.png" alt="Account Health" width={36} height={36} className="w-9 h-9 object-contain" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Account Health Shield</h3>
@@ -131,8 +134,8 @@ export default function AboutUsPage() {
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#f71735]/40 hover:shadow-xl transition-all">
-                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-[#0066FF]/40 hover:shadow-xl hover:shadow-blue-500/5 transition-all">
+                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 border border-blue-100">
                   <Image src="/abt-img/Icon-04.png" alt="Dedicated Manager" width={36} height={36} className="w-9 h-9 object-contain" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Dedicated Account Manager</h3>
@@ -147,10 +150,10 @@ export default function AboutUsPage() {
         {/* FOUNDER & LEADERSHIP SECTION */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-gray-900 to-[#0A0A24] rounded-3xl p-8 sm:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="bg-gradient-to-br from-[#081325] via-[#0B1E36] to-[#07101E] rounded-3xl p-8 sm:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border border-blue-900/40">
               
               <div className="lg:col-span-4 flex justify-center">
-                <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#f71735] shadow-2xl">
+                <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl">
                   <Image
                     src="/abt-img/Arvind-owner-img.jpeg"
                     alt="Arvind - Founder & CEO"
@@ -161,18 +164,18 @@ export default function AboutUsPage() {
               </div>
 
               <div className="lg:col-span-8 space-y-4">
-                <span className="text-[#f71735] text-xs uppercase font-bold tracking-widest">
+                <span className="text-[#00C2FF] text-xs uppercase font-extrabold tracking-widest">
                   Leadership Note
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
                   &ldquo;We Treat Your Brand Like Our Own.&rdquo;
                 </h2>
                 <p className="text-gray-300 text-base leading-relaxed">
-                  When we founded Arvian Business Solutions, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.
+                  When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.
                 </p>
                 <div className="pt-2">
                   <h4 className="text-xl font-bold text-white">Arvind Sharma</h4>
-                  <p className="text-xs text-[#f71735] font-semibold">Founder &amp; CEO, Arvian Business Solutions</p>
+                  <p className="text-xs text-[#00C2FF] font-semibold">Founder &amp; CEO, EcomVanta</p>
                 </div>
               </div>
 

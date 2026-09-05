@@ -3,7 +3,12 @@
 import React, { useState } from 'react';
 import { 
   CheckCircle2, 
-  Loader2 
+  Loader2,
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
+  Zap,
+  TrendingUp
 } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -67,13 +72,13 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
   };
 
   return (
-    <section className="relative py-14 lg:py-24 overflow-hidden bg-[#0A0A24] text-white">
-      {/* Background ambient lighting effects matching live site */}
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#07101E] text-white border-t border-slate-800">
+      {/* Background ambient lighting effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#0A0A24] via-[#120d1e] to-[#0A0A24]" />
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#f71735]/15 rounded-full blur-[150px] mix-blend-screen animate-pulse duration-10000" />
-        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-[#7000ff]/10 rounded-full blur-[130px] mix-blend-screen" />
-        <div className="absolute -bottom-40 left-1/3 w-[600px] h-[600px] bg-[#f71735]/10 rounded-full blur-[160px] mix-blend-screen" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#07101E] via-[#0B1B36] to-[#07101E]" />
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#0066FF]/15 rounded-full blur-[150px] mix-blend-screen animate-pulse duration-10000" />
+        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-[#00C2FF]/15 rounded-full blur-[130px] mix-blend-screen" />
+        <div className="absolute -bottom-40 left-1/3 w-[600px] h-[600px] bg-[#0066FF]/15 rounded-full blur-[160px] mix-blend-screen" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
@@ -83,74 +88,58 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
           {/* Left Column: Information & Value Pillars */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] backdrop-blur-md border border-white/[0.08] text-[#f71735] text-xs font-semibold tracking-wider uppercase shadow-inner">
-                <span className="w-2 h-2 rounded-full bg-[#f71735] animate-ping" />
-                Contact Us
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 backdrop-blur-md border border-cyan-500/20 text-[#00C2FF] text-xs font-bold tracking-wider uppercase shadow-inner">
+                <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping" />
+                Connect With Us
               </span>
 
-              <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight text-white tracking-tight">
-                Get in Touch for <br />
-                <span className="grad-text">Support &amp; Queries</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-4 leading-tight text-white tracking-tight">
+                Scale Your Marketplace <br />
+                <span className="grad-text-glow">Revenues with EcomVanta</span>
               </h2>
 
-              <p className="text-gray-400 mt-5 text-base md:text-lg leading-relaxed max-w-xl">
-                We would love to hear from you! Whether you have a question, need assistance, or simply want to share your thoughts, our team is here to help.
+              <p className="text-slate-300 mt-5 text-base md:text-lg leading-relaxed max-w-xl">
+                Ready to take your Amazon, Flipkart, Meesho, and Quick-Commerce stores to the next level? Get a customized growth roadmap and free catalog audit.
               </p>
             </div>
 
             <div className="space-y-4">
               {/* Pillar 1 */}
-              <div className="group flex gap-4 items-center p-4 rounded-2xl backdrop-blur-md bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] hover:bg-white/[0.05] transition-all duration-300">
+              <div className="group flex gap-4 items-center p-4 rounded-2xl backdrop-blur-md bg-white/[0.03] border border-white/[0.08] hover:border-blue-500/40 hover:bg-white/[0.06] transition-all duration-300 shadow-sm">
                 <div 
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-[0_8px_20px_rgba(252,39,121,0.3)]"
-                  style={{ background: 'linear-gradient(100deg, #7a0a0a 0%, #d11414 35%, #ee2b2b 60%, #ff8a5e 100%)' }}
+                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 bg-gradient-to-tr from-[#0066FF] to-[#00C2FF]"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <TrendingUp className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium text-sm">Proven Industry Experience</h4>
+                  <h4 className="text-white font-bold text-sm">Data-Driven Marketplace Growth</h4>
+                  <p className="text-xs text-slate-400 mt-0.5">Custom PPC, catalogue SEO &amp; inventory algorithms</p>
                 </div>
               </div>
 
               {/* Pillar 2 */}
-              <div className="group flex gap-4 items-center p-4 rounded-2xl backdrop-blur-md bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] hover:bg-white/[0.05] transition-all duration-300">
+              <div className="group flex gap-4 items-center p-4 rounded-2xl backdrop-blur-md bg-white/[0.03] border border-white/[0.08] hover:border-blue-500/40 hover:bg-white/[0.06] transition-all duration-300 shadow-sm">
                 <div 
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-[0_8px_20px_rgba(252,39,121,0.3)]"
-                  style={{ background: 'linear-gradient(100deg, #7a0a0a 0%, #d11414 35%, #ee2b2b 60%, #ff8a5e 100%)' }}
+                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 bg-gradient-to-tr from-[#0066FF] to-[#00C2FF]"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 10H10V4H4V10Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 10H20V4H14V10Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M4 20H10V14H4V20Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 14V20H20V14H14Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M10 14L14 10" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M10 10V14" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                  <Zap className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium text-sm">Customized Business Solutions</h4>
+                  <h4 className="text-white font-bold text-sm">End-to-End Account Management</h4>
+                  <p className="text-xs text-slate-400 mt-0.5">From onboarding to daily orders &amp; customer queries</p>
                 </div>
               </div>
 
               {/* Pillar 3 */}
-              <div className="group flex gap-4 items-center p-4 rounded-2xl backdrop-blur-md bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] hover:bg-white/[0.05] transition-all duration-300">
+              <div className="group flex gap-4 items-center p-4 rounded-2xl backdrop-blur-md bg-white/[0.03] border border-white/[0.08] hover:border-blue-500/40 hover:bg-white/[0.06] transition-all duration-300 shadow-sm">
                 <div 
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-[0_8px_20px_rgba(252,39,121,0.3)]"
-                  style={{ background: 'linear-gradient(100deg, #7a0a0a 0%, #d11414 35%, #ee2b2b 60%, #ff8a5e 100%)' }}
+                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 bg-gradient-to-tr from-[#0066FF] to-[#00C2FF]"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 8L20 5L22 7L19 10L17 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M7 8L4 5L2 7L5 10L7 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M17 8L14 11L10 11L7 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M10 11V14L12 16L14 14V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M7 8V14L12 19L17 14V8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <ShieldCheck className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium text-sm">Long-Term Partnership</h4>
+                  <h4 className="text-white font-bold text-sm">100% Policy Compliance &amp; Support</h4>
+                  <p className="text-xs text-slate-400 mt-0.5">Dedicated key account manager for fast scaling</p>
                 </div>
               </div>
             </div>
@@ -158,22 +147,22 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
 
           {/* Right Column: Lead Form */}
           <div className="lg:col-span-7">
-            <div className="relative overflow-hidden backdrop-blur-2xl bg-white/[0.03] border border-white/[0.08] rounded-[32px] p-6 sm:p-10 shadow-[0_30px_100px_rgba(0,0,0,0.6)]">
+            <div className="relative overflow-hidden backdrop-blur-2xl bg-white/[0.04] border border-white/[0.1] rounded-[32px] p-6 sm:p-10 shadow-[0_30px_100px_rgba(0,102,255,0.15)]">
               
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#f71735]/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#0066FF]/20 rounded-full blur-2xl pointer-events-none" />
 
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Message Sent Successfully!</h3>
-                  <p className="text-sm text-gray-300 max-w-md mx-auto">
-                    Thank you for contacting Arvian Business Solutions. Our ecommerce management team will review your requirements and get in touch with you shortly.
+                  <h3 className="text-2xl font-bold text-white">Inquiry Received Successfully!</h3>
+                  <p className="text-sm text-slate-300 max-w-md mx-auto">
+                    Thank you for reaching out to EcomVanta. Our senior marketplace strategist will review your brand and contact you within 2 business hours.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-4 px-6 py-2 rounded-full bg-[#f71735] text-white text-xs font-semibold hover:bg-[#cc0000] transition-colors"
+                    className="mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00C2FF] text-white text-xs font-bold hover:brightness-110 transition-all shadow-md"
                   >
                     Send Another Inquiry
                   </button>
@@ -195,7 +184,7 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                       placeholder="First Name *"
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder:text-gray-500 text-sm focus:border-[#f71735] focus:ring-4 focus:ring-[#f71735]/10 outline-none transition-all duration-300"
+                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.04] border border-white/[0.12] text-white placeholder:text-slate-400 text-sm focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/20 outline-none transition-all duration-300"
                     />
                     <input
                       type="text"
@@ -204,7 +193,7 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                       placeholder="Last Name *"
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder:text-gray-500 text-sm focus:border-[#f71735] focus:ring-4 focus:ring-[#f71735]/10 outline-none transition-all duration-300"
+                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.04] border border-white/[0.12] text-white placeholder:text-slate-400 text-sm focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/20 outline-none transition-all duration-300"
                     />
                   </div>
 
@@ -214,19 +203,19 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                       type="email"
                       name="email"
                       required
-                      placeholder="Your Email *"
+                      placeholder="Your Business Email *"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder:text-gray-500 text-sm focus:border-[#f71735] focus:ring-4 focus:ring-[#f71735]/10 outline-none transition-all duration-300"
+                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.04] border border-white/[0.12] text-white placeholder:text-slate-400 text-sm focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/20 outline-none transition-all duration-300"
                     />
                     <input
                       type="tel"
                       name="phone"
                       required
-                      placeholder="Phone Number *"
+                      placeholder="Phone / WhatsApp Number *"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder:text-gray-500 text-sm focus:border-[#f71735] focus:ring-4 focus:ring-[#f71735]/10 outline-none transition-all duration-300"
+                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.04] border border-white/[0.12] text-white placeholder:text-slate-400 text-sm focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/20 outline-none transition-all duration-300"
                     />
                   </div>
 
@@ -236,10 +225,10 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                       type="text"
                       name="city"
                       required
-                      placeholder="Your City *"
+                      placeholder="Your City / Region *"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder:text-gray-500 text-sm focus:border-[#f71735] focus:ring-4 focus:ring-[#f71735]/10 outline-none transition-all duration-300"
+                      className="custom-input w-full h-13 px-5 rounded-xl bg-white/[0.04] border border-white/[0.12] text-white placeholder:text-slate-400 text-sm focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/20 outline-none transition-all duration-300"
                     />
                     <div className="relative">
                       <select
@@ -247,17 +236,17 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                         required
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="custom-select w-full h-13 px-5 rounded-xl bg-white/[0.03] border border-white/[0.1] text-gray-400 text-sm focus:border-[#f71735] focus:ring-4 focus:ring-[#f71735]/10 outline-none transition-all duration-300 appearance-none cursor-pointer"
+                        className="custom-select w-full h-13 px-5 rounded-xl bg-[#0d1e38] border border-white/[0.12] text-slate-200 text-sm focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/20 outline-none transition-all duration-300 appearance-none cursor-pointer"
                       >
-                        <option value="" disabled className="bg-[#120d1e] text-gray-400">Select Service *</option>
-                        <option value="Amazon Account Management" className="bg-[#120d1e] text-white">Amazon Account Management</option>
-                        <option value="Flipkart Account Management" className="bg-[#120d1e] text-white">Flipkart Account Management</option>
-                        <option value="Blinkit Account Management" className="bg-[#120d1e] text-white">Blinkit Account Management</option>
-                        <option value="Meesho Account Management" className="bg-[#120d1e] text-white">Meesho Account Management</option>
-                        <option value="Myntra Account Management" className="bg-[#120d1e] text-white">Myntra Account Management</option>
-                        <option value="Shopify Account Management" className="bg-[#120d1e] text-white">Shopify Account Management</option>
+                        <option value="" disabled className="bg-[#07101E] text-slate-400">Select Marketplace *</option>
+                        <option value="Amazon Account Management" className="bg-[#07101E] text-white">Amazon Account Management</option>
+                        <option value="Flipkart Account Management" className="bg-[#07101E] text-white">Flipkart Account Management</option>
+                        <option value="Blinkit & Zepto Onboarding" className="bg-[#07101E] text-white">Blinkit &amp; Zepto Onboarding</option>
+                        <option value="Meesho Account Management" className="bg-[#07101E] text-white">Meesho Account Management</option>
+                        <option value="Myntra & Nykaa Growth" className="bg-[#07101E] text-white">Myntra &amp; Nykaa Growth</option>
+                        <option value="Shopify Store Management" className="bg-[#07101E] text-white">Shopify &amp; D2C Growth</option>
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-cyan-400">
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                       </div>
                     </div>
@@ -266,12 +255,12 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                   {/* Row 4: Message */}
                   <div className="w-full">
                     <textarea
-                      rows={5}
+                      rows={4}
                       name="message"
-                      placeholder="Message..."
+                      placeholder="Tell us about your brand, SKU count, or key goals..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full p-4 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder:text-gray-500 text-sm focus:border-[#f71735] focus:ring-4 focus:ring-[#f71735]/10 outline-none transition-all duration-300 resize-none"
+                      className="w-full p-4 rounded-xl bg-white/[0.04] border border-white/[0.12] text-white placeholder:text-slate-400 text-sm focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/20 outline-none transition-all duration-300 resize-none"
                     />
                   </div>
 
@@ -279,20 +268,18 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="premium-btn group relative overflow-hidden w-full h-13 rounded-xl bg-gradient-to-r from-[#f71735] to-[#e01a67] text-white font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(252,39,121,0.3)] flex items-center justify-center disabled:opacity-60"
+                    className="premium-btn group relative overflow-hidden w-full h-14 rounded-2xl bg-gradient-to-r from-[#0066FF] via-[#0052CC] to-[#00C2FF] text-white font-bold text-sm tracking-wide transition-all duration-300 cursor-pointer shadow-[0_10px_35px_rgba(0,102,255,0.4)] flex items-center justify-center disabled:opacity-60"
                   >
-                    <span className="relative z-10 flex items-center justify-center gap-2 group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="relative z-10 flex items-center justify-center gap-2 group-hover:translate-x-1 transition-transform duration-300 font-bold">
                       {loading ? (
                         <>
                           <Loader2 className="h-4 w-4 animate-spin" />
-                          <span>Sending Message...</span>
+                          <span>Submitting Details...</span>
                         </>
                       ) : (
                         <>
-                          <span>Send Message</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                          </svg>
+                          <span>Claim Free Strategy Audit Call</span>
+                          <ArrowRight className="w-4 h-4" />
                         </>
                       )}
                     </span>
@@ -309,3 +296,4 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
     </section>
   );
 }
+

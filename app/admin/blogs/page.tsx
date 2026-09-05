@@ -89,7 +89,7 @@ export default function BlogsListPage() {
 
         <Link
           href="/admin/blogs/new"
-          className="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-1.5 shrink-0"
+          className="px-5 py-2.5 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-1.5 shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Write New Article</span>
@@ -104,7 +104,7 @@ export default function BlogsListPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search blogs by title or category..."
-            className="w-full pl-9 pr-4 py-2 text-xs border border-gray-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full pl-9 pr-4 py-2 text-xs border border-gray-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
           />
           <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
         </div>
@@ -116,7 +116,7 @@ export default function BlogsListPage() {
       {/* Blogs Grid */}
       {loading ? (
         <div className="py-20 flex justify-center items-center">
-          <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-[#0066FF] animate-spin" />
         </div>
       ) : filteredBlogs.length === 0 ? (
         <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center text-gray-400 text-sm">
@@ -142,7 +142,7 @@ export default function BlogsListPage() {
                     No Cover Image
                   </div>
                 )}
-                <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow">
+                <span className="absolute top-3 left-3 bg-[#0066FF] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow">
                   {blog.category || 'Article'}
                 </span>
               </div>
@@ -161,7 +161,7 @@ export default function BlogsListPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2">
+                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-[#0066FF] transition-colors line-clamp-2">
                     {blog.title}
                   </h3>
 
@@ -173,7 +173,7 @@ export default function BlogsListPage() {
                 <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                   <Link
                     href={`/admin/blogs/${blog.slug || blog.id}`}
-                    className="p-1.5 bg-gray-100 hover:bg-red-50 text-gray-700 hover:text-red-600 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1"
+                    className="p-1.5 bg-gray-100 hover:bg-blue-50 text-gray-700 hover:text-[#0066FF] rounded-lg text-xs font-semibold transition-colors flex items-center gap-1"
                   >
                     <Edit className="w-3.5 h-3.5" />
                     <span>Edit Article</span>
