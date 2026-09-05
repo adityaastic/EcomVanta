@@ -44,9 +44,9 @@ export default function AdminLoginPage() {
         {/* Card Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 text-white font-black text-2xl shadow-xl shadow-red-600/30 mb-4 border border-red-400/20">
-            A
+            E
           </div>
-          <h1 className="text-2xl font-black text-white tracking-tight">Arvian CMS Control</h1>
+          <h1 className="text-2xl font-black text-white tracking-tight">EcomVanta CMS Control</h1>
           <p className="text-sm text-slate-400 mt-1">
             Complete Website Content & Asset Management
           </p>
@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter admin password (e.g. arvian2026)"
+                  placeholder="Enter admin password (e.g. ecomvanta2026)"
                   required
                   className="w-full pl-10 pr-4 py-3 bg-slate-900/90 border border-slate-700 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
                 />
@@ -94,7 +94,7 @@ export default function AdminLoginPage() {
             <p className="flex items-center justify-center gap-1 text-slate-400 font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Default Passcode:{' '}
               <span className="font-mono text-slate-200 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-700">
-                arvian2026
+                ecomvanta2026
               </span>
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function AdminLoginPage() {
 
         {/* Footer */}
         <div className="mt-6 text-center text-xs text-slate-500">
-          <p>© 2026 Arvian Business Solutions • Enterprise Edition</p>
+          <p>© 2026 EcomVanta • Enterprise Edition</p>
         </div>
       </div>
     </div>

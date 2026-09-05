@@ -5,23 +5,41 @@ import path from 'path';
 
 const LEADS_FILE = path.join(process.cwd(), 'data', 'leads.json');
 
+declare global {
+  var __LEADS_CACHE__: any[] | undefined;
+}
+
 function saveLocalLead(lead: any) {
   try {
-    const dir = path.dirname(LEADS_FILE);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
+    let leads: any[] = [];
+    if (globalThis.__LEADS_CACHE__ && Array.isArray(globalThis.__LEADS_CACHE__)) {
+      leads = [...globalThis.__LEADS_CACHE__];
+    } else if (fs.existsSync(LEADS_FILE)) {
+      try {
+        leads = JSON.parse(fs.readFileSync(LEADS_FILE, 'utf-8'));
+      } catch {
+        leads = [];
+      }
     }
-    let leads = [];
-    if (fs.existsSync(LEADS_FILE)) {
-      leads = JSON.parse(fs.readFileSync(LEADS_FILE, 'utf-8'));
-    }
+
     leads.unshift({
       id: Date.now().toString(),
       ...lead,
       status: 'New',
       created_at: new Date().toISOString(),
     });
-    fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2), 'utf-8');
+
+    globalThis.__LEADS_CACHE__ = leads;
+
+    try {
+      const dir = path.dirname(LEADS_FILE);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2), 'utf-8');
+    } catch (fsErr) {
+      console.warn('Cannot write leads to disk on serverless:', fsErr);
+    }
   } catch (err) {
     console.error('Error saving local popup lead:', err);
   }

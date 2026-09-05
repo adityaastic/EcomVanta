@@ -110,7 +110,7 @@ export default function AdminDashboardPage() {
             <span>Master Content Management System</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-            Welcome to Arvian Control Panel
+            Welcome to EcomVanta Control Panel
           </h1>
           <p className="text-slate-300 text-sm mt-2 leading-relaxed">
             Manage every section, image, banner, text, logo, service, blog, and customer inquiry across your entire website in real-time.

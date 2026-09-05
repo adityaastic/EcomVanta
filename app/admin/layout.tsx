@@ -73,7 +73,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-500">
         <div className="animate-pulse flex flex-col items-center gap-3">
           <div className="w-10 h-10 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-sm font-medium">Loading Arvian CMS...</p>
+          <p className="text-sm font-medium">Loading EcomVanta CMS...</p>
         </div>
       </div>
     );
@@ -99,10 +99,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="h-16 px-5 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-red-600 to-rose-500 flex items-center justify-center font-black text-white text-base shadow-md">
-              A
+              E
             </div>
             <div>
-              <h1 className="font-bold text-sm tracking-wide text-white">Arvian Admin</h1>
+              <h1 className="font-bold text-sm tracking-wide text-white">EcomVanta Admin</h1>
               <p className="text-[10px] text-slate-400 font-medium">Enterprise CMS Control</p>
             </div>
           </div>

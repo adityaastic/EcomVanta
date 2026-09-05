@@ -46,30 +46,42 @@ const INITIAL_DEMO_LEADS = [
   }
 ];
 
-function readLeads() {
+declare global {
+  var __LEADS_CACHE__: any[] | undefined;
+}
+
+function readLeads(): any[] {
+  if (globalThis.__LEADS_CACHE__ && globalThis.__LEADS_CACHE__.length > 0) {
+    return globalThis.__LEADS_CACHE__;
+  }
+
   try {
     if (fs.existsSync(LEADS_FILE)) {
       const data = fs.readFileSync(LEADS_FILE, 'utf-8');
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+      globalThis.__LEADS_CACHE__ = parsed;
+      return parsed;
     }
   } catch (err) {
     console.error('Error reading leads:', err);
   }
+
+  globalThis.__LEADS_CACHE__ = INITIAL_DEMO_LEADS;
   return INITIAL_DEMO_LEADS;
 }
 
-function writeLeads(leads: any[]) {
+function writeLeads(leads: any[]): boolean {
+  globalThis.__LEADS_CACHE__ = leads;
   try {
     const dir = path.dirname(LEADS_FILE);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2), 'utf-8');
-    return true;
   } catch (err) {
-    console.error('Error writing leads:', err);
-    return false;
+    console.warn('Serverless environment (read-only fs). Leads saved in runtime memory:', err);
   }
+  return true;
 }
 
 export async function GET(req: Request) {
