@@ -123,10 +123,10 @@ export default function HomePage() {
             <Image src="/Meesho_logo.png" alt="Meesho" width={40} height={40} className="w-full h-full object-contain" />
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full z-10 mb-12 lg:mb-16">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-10 items-center w-full z-10 mb-14 lg:mb-20">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-6 space-y-6">
               
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 border border-blue-200/80 shadow-xs backdrop-blur-md">
                 <span className="relative flex h-2.5 w-2.5">
@@ -191,35 +191,43 @@ export default function HomePage() {
 
             </div>
 
-            {/* Right Hero Visual with Floating Stat Badges */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-white via-blue-50/60 to-indigo-50/40 p-3 shadow-2xl border-4 border-white backdrop-blur-xs">
-                <img
-                  src={hero.heroImage || '/home-img/arvian-home-banner-img.webp'}
-                  alt={hero.titlePart1 || 'E-Commerce Seller Account Management'}
-                  className="w-full h-auto object-contain relative z-10 max-h-[480px]"
-                />
+            {/* Right Hero Visual with Larger Frame and Higher Positioned Stat Badges */}
+            <div className="lg:col-span-6 relative w-full flex justify-center lg:justify-end pt-8 lg:pt-0">
+              <div className="relative w-full max-w-[580px] lg:max-w-[640px]">
+                
+                {/* Main Hero Card Container */}
+                <div className="relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-gradient-to-br from-white via-blue-50/70 to-indigo-50/50 p-4 sm:p-6 shadow-2xl border-4 border-white backdrop-blur-md">
+                  <img
+                    src={hero.heroImage || '/home-img/arvian-home-banner-img.webp'}
+                    alt={hero.titlePart1 || 'E-Commerce Seller Account Management'}
+                    className="w-full h-auto object-contain relative z-10 max-h-[540px] lg:max-h-[620px] scale-105 transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
 
-                {/* Floating Stat Card 1: Top Left */}
-                <div className="absolute top-4 left-4 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl border border-blue-100 flex items-center gap-3 z-20 animate-float-slow">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center font-black text-base shadow-xs">
+                {/* Floating Stat Card 1: Top Left - Positioned Higher Up (Upper) */}
+                <div className="absolute -top-7 -left-3 sm:-top-9 sm:-left-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-2xl border border-blue-100 flex items-center gap-3.5 z-30 animate-float-slow">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center font-black text-lg shadow-xs border border-blue-100/80">
                     📈
                   </div>
                   <div>
-                    <p className="text-lg font-black text-slate-900 leading-none">{hero.heroBadgeNumber || '+340%'}</p>
-                    <p className="text-[10px] text-slate-500 font-bold mt-0.5">{hero.heroBadgeText || 'Avg Sales Growth'}</p>
+                    <p className="text-xl sm:text-2xl font-black text-slate-900 leading-none">{hero.heroBadgeNumber || '₹50Cr+'}</p>
+                    <p className="text-[11px] text-slate-500 font-bold mt-1">{hero.heroBadgeText || 'GMV Generated for Clients'}</p>
                   </div>
                 </div>
 
                 {/* Floating Stat Card 2: Bottom Right */}
-                <div className="absolute bottom-4 right-4 p-3.5 rounded-2xl bg-[#081325] text-white shadow-xl flex items-center gap-3 z-20 border border-blue-900/50">
+                <div className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-6 p-4 rounded-2xl bg-[#081325] text-white shadow-2xl flex items-center gap-3.5 z-30 border border-blue-900/60">
                   <div className="flex -space-x-2">
-                    <div className="w-6 h-6 rounded-full bg-white p-0.5"><Image src="/images/images/amazon-logo.webp" alt="Amazon" width={24} height={24} className="w-full h-full object-contain" /></div>
-                    <div className="w-6 h-6 rounded-full bg-white p-0.5"><Image src="/flipkart-logo.webp" alt="Flipkart" width={24} height={24} className="w-full h-full object-contain" /></div>
-                    <div className="w-6 h-6 rounded-full bg-white p-0.5"><Image src="/myntra-logo.webp" alt="Myntra" width={24} height={24} className="w-full h-full object-contain" /></div>
+                    <div className="w-7 h-7 rounded-full bg-white p-0.5 shadow-sm"><Image src="/images/images/amazon-logo.webp" alt="Amazon" width={28} height={28} className="w-full h-full object-contain" /></div>
+                    <div className="w-7 h-7 rounded-full bg-white p-0.5 shadow-sm"><Image src="/flipkart-logo.webp" alt="Flipkart" width={28} height={28} className="w-full h-full object-contain" /></div>
+                    <div className="w-7 h-7 rounded-full bg-white p-0.5 shadow-sm"><Image src="/myntra-logo.webp" alt="Myntra" width={28} height={28} className="w-full h-full object-contain" /></div>
                   </div>
-                  <p className="text-xs font-extrabold text-blue-100">10+ Marketplaces</p>
+                  <div>
+                    <p className="text-xs sm:text-sm font-black text-blue-100 leading-tight">10+ Marketplaces</p>
+                    <p className="text-[10px] text-slate-400 font-semibold">Amazon, Flipkart & Quick Comm</p>
+                  </div>
                 </div>
+
               </div>
             </div>
 
