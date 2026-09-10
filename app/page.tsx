@@ -128,11 +128,8 @@ export default function HomePage() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.12] tracking-tight">
                 {hero.titlePart1 || 'Scale Your'}{' '}
-                <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] via-[#0052CC] to-[#00C2FF]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] via-[#0052CC] to-[#00C2FF]">
                   {hero.titleHighlight || 'E-Commerce'}
-                  <svg className="absolute -bottom-1.5 left-0 w-full" viewBox="0 0 300 12" fill="none">
-                    <path d="M2 9 Q 75 2, 150 6 T 298 4" stroke="#0066FF" strokeWidth="4" strokeLinecap="round" />
-                  </svg>
                 </span>
                 <br />
                 {hero.titlePart2 || 'Brand Revenue & Marketplaces'}
