@@ -205,8 +205,8 @@ export default function Footer() {
 
             <div className="flex items-center gap-3 text-sm text-slate-300">
               <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-              <a href={`mailto:${contactFooter.supportEmail || 'adityaastic@gmail.com'}`} className="hover:text-cyan-300 transition-colors">
-                {contactFooter.supportEmail || 'adityaastic@gmail.com'}
+              <a href={`mailto:${contactFooter.supportEmail || 'ecomvanta40@gmail.com'}`} className="hover:text-cyan-300 transition-colors">
+                {contactFooter.supportEmail || 'ecomvanta40@gmail.com'}
               </a>
             </div>
 

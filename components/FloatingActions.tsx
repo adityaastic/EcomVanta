@@ -42,7 +42,7 @@ export default function FloatingActions() {
 
       {/* 3. EMAIL BUTTON */}
       <a
-        href="mailto:adityaastic@gmail.com"
+        href="mailto:ecomvanta40@gmail.com"
         aria-label="Email EcomVanta Support"
         className="animate-wave-blue group relative flex items-center justify-center w-14 h-14 bg-white hover:bg-[#0066FF] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.15)] border border-slate-100 transition-all duration-300 ease-out hover:-translate-y-1.5 active:scale-95"
       >

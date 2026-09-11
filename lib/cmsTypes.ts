@@ -265,7 +265,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     favicon: '/favicon.ico',
     topbarPhone: '+918787249407',
     tollFreePhone: '+91 878 724 9407',
-    email: 'adityaastic@gmail.com',
+    email: 'ecomvanta40@gmail.com',
     workingHours: '9:00 AM to 7:00 PM (Mon - Sat)',
     socialLinks: {
       facebook: 'https://facebook.com/ecomvanta',
@@ -498,7 +498,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
   },
   contactFooter: {
     officeAddress: 'New Delhi, India',
-    supportEmail: 'adityaastic@gmail.com',
+    supportEmail: 'ecomvanta40@gmail.com',
     contactPhone: '+91 878 724 9407',
     salesPhone: '+91 878 724 9407',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.06889754725782!3d28.52758200617607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin',
