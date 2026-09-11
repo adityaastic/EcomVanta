@@ -102,11 +102,11 @@ export default function ContactUsPage() {
                 </a>
 
                 <a
-                  href="mailto:ecomvanta40@gmail.com"
+                  href="mailto:adityaastic@gmail.com"
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold hover:bg-[#0066FF] hover:border-[#0066FF] transition-all"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#00C2FF]" />
-                  <span>ecomvanta40@gmail.com</span>
+                  <span>adityaastic@gmail.com</span>
                 </a>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function ContactUsPage() {
                     <Mail className="w-6 h-6 text-[#0066FF] flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm">Email Inquiries</h4>
-                      <p className="text-xs text-gray-600 mt-1">ecomvanta40@gmail.com</p>
+                      <p className="text-xs text-gray-600 mt-1">adityaastic@gmail.com</p>
                     </div>
                   </div>
                 </div>

@@ -57,7 +57,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 
 - **Brand:** EcomVanta
 - **Director & Founder:** Shivam Dubey
-- **Email:** ecomvanta40@gmail.com
+- **Email:** adityaastic@gmail.com
 - **Phone:** +91 878 724 9407
 - **Location:** New Delhi, India
 

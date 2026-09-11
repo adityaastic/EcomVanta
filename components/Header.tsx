@@ -36,11 +36,11 @@ export default function Header({ onOpenPopup }: HeaderProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div className="flex items-center gap-6">
               <a 
-                href={`mailto:${branding.email || 'ecomvanta40@gmail.com'}`} 
+                href={`mailto:${branding.email || 'adityaastic@gmail.com'}`} 
                 className="flex items-center gap-2 hover:text-[#00C2FF] transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-[#00C2FF]" />
-                <span className="font-medium">{branding.email || 'ecomvanta40@gmail.com'}</span>
+                <span className="font-medium">{branding.email || 'adityaastic@gmail.com'}</span>
               </a>
               <a 
                 href={`tel:${branding.topbarPhone || '+918787249407'}`} 
