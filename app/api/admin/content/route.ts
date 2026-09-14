@@ -1,10 +1,22 @@
 import { NextResponse } from 'next/server';
 import { getSiteContent, saveSiteContent, SiteContentData } from '@/lib/cms';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const content = getSiteContent();
-    return NextResponse.json({ success: true, data: content });
+    return NextResponse.json(
+      { success: true, data: content },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        },
+      }
+    );
   } catch (error) {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch content' },
