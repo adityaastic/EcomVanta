@@ -46,7 +46,9 @@ export function saveLocalCmsContent(content: Partial<SiteContentData>) {
 }
 
 export function useCmsContent() {
-  const [content, setContent] = useState<SiteContentData>(DEFAULT_SITE_CONTENT);
+  const [content, setContent] = useState<SiteContentData>(() => {
+    return getLocalCmsContent() || DEFAULT_SITE_CONTENT;
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -68,26 +70,19 @@ export function useCmsContent() {
 
     async function fetchContent() {
       try {
-        const res = await fetch('/api/admin/content', { cache: 'no-store' });
+        const res = await fetch('/api/admin/content', {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
+        });
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.data && isMounted) {
-            const currentLocal = getLocalCmsContent();
-            if (!currentLocal) {
-              setContent(json.data);
-            } else {
-              // Merge so local customized edits take precedence
-              const merged: SiteContentData = {
-                ...json.data,
-                ...currentLocal,
-                branding: { ...json.data.branding, ...(currentLocal.branding || {}) },
-                homepage: { ...json.data.homepage, ...(currentLocal.homepage || {}) },
-                services: { ...json.data.services, ...(currentLocal.services || {}) },
-                caseStudies: { ...json.data.caseStudies, ...(currentLocal.caseStudies || {}) },
-                aboutUs: { ...json.data.aboutUs, ...(currentLocal.aboutUs || {}) },
-                contactFooter: { ...json.data.contactFooter, ...(currentLocal.contactFooter || {}) },
-              };
-              setContent(merged);
+            setContent(json.data);
+            // Sync the fresh server content to localStorage
+            try {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(json.data));
+            } catch (e) {
+              // Ignore quota errors
             }
           }
         }

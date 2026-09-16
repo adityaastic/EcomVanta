@@ -60,20 +60,21 @@ export default function BlogEditPage({ params }: { params: Promise<{ slug: strin
 
     async function loadData() {
       try {
-        const res = await fetch('/api/admin/content', { cache: 'no-store' });
+        const res = await fetch('/api/admin/content', {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
+        });
         const data = await res.json();
-        if (data.success && data.data) {
-          const list = data.data.blogs || [];
-          const currentLocal = getLocalCmsContent();
-          const effectiveList = currentLocal?.blogs || list;
-          setBlogsList(effectiveList);
+        if (data.success && data.data?.blogs) {
+          const list = data.data.blogs;
+          setBlogsList(list);
           if (isNew) {
             setBlog((prev) => prev || { ...EMPTY_BLOG, id: Date.now().toString() });
           } else {
-            const found = effectiveList.find((b: any) => b.slug === slugParam || b.id === slugParam);
+            const found = list.find((b: any) => b.slug === slugParam || b.id === slugParam);
             if (found) {
               setBlog(found);
-            } else {
+            } else if (!local?.blogs?.some((b: any) => b.slug === slugParam)) {
               setError(`Blog post "${slugParam}" not found.`);
             }
           }
@@ -89,8 +90,8 @@ export default function BlogEditPage({ params }: { params: Promise<{ slug: strin
     loadData();
   }, [slugParam, isNew]);
 
-  const handleSave = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSave = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (!blog) return;
 
     if (!blog.title) {
@@ -115,7 +116,7 @@ export default function BlogEditPage({ params }: { params: Promise<{ slug: strin
     saveLocalCmsContent({ blogs: updatedList });
 
     try {
-      await fetch('/api/admin/content', {
+      const res = await fetch('/api/admin/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -123,6 +124,12 @@ export default function BlogEditPage({ params }: { params: Promise<{ slug: strin
           data: updatedList,
         }),
       });
+
+      const data = await res.json();
+      if (data.success && data.data?.blogs) {
+        setBlogsList(data.data.blogs);
+        saveLocalCmsContent({ blogs: data.data.blogs });
+      }
 
       setSavedSuccess(true);
       setTimeout(() => setSavedSuccess(false), 3000);
@@ -311,18 +318,37 @@ export default function BlogEditPage({ params }: { params: Promise<{ slug: strin
         </div>
       </div>
 
-      {/* Floating Save Bar */}
-      <div className="sticky bottom-6 bg-slate-900/90 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-slate-700">
-        <p className="text-xs text-slate-300 font-medium">
-          Saved articles appear immediately on the /blogs route.
-        </p>
+      {/* Clean Bottom Save Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p className="text-xs font-bold text-slate-800">
+            Ready to publish this article?
+          </p>
+          <p className="text-[11px] text-slate-500 font-medium">
+            Saved articles appear immediately on the /blogs route and live feed.
+          </p>
+        </div>
         <button
           type="submit"
           disabled={saving}
-          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
-          {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          <span>{saving ? 'Saving...' : 'Save Article'}</span>
+          {saving ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Saving to Cloud...</span>
+            </>
+          ) : savedSuccess ? (
+            <>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
+            </>
+          ) : (
+            <>
+              <Save className="w-4 h-4" />
+              <span>Save Article</span>
+            </>
+          )}
         </button>
       </div>
     </form>

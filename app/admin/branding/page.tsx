@@ -4,7 +4,18 @@ import React, { useState, useEffect } from 'react';
 import MediaUploader from '@/components/admin/MediaUploader';
 import { SiteBranding } from '@/lib/cmsTypes';
 import { getLocalCmsContent, saveLocalCmsContent } from '@/lib/useCmsContent';
-import { Save, Check, Loader2, Sparkles, RefreshCw, AlertCircle } from 'lucide-react';
+import {
+  Save,
+  Check,
+  Loader2,
+  Sparkles,
+  AlertCircle,
+  Palette,
+  Phone,
+  Globe,
+  Share2,
+  Building2
+} from 'lucide-react';
 
 export default function BrandingSettingsPage() {
   const [branding, setBranding] = useState<SiteBranding | null>(null);
@@ -22,13 +33,14 @@ export default function BrandingSettingsPage() {
 
     async function loadContent() {
       try {
-        const res = await fetch('/api/admin/content', { cache: 'no-store' });
+        const res = await fetch('/api/admin/content', {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
+        });
         const data = await res.json();
-        if (data.success && data.data) {
-          const currentLocal = getLocalCmsContent();
-          if (!currentLocal?.branding) {
-            setBranding(data.data.branding);
-          }
+        if (data.success && data.data && data.data.branding) {
+          setBranding(data.data.branding);
+          saveLocalCmsContent({ branding: data.data.branding });
         }
       } catch (err: any) {
         if (!local?.branding) {
@@ -41,8 +53,8 @@ export default function BrandingSettingsPage() {
     loadContent();
   }, []);
 
-  const handleSave = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSave = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (!branding) return;
 
     setSaving(true);
@@ -61,12 +73,10 @@ export default function BrandingSettingsPage() {
         }),
       });
 
-      let data: any = {};
-      try {
-        data = await res.json();
-      } catch {
-        const text = await res.text().catch(() => '');
-        data = { success: false, error: text || `HTTP ${res.status} response` };
+      const data = await res.json();
+      if (data.success && data.data?.branding) {
+        setBranding(data.data.branding);
+        saveLocalCmsContent({ branding: data.data.branding });
       }
 
       setSavedSuccess(true);
@@ -81,39 +91,49 @@ export default function BrandingSettingsPage() {
 
   if (loading || !branding) {
     return (
-      <div className="py-20 flex justify-center items-center">
+      <div className="py-24 flex flex-col justify-center items-center gap-3">
         <Loader2 className="w-8 h-8 text-[#0066FF] animate-spin" />
+        <p className="text-xs font-semibold text-slate-500">Loading Branding Configuration...</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSave} className="space-y-8 max-w-4xl pb-12">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+    <div className="space-y-6 max-w-5xl pb-20">
+      {/* Top Header Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-            Branding, Logos & Header Information
+          <div className="flex items-center gap-2 mb-1">
+            <div className="p-1.5 rounded-lg bg-blue-50 text-[#0066FF]">
+              <Palette className="w-4 h-4" />
+            </div>
+            <span className="text-[11px] font-black uppercase tracking-wider text-[#0066FF]">
+              Visual Identity & Global Contact
+            </span>
+          </div>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            Branding, Logos & Header Settings
           </h1>
-          <p className="text-xs text-gray-500 mt-1">
-            Update your corporate identity, header and footer logos, contact details, and social links.
+          <p className="text-xs text-slate-500 mt-1">
+            Configure header & footer logos, business contact numbers, working hours, and social media handles.
           </p>
         </div>
 
         <button
-          type="submit"
+          type="button"
+          onClick={() => handleSave()}
           disabled={saving}
-          className="px-6 py-2.5 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
         >
           {saving ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>Saving...</span>
+              <span>Saving to Cloud...</span>
             </>
           ) : savedSuccess ? (
             <>
-              <Check className="w-4 h-4 text-white" />
-              <span>Saved Successfully!</span>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
             </>
           ) : (
             <>
@@ -132,11 +152,25 @@ export default function BrandingSettingsPage() {
       )}
 
       {/* 1. Logos & Visual Identity */}
-      <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3 flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-[#0066FF]" />
-          <span>1. Website Logos & Visuals</span>
-        </h2>
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-6">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+              1
+            </div>
+            <div>
+              <h2 className="text-sm font-black text-slate-900 tracking-tight">
+                Brand Logos & Favicon
+              </h2>
+              <p className="text-[11px] text-slate-500">
+                Upload your transparent PNG/WebP logos for both light navigation and dark backgrounds.
+              </p>
+            </div>
+          </div>
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+            Cloud Media Bucket
+          </span>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <MediaUploader
@@ -150,133 +184,164 @@ export default function BrandingSettingsPage() {
             label="Dark / Footer Logo"
             value={branding.darkLogo}
             onChange={(url) => setBranding({ ...branding, darkLogo: url, footerLogo: url })}
-            helperText="Logo used in dark backgrounds or footer"
+            helperText="Used on dark navigation bars and website footer"
           />
 
           <MediaUploader
             label="Website Favicon"
             value={branding.favicon}
             onChange={(url) => setBranding({ ...branding, favicon: url })}
-            helperText="Square icon (32x32px or 64x64px ICO/PNG)"
+            helperText="Square browser tab icon (32x32px or 64x64px ICO/PNG)"
           />
         </div>
       </div>
 
       {/* 2. Site General Info */}
-      <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-5">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3">
-          2. General Site Identity & SEO
-        </h2>
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
+        <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4">
+          <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+            2
+          </div>
+          <div>
+            <h2 className="text-sm font-black text-slate-900 tracking-tight">
+              General Identity & SEO Meta
+            </h2>
+            <p className="text-[11px] text-slate-500">
+              Company name and default search engine metadata.
+            </p>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Brand / Company Name
             </label>
             <input
               type="text"
               value={branding.siteName}
               onChange={(e) => setBranding({ ...branding, siteName: e.target.value })}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Brand Tagline
             </label>
             <input
               type="text"
               value={branding.siteTagline}
               onChange={(e) => setBranding({ ...branding, siteTagline: e.target.value })}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Default Meta Description
             </label>
             <textarea
               rows={2}
               value={branding.metaDescription}
               onChange={(e) => setBranding({ ...branding, metaDescription: e.target.value })}
-              className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors leading-relaxed"
             />
           </div>
         </div>
       </div>
 
       {/* 3. Header Topbar & Contact Numbers */}
-      <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-5">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3">
-          3. Header Topbar & Contact Details
-        </h2>
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
+        <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4">
+          <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+            3
+          </div>
+          <div>
+            <h2 className="text-sm font-black text-slate-900 tracking-tight">
+              Header Topbar & Direct Contact Channels
+            </h2>
+            <p className="text-[11px] text-slate-500">
+              These phone numbers and email addresses are surfaced in the top navigation and instant call links.
+            </p>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-              Toll Free Number (Displayed in Header)
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              Toll Free / Display Phone
             </label>
             <input
               type="text"
               value={branding.tollFreePhone}
               onChange={(e) => setBranding({ ...branding, tollFreePhone: e.target.value })}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Header Direct Call Link (tel: format)
             </label>
             <input
               type="text"
               value={branding.topbarPhone}
               onChange={(e) => setBranding({ ...branding, topbarPhone: e.target.value })}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Primary Support Email
             </label>
             <input
               type="email"
               value={branding.email}
               onChange={(e) => setBranding({ ...branding, email: e.target.value })}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Business Working Hours
             </label>
             <input
               type="text"
               value={branding.workingHours}
               onChange={(e) => setBranding({ ...branding, workingHours: e.target.value })}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
         </div>
       </div>
 
       {/* 4. Social Media Links */}
-      <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-5">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3">
-          4. Social Media Profiles
-        </h2>
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
+        <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4">
+          <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+            4
+          </div>
+          <div>
+            <h2 className="text-sm font-black text-slate-900 tracking-tight">
+              Official Social Profiles
+            </h2>
+            <p className="text-[11px] text-slate-500">
+              External social profiles linked in header topbar and footer icons.
+            </p>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Instagram Profile URL
             </label>
             <input
               type="text"
+              placeholder="https://instagram.com/ecomvanta"
               value={branding.socialLinks?.instagram || ''}
               onChange={(e) =>
                 setBranding({
@@ -284,16 +349,17 @@ export default function BrandingSettingsPage() {
                   socialLinks: { ...branding.socialLinks, instagram: e.target.value },
                 })
               }
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               LinkedIn Company URL
             </label>
             <input
               type="text"
+              placeholder="https://linkedin.com/company/ecomvanta"
               value={branding.socialLinks?.linkedin || ''}
               onChange={(e) =>
                 setBranding({
@@ -301,16 +367,17 @@ export default function BrandingSettingsPage() {
                   socialLinks: { ...branding.socialLinks, linkedin: e.target.value },
                 })
               }
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Facebook Page URL
             </label>
             <input
               type="text"
+              placeholder="https://facebook.com/ecomvanta"
               value={branding.socialLinks?.facebook || ''}
               onChange={(e) =>
                 setBranding({
@@ -318,16 +385,17 @@ export default function BrandingSettingsPage() {
                   socialLinks: { ...branding.socialLinks, facebook: e.target.value },
                 })
               }
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               YouTube Channel URL
             </label>
             <input
               type="text"
+              placeholder="https://youtube.com/@ecomvanta"
               value={branding.socialLinks?.youtube || ''}
               onChange={(e) =>
                 setBranding({
@@ -335,30 +403,46 @@ export default function BrandingSettingsPage() {
                   socialLinks: { ...branding.socialLinks, youtube: e.target.value },
                 })
               }
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
         </div>
       </div>
 
-      {/* Floating Save Button Bar at Bottom */}
-      <div className="sticky bottom-6 bg-slate-900/90 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-slate-700">
-        <p className="text-xs text-slate-300 font-medium">
-          Make sure to click Save to apply all branding changes to the live site.
-        </p>
+      {/* Clean Bottom Save Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p className="text-xs font-bold text-slate-800">
+            Ready to publish branding updates?
+          </p>
+          <p className="text-[11px] text-slate-500 font-medium">
+            Changes will sync across header, footer, and live website immediately.
+          </p>
+        </div>
         <button
-          type="submit"
+          type="button"
+          onClick={() => handleSave()}
           disabled={saving}
-          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
           {saving ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Saving to Cloud...</span>
+            </>
+          ) : savedSuccess ? (
+            <>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
+            </>
           ) : (
-            <Save className="w-4 h-4" />
+            <>
+              <Save className="w-4 h-4" />
+              <span>Save Branding Changes</span>
+            </>
           )}
-          <span>{saving ? 'Saving...' : 'Save Branding'}</span>
         </button>
       </div>
-    </form>
+    </div>
   );
 }

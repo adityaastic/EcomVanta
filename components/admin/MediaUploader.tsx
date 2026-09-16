@@ -146,22 +146,22 @@ export default function MediaUploader({
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">{label}</label>
+        <label className="block text-xs font-bold text-slate-800 tracking-wide">{label}</label>
         {value && (
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={handleCopy}
-              className="text-[11px] text-gray-500 hover:text-gray-800 font-medium flex items-center gap-1 transition-colors"
+              className="text-[11px] text-slate-600 hover:text-[#0066FF] font-semibold flex items-center gap-1 transition-colors"
             >
               {copied ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
               <span>{copied ? 'Copied URL!' : 'Copy URL'}</span>
             </button>
-            <span className="text-gray-300">|</span>
+            <span className="text-slate-300">|</span>
             <button
               type="button"
               onClick={() => onChange('')}
-              className="text-[11px] text-red-500 hover:text-red-700 font-medium flex items-center gap-1 transition-colors"
+              className="text-[11px] text-rose-500 hover:text-rose-700 font-semibold flex items-center gap-1 transition-colors"
             >
               <X className="w-3 h-3" /> Clear
             </button>
@@ -180,39 +180,42 @@ export default function MediaUploader({
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
           title="Click or drag an image here to replace"
-          className={`relative ${previewHeight} w-full sm:w-44 rounded-xl border-2 border-dashed flex items-center justify-center overflow-hidden shrink-0 cursor-pointer transition-all ${
+          className={`relative ${previewHeight} w-full sm:w-48 rounded-2xl border-2 border-dashed flex items-center justify-center overflow-hidden shrink-0 cursor-pointer transition-all shadow-xs ${
             isDragOver
-              ? 'border-red-500 bg-red-50/50 scale-[1.02]'
-              : 'border-gray-300 hover:border-red-400 bg-gray-50/80 hover:bg-gray-100/80'
+              ? 'border-[#0066FF] bg-blue-50/70 scale-[1.02]'
+              : 'border-slate-200/90 hover:border-blue-400 bg-slate-50/70 hover:bg-slate-100/70'
           }`}
         >
           {value ? (
-            <div className="relative w-full h-full p-2 flex items-center justify-center">
+            <div className="relative w-full h-full p-2.5 flex items-center justify-center">
               <img
                 src={value}
                 alt={label}
-                className="max-h-full max-w-full object-contain"
+                className="max-h-full max-w-full object-contain rounded-lg"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = 'none';
                 }}
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-[11px] font-bold text-white bg-black/60 px-2 py-1 rounded-md">
-                  Change File
+              <div className="absolute inset-0 bg-slate-900/60 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xs">
+                <span className="text-[11px] font-bold text-white bg-white/20 border border-white/30 px-3 py-1.5 rounded-lg shadow-sm">
+                  Replace File
                 </span>
               </div>
             </div>
           ) : (
-            <div className="text-center p-3">
-              <ImageIcon className="w-7 h-7 text-gray-400 mx-auto mb-1" />
-              <span className="text-[11px] font-medium text-gray-500">Drop / Click to upload</span>
+            <div className="text-center p-4">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mx-auto mb-1.5 border border-blue-100">
+                <ImageIcon className="w-4 h-4" />
+              </div>
+              <span className="text-[11px] font-bold text-slate-700 block">Click / Drop to upload</span>
+              <span className="text-[10px] text-slate-400">PNG, WebP, JPG, MP4</span>
             </div>
           )}
 
           {uploading && (
-            <div className="absolute inset-0 bg-white/90 backdrop-blur-xs flex flex-col items-center justify-center gap-1">
-              <Loader2 className="w-6 h-6 text-red-600 animate-spin" />
-              <span className="text-[10px] font-bold text-gray-600">Uploading...</span>
+            <div className="absolute inset-0 bg-white/95 backdrop-blur-xs flex flex-col items-center justify-center gap-1.5 z-20">
+              <Loader2 className="w-6 h-6 text-[#0066FF] animate-spin" />
+              <span className="text-[10px] font-bold text-slate-700">Uploading to CDN...</span>
             </div>
           )}
         </div>
@@ -224,17 +227,17 @@ export default function MediaUploader({
               type="text"
               value={value || ''}
               onChange={(e) => onChange(e.target.value)}
-              placeholder="Enter file URL (e.g. /uploads/image.png or https://...)"
-              className="flex-1 px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+              placeholder="Enter file URL (e.g. /home-img/banner.webp or https://...)"
+              className="flex-1 px-4 py-2.5 text-xs border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-[#0066FF] bg-slate-50/50 focus:bg-white text-slate-900 font-medium transition-all"
             />
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
               disabled={uploading}
-              className="px-4 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition-colors flex items-center gap-1.5 shrink-0 disabled:opacity-50"
+              className="px-4 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold hover:from-slate-800 hover:to-slate-700 transition-all flex items-center gap-1.5 shrink-0 shadow-sm disabled:opacity-50"
             >
-              <Upload className="w-3.5 h-3.5" />
-              <span>{uploading ? 'Uploading...' : 'Upload'}</span>
+              <Upload className="w-3.5 h-3.5 text-[#00C2FF]" />
+              <span>{uploading ? 'Uploading...' : 'Upload Image'}</span>
             </button>
             <input
               ref={fileInputRef}
@@ -246,19 +249,19 @@ export default function MediaUploader({
           </div>
 
           <div className="flex items-center justify-between">
-            {helperText && <p className="text-[11px] text-gray-500">{helperText}</p>}
+            {helperText && <p className="text-[11px] text-slate-500 font-medium">{helperText}</p>}
             {value && (
               <a
                 href={value}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[11px] text-blue-600 hover:text-blue-800 flex items-center gap-1 font-medium ml-auto"
+                className="text-[11px] text-[#0066FF] hover:text-blue-800 flex items-center gap-1 font-bold ml-auto"
               >
-                <ExternalLink className="w-3 h-3" /> View Original
+                <ExternalLink className="w-3 h-3" /> View Asset
               </a>
             )}
           </div>
-          {error && <p className="text-xs text-red-600 font-bold">{error}</p>}
+          {error && <p className="text-xs text-rose-600 font-bold bg-rose-50 p-2 rounded-lg border border-rose-200">{error}</p>}
         </div>
       </div>
     </div>

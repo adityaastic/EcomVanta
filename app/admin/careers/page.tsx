@@ -31,13 +31,14 @@ export default function CareersAdminPage() {
 
     async function loadData() {
       try {
-        const res = await fetch('/api/admin/content', { cache: 'no-store' });
+        const res = await fetch('/api/admin/content', {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
+        });
         const data = await res.json();
-        if (data.success && data.data) {
-          const currentLocal = getLocalCmsContent();
-          if (!currentLocal?.careers) {
-            setCareers(data.data.careers || []);
-          }
+        if (data.success && data.data?.careers) {
+          setCareers(data.data.careers);
+          saveLocalCmsContent({ careers: data.data.careers });
         }
       } catch (err) {
         if (!local?.careers) {
@@ -58,7 +59,7 @@ export default function CareersAdminPage() {
     saveLocalCmsContent({ careers });
 
     try {
-      await fetch('/api/admin/content', {
+      const res = await fetch('/api/admin/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -66,6 +67,12 @@ export default function CareersAdminPage() {
           data: careers,
         }),
       });
+
+      const data = await res.json();
+      if (data.success && data.data?.careers) {
+        setCareers(data.data.careers);
+        saveLocalCmsContent({ careers: data.data.careers });
+      }
 
       setSavedSuccess(true);
       setTimeout(() => setSavedSuccess(false), 3000);
@@ -356,19 +363,38 @@ export default function CareersAdminPage() {
         )}
       </div>
 
-      {/* Floating Save Bar */}
-      <div className="sticky bottom-6 bg-slate-900/90 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-slate-700">
-        <p className="text-xs text-slate-300 font-medium">
-          Save your changes to update job listings on the /career page.
-        </p>
+      {/* Clean Bottom Save Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p className="text-xs font-bold text-slate-800">
+            Ready to publish job openings?
+          </p>
+          <p className="text-[11px] text-slate-500 font-medium">
+            Changes will sync to the /career portal and database in real-time.
+          </p>
+        </div>
         <button
           type="button"
           onClick={handleSave}
           disabled={saving}
-          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
-          {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          <span>{saving ? 'Saving...' : 'Save Openings'}</span>
+          {saving ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Saving to Cloud...</span>
+            </>
+          ) : savedSuccess ? (
+            <>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
+            </>
+          ) : (
+            <>
+              <Save className="w-4 h-4" />
+              <span>Save Job Openings</span>
+            </>
+          )}
         </button>
       </div>
     </div>

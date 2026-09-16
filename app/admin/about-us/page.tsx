@@ -11,7 +11,11 @@ import {
   Save,
   Check,
   Loader2,
-  AlertCircle
+  AlertCircle,
+  Sparkles,
+  Target,
+  Compass,
+  Building
 } from 'lucide-react';
 
 export default function AboutUsAdminPage() {
@@ -30,13 +34,14 @@ export default function AboutUsAdminPage() {
 
     async function loadData() {
       try {
-        const res = await fetch('/api/admin/content', { cache: 'no-store' });
+        const res = await fetch('/api/admin/content', {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
+        });
         const data = await res.json();
-        if (data.success && data.data) {
-          const currentLocal = getLocalCmsContent();
-          if (!currentLocal?.aboutUs) {
-            setAboutUs(data.data.aboutUs);
-          }
+        if (data.success && data.data?.aboutUs) {
+          setAboutUs(data.data.aboutUs);
+          saveLocalCmsContent({ aboutUs: data.data.aboutUs });
         }
       } catch (err: any) {
         if (!local?.aboutUs) {
@@ -49,8 +54,8 @@ export default function AboutUsAdminPage() {
     loadData();
   }, []);
 
-  const handleSave = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSave = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (!aboutUs) return;
 
     setSaving(true);
@@ -69,12 +74,10 @@ export default function AboutUsAdminPage() {
         }),
       });
 
-      let data: any = {};
-      try {
-        data = await res.json();
-      } catch {
-        const text = await res.text().catch(() => '');
-        data = { success: false, error: text || `HTTP ${res.status} response` };
+      const data = await res.json();
+      if (data.success && data.data?.aboutUs) {
+        setAboutUs(data.data.aboutUs);
+        saveLocalCmsContent({ aboutUs: data.data.aboutUs });
       }
 
       setSavedSuccess(true);
@@ -89,44 +92,54 @@ export default function AboutUsAdminPage() {
 
   if (loading || !aboutUs) {
     return (
-      <div className="py-20 flex justify-center items-center">
+      <div className="py-24 flex flex-col justify-center items-center gap-3">
         <Loader2 className="w-8 h-8 text-[#0066FF] animate-spin" />
+        <p className="text-xs font-semibold text-slate-500">Loading About Us Information...</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSave} className="space-y-8 max-w-4xl pb-16">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+    <div className="space-y-6 max-w-5xl pb-20">
+      {/* Top Header Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-            About Us Page CMS
+          <div className="flex items-center gap-2 mb-1">
+            <div className="p-1.5 rounded-lg bg-blue-50 text-[#0066FF]">
+              <Users className="w-4 h-4" />
+            </div>
+            <span className="text-[11px] font-black uppercase tracking-wider text-[#0066FF]">
+              Company Profile & Leadership
+            </span>
+          </div>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            About Us & Team Management
           </h1>
-          <p className="text-xs text-gray-500 mt-1">
-            Manage company story, mission, vision, team profiles, and office graphics.
+          <p className="text-xs text-slate-500 mt-1">
+            Manage company story, mission, vision, leadership team profiles, and agency photos.
           </p>
         </div>
 
         <button
-          type="submit"
+          type="button"
+          onClick={() => handleSave()}
           disabled={saving}
-          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
         >
           {saving ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>Saving...</span>
+              <span>Saving to Cloud...</span>
             </>
           ) : savedSuccess ? (
             <>
-              <Check className="w-4 h-4 text-white" />
-              <span>Saved!</span>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
             </>
           ) : (
             <>
               <Save className="w-4 h-4" />
-              <span>Save About Us</span>
+              <span>Save Changes</span>
             </>
           )}
         </button>
@@ -139,113 +152,135 @@ export default function AboutUsAdminPage() {
         </div>
       )}
 
-      {/* 1. Hero & Team Photo */}
-      <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-4">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3">
-          1. Hero Banner & Headline
-        </h2>
+      {/* 1. Hero & Banner Photo */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
+        <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4">
+          <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+            1
+          </div>
+          <div>
+            <h2 className="text-sm font-black text-slate-900 tracking-tight">
+              Page Headline & Hero Banner
+            </h2>
+            <p className="text-[11px] text-slate-500">
+              The primary banner image is also used in the homepage Growth Partners section.
+            </p>
+          </div>
+        </div>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Page Headline
             </label>
             <input
               type="text"
               value={aboutUs.heroTitle}
               onChange={(e) => setAboutUs({ ...aboutUs, heroTitle: e.target.value })}
-              className="w-full px-3.5 py-2.5 text-xs font-bold border border-gray-300 rounded-xl bg-white"
+              className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Page Subtitle
             </label>
             <textarea
               rows={2}
               value={aboutUs.heroSubtitle}
               onChange={(e) => setAboutUs({ ...aboutUs, heroSubtitle: e.target.value })}
-              className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white"
+              className="w-full px-3.5 py-2 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <MediaUploader
-            label="Team / Culture Banner Photo"
+            label="Main About & Growth Partner Banner Photo"
             value={aboutUs.heroImage}
             onChange={(url) => setAboutUs({ ...aboutUs, heroImage: url })}
+            helperText="Banner displayed on About Us and Homepage Growth Partners section"
+            previewHeight="h-44"
           />
         </div>
       </div>
 
       {/* 2. Story, Mission, Vision */}
-      <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-4">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3">
-          2. Story, Mission & Vision
-        </h2>
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
+        <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4">
+          <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+            2
+          </div>
+          <div>
+            <h2 className="text-sm font-black text-slate-900 tracking-tight">
+              Our Journey, Mission & Vision
+            </h2>
+            <p className="text-[11px] text-slate-500">
+              Foundational company narrative and strategic objectives.
+            </p>
+          </div>
+        </div>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Story Heading Title
             </label>
             <input
               type="text"
-              value={aboutUs.storyTitle || 'Our Journey'}
+              value={aboutUs.storyTitle || 'Who We Are & What We Do'}
               onChange={(e) => setAboutUs({ ...aboutUs, storyTitle: e.target.value })}
-              className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white mb-2 font-bold"
+              className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors mb-2"
             />
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-              Our Journey Story
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              Story / Journey Description
             </label>
             <textarea
               rows={3}
               value={aboutUs.storyDesc}
               onChange={(e) => setAboutUs({ ...aboutUs, storyDesc: e.target.value })}
-              className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white"
+              className="w-full px-3.5 py-2 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                 Mission Heading Title
               </label>
               <input
                 type="text"
                 value={aboutUs.missionTitle || 'Our Mission'}
                 onChange={(e) => setAboutUs({ ...aboutUs, missionTitle: e.target.value })}
-                className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white mb-2 font-bold"
+                className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors mb-2"
               />
-              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                 Our Mission Description
               </label>
               <textarea
                 rows={3}
                 value={aboutUs.missionDesc}
                 onChange={(e) => setAboutUs({ ...aboutUs, missionDesc: e.target.value })}
-                className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white"
+                className="w-full px-3.5 py-2 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                 Vision Heading Title
               </label>
               <input
                 type="text"
                 value={aboutUs.visionTitle || 'Our Vision'}
                 onChange={(e) => setAboutUs({ ...aboutUs, visionTitle: e.target.value })}
-                className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white mb-2 font-bold"
+                className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors mb-2"
               />
-              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                 Our Vision Description
               </label>
               <textarea
                 rows={3}
                 value={aboutUs.visionDesc}
                 onChange={(e) => setAboutUs({ ...aboutUs, visionDesc: e.target.value })}
-                className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white"
+                className="w-full px-3.5 py-2 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
               />
             </div>
           </div>
@@ -253,11 +288,21 @@ export default function AboutUsAdminPage() {
       </div>
 
       {/* 3. Leadership Team Members */}
-      <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-4">
-        <div className="flex justify-between items-center border-b border-gray-100 pb-3">
-          <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
-            3. Leadership & Core Team Members
-          </h2>
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
+        <div className="flex justify-between items-center border-b border-slate-100 pb-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+              3
+            </div>
+            <div>
+              <h2 className="text-sm font-black text-slate-900 tracking-tight">
+                Leadership & Team Members
+              </h2>
+              <p className="text-[11px] text-slate-500">
+                Team member cards with designations and photos.
+              </p>
+            </div>
+          </div>
           <button
             type="button"
             onClick={() => {
@@ -267,7 +312,7 @@ export default function AboutUsAdminPage() {
               ];
               setAboutUs({ ...aboutUs, team: newTeam });
             }}
-            className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
+            className="px-3.5 py-2 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-xl text-xs font-extrabold flex items-center gap-1.5 border border-blue-200 transition-colors"
           >
             <Plus className="w-3.5 h-3.5" /> Add Member
           </button>
@@ -275,20 +320,20 @@ export default function AboutUsAdminPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {aboutUs.team.map((member, index) => (
-            <div key={member.id || index} className="p-4 bg-gray-50 rounded-xl border border-gray-200 relative space-y-3">
+            <div key={member.id || index} className="p-4 bg-slate-50/70 rounded-2xl border border-slate-200/80 relative space-y-3">
               <button
                 type="button"
                 onClick={() => {
                   const filtered = aboutUs.team.filter((_, i) => i !== index);
                   setAboutUs({ ...aboutUs, team: filtered });
                 }}
-                className="absolute top-3 right-3 text-gray-400 hover:text-red-600"
+                className="absolute top-3.5 right-3.5 text-slate-400 hover:text-rose-600 p-1 rounded-lg hover:bg-white transition-colors"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
 
               <div>
-                <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1">
                   Name
                 </label>
                 <input
@@ -299,12 +344,12 @@ export default function AboutUsAdminPage() {
                     updated[index].name = e.target.value;
                     setAboutUs({ ...aboutUs, team: updated });
                   }}
-                  className="w-full px-3 py-1.5 text-xs font-bold border border-gray-300 rounded-lg bg-white"
+                  className="w-full px-3 py-2 text-xs font-bold border border-slate-200 rounded-xl bg-white focus:ring-2 focus:ring-[#0066FF]"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1">
                   Designation / Role
                 </label>
                 <input
@@ -315,7 +360,7 @@ export default function AboutUsAdminPage() {
                     updated[index].designation = e.target.value;
                     setAboutUs({ ...aboutUs, team: updated });
                   }}
-                  className="w-full px-3 py-1.5 text-xs border border-gray-300 rounded-lg bg-white"
+                  className="w-full px-3 py-2 text-xs font-medium border border-slate-200 rounded-xl bg-white focus:ring-2 focus:ring-[#0066FF]"
                 />
               </div>
 
@@ -327,27 +372,47 @@ export default function AboutUsAdminPage() {
                   updated[index].image = url;
                   setAboutUs({ ...aboutUs, team: updated });
                 }}
-                previewHeight="h-20"
+                previewHeight="h-24"
               />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Floating Save Bar */}
-      <div className="sticky bottom-6 bg-slate-900/90 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-slate-700">
-        <p className="text-xs text-slate-300 font-medium">
-          Save your changes to update the /about-us page.
-        </p>
+      {/* Clean Bottom Save Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p className="text-xs font-bold text-slate-800">
+            Ready to publish About Us updates?
+          </p>
+          <p className="text-[11px] text-slate-500 font-medium">
+            Changes will sync to the live /about-us page and cloud storage.
+          </p>
+        </div>
         <button
-          type="submit"
+          type="button"
+          onClick={() => handleSave()}
           disabled={saving}
-          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
-          {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          <span>{saving ? 'Saving...' : 'Save About Us'}</span>
+          {saving ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Saving to Cloud...</span>
+            </>
+          ) : savedSuccess ? (
+            <>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
+            </>
+          ) : (
+            <>
+              <Save className="w-4 h-4" />
+              <span>Save About Us</span>
+            </>
+          )}
         </button>
       </div>
-    </form>
+    </div>
   );
 }

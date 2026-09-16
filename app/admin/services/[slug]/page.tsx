@@ -70,18 +70,19 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
 
     async function loadData() {
       try {
-        const res = await fetch('/api/admin/content', { cache: 'no-store' });
+        const res = await fetch('/api/admin/content', {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
+        });
         const data = await res.json();
-        if (data.success && data.data) {
-          const servicesMap = data.data.services || {};
-          const currentLocal = getLocalCmsContent();
-          const effectiveMap = currentLocal?.services || servicesMap;
-          setAllServices(effectiveMap);
+        if (data.success && data.data?.services) {
+          const servicesMap = data.data.services;
+          setAllServices(servicesMap);
           if (isNew) {
             setService((prev) => prev || { ...EMPTY_SERVICE });
-          } else if (effectiveMap[slugParam]) {
-            setService(effectiveMap[slugParam]);
-          } else {
+          } else if (servicesMap[slugParam]) {
+            setService(servicesMap[slugParam]);
+          } else if (!local?.services?.[slugParam]) {
             setError(`Service with slug "${slugParam}" not found.`);
           }
         }
@@ -96,8 +97,8 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
     loadData();
   }, [slugParam, isNew]);
 
-  const handleSave = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSave = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (!service) return;
 
     if (!service.slug || !service.title) {
@@ -130,12 +131,13 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
         }),
       });
 
-      let data: any = {};
-      try {
-        data = await res.json();
-      } catch {
-        const text = await res.text().catch(() => '');
-        data = { success: false, error: text || `HTTP ${res.status} response` };
+      const data = await res.json();
+      if (data.success && data.data?.services) {
+        setAllServices(data.data.services);
+        if (data.data.services[formattedSlug]) {
+          setService(data.data.services[formattedSlug]);
+        }
+        saveLocalCmsContent({ services: data.data.services });
       }
 
       setSavedSuccess(true);
@@ -505,18 +507,37 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
         </div>
       </div>
 
-      {/* Floating Save Bar */}
-      <div className="sticky bottom-6 bg-slate-900/90 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-slate-700">
-        <p className="text-xs text-slate-300 font-medium">
-          Save your changes to publish directly to /{service.slug || 'service-url'}
-        </p>
+      {/* Clean Bottom Save Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p className="text-xs font-bold text-slate-800">
+            Ready to publish service changes?
+          </p>
+          <p className="text-[11px] text-slate-500 font-medium">
+            Changes will sync to /{service.slug || 'service-slug'} in real-time.
+          </p>
+        </div>
         <button
           type="submit"
           disabled={saving}
-          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
-          {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          <span>{saving ? 'Saving...' : 'Save Service'}</span>
+          {saving ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Saving to Cloud...</span>
+            </>
+          ) : savedSuccess ? (
+            <>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
+            </>
+          ) : (
+            <>
+              <Save className="w-4 h-4" />
+              <span>Save Service Page</span>
+            </>
+          )}
         </button>
       </div>
     </form>

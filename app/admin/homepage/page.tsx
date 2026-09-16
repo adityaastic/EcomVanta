@@ -42,17 +42,21 @@ export default function HomepageEditorPage() {
 
     async function loadData() {
       try {
-        const res = await fetch('/api/admin/content', { cache: 'no-store' });
+        const res = await fetch('/api/admin/content', {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
+        });
         const data = await res.json();
         if (data.success && data.data) {
-          // If no local storage exists yet, use server data
-          const currentLocal = getLocalCmsContent();
-          if (!currentLocal?.homepage) {
-            setHomepage(data.data.homepage);
-          }
-          if (!currentLocal?.aboutUs && data.data.aboutUs) {
+          setHomepage(data.data.homepage);
+          if (data.data.aboutUs) {
             setAboutUs(data.data.aboutUs);
           }
+          // Update localStorage
+          saveLocalCmsContent({
+            homepage: data.data.homepage,
+            ...(data.data.aboutUs ? { aboutUs: data.data.aboutUs } : {}),
+          });
         }
       } catch (err: any) {
         if (!local?.homepage) {
@@ -73,27 +77,28 @@ export default function HomepageEditorPage() {
     setSavedSuccess(false);
     setError(null);
 
-    // Save immediately to localStorage so refresh never loses the photo/text
+    // Save immediately to localStorage
     saveLocalCmsContent({ homepage, ...(aboutUs ? { aboutUs } : {}) });
 
     try {
-      await fetch('/api/admin/content', {
+      const res = await fetch('/api/admin/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          section: 'homepage',
-          data: homepage,
+          content: {
+            homepage,
+            ...(aboutUs ? { aboutUs } : {}),
+          },
         }),
       });
 
-      if (aboutUs) {
-        await fetch('/api/admin/content', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            section: 'aboutUs',
-            data: aboutUs,
-          }),
+      const data = await res.json();
+      if (data.success && data.data) {
+        if (data.data.homepage) setHomepage(data.data.homepage);
+        if (data.data.aboutUs) setAboutUs(data.data.aboutUs);
+        saveLocalCmsContent({
+          homepage: data.data.homepage,
+          ...(data.data.aboutUs ? { aboutUs: data.data.aboutUs } : {}),
         });
       }
 
@@ -115,84 +120,117 @@ export default function HomepageEditorPage() {
     );
   }
 
-  const TABS = [
-    { id: 'hero', label: '1. Hero Banner', icon: Home },
-    { id: 'stats', label: '2. Stats Counters', icon: Award },
-    { id: 'about', label: '3. Growth Partners (About)', icon: Users },
-    { id: 'brands', label: '4. Brand Logos', icon: Sparkles },
-    { id: 'platforms', label: '5. Platforms Grid', icon: Layers },
-    { id: 'listing', label: '6. Listing Services', icon: Layers },
-    { id: 'advantages', label: '7. Why Choose Us', icon: Award },
-    { id: 'testimonials', label: '8. Video Reviews', icon: Video },
-    { id: 'faqs', label: '9. FAQs', icon: HelpCircle },
-    { id: 'cta', label: '10. Bottom CTA', icon: Sparkles },
+  const TAB_CATEGORIES = [
+    {
+      category: 'MAIN & HERO',
+      tabs: [
+        { id: 'hero', label: '1. Hero Banner', icon: Home },
+        { id: 'stats', label: '2. Stats Counters', icon: Award },
+        { id: 'about', label: '3. Growth Partners (About)', icon: Users },
+        { id: 'brands', label: '4. Brand Logos', icon: Sparkles },
+      ],
+    },
+    {
+      category: 'SERVICES & VALUE',
+      tabs: [
+        { id: 'platforms', label: '5. Platforms Grid', icon: Layers },
+        { id: 'listing', label: '6. Listing Services', icon: Layers },
+        { id: 'advantages', label: '7. Why Choose Us', icon: Award },
+      ],
+    },
+    {
+      category: 'SOCIAL & CONVERSION',
+      tabs: [
+        { id: 'testimonials', label: '8. Video Reviews', icon: Video },
+        { id: 'faqs', label: '9. FAQs', icon: HelpCircle },
+        { id: 'cta', label: '10. Bottom CTA', icon: Sparkles },
+      ],
+    },
   ] as const;
 
   return (
-    <div className="space-y-8 max-w-5xl pb-16">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+    <div className="space-y-6 max-w-6xl pb-20">
+      {/* Top Header Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-            Homepage Content & Section Management
-          </h1>
-          <p className="text-xs text-gray-500 mt-1">
-            Edit all texts, headings, banners, photos, cards, and FAQs displayed on the main landing page.
+          <div className="flex items-center gap-2">
+            <span className="p-1.5 rounded-lg bg-blue-50 text-[#0066FF] border border-blue-100">
+              <Home className="w-4 h-4" />
+            </span>
+            <h1 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
+              Homepage Content & Section Management
+            </h1>
+          </div>
+          <p className="text-xs text-slate-500 mt-1 font-medium">
+            Manage every section, image, heading, card, and video short displayed on the main landing page.
           </p>
         </div>
 
-        <button
-          type="button"
-          onClick={() => handleSave()}
-          disabled={saving}
-          className="px-6 py-2.5 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50 shrink-0"
-        >
-          {saving ? (
-            <>
-              <Loader2 className="w-4 h-4 animate-spin" />
-              <span>Saving...</span>
-            </>
-          ) : savedSuccess ? (
-            <>
-              <Check className="w-4 h-4 text-white" />
-              <span>Saved Successfully!</span>
-            </>
-          ) : (
-            <>
-              <Save className="w-4 h-4" />
-              <span>Save Homepage</span>
-            </>
-          )}
-        </button>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={() => handleSave()}
+            disabled={saving}
+            className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+          >
+            {saving ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Saving to Cloud...</span>
+              </>
+            ) : savedSuccess ? (
+              <>
+                <Check className="w-4 h-4 text-emerald-300" />
+                <span>Saved to Supabase!</span>
+              </>
+            ) : (
+              <>
+                <Save className="w-4 h-4" />
+                <span>Save All Changes</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       {error && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 flex items-center gap-2">
-          <AlertCircle className="w-4 h-4 shrink-0" />
+        <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-700 font-semibold flex items-center gap-2.5">
+          <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
           <span>{error}</span>
         </div>
       )}
 
-      {/* Tabs Navigation */}
-      <div className="flex gap-2 overflow-x-auto pb-2 border-b border-gray-200 scrollbar-none">
-        {TABS.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = activeTab === tab.id;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                isActive
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900 border border-gray-200'
-              }`}
-            >
-              <Icon className="w-3.5 h-3.5" />
-              <span>{tab.label}</span>
-            </button>
-          );
-        })}
+      {/* Categorized Modern Tabs Navigation */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-xs space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {TAB_CATEGORIES.map((catGroup) => (
+            <div key={catGroup.category} className="space-y-1.5 p-2.5 bg-slate-50/70 rounded-xl border border-slate-100">
+              <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 px-1 block">
+                {catGroup.category}
+              </span>
+              <div className="flex flex-col gap-1">
+                {catGroup.tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id as any)}
+                      className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-bold transition-all text-left ${
+                        isActive
+                          ? 'bg-[#0066FF] text-white shadow-md shadow-blue-500/25 scale-[1.01]'
+                          : 'text-slate-600 hover:bg-white hover:text-slate-900 border border-transparent hover:border-slate-200'
+                      }`}
+                    >
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                      <span className="truncate">{tab.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* 1. HERO SECTION */}
@@ -519,9 +557,22 @@ export default function HomepageEditorPage() {
               label="Growth Partners Left Banner Image"
               value={aboutUs?.heroImage || '/ecommerce-growth-partners.webp'}
               onChange={(url) => {
-                if (aboutUs) {
-                  setAboutUs({ ...aboutUs, heroImage: url });
-                }
+                setAboutUs((prev) =>
+                  prev
+                    ? { ...prev, heroImage: url }
+                    : {
+                        heroTitle: 'WHO WE ARE & WHAT WE DO',
+                        heroSubtitle: 'Welcome to your one-stop solution for Account Management Services...',
+                        heroImage: url,
+                        storyTitle: 'Who We Are & What We Do',
+                        storyDesc: '',
+                        missionTitle: 'Our Mission',
+                        missionDesc: '',
+                        visionTitle: 'Our Vision',
+                        visionDesc: '',
+                        team: [],
+                      }
+                );
               }}
               helperText="Main left visual for 'Your Dedicated E-Commerce Growth Partners' (PNG/WebP/JPG)"
               previewHeight="h-44"
@@ -535,12 +586,26 @@ export default function HomepageEditorPage() {
                 rows={4}
                 value={aboutUs?.storyDesc || ''}
                 onChange={(e) => {
-                  if (aboutUs) {
-                    setAboutUs({ ...aboutUs, storyDesc: e.target.value });
-                  }
+                  const val = e.target.value;
+                  setAboutUs((prev) =>
+                    prev
+                      ? { ...prev, storyDesc: val }
+                      : {
+                          heroTitle: 'WHO WE ARE & WHAT WE DO',
+                          heroSubtitle: 'Welcome to your one-stop solution for Account Management Services...',
+                          heroImage: '/ecommerce-growth-partners.webp',
+                          storyTitle: 'Who We Are & What We Do',
+                          storyDesc: val,
+                          missionTitle: 'Our Mission',
+                          missionDesc: '',
+                          visionTitle: 'Our Vision',
+                          visionDesc: '',
+                          team: [],
+                        }
+                  );
                 }}
                 placeholder="EcomVanta is a premier e-commerce management agency helping manufacturers..."
-                className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white"
+                className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
               />
             </div>
           </div>
@@ -1273,23 +1338,38 @@ export default function HomepageEditorPage() {
         </div>
       )}
 
-      {/* Floating Save Button Bar at Bottom */}
-      <div className="sticky bottom-6 bg-slate-900/90 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-slate-700">
-        <p className="text-xs text-slate-300 font-medium">
-          Make sure to click Save to apply homepage changes.
-        </p>
+      {/* Clean Bottom Save Card */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p className="text-xs font-bold text-slate-800">
+            Ready to publish homepage updates?
+          </p>
+          <p className="text-[11px] text-slate-500 font-medium">
+            Changes will sync in real time to Supabase Cloud Database and live CDN.
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => handleSave()}
           disabled={saving}
-          className="px-6 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-bold rounded-xl text-xs shadow-lg shadow-[#0066FF]/25 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-extrabold rounded-xl text-xs shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
         >
           {saving ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Saving to Cloud...</span>
+            </>
+          ) : savedSuccess ? (
+            <>
+              <Check className="w-4 h-4 text-emerald-300" />
+              <span>Saved to Supabase!</span>
+            </>
           ) : (
-            <Save className="w-4 h-4" />
+            <>
+              <Save className="w-4 h-4" />
+              <span>Save Homepage Changes</span>
+            </>
           )}
-          <span>{saving ? 'Saving...' : 'Save Homepage'}</span>
         </button>
       </div>
     </div>
