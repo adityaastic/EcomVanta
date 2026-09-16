@@ -1,15 +1,42 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { supabaseAdmin, supabase } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export async function GET() {
   try {
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
     let mediaList: any[] = [];
+    const client = supabaseAdmin || supabase;
 
+    if (client) {
+      try {
+        const { data: files, error } = await client.storage.from('media').list('', {
+          limit: 100,
+          sortBy: { column: 'created_at', order: 'desc' },
+        });
+        if (!error && files && files.length > 0) {
+          mediaList = files
+            .filter((f) => f.name !== '.emptyFolderPlaceholder')
+            .map((f) => {
+              const { data: pUrl } = client.storage.from('media').getPublicUrl(f.name);
+              return {
+                name: f.name,
+                url: pUrl.publicUrl,
+                size: f.metadata?.size || 0,
+                createdAt: f.created_at || new Date(),
+              };
+            });
+          return NextResponse.json({ success: true, media: mediaList });
+        }
+      } catch (sbErr) {
+        console.warn('Failed to list from Supabase storage:', sbErr);
+      }
+    }
+
+    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
     try {
       if (fs.existsSync(uploadDir)) {
         const files = fs.readdirSync(uploadDir);
@@ -58,27 +85,51 @@ export async function POST(req: Request) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const mimeType = file.type || 'image/png';
-    const base64DataUrl = `data:${mimeType};base64,${buffer.toString('base64')}`;
-
     const sanitizedOriginalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
     const timestamp = Date.now();
     const filename = `${timestamp}_${sanitizedOriginalName}`;
-    let finalUrl = base64DataUrl;
+    let finalUrl = `data:${mimeType};base64,${buffer.toString('base64')}`;
 
-    // Attempt to write to public/uploads (works in local dev, may be read-only in serverless/Vercel)
-    try {
-      const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
+    // 1. Upload to Supabase Storage (Public media bucket)
+    const client = supabaseAdmin || supabase;
+    if (client) {
+      try {
+        const { data: uploadData, error: uploadErr } = await client.storage
+          .from('media')
+          .upload(filename, buffer, {
+            contentType: mimeType,
+            upsert: true,
+          });
+
+        if (!uploadErr && uploadData) {
+          const { data: publicUrlData } = client.storage
+            .from('media')
+            .getPublicUrl(filename);
+
+          if (publicUrlData?.publicUrl) {
+            finalUrl = publicUrlData.publicUrl;
+          }
+        } else if (uploadErr) {
+          console.warn('Supabase storage upload warning:', uploadErr.message);
+        }
+      } catch (sbErr: any) {
+        console.warn('Supabase storage upload exception:', sbErr?.message);
       }
-      const filePath = path.join(uploadDir, filename);
-      fs.writeFileSync(filePath, buffer);
-      finalUrl = `/uploads/${filename}`;
-    } catch (fsErr: any) {
-      // In serverless (Vercel Lambda), filesystem is read-only.
-      // Base64 Data URL is used directly and works universally in all browsers and <img> tags!
-      console.warn('Using Base64 Data URL fallback for upload on serverless:', fsErr?.message);
-      finalUrl = base64DataUrl;
+    }
+
+    // 2. Local filesystem write fallback
+    if (finalUrl.startsWith('data:')) {
+      try {
+        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+        if (!fs.existsSync(uploadDir)) {
+          fs.mkdirSync(uploadDir, { recursive: true });
+        }
+        const filePath = path.join(uploadDir, filename);
+        fs.writeFileSync(filePath, buffer);
+        finalUrl = `/uploads/${filename}`;
+      } catch (fsErr: any) {
+        console.warn('Using base64 fallback for upload:', fsErr?.message);
+      }
     }
 
     return NextResponse.json({
@@ -107,6 +158,15 @@ export async function DELETE(req: Request) {
         { success: false, error: 'Filename parameter is required' },
         { status: 400 }
       );
+    }
+
+    const client = supabaseAdmin || supabase;
+    if (client) {
+      try {
+        await client.storage.from('media').remove([filename]);
+      } catch (sbErr) {
+        console.warn('Supabase remove failed:', sbErr);
+      }
     }
 
     try {

@@ -34,9 +34,17 @@ create table if not exists public.inquiries (
     status text default 'new'
 );
 
+-- 3. Site Content Table (For CMS Content, Banners, Texts, Headings, and Photos)
+create table if not exists public.site_content (
+    id text primary key default 'main',
+    content jsonb not null,
+    updated_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
 -- Enable Row Level Security (RLS)
 alter table public.leads enable row level security;
 alter table public.inquiries enable row level security;
+alter table public.site_content enable row level security;
 
 -- Create policy to allow anonymous inserts (lead submissions from frontend)
 create policy "Allow anonymous inserts to leads"
@@ -47,6 +55,18 @@ create policy "Allow anonymous inserts to leads"
 create policy "Allow anonymous inserts to inquiries"
     on public.inquiries for insert
     to anon, authenticated
+    with check (true);
+
+-- Create policies for site_content (public read, insert/update for anon & authenticated)
+create policy "Allow public read access to site_content"
+    on public.site_content for select
+    to anon, authenticated
+    using (true);
+
+create policy "Allow upsert to site_content"
+    on public.site_content for all
+    to anon, authenticated
+    using (true)
     with check (true);
 
 -- Create policy for authenticated admins to read leads
