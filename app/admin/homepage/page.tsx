@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import MediaUploader from '@/components/admin/MediaUploader';
-import { HomepageContent } from '@/lib/cmsTypes';
+import { HomepageContent, AboutUsContent } from '@/lib/cmsTypes';
 import { getLocalCmsContent, saveLocalCmsContent } from '@/lib/useCmsContent';
 import {
   Save,
@@ -17,23 +17,26 @@ import {
   HelpCircle,
   Video,
   Sparkles,
+  Users,
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
 
 export default function HomepageEditorPage() {
   const [homepage, setHomepage] = useState<HomepageContent | null>(null);
+  const [aboutUs, setAboutUs] = useState<AboutUsContent | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'hero' | 'stats' | 'brands' | 'platforms' | 'listing' | 'advantages' | 'testimonials' | 'faqs' | 'cta'>('hero');
+  const [activeTab, setActiveTab] = useState<'hero' | 'stats' | 'about' | 'brands' | 'platforms' | 'listing' | 'advantages' | 'testimonials' | 'faqs' | 'cta'>('hero');
 
   useEffect(() => {
     // 1. Instantly populate from local storage if available
     const local = getLocalCmsContent();
     if (local?.homepage) {
       setHomepage(local.homepage);
+      if (local?.aboutUs) setAboutUs(local.aboutUs);
       setLoading(false);
     }
 
@@ -46,6 +49,9 @@ export default function HomepageEditorPage() {
           const currentLocal = getLocalCmsContent();
           if (!currentLocal?.homepage) {
             setHomepage(data.data.homepage);
+          }
+          if (!currentLocal?.aboutUs && data.data.aboutUs) {
+            setAboutUs(data.data.aboutUs);
           }
         }
       } catch (err: any) {
@@ -68,10 +74,10 @@ export default function HomepageEditorPage() {
     setError(null);
 
     // Save immediately to localStorage so refresh never loses the photo/text
-    saveLocalCmsContent({ homepage });
+    saveLocalCmsContent({ homepage, ...(aboutUs ? { aboutUs } : {}) });
 
     try {
-      const res = await fetch('/api/admin/content', {
+      await fetch('/api/admin/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -80,24 +86,20 @@ export default function HomepageEditorPage() {
         }),
       });
 
-      let data: any = {};
-      try {
-        data = await res.json();
-      } catch {
-        const text = await res.text().catch(() => '');
-        data = { success: false, error: text || `HTTP ${res.status} response` };
+      if (aboutUs) {
+        await fetch('/api/admin/content', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            section: 'aboutUs',
+            data: aboutUs,
+          }),
+        });
       }
 
-      if (data.success) {
-        setSavedSuccess(true);
-        setTimeout(() => setSavedSuccess(false), 3000);
-      } else {
-        // Even if server is read-only (Vercel), local persistence succeeded
-        setSavedSuccess(true);
-        setTimeout(() => setSavedSuccess(false), 3000);
-      }
+      setSavedSuccess(true);
+      setTimeout(() => setSavedSuccess(false), 3000);
     } catch (err: any) {
-      // Local is saved
       setSavedSuccess(true);
       setTimeout(() => setSavedSuccess(false), 3000);
     } finally {
@@ -116,13 +118,14 @@ export default function HomepageEditorPage() {
   const TABS = [
     { id: 'hero', label: '1. Hero Banner', icon: Home },
     { id: 'stats', label: '2. Stats Counters', icon: Award },
-    { id: 'brands', label: '3. Brand Logos', icon: Sparkles },
-    { id: 'platforms', label: '4. Platforms Grid', icon: Layers },
-    { id: 'listing', label: '5. Listing Services', icon: Layers },
-    { id: 'advantages', label: '6. Why Choose Us', icon: Award },
-    { id: 'testimonials', label: '7. Video Reviews', icon: Video },
-    { id: 'faqs', label: '8. FAQs', icon: HelpCircle },
-    { id: 'cta', label: '9. Bottom CTA', icon: Sparkles },
+    { id: 'about', label: '3. Growth Partners (About)', icon: Users },
+    { id: 'brands', label: '4. Brand Logos', icon: Sparkles },
+    { id: 'platforms', label: '5. Platforms Grid', icon: Layers },
+    { id: 'listing', label: '6. Listing Services', icon: Layers },
+    { id: 'advantages', label: '7. Why Choose Us', icon: Award },
+    { id: 'testimonials', label: '8. Video Reviews', icon: Video },
+    { id: 'faqs', label: '9. FAQs', icon: HelpCircle },
+    { id: 'cta', label: '10. Bottom CTA', icon: Sparkles },
   ] as const;
 
   return (
@@ -499,7 +502,52 @@ export default function HomepageEditorPage() {
         </div>
       )}
 
-      {/* 3. BRAND LOGOS */}
+      {/* 3. GROWTH PARTNERS (ABOUT US BANNER) */}
+      {activeTab === 'about' && (
+        <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
+          <div>
+            <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+              Growth Partners / About Section (Home Page)
+            </h2>
+            <p className="text-xs text-gray-500 mt-0.5">
+              Edit the "Your Dedicated E-Commerce Growth Partners" photo banner and story description.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <MediaUploader
+              label="Growth Partners Left Banner Image"
+              value={aboutUs?.heroImage || '/ecommerce-growth-partners.webp'}
+              onChange={(url) => {
+                if (aboutUs) {
+                  setAboutUs({ ...aboutUs, heroImage: url });
+                }
+              }}
+              helperText="Main left visual for 'Your Dedicated E-Commerce Growth Partners' (PNG/WebP/JPG)"
+              previewHeight="h-44"
+            />
+
+            <div>
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                Story / Intro Description
+              </label>
+              <textarea
+                rows={4}
+                value={aboutUs?.storyDesc || ''}
+                onChange={(e) => {
+                  if (aboutUs) {
+                    setAboutUs({ ...aboutUs, storyDesc: e.target.value });
+                  }
+                }}
+                placeholder="EcomVanta is a premier e-commerce management agency helping manufacturers..."
+                className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl bg-white"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 4. BRAND LOGOS */}
       {activeTab === 'brands' && (
         <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
           <div className="flex justify-between items-center border-b border-gray-100 pb-3">
