@@ -447,9 +447,32 @@ export default function HomepageEditorPage() {
                 />
               </div>
             </div>
+
+            <div className="border-t border-gray-100 pt-5">
+              <h3 className="text-xs font-black text-[#0066FF] uppercase tracking-wider mb-3 flex items-center gap-2">
+                <Video className="w-3.5 h-3.5" /> Home Page Feature Video
+              </h3>
+              <p className="text-xs text-gray-500 mb-3">
+                Upload an MP4 video to display as a featured section on the home page (below the hero). Leave empty to hide the section.
+              </p>
+              <MediaUploader
+                label="Featured Home Video (MP4)"
+                value={homepage.heroVideo || ''}
+                onChange={(url) =>
+                  setHomepage({ ...homepage, heroVideo: url })
+                }
+                helperText="Upload an MP4 file from your local machine — it will appear as a video player on the home page"
+              />
+              {homepage.heroVideo && (
+                <div className="mt-3 rounded-xl overflow-hidden bg-black border border-gray-200 max-h-48">
+                  <video src={homepage.heroVideo} controls className="w-full max-h-48 object-contain" />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
+
 
       {/* 2. STATS COUNTERS */}
       {activeTab === 'stats' && (
@@ -635,6 +658,22 @@ export default function HomepageEditorPage() {
             >
               <Plus className="w-3.5 h-3.5" /> Add Brand Logo
             </button>
+          </div>
+
+          {/* Brand Logos Section Heading Editor */}
+          <div>
+            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+              Section Heading ("We Provide Services For These Leading Brands")
+            </label>
+            <input
+              type="text"
+              value={homepage.brandLogosHeading || 'We Provide Services For These Leading Brands'}
+              onChange={(e) =>
+                setHomepage({ ...homepage, brandLogosHeading: e.target.value })
+              }
+              placeholder="We Provide Services For These Leading Brands"
+              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-white"
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -1116,19 +1155,27 @@ export default function HomepageEditorPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
-                    Video URL or File Path (e.g. /image/Amardeep.mp4)
-                  </label>
-                  <input
-                    type="text"
+                  <MediaUploader
+                    label="Upload Reel Video (MP4)"
                     value={video.videoUrl}
-                    onChange={(e) => {
+                    onChange={(url) => {
                       const updated = [...homepage.clientVideos];
-                      updated[index].videoUrl = e.target.value;
+                      updated[index].videoUrl = url;
                       setHomepage({ ...homepage, clientVideos: updated });
                     }}
-                    className="w-full px-3 py-1.5 text-xs border border-gray-300 rounded-lg bg-white"
+                    helperText="Upload an MP4 reel from your local machine — it will play in the 4-video grid on the home page"
                   />
+                  {video.videoUrl && (
+                    <div className="mt-2 rounded-xl overflow-hidden bg-black border border-gray-200" style={{ maxHeight: 180 }}>
+                      <video
+                        src={video.videoUrl}
+                        controls
+                        muted
+                        className="w-full object-contain"
+                        style={{ maxHeight: 180 }}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 <div>

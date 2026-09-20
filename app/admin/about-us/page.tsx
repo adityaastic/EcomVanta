@@ -287,12 +287,87 @@ export default function AboutUsAdminPage() {
         </div>
       </div>
 
-      {/* 3. Leadership Team Members */}
+      {/* 3. Founder Note Section */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
+        <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4">
+          <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
+            3
+          </div>
+          <div>
+            <h2 className="text-sm font-black text-slate-900 tracking-tight">
+              Founder & Leadership Note
+            </h2>
+            <p className="text-[11px] text-slate-500">
+              Update the founder's quote, description, and photo on the About Us page.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              Founder Quote / Heading
+            </label>
+            <input
+              type="text"
+              value={aboutUs.founderQuote || 'We Treat Your Brand Like Our Own.'}
+              onChange={(e) => setAboutUs({ ...aboutUs, founderQuote: e.target.value })}
+              className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              Leadership Description
+            </label>
+            <textarea
+              rows={3}
+              value={aboutUs.founderDesc || 'When we founded EcomVanta, our goal was simple...'}
+              onChange={(e) => setAboutUs({ ...aboutUs, founderDesc: e.target.value })}
+              className="w-full px-3.5 py-2 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                Founder Name
+              </label>
+              <input
+                type="text"
+                value={aboutUs.founderName || 'Arvind Sharma'}
+                onChange={(e) => setAboutUs({ ...aboutUs, founderName: e.target.value })}
+                className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors mb-2"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                Founder Title
+              </label>
+              <input
+                type="text"
+                value={aboutUs.founderTitle || 'Founder & CEO, EcomVanta'}
+                onChange={(e) => setAboutUs({ ...aboutUs, founderTitle: e.target.value })}
+                className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors mb-2"
+              />
+            </div>
+          </div>
+          <MediaUploader
+            label="Founder / Leadership Photo"
+            value={aboutUs.founderImage || '/abt-img/Arvind-owner-img.jpeg'}
+            onChange={(url) => setAboutUs({ ...aboutUs, founderImage: url })}
+            helperText="Upload the founder image displayed next to the quote"
+            previewHeight="h-44"
+          />
+        </div>
+      </div>
+
+      {/* 4. Leadership Team Members */}
       <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
           <div className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
-              3
+              4
             </div>
             <div>
               <h2 className="text-sm font-black text-slate-900 tracking-tight">

@@ -103,6 +103,8 @@ export interface HomepageContent {
   hero: HeroSectionContent;
   stats: StatCounter[];
   brandLogos: BrandLogo[];
+  brandLogosHeading?: string;
+  heroVideo?: string;
   platforms: PlatformService[];
   listingServices: ListingServiceCard[];
   advantages: {
@@ -114,6 +116,7 @@ export interface HomepageContent {
   faqs: FaqItem[];
   bottomCta: CtaBannerContent;
 }
+
 
 export interface BlogPostItem {
   id: string;
@@ -150,6 +153,11 @@ export interface AboutUsContent {
   missionDesc: string;
   visionTitle: string;
   visionDesc: string;
+  founderQuote?: string;
+  founderDesc?: string;
+  founderName?: string;
+  founderTitle?: string;
+  founderImage?: string;
   team: {
     id: string;
     name: string;
@@ -298,6 +306,8 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       { id: '3', number: '4.8X', label: 'Average ROAS Achieved', description: 'On Amazon & Flipkart Sponsored Ads' },
       { id: '4', number: '99.4%', label: 'Listing Accuracy & SLA', description: 'Zero policy strikes or BuyBox loss' },
     ],
+    brandLogosHeading: 'We Provide Services For These Leading Brands',
+    heroVideo: '',
     brandLogos: [
       { id: '1', name: 'Deshi', logo: '/Deshi.png' },
       { id: '2', name: 'Krishna', logo: '/Krishna logo .png' },
@@ -492,6 +502,11 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     missionDesc: 'To help you sell smarter, grow faster, and stay stress-free in today\'s competitive e-commerce world.',
     visionTitle: 'Our Vision',
     visionDesc: 'To be India\'s premier marketplace growth partner, turning brand potential into sustainable, multi-channel e-commerce market leadership.',
+    founderQuote: 'We Treat Your Brand Like Our Own.',
+    founderDesc: 'When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.',
+    founderName: 'Arvind Sharma',
+    founderTitle: 'Founder & CEO, EcomVanta',
+    founderImage: '/abt-img/Arvind-owner-img.jpeg',
     team: [
       { id: '1', name: 'Shivam Dubey', designation: 'Director & Founder', image: '/image/Aadil.png' },
     ],

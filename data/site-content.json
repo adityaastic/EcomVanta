@@ -1,16 +1,16 @@
 {
   "branding": {
     "siteName": "EcomVanta",
-    "siteTagline": "Powering Brands. Scaling E-commerce",
-    "metaDescription": "EcomVanta - Your Marketplace Growth Partner from Setup to Sales. Account Management Services for Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix & D2C.",
-    "headerLogo": "/include/images/dark-logo.png",
-    "darkLogo": "/include/images/dark-logo.png",
-    "footerLogo": "/include/images/dark-logo.png",
-    "favicon": "/favicon.ico",
+    "siteTagline": "Powering Brands. Scaling E-commerce.",
+    "metaDescription": "EcomVanta is India premier marketplace account management agency.",
+    "headerLogo": "/ecomvanta-logo.png",
+    "darkLogo": "/ecomvanta-logo.png",
+    "footerLogo": "/ecomvanta-logo.png",
+    "favicon": "/icon.png",
     "topbarPhone": "+918787249407",
     "tollFreePhone": "+91 878 724 9407",
     "email": "ecomvanta40@gmail.com",
-    "workingHours": "9:00 AM to 7:00 PM (Mon - Sat)",
+    "workingHours": "Mon - Sat: 10:00 AM - 7:00 PM",
     "socialLinks": {
       "facebook": "https://facebook.com/ecomvanta",
       "instagram": "https://instagram.com/ecomvanta",
@@ -30,7 +30,7 @@
       "primaryCtaLink": "/contact-us",
       "secondaryCtaText": "View Case Studies",
       "secondaryCtaLink": "/portfolio",
-      "heroImage": "/home-img/arvian-home-banner-img.webp",
+      "heroImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp",
       "heroBadgeNumber": "₹50Cr+",
       "heroBadgeText": "GMV Generated for Clients",
       "trustRating": "4.9 / 5.0",
@@ -62,51 +62,58 @@
         "description": "Zero policy strikes or BuyBox loss"
       }
     ],
+    "brandLogosHeading": "We Provide Services For These Leading Brands",
+    "heroVideo": "/uploads/1789926731529_online_shop.mp4",
     "brandLogos": [
       {
         "id": "1",
         "name": "Deshi",
-        "logo": "/Deshi.png"
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562322977_1.webp"
       },
       {
         "id": "2",
         "name": "Krishna",
-        "logo": "/Krishna logo .png"
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562333286_2.webp"
       },
       {
         "id": "3",
         "name": "Forest Found",
-        "logo": "/Forest Found.png"
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562338237_3.webp"
       },
       {
         "id": "4",
         "name": "SS Logo",
-        "logo": "/SS logo .png"
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562343224_4.webp"
       },
       {
         "id": "5",
         "name": "RPURE",
-        "logo": "/RPURE logo .png"
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562347752_5.webp"
       },
       {
         "id": "6",
         "name": "Nufyt",
-        "logo": "/Nufyt.png"
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562361360_7.webp"
       },
       {
-        "id": "7",
-        "name": "Rasaveda",
-        "logo": "/Rasaveda.png"
+        "id": "1789926477432",
+        "name": "New Brand",
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926514641_WhatsApp_Image_2026-09-20_at_22.54.41.webp"
       },
       {
-        "id": "8",
-        "name": "Bubz",
-        "logo": "/Bubz.png"
+        "id": "1789926478482",
+        "name": "New Brand",
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926552550_WhatsApp_Image_2026-09-20_at_22.54.42__1_.webp"
       },
       {
-        "id": "9",
-        "name": "Ninety Two",
-        "logo": "/Ninety Two.png"
+        "id": "1789926479415",
+        "name": "New Brand",
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926559447_WhatsApp_Image_2026-09-20_at_22.54.41__1_.webp"
+      },
+      {
+        "id": "1789926480082",
+        "name": "New Brand",
+        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926577132_WhatsApp_Image_2026-09-20_at_22.54.42.webp"
       }
     ],
     "platforms": [
@@ -136,26 +143,26 @@
       },
       {
         "id": "4",
-        "name": "Shopify",
+        "name": "Shopify / D2C",
         "logo": "/shopify-logo.webp",
-        "title": "Shopify Store Management",
+        "title": "Shopify & D2C Store Management",
         "desc": "High-converting custom store development, app integrations, payment gateways, and Meta/Google conversion ads.",
         "link": "/shopify-store-management-services"
       },
       {
         "id": "5",
-        "name": "Blinkit",
+        "name": "Blinkit & Quick Commerce",
         "logo": "/header-img/Blinkit-logo.svg",
-        "title": "Blinkit Onboarding & Growth",
+        "title": "Blinkit, Zepto & BigBasket",
         "desc": "Quick commerce onboarding, dark store inventory distribution, micro-warehouse planning, and brand visibility.",
         "link": "/blinkit-seller-account-management-services"
       },
       {
         "id": "6",
-        "name": "Myntra",
+        "name": "Myntra & Moglix",
         "logo": "/myntra-logo.webp",
-        "title": "Myntra Account Management",
-        "desc": "Fashion & apparel catalog curation, style tag setup, End of Reason Sale (EORS) campaigns, and inventory sync.",
+        "title": "Myntra, Moglix & B2B Portals",
+        "desc": "Fashion & apparel catalog curation, style tag setup, B2B wholesale pricing sync, and campaign management.",
         "link": "/myntra-account-management-services"
       }
     ],
@@ -228,7 +235,7 @@
         "id": "1",
         "name": "Amardeep",
         "role": "Founder, Home & Kitchen Brand",
-        "videoUrl": "/image/Amardeep.mp4",
+        "videoUrl": "/uploads/1789927112958_online_shop.mp4",
         "quote": "EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.",
         "rating": 5
       },
@@ -253,7 +260,7 @@
         "name": "Kamna",
         "role": "Ayurvedic Wellness Brand",
         "videoUrl": "/image/Kamna Video.mp4",
-        "quote": "Best eCommerce agency in India. Professional and always available.",
+        "quote": "Best eCommerce agency. Professional, responsive, and always available.",
         "rating": 5
       }
     ],
@@ -266,7 +273,7 @@
       {
         "id": "2",
         "question": "Which eCommerce platforms does EcomVanta support?",
-        "answer": "We provide full-service management for Amazon India, Amazon Global, Flipkart, Meesho, Shopify, Blinkit, Zepto, Swiggy Instamart, Myntra, Nykaa, Tata Cliq, and Etsy."
+        "answer": "We provide full-service management for Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Shopify / D2C Brand Websites."
       },
       {
         "id": "3",
@@ -294,7 +301,7 @@
       "badge": "Official Flipkart Partner Network",
       "title": "Flipkart Account Management Services",
       "subtitle": "Scale your revenue on Flipkart with end-to-end account handling, listing score optimization, Flipkart Ads (PCA/PLA), and Big Billion Days strategy.",
-      "heroImage": "/flipkart-account/product-dashboard.png",
+      "heroImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707560459_ChatGPT_Image_Sep_18__2026__10_28_59_AM.webp",
       "aboutImage": "/abt-img/flipkart-web-about.png",
       "aboutTitle": "Maximize Your Brand Visibility on Flipkart",
       "aboutDesc": "With over 500M+ registered customers on Flipkart, achieving organic rank requires algorithmic listing precision. Our certified managers handle daily catalog maintenance, inventory sync, and ad spend efficiency.",
@@ -365,7 +372,7 @@
       "subtitle": "Dominate India’s fastest growing Tier-2 and Tier-3 consumer base with zero-commission cataloging, Next Day Dispatch, and Meesho Ads.",
       "heroImage": "/Meesho/meesho-web-about.webp",
       "aboutImage": "/Meesho/Meesho Product Listing Services.webp",
-      "aboutTitle": "Scale Your Sales on Meesho with Arvian",
+      "aboutTitle": "Scale Your Sales on Meesho with EcomVanta",
       "aboutDesc": "Meesho is transforming social and regional commerce in India. We help sellers leverage zero commission, optimized price tiers, and high-velocity daily order dispatching.",
       "servicesGrid": [
         {
@@ -835,57 +842,57 @@
       "brandLogo": "/abt-img/Gataca-logo.png",
       "category": "Health, Fitness & Supplements",
       "title": "How GATACA Multiplied Monthly Orders by 10X on Amazon",
-      "subtitle": "Overcoming fierce fitness competition with Premium A+ Content, Sponsored Brand Video Ads, and FBA stock positioning.",
+      "subtitle": "Scaling an Indian sports nutrition brand from scratch to market leadership with Amazon PPC & brand storefront.",
       "snapshot": [
         {
           "metric": "10X",
-          "label": "Order Volume Growth",
-          "sublabel": "Scaled from 200 to 2,000+ orders"
+          "label": "Order Growth",
+          "sublabel": "From 500 to 5,000+ units/mo"
         },
         {
           "metric": "4.2X",
           "label": "Average ROAS",
-          "sublabel": "Delivered by video ads"
+          "sublabel": "High-intent PPC campaigns"
         },
         {
-          "metric": "4.8★",
-          "label": "Customer Rating",
-          "sublabel": "Maintained across all SKUs"
+          "metric": "20%+",
+          "label": "Repeat Customers",
+          "sublabel": "Via Subscribe & Save"
         },
         {
           "metric": "Top 3",
-          "label": "Organic Search Rank",
-          "sublabel": "For high volume fitness keywords"
+          "label": "Category Ranking",
+          "sublabel": "In Whey & Pre-Workout"
         }
       ],
       "challengeTitle": "The Business Challenge",
       "challenges": [
-        "Intense competition from established legacy supplement brands dominating search results.",
-        "Low consumer trust due to lack of certified lab reports and authentic video testimonials.",
-        "High return and cancellation rates due to unclear dosage and ingredient transparency.",
-        "Sub-optimal Sponsored Products campaigns burning budget on non-converting broad terms."
+        "Extremely saturated sports nutrition category dominated by global imported brands.",
+        "High Cost-Per-Click (CPC) making broad keyword PPC campaigns unprofitable.",
+        "Customer skepticism regarding purity and authenticity of new Indian supplement brands.",
+        "Low repeat purchase rate due to lack of customer retention funnel."
       ],
       "solutionTitle": "Our Strategic Solution",
       "solutions": [
         {
           "icon": "/abt-img/Product Listing Optimization.png",
-          "title": "Nutritional A+ Brand Story",
-          "desc": "Lab-tested certification badges, ingredient breakdown charts, and usage guide modules."
+          "title": "Authenticity & Lab-Report A+ Content",
+          "desc": "Designed transparent third-party lab test badges, ingredient origin charts, and informed-choice certifications."
         },
         {
           "icon": "/abt-img/Catalog Management.png",
-          "title": "Flavor & Size Variation Setup",
-          "desc": "Allowed buyers to easily switch flavors and combo-packs without leaving the page."
+          "title": "Flavor & Size Matrix Structuring",
+          "desc": "Clean child variation theme grouping 1kg/2kg packs with 6 flavor choices into single parent ASINs."
         },
         {
           "icon": "/abt-img/Amazon Advertising.png",
-          "title": "Sponsored Brand Video Ads",
-          "desc": "High-hook unboxing and workout videos targeting competitor product pages."
+          "title": "High-Intent Long-Tail PPC",
+          "desc": "Targeted long-tail fitness queries (\"isolate whey for muscle recovery\") lowering CPC by 38%."
         },
         {
           "icon": "/abt-img/Performance Monitoring.png",
-          "title": "Amazon Vine & Review Strategy",
-          "desc": "Accelerated verified buyer feedback and 5-star customer ratings."
+          "title": "Subscribe & Save Integration",
+          "desc": "Built recurring monthly revenue streams with 20%+ repeat customer orders."
         },
         {
           "icon": "/abt-img/revenue growth.png",
@@ -1194,7 +1201,7 @@
       "id": "1",
       "title": "Senior eCommerce Account Manager",
       "department": "Operations",
-      "location": "Delhi / Hybrid",
+      "location": "New Delhi / Hybrid",
       "type": "Full-time",
       "experience": "2-4 Years",
       "description": "Lead Amazon & Flipkart brand management, PPC ad strategy, and client relations for top D2C brands.",
@@ -1209,7 +1216,7 @@
       "id": "2",
       "title": "PPC & Performance Marketing Specialist",
       "department": "Marketing",
-      "location": "Delhi / Remote",
+      "location": "New Delhi / Remote",
       "type": "Full-time",
       "experience": "1-3 Years",
       "description": "Manage Amazon Sponsored Ads, Meta Ads, and Google Ads campaigns to drive high ROAS.",
@@ -1224,7 +1231,7 @@
       "id": "3",
       "title": "eCommerce Catalog & Graphic Designer",
       "department": "Creative",
-      "location": "Delhi / Hybrid",
+      "location": "New Delhi / Hybrid",
       "type": "Full-time",
       "experience": "1-3 Years",
       "description": "Design high-converting Amazon A+ Content, Brand Story modules, product infographics, and banners.",
@@ -1239,19 +1246,24 @@
   "aboutUs": {
     "heroTitle": "WHO WE ARE & WHAT WE DO",
     "heroSubtitle": "Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
-    "heroImage": "/arvian-team-image.jpeg",
+    "heroImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707303911_ChatGPT_Image_Sep_18__2026__10_24_51_AM.webp",
     "storyTitle": "Who We Are & What We Do",
     "storyDesc": "Whether you're just starting out or scaling up, we handle everything — from product listings to ad campaigns. EcomVanta provides complete end-to-end marketplace management helping brands sell smarter, grow faster, and stay stress-free in today's competitive e-commerce world.",
     "missionTitle": "Our Mission",
     "missionDesc": "To help you sell smarter, grow faster, and stay stress-free in today's competitive e-commerce world.",
     "visionTitle": "Our Vision",
     "visionDesc": "To be India's premier marketplace growth partner, turning brand potential into sustainable, multi-channel e-commerce market leadership.",
+    "founderQuote": "We Treat Your Brand Like Our Own.",
+    "founderDesc": "When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.",
+    "founderName": "Shivam Dubey",
+    "founderTitle": "Founder & CEO, EcomVanta",
+    "founderImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789927645231_WhatsApp_Image_2026-09-20_at_22.54.42__2_.webp",
     "team": [
       {
         "id": "1",
         "name": "Shivam Dubey",
         "designation": "Director & Founder",
-        "image": "/image/Aadil.png"
+        "image": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707331605_WhatsApp_Image_2026-09-18_at_10.21.32_AM.webp"
       }
     ]
   },
@@ -1260,7 +1272,7 @@
     "supportEmail": "ecomvanta40@gmail.com",
     "contactPhone": "+91 878 724 9407",
     "salesPhone": "+91 878 724 9407",
-    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114876615554!2d77.36!3d28.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzEyLjAiTiA3N8KwMjEnMzYuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.06889754725782!3d28.52758200617607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
     "footerAboutText": "EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites. Powering Brands. Scaling E-commerce.",
     "copyrightText": "© 2026 EcomVanta. All rights reserved. Powering Brands. Scaling E-commerce."
   }

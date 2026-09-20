@@ -154,11 +154,10 @@ export default function AboutUsPage() {
               
               <div className="lg:col-span-4 flex justify-center">
                 <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl">
-                  <Image
-                    src="/abt-img/Arvind-owner-img.jpeg"
-                    alt="Arvind - Founder & CEO"
-                    fill
-                    className="object-cover"
+                  <img
+                    src={content?.aboutUs?.founderImage || "/abt-img/Arvind-owner-img.jpeg"}
+                    alt={content?.aboutUs?.founderName || "Arvind - Founder & CEO"}
+                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>
@@ -168,14 +167,14 @@ export default function AboutUsPage() {
                   Leadership Note
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-                  &ldquo;We Treat Your Brand Like Our Own.&rdquo;
+                  &ldquo;{content?.aboutUs?.founderQuote || 'We Treat Your Brand Like Our Own.'}&rdquo;
                 </h2>
                 <p className="text-gray-300 text-base leading-relaxed">
-                  When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.
+                  {content?.aboutUs?.founderDesc || 'When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.'}
                 </p>
                 <div className="pt-2">
-                  <h4 className="text-xl font-bold text-white">Arvind Sharma</h4>
-                  <p className="text-xs text-[#00C2FF] font-semibold">Founder &amp; CEO, EcomVanta</p>
+                  <h4 className="text-xl font-bold text-white">{content?.aboutUs?.founderName || 'Arvind Sharma'}</h4>
+                  <p className="text-xs text-[#00C2FF] font-semibold">{content?.aboutUs?.founderTitle || 'Founder & CEO, EcomVanta'}</p>
                 </div>
               </div>
 

@@ -286,6 +286,27 @@ export default function HomePage() {
 
         </section>
 
+
+        {/* SECTION 1.5: Featured Home Video (admin-uploaded) */}
+        {hp.heroVideo && (
+          <section className="py-16 bg-gradient-to-b from-blue-50/40 to-white border-b border-slate-100">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-10">
+                <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">— FEATURED VIDEO</span>
+                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">See EcomVanta in Action</h2>
+              </div>
+              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative bg-black">
+                <video
+                  src={hp.heroVideo}
+                  controls
+                  playsInline
+                  className="w-full max-h-[600px] object-contain"
+                />
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* SECTION 2: Client Video Testimonial Grid (Real Seller Experiences) */}
         {clientVideos.length > 0 && (
           <section className="py-16 bg-slate-50/80 border-y border-slate-100">
