@@ -24,7 +24,9 @@ import {
   Zap,
   MapPin,
   Sparkles,
-  Award
+  Award,
+  Download,
+  FileText
 } from 'lucide-react';
 
 const WHY_CHOOSE_ITEMS = [
@@ -151,23 +153,36 @@ export default function HomePage() {
                 {hero.subtitle || 'EcomVanta delivers complete multi-channel marketplace account management for Amazon, Flipkart, Blinkit, Meesho, Zepto & Shopify including catalog SEO, ads & growth strategy.'}
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <button
                   onClick={() => setPopupOpen(true)}
-                  className="ecomvantaPulseBtn group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-blue-500/25 hover:from-[#0052cc] hover:to-[#003d99] transition-all cursor-pointer"
+                  className="ecomvantaPulseBtn group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-blue-500/25 hover:from-[#0052cc] hover:to-[#003d99] transition-all cursor-pointer"
                 >
                   <span>{hero.primaryCtaText || 'Book Free Growth Audit'}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </button>
 
+                {branding.showCatalogInHero !== false && (
+                  <a
+                    href={branding.catalogPdfUrl || '/contact-us'}
+                    target={branding.catalogPdfUrl ? '_blank' : undefined}
+                    rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
+                    download={branding.catalogPdfUrl ? true : undefined}
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border-2 border-slate-200 hover:border-[#0066FF] bg-white hover:bg-blue-50/50 text-slate-800 hover:text-[#0066FF] font-bold text-sm sm:text-base shadow-sm hover:shadow transition-all group"
+                  >
+                    <Download className="w-4 h-4 text-[#0066FF] group-hover:-translate-y-0.5 transition-transform" />
+                    <span>{branding.catalogButtonText || 'Download Catalog'}</span>
+                  </a>
+                )}
+
                 <a
                   href={`tel:${branding.topbarPhone || '+918787249407'}`}
-                  className="inline-flex items-center gap-3 text-slate-800 font-bold text-sm sm:text-base hover:text-[#0066FF] transition-colors py-2"
+                  className="inline-flex items-center gap-2.5 text-slate-800 font-bold text-xs sm:text-sm hover:text-[#0066FF] transition-colors py-2"
                 >
-                  <span className="w-12 h-12 rounded-full border-2 border-blue-200 flex items-center justify-center text-[#0066FF] bg-blue-50 shadow-xs">
-                    <Phone className="w-5 h-5" />
+                  <span className="w-10 h-10 rounded-full border border-blue-200 flex items-center justify-center text-[#0066FF] bg-blue-50 shadow-xs">
+                    <Phone className="w-4 h-4" />
                   </span>
-                  <span className="border-b-2 border-dashed border-blue-300">Talk to an Expert</span>
+                  <span className="border-b border-dashed border-slate-400">Talk to Expert</span>
                 </a>
               </div>
 
@@ -685,77 +700,110 @@ export default function HomePage() {
         </section>
 
         {/* SECTION 10: Seller Spotlight & Video Review Feature Banner */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="rounded-[2.5rem] bg-gradient-to-r from-[#081325] via-[#091E3A] to-[#0052CC] text-white p-8 sm:p-12 lg:p-16 shadow-2xl border border-blue-900/60 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00C2FF]/15 rounded-full blur-[120px] pointer-events-none" />
-              
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-                
-                <div className="lg:col-span-7 space-y-6">
-                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 text-[#00C2FF] text-xs font-black tracking-wider uppercase border border-cyan-400/30">
-                    <Sparkles className="w-3.5 h-3.5" /> SELLER SPOTLIGHT
-                  </span>
+        {(() => {
+          const spotlight = hp.sellerSpotlight || {
+            badgeText: 'SELLER SPOTLIGHT',
+            titlePart1: 'Hear How Our Partners Achieve',
+            titleHighlight: 'Exponential Growth',
+            subtitle: 'Discover how e-commerce brands in fashion, electronics, home essentials, and FMCG transformed underperforming marketplace listings into high-revenue category leaders.',
+            points: [
+              '+340% Average Revenue Surge in First 90 Days',
+              '60% Reduction in Wasted Ad Spend & Lower ACOS',
+              '100% Policy-Safe Listing & Account Health Protection',
+            ],
+            buttonText: 'Book a Free Consultation',
+            videoUrl: '/image/Amardeep.mp4',
+            quote: '“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”',
+            author: 'Amardeep, Home & Kitchen Brand',
+            rating: 5,
+          };
+          const videoSrc = spotlight.videoUrl || '/image/Amardeep.mp4';
+          const pointsList: string[] = (spotlight.points && spotlight.points.length > 0)
+            ? spotlight.points
+            : [
+                '+340% Average Revenue Surge in First 90 Days',
+                '60% Reduction in Wasted Ad Spend & Lower ACOS',
+                '100% Policy-Safe Listing & Account Health Protection',
+              ];
 
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-white">
-                    Hear How Our Partners Achieve <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-blue-200">Exponential Growth</span>
-                  </h2>
+          return (
+            <section className="py-20 bg-white">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="rounded-[2.5rem] bg-gradient-to-r from-[#081325] via-[#091E3A] to-[#0052CC] text-white p-8 sm:p-12 lg:p-16 shadow-2xl border border-blue-900/60 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00C2FF]/15 rounded-full blur-[120px] pointer-events-none" />
+                  
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+                    
+                    <div className="lg:col-span-7 space-y-6">
+                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 text-[#00C2FF] text-xs font-black tracking-wider uppercase border border-cyan-400/30">
+                        <Sparkles className="w-3.5 h-3.5" /> {spotlight.badgeText || 'SELLER SPOTLIGHT'}
+                      </span>
 
-                  <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
-                    Discover how e-commerce brands in fashion, electronics, home essentials, and FMCG transformed underperforming marketplace listings into high-revenue category leaders.
-                  </p>
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-white">
+                        {spotlight.titlePart1 || 'Hear How Our Partners Achieve'}{' '}
+                        <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-blue-200">
+                          {spotlight.titleHighlight || 'Exponential Growth'}
+                        </span>
+                      </h2>
 
-                  <div className="space-y-3 pt-2">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
-                      <span className="text-sm font-semibold text-slate-200">+340% Average Revenue Surge in First 90 Days</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
-                      <span className="text-sm font-semibold text-slate-200">60% Reduction in Wasted Ad Spend & Lower ACOS</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
-                      <span className="text-sm font-semibold text-slate-200">100% Policy-Safe Listing & Account Health Protection</span>
-                    </div>
-                  </div>
+                      <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
+                        {spotlight.subtitle || 'Discover how e-commerce brands in fashion, electronics, home essentials, and FMCG transformed underperforming marketplace listings into high-revenue category leaders.'}
+                      </p>
 
-                  <div className="pt-4">
-                    <button
-                      onClick={() => setPopupOpen(true)}
-                      className="px-8 py-4 rounded-full bg-gradient-to-r from-[#00C2FF] to-[#0066FF] text-white font-extrabold text-base shadow-xl shadow-cyan-500/25 hover:brightness-110 transition-all cursor-pointer"
-                    >
-                      Book a Free Consultation
-                    </button>
-                  </div>
-                </div>
+                      <div className="space-y-3 pt-2">
+                        {pointsList.map((pt: string, idx: number) => (
+                          <div key={idx} className="flex items-center gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
+                            <span className="text-sm font-semibold text-slate-200">{pt}</span>
+                          </div>
+                        ))}
+                      </div>
 
-                <div className="lg:col-span-5">
-                  <div className="rounded-3xl overflow-hidden bg-black/60 border-2 border-white/20 shadow-2xl backdrop-blur-md p-2">
-                    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-black max-h-[440px] mx-auto">
-                      <video
-                        src="/image/Amardeep.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        controls
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/75 backdrop-blur-md text-white pointer-events-none">
-                        <div className="flex text-amber-400 text-xs font-black mb-1">★★★★★</div>
-                        <p className="text-xs font-bold leading-snug">“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”</p>
-                        <p className="text-[10px] text-cyan-300 font-extrabold mt-1">— Amardeep, Home & Kitchen Brand</p>
+                      <div className="pt-4">
+                        <button
+                          onClick={() => setPopupOpen(true)}
+                          className="px-8 py-4 rounded-full bg-gradient-to-r from-[#00C2FF] to-[#0066FF] text-white font-extrabold text-base shadow-xl shadow-cyan-500/25 hover:brightness-110 transition-all cursor-pointer"
+                        >
+                          {spotlight.buttonText || 'Book a Free Consultation'}
+                        </button>
                       </div>
                     </div>
+
+                    <div className="lg:col-span-5">
+                      <div className="rounded-3xl overflow-hidden bg-black/60 border-2 border-white/20 shadow-2xl backdrop-blur-md p-2">
+                        <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-black max-h-[440px] mx-auto">
+                          <video
+                            key={videoSrc}
+                            src={videoSrc}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            controls
+                            className="w-full h-full object-cover"
+                          />
+                          {(spotlight.quote || spotlight.author) && (
+                            <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/75 backdrop-blur-md text-white pointer-events-none">
+                              <div className="flex text-amber-400 text-xs font-black mb-1">★★★★★</div>
+                              {spotlight.quote && (
+                                <p className="text-xs font-bold leading-snug">{spotlight.quote}</p>
+                              )}
+                              {spotlight.author && (
+                                <p className="text-[10px] text-cyan-300 font-extrabold mt-1">— {spotlight.author}</p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+          );
+        })()}
 
         <ClientReviewsSlider />
         

@@ -17,7 +17,13 @@
       "linkedin": "https://linkedin.com/company/ecomvanta",
       "twitter": "https://twitter.com/ecomvanta",
       "youtube": "https://youtube.com/@ecomvanta"
-    }
+    },
+    "catalogPdfUrl": "",
+    "catalogButtonText": "Download Catalog",
+    "showCatalogInHeader": true,
+    "showCatalogInHero": true,
+    "showCatalogInFooter": true,
+    "showCatalogInFloating": true
   },
   "homepage": {
     "hero": {

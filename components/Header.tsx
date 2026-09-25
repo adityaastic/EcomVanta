@@ -14,7 +14,9 @@ import {
   Store, 
   ShoppingBag,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Download,
+  FileText
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -283,11 +285,24 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               </Link>
             </nav>
 
-            {/* Contact Us Pulsing Button */}
-            <div className="hidden lg:flex items-center gap-4">
+            {/* Action Buttons: Download Catalog & Free Audit */}
+            <div className="hidden lg:flex items-center gap-3">
+              {branding.showCatalogInHeader !== false && (
+                <a
+                  href={branding.catalogPdfUrl || '/contact-us'}
+                  target={branding.catalogPdfUrl ? '_blank' : undefined}
+                  rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
+                  download={branding.catalogPdfUrl ? true : undefined}
+                  className="px-4 py-2.5 rounded-full border border-blue-200 hover:border-blue-400 bg-blue-50/70 hover:bg-blue-100/70 text-[#0066FF] font-bold text-xs tracking-wide transition-all flex items-center gap-1.5 shadow-xs group"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#0066FF] group-hover:-translate-y-0.5 transition-transform" />
+                  <span>{branding.catalogButtonText || 'Download Catalog'}</span>
+                </a>
+              )}
+
               <Link
                 href="/contact-us"
-                className="ecomvantaPulseBtn text-white px-7 py-3 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2"
+                className="ecomvantaPulseBtn text-white px-6 py-2.5 rounded-full font-bold text-xs sm:text-sm tracking-wide shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2"
               >
                 <span>Free Growth Audit</span>
                 <ArrowRight className="w-4 h-4" />
@@ -409,11 +424,25 @@ export default function Header({ onOpenPopup }: HeaderProps) {
             Careers
           </Link>
 
-          <div className="pt-4">
+          <div className="pt-4 space-y-2.5">
+            {branding.showCatalogInHeader !== false && (
+              <a
+                href={branding.catalogPdfUrl || '/contact-us'}
+                target={branding.catalogPdfUrl ? '_blank' : undefined}
+                rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
+                download={branding.catalogPdfUrl ? true : undefined}
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-blue-200 bg-blue-50 text-[#0066FF] font-bold text-sm shadow-xs hover:bg-blue-100 transition-colors"
+              >
+                <Download className="w-4 h-4 text-[#0066FF]" />
+                <span>{branding.catalogButtonText || 'Download Catalog'}</span>
+              </a>
+            )}
+
             <Link 
               href="/contact-us"
               onClick={() => setMobileMenuOpen(false)}
-              className="ecomvantaPulseBtn block text-center text-white py-3.5 rounded-2xl font-bold shadow-lg shadow-blue-500/30"
+              className="ecomvantaPulseBtn block text-center text-white py-3.5 rounded-2xl font-bold shadow-lg shadow-blue-500/30 text-sm"
             >
               Get Free Audit Call
             </Link>

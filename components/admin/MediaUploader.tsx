@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { Upload, X, Check, Image as ImageIcon, Video, Loader2, Copy, ExternalLink, Play } from 'lucide-react';
+import { Upload, X, Check, Image as ImageIcon, Video, Loader2, Copy, ExternalLink, Play, FileText, Download } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 interface MediaUploaderProps {
   label: string;
@@ -9,7 +10,13 @@ interface MediaUploaderProps {
   onChange: (url: string) => void;
   helperText?: string;
   previewHeight?: string;
+  accept?: string;
 }
+
+const isPdfUrl = (url: string) => {
+  if (!url) return false;
+  return /\.(pdf|doc|docx|ppt|pptx|xls|xlsx)(\?.*)?$/i.test(url) || url.startsWith('data:application/pdf');
+};
 
 const isVideoUrl = (url: string) => {
   if (!url) return false;
@@ -24,9 +31,14 @@ const isVideoFile = (file: File) => {
   return /\.(mp4|webm|ogg|mov|mkv|avi)$/i.test(file.name);
 };
 
+const isPdfFile = (file: File) => {
+  if (file.type && (file.type === 'application/pdf' || file.type.includes('document') || file.type.includes('presentation') || file.type.includes('sheet'))) return true;
+  return /\.(pdf|doc|docx|ppt|pptx|xls|xlsx)$/i.test(file.name);
+};
+
 async function compressImageFile(file: File, maxWidth = 1200, maxHeight = 1200, quality = 0.85): Promise<File> {
-  // If video or SVG / GIF animation or non-image, don't compress with canvas
-  if (isVideoFile(file) || !file.type.startsWith('image/') || file.type === 'image/svg+xml' || file.type === 'image/gif') {
+  // If video, PDF, document, or SVG / GIF animation or non-image, don't compress with canvas
+  if (isVideoFile(file) || isPdfFile(file) || !file.type.startsWith('image/') || file.type === 'image/svg+xml' || file.type === 'image/gif') {
     return file;
   }
 
@@ -83,14 +95,13 @@ async function compressImageFile(file: File, maxWidth = 1200, maxHeight = 1200, 
   });
 }
 
-import { supabase } from '@/lib/supabase';
-
 export default function MediaUploader({
   label,
   value,
   onChange,
   helperText,
   previewHeight = 'h-32',
+  accept = 'image/*,video/*,.pdf,.doc,.docx,.ppt,.pptx,.mp4,.webm,.mov',
 }: MediaUploaderProps) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -99,6 +110,7 @@ export default function MediaUploader({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isCurrentVideo = isVideoUrl(value) || label.toLowerCase().includes('video');
+  const isCurrentPdf = isPdfUrl(value) || label.toLowerCase().includes('catalog') || label.toLowerCase().includes('brochure') || label.toLowerCase().includes('pdf');
 
   const uploadFile = async (rawFile: File) => {
     if (!rawFile) return;
@@ -114,7 +126,7 @@ export default function MediaUploader({
     setError(null);
 
     try {
-      // Auto-compress high-res images in browser before uploading (skips videos)
+      // Auto-compress high-res images in browser before uploading (skips videos and PDFs)
       const file = await compressImageFile(rawFile);
       let finalUploadedUrl = '';
 
@@ -268,7 +280,13 @@ export default function MediaUploader({
         >
           {value ? (
             <div className="relative w-full h-full p-2 flex items-center justify-center bg-slate-900/5">
-              {isVideoUrl(value) ? (
+              {isPdfUrl(value) ? (
+                <div className="relative w-full h-full flex flex-col items-center justify-center bg-red-50/80 rounded-lg p-2 text-center border border-red-200/50">
+                  <FileText className="w-7 h-7 text-red-600 mb-1" />
+                  <span className="text-[10px] font-bold text-red-800 line-clamp-1">PDF Document</span>
+                  <span className="text-[9px] text-slate-500 line-clamp-1">{value.split('/').pop()}</span>
+                </div>
+              ) : isVideoUrl(value) ? (
                 <div className="relative w-full h-full flex items-center justify-center bg-black/10 rounded-lg overflow-hidden">
                   <video
                     src={value}
@@ -304,10 +322,10 @@ export default function MediaUploader({
           ) : (
             <div className="text-center p-4">
               <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mx-auto mb-1.5 border border-blue-100">
-                {isCurrentVideo ? <Video className="w-4 h-4" /> : <ImageIcon className="w-4 h-4" />}
+                {isCurrentPdf ? <FileText className="w-4 h-4 text-red-500" /> : isCurrentVideo ? <Video className="w-4 h-4" /> : <ImageIcon className="w-4 h-4" />}
               </div>
               <span className="text-[11px] font-bold text-slate-700 block">Click / Drop to upload</span>
-              <span className="text-[10px] text-slate-400">PNG, WebP, JPG, MP4, WebM</span>
+              <span className="text-[10px] text-slate-400">{isCurrentPdf ? 'PDF, DOCX, Documents' : 'PNG, WebP, JPG, MP4, PDF'}</span>
             </div>
           )}
 
@@ -336,12 +354,12 @@ export default function MediaUploader({
               className="px-4 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold hover:from-slate-800 hover:to-slate-700 transition-all flex items-center gap-1.5 shrink-0 shadow-sm disabled:opacity-50"
             >
               <Upload className="w-3.5 h-3.5 text-[#00C2FF]" />
-              <span>{uploading ? 'Uploading...' : isCurrentVideo ? 'Upload Video' : 'Upload File'}</span>
+              <span>{uploading ? 'Uploading...' : isCurrentPdf ? 'Upload PDF' : isCurrentVideo ? 'Upload Video' : 'Upload File'}</span>
             </button>
             <input
               ref={fileInputRef}
               type="file"
-              accept="image/*,video/*,.mp4,.webm,.mov,.ogg"
+              accept={accept}
               onChange={handleFileUpload}
               className="hidden"
             />

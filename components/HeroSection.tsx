@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Sparkles, ArrowRight, TrendingUp, ShieldCheck } from 'lucide-react';
+import { Sparkles, ArrowRight, TrendingUp, ShieldCheck, Download, FileText } from 'lucide-react';
+import { useCmsContent } from '@/lib/useCmsContent';
 
 interface HeroSectionProps {
   onOpenPopup: () => void;
@@ -15,6 +16,8 @@ export default function HeroSection({
   title = "Powering Brands. Scaling E-commerce Across All Marketplaces",
   description = "Your all-in-one marketplace growth partner for Amazon, Flipkart, Meesho, Myntra, Blinkit, and Brand D2C. We manage listings, advertising campaigns, catalogue optimizations, and daily operations to scale your revenues.",
 }: HeroSectionProps) {
+  const { content } = useCmsContent();
+  const branding = content.branding || {};
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const heroSlides = [
@@ -59,7 +62,7 @@ export default function HeroSection({
               {description}
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3.5">
               <button
                 onClick={onOpenPopup}
                 className="book-botton group"
@@ -69,11 +72,22 @@ export default function HeroSection({
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
 
+              {branding.showCatalogInHero !== false && (
+                <a
+                  href={branding.catalogPdfUrl || '/contact-us'}
+                  target={branding.catalogPdfUrl ? '_blank' : undefined}
+                  rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
+                  download={branding.catalogPdfUrl ? true : undefined}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full border-2 border-slate-200 hover:border-[#0066FF] bg-white hover:bg-blue-50/50 text-slate-800 hover:text-[#0066FF] font-bold text-xs sm:text-sm shadow-xs transition-all group"
+                >
+                  <Download className="w-4 h-4 text-[#0066FF] group-hover:-translate-y-0.5 transition-transform" />
+                  <span>{branding.catalogButtonText || 'Download Catalog'}</span>
+                </a>
+              )}
+
               <div className="flex items-center gap-2 text-xs text-slate-600 bg-white/80 backdrop-blur-xs px-3.5 py-2.5 rounded-xl border border-slate-200">
                 <span className="flex text-amber-400 text-sm">★★★★★</span>
-                <span className="font-bold text-slate-900">5.0 Star Rating</span>
-                <span className="text-slate-400">|</span>
-                <span className="text-blue-600 font-semibold">100+ Brands Scaled</span>
+                <span className="font-bold text-slate-900">5.0 Star</span>
               </div>
             </div>
 

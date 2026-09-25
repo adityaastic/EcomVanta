@@ -1076,35 +1076,196 @@ export default function HomepageEditorPage() {
 
       {/* 7. CLIENT VIDEO TESTIMONIALS */}
       {activeTab === 'testimonials' && (
-        <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
-          <div className="flex justify-between items-center border-b border-gray-100 pb-3">
-            <div>
-              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
-                Client Video Reviews & Testimonials
-              </h2>
-              <p className="text-xs text-gray-500">Video stories and written seller reviews</p>
+        <div className="space-y-6">
+          {/* Featured Seller Spotlight Video Box */}
+          <div className="bg-white rounded-2xl border-2 border-blue-200 shadow-sm p-6 space-y-6">
+            <div className="flex items-center justify-between border-b border-blue-100 pb-4">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#00C2FF] text-white">
+                  <Video className="w-5 h-5" />
+                </div>
+                <div>
+                  <h2 className="text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
+                    <span>Featured Seller Spotlight Video</span>
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-[#0066FF]">
+                      &quot;Hear How Our Partners Achieve Exponential Growth&quot;
+                    </span>
+                  </h2>
+                  <p className="text-xs text-slate-500">
+                    The large video showcase playing on the homepage with review quote overlay.
+                  </p>
+                </div>
+              </div>
+              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                Live on Homepage
+              </span>
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                const newVideos = [
-                  ...homepage.clientVideos,
-                  {
-                    id: Date.now().toString(),
-                    name: 'Client Name',
-                    role: 'Brand Founder',
-                    videoUrl: '/image/Amardeep.mp4',
-                    quote: 'Outstanding growth results with EcomVanta team.',
-                    rating: 5,
-                  },
-                ];
-                setHomepage({ ...homepage, clientVideos: newVideos });
-              }}
-              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
-            >
-              <Plus className="w-3.5 h-3.5" /> Add Client Video
-            </button>
+
+            {/* Video File Uploader */}
+            <div className="p-4 bg-blue-50/50 rounded-2xl border border-blue-100 space-y-4">
+              <MediaUploader
+                label="Spotlight Video File (MP4, WebM, MOV - Up to 50MB)"
+                value={homepage.sellerSpotlight?.videoUrl || '/image/Amardeep.mp4'}
+                onChange={(url) =>
+                  setHomepage({
+                    ...homepage,
+                    sellerSpotlight: {
+                      ...(homepage.sellerSpotlight || {}),
+                      videoUrl: url,
+                    },
+                  })
+                }
+                helperText="Upload any high-res MP4 reel/video from your machine. Bypasses limits and uploads directly to Supabase cloud storage."
+                previewHeight="h-44"
+              />
+
+              {homepage.sellerSpotlight?.videoUrl && (
+                <div className="rounded-xl overflow-hidden bg-black border border-slate-700 p-2 max-w-xs mx-auto">
+                  <p className="text-[10px] font-bold text-slate-400 mb-1 text-center">Video Preview</p>
+                  <video
+                    src={homepage.sellerSpotlight.videoUrl}
+                    controls
+                    muted
+                    className="w-full rounded-lg max-h-48 object-contain"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Spotlight Headings & Copy */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Section Heading (Part 1)
+                </label>
+                <input
+                  type="text"
+                  value={homepage.sellerSpotlight?.titlePart1 || 'Hear How Our Partners Achieve'}
+                  onChange={(e) =>
+                    setHomepage({
+                      ...homepage,
+                      sellerSpotlight: {
+                        ...(homepage.sellerSpotlight || {}),
+                        titlePart1: e.target.value,
+                      },
+                    })
+                  }
+                  className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Gradient Highlight Title
+                </label>
+                <input
+                  type="text"
+                  value={homepage.sellerSpotlight?.titleHighlight || 'Exponential Growth'}
+                  onChange={(e) =>
+                    setHomepage({
+                      ...homepage,
+                      sellerSpotlight: {
+                        ...(homepage.sellerSpotlight || {}),
+                        titleHighlight: e.target.value,
+                      },
+                    })
+                  }
+                  className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Description Copy
+                </label>
+                <textarea
+                  rows={2}
+                  value={homepage.sellerSpotlight?.subtitle || 'Discover how e-commerce brands in fashion, electronics, home essentials, and FMCG transformed underperforming marketplace listings into high-revenue category leaders.'}
+                  onChange={(e) =>
+                    setHomepage({
+                      ...homepage,
+                      sellerSpotlight: {
+                        ...(homepage.sellerSpotlight || {}),
+                        subtitle: e.target.value,
+                      },
+                    })
+                  }
+                  className="w-full px-3.5 py-2 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Client Review Quote (Overlaid on Video)
+                </label>
+                <input
+                  type="text"
+                  value={homepage.sellerSpotlight?.quote || '“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”'}
+                  onChange={(e) =>
+                    setHomepage({
+                      ...homepage,
+                      sellerSpotlight: {
+                        ...(homepage.sellerSpotlight || {}),
+                        quote: e.target.value,
+                      },
+                    })
+                  }
+                  className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Client Name &amp; Brand
+                </label>
+                <input
+                  type="text"
+                  value={homepage.sellerSpotlight?.author || 'Amardeep, Home & Kitchen Brand'}
+                  onChange={(e) =>
+                    setHomepage({
+                      ...homepage,
+                      sellerSpotlight: {
+                        ...(homepage.sellerSpotlight || {}),
+                        author: e.target.value,
+                      },
+                    })
+                  }
+                  className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+                />
+              </div>
+            </div>
           </div>
+
+          {/* 4-Reel Client Video Reviews Grid */}
+          <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
+            <div className="flex justify-between items-center border-b border-gray-100 pb-3">
+              <div>
+                <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+                  Client Video Reviews Carousel (Reels)
+                </h2>
+                <p className="text-xs text-gray-500">Video stories and written seller reviews for the multi-video slider</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const newVideos = [
+                    ...homepage.clientVideos,
+                    {
+                      id: Date.now().toString(),
+                      name: 'Client Name',
+                      role: 'Brand Founder',
+                      videoUrl: '/image/Amardeep.mp4',
+                      quote: 'Outstanding growth results with EcomVanta team.',
+                      rating: 5,
+                    },
+                  ];
+                  setHomepage({ ...homepage, clientVideos: newVideos });
+                }}
+                className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
+              >
+                <Plus className="w-3.5 h-3.5" /> Add Client Video
+              </button>
+            </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {homepage.clientVideos.map((video, index) => (
@@ -1197,6 +1358,7 @@ export default function HomepageEditorPage() {
             ))}
           </div>
         </div>
+      </div>
       )}
 
       {/* 8. FAQs */}

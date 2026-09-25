@@ -9,7 +9,9 @@ import {
   Phone, 
   ArrowUp, 
   ShieldCheck,
-  Globe
+  Globe,
+  Download,
+  FileText
 } from 'lucide-react';
 
 export default function Footer() {
@@ -250,7 +252,20 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
+              {branding.showCatalogInFooter !== false && (
+                <a
+                  href={branding.catalogPdfUrl || '/contact-us'}
+                  target={branding.catalogPdfUrl ? '_blank' : undefined}
+                  rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
+                  download={branding.catalogPdfUrl ? true : undefined}
+                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl border border-blue-500/40 bg-blue-500/10 hover:bg-blue-500/20 text-[#00C2FF] text-xs font-bold transition-all shadow-xs group"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#00C2FF] group-hover:-translate-y-0.5 transition-transform" />
+                  <span>{branding.catalogButtonText || 'Download Catalog'}</span>
+                </a>
+              )}
+
               <Link
                 href="/contact-us"
                 className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#00C2FF] text-white text-xs font-bold shadow-lg shadow-blue-500/20 hover:brightness-110 transition-all"

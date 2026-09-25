@@ -20,6 +20,13 @@ export interface SiteBranding {
     twitter: string;
     youtube: string;
   };
+  // Catalog / Brochure Settings
+  catalogPdfUrl?: string;
+  catalogButtonText?: string;
+  showCatalogInHeader?: boolean;
+  showCatalogInHero?: boolean;
+  showCatalogInFooter?: boolean;
+  showCatalogInFloating?: boolean;
 }
 
 export interface HeroSectionContent {
@@ -99,6 +106,19 @@ export interface CtaBannerContent {
   backgroundImage?: string;
 }
 
+export interface SellerSpotlightContent {
+  badgeText?: string;
+  titlePart1?: string;
+  titleHighlight?: string;
+  subtitle?: string;
+  points?: string[];
+  buttonText?: string;
+  videoUrl?: string;
+  quote?: string;
+  author?: string;
+  rating?: number;
+}
+
 export interface HomepageContent {
   hero: HeroSectionContent;
   stats: StatCounter[];
@@ -113,6 +133,7 @@ export interface HomepageContent {
     items: AdvantageItem[];
   };
   clientVideos: VideoTestimonial[];
+  sellerSpotlight?: SellerSpotlightContent;
   faqs: FaqItem[];
   bottomCta: CtaBannerContent;
 }
@@ -326,6 +347,12 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       twitter: 'https://twitter.com/ecomvanta',
       youtube: 'https://youtube.com/@ecomvanta',
     },
+    catalogPdfUrl: '',
+    catalogButtonText: 'Download Catalog',
+    showCatalogInHeader: true,
+    showCatalogInHero: true,
+    showCatalogInFooter: true,
+    showCatalogInFloating: true,
   },
   homepage: {
     hero: {
@@ -489,6 +516,22 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
         answer: 'We offer flexible plans including fixed monthly retainer or performance-linked growth models tailored to your brand stage and catalog size.',
       },
     ],
+    sellerSpotlight: {
+      badgeText: 'SELLER SPOTLIGHT',
+      titlePart1: 'Hear How Our Partners Achieve',
+      titleHighlight: 'Exponential Growth',
+      subtitle: 'Discover how e-commerce brands in fashion, electronics, home essentials, and FMCG transformed underperforming marketplace listings into high-revenue category leaders.',
+      points: [
+        '+340% Average Revenue Surge in First 90 Days',
+        '60% Reduction in Wasted Ad Spend & Lower ACOS',
+        '100% Policy-Safe Listing & Account Health Protection',
+      ],
+      buttonText: 'Book a Free Consultation',
+      videoUrl: '/image/Amardeep.mp4',
+      quote: '“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”',
+      author: 'Amardeep, Home & Kitchen Brand',
+      rating: 5,
+    },
     bottomCta: {
       tagline: 'Ready to Scale Your E-Commerce Revenue?',
       title: 'Let’s Grow Your E-Commerce Business Together',

@@ -14,7 +14,9 @@ import {
   Phone,
   Globe,
   Share2,
-  Building2
+  Building2,
+  FileText,
+  Download
 } from 'lucide-react';
 
 export default function BrandingSettingsPage() {
@@ -318,11 +320,109 @@ export default function BrandingSettingsPage() {
         </div>
       </div>
 
-      {/* 4. Social Media Links */}
+      {/* 4. Company Catalog & Brochure Download */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-6">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-lg bg-red-50 text-red-600 flex items-center justify-center font-bold text-xs">
+              4
+            </div>
+            <div>
+              <h2 className="text-sm font-black text-slate-900 tracking-tight flex items-center gap-2">
+                <span>Download Catalog & Company Brochure</span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+                  PDF / Document
+                </span>
+              </h2>
+              <p className="text-[11px] text-slate-500">
+                Upload your company profile or service catalog PDF to enable instant downloads across the website.
+              </p>
+            </div>
+          </div>
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+            Cloud Media Bucket
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="md:col-span-2">
+            <MediaUploader
+              label="Catalog File (PDF / Presentation / Document)"
+              value={branding.catalogPdfUrl || ''}
+              onChange={(url) => setBranding({ ...branding, catalogPdfUrl: url })}
+              helperText="Upload your company PDF brochure or catalog (up to 50MB). Stored securely in Supabase."
+              accept="application/pdf,.pdf,.doc,.docx,.ppt,.pptx"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              Button Label
+            </label>
+            <input
+              type="text"
+              placeholder="Download Catalog"
+              value={branding.catalogButtonText || ''}
+              onChange={(e) => setBranding({ ...branding, catalogButtonText: e.target.value })}
+              className="w-full px-3.5 py-2.5 text-xs font-medium border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors"
+            />
+            <p className="text-[10px] text-slate-400 mt-1">Defaults to &quot;Download Catalog&quot; if left empty.</p>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              Display Locations
+            </label>
+            <div className="grid grid-cols-2 gap-2.5 pt-1">
+              <label className="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer bg-slate-50 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-100/70 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={branding.showCatalogInHeader !== false}
+                  onChange={(e) => setBranding({ ...branding, showCatalogInHeader: e.target.checked })}
+                  className="rounded text-[#0066FF] focus:ring-blue-500 w-4 h-4"
+                />
+                <span>Header Navbar</span>
+              </label>
+
+              <label className="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer bg-slate-50 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-100/70 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={branding.showCatalogInHero !== false}
+                  onChange={(e) => setBranding({ ...branding, showCatalogInHero: e.target.checked })}
+                  className="rounded text-[#0066FF] focus:ring-blue-500 w-4 h-4"
+                />
+                <span>Homepage Hero</span>
+              </label>
+
+              <label className="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer bg-slate-50 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-100/70 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={branding.showCatalogInFooter !== false}
+                  onChange={(e) => setBranding({ ...branding, showCatalogInFooter: e.target.checked })}
+                  className="rounded text-[#0066FF] focus:ring-blue-500 w-4 h-4"
+                />
+                <span>Website Footer</span>
+              </label>
+
+              <label className="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer bg-slate-50 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-100/70 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={branding.showCatalogInFloating !== false}
+                  onChange={(e) => setBranding({ ...branding, showCatalogInFloating: e.target.checked })}
+                  className="rounded text-[#0066FF] focus:ring-blue-500 w-4 h-4"
+                />
+                <span>Floating Actions</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. Social Media Links */}
       <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-5">
         <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4">
           <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center font-bold text-xs">
-            4
+            5
           </div>
           <div>
             <h2 className="text-sm font-black text-slate-900 tracking-tight">
