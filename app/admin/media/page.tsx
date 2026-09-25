@@ -66,22 +66,73 @@ export default function MediaLibraryPage() {
     setUploading(true);
     try {
       let count = 0;
+      let lastError = '';
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const formData = new FormData();
-        formData.append('file', file);
+        if (file.size > 50 * 1024 * 1024) {
+          lastError = `File "${file.name}" exceeds 50MB limit.`;
+          continue;
+        }
 
-        const res = await fetch('/api/admin/upload', {
-          method: 'POST',
-          body: formData,
-        });
-        const data = await res.json();
-        if (data.success) count++;
+        let uploaded = false;
+
+        // 1. Direct Signed URL Upload to Supabase
+        try {
+          const signRes = await fetch('/api/admin/upload?sign=1', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              filename: file.name,
+              contentType: file.type || 'application/octet-stream',
+              size: file.size,
+            }),
+          });
+
+          if (signRes.ok) {
+            const signData = await signRes.json();
+            if (signData.success && signData.signedUrl) {
+              const putRes = await fetch(signData.signedUrl, {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': file.type || 'application/octet-stream',
+                },
+                body: file,
+              });
+              if (putRes.ok) {
+                uploaded = true;
+                count++;
+              }
+            }
+          }
+        } catch (directSignErr) {
+          console.warn('Direct sign upload in media page failed:', directSignErr);
+        }
+
+        // 2. Fallback to multipart formData
+        if (!uploaded) {
+          const formData = new FormData();
+          formData.append('file', file);
+
+          const res = await fetch('/api/admin/upload', {
+            method: 'POST',
+            body: formData,
+          });
+          const data = await res.json();
+          if (data.success) {
+            count++;
+          } else {
+            lastError = data.error || 'Upload failed';
+          }
+        }
       }
       await fetchMedia();
-      showToast(`Successfully uploaded ${count} file${count > 1 ? 's' : ''}!`);
-    } catch (err) {
-      showToast('Error uploading media files');
+      if (count > 0) {
+        showToast(`Successfully uploaded ${count} file${count > 1 ? 's' : ''}!`);
+      } else if (lastError) {
+        showToast(lastError);
+      }
+    } catch (err: any) {
+      showToast(err.message || 'Error uploading media files');
     } finally {
       setUploading(false);
       if (fileInputRef.current) {

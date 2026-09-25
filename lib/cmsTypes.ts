@@ -176,6 +176,23 @@ export interface ContactFooterContent {
   copyrightText: string;
 }
 
+export interface CareerPageContent {
+  heroBadge: string;
+  heroTitle: string;
+  heroHighlight: string;
+  heroSubtitle: string;
+  pitchText: string;
+  pitchBadges: string[];
+  bannerImage: string;
+  whyJoinTitle: string;
+  whyJoinDescription: string;
+  whyJoinPoints: string[];
+  whatYouGetTitle: string;
+  whatYouGetItems: { id: string; number: string; title: string }[];
+  openingsHeadingBadge: string;
+  openingsHeadingTitle: string;
+}
+
 export interface SiteContentData {
   branding: SiteBranding;
   homepage: HomepageContent;
@@ -183,6 +200,7 @@ export interface SiteContentData {
   caseStudies: Record<string, CaseStudyData>;
   blogs: BlogPostItem[];
   careers: JobOpening[];
+  careerPage: CareerPageContent;
   aboutUs: AboutUsContent;
   contactFooter: ContactFooterContent;
 }
@@ -262,15 +280,41 @@ export const INITIAL_BLOGS: BlogPostItem[] = [
   }
 ];
 
+export const DEFAULT_CAREER_PAGE_CONTENT: CareerPageContent = {
+  heroBadge: '🚀 We Are Hiring!',
+  heroTitle: 'Careers at',
+  heroHighlight: 'EcomVanta',
+  heroSubtitle: 'Build Your Career in eCommerce, Digital Marketing & Brand Growth. Join an elite team scaling top brands on Amazon, Flipkart, Myntra, Zepto, and Blinkit.',
+  pitchText: "Whether you're an experienced marketplace strategist or looking to launch your career in the hyper-growing e-commerce ecosystem, EcomVanta offers dynamic opportunities to learn, execute, and make a measurable impact.",
+  pitchBadges: ['📍 New Delhi, India', '📈 High-Growth Agency', '🎓 Continuous Learning & Upskilling'],
+  bannerImage: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp',
+  whyJoinTitle: 'Why Join EcomVanta?',
+  whyJoinDescription: 'At EcomVanta, we believe our talent is our core engine. When you join EcomVanta, you become part of a merit-based culture focused on innovation, autonomy, and continuous growth.',
+  whyJoinPoints: [
+    'Cross-functional management across 10+ marketplaces',
+    'Quarterly performance bonuses and rapid role promotions',
+    'Vibrant and collaborative modern workspace',
+  ],
+  whatYouGetTitle: "What You'll Get",
+  whatYouGetItems: [
+    { id: '1', number: '01', title: 'Hands-On High GMV Brand Scaling Experience' },
+    { id: '2', number: '02', title: 'Sponsored Certifications (Amazon SPN, Flipkart, Meta, Google)' },
+    { id: '3', number: '03', title: 'Direct Mentorship from Senior Marketplace Leaders' },
+    { id: '4', number: '04', title: 'Competitive Compensation & High-Impact Incentives' },
+  ],
+  openingsHeadingBadge: 'Job Openings',
+  openingsHeadingTitle: 'Current Open Positions',
+};
+
 export const DEFAULT_SITE_CONTENT: SiteContentData = {
   branding: {
     siteName: 'EcomVanta',
     siteTagline: 'Powering Brands. Scaling E-commerce',
     metaDescription: 'EcomVanta - Your Marketplace Growth Partner from Setup to Sales. Account Management Services for Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix & D2C.',
-    headerLogo: '/include/images/dark-logo.png',
-    darkLogo: '/include/images/dark-logo.png',
-    footerLogo: '/include/images/dark-logo.png',
-    favicon: '/favicon.ico',
+    headerLogo: '/ecomvanta-logo.png',
+    darkLogo: '/ecomvanta-logo.png',
+    footerLogo: '/ecomvanta-logo.png',
+    favicon: '/icon.png',
     topbarPhone: '+918787249407',
     tollFreePhone: '+91 878 724 9407',
     email: 'ecomvanta40@gmail.com',
@@ -294,7 +338,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       primaryCtaLink: '/contact-us',
       secondaryCtaText: 'View Case Studies',
       secondaryCtaLink: '/portfolio',
-      heroImage: '/home-img/arvian-home-banner-img.webp',
+      heroImage: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp',
       heroBadgeNumber: '₹50Cr+',
       heroBadgeText: 'GMV Generated for Clients',
       trustRating: '4.9 / 5.0',
@@ -307,14 +351,14 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       { id: '4', number: '99.4%', label: 'Listing Accuracy & SLA', description: 'Zero policy strikes or BuyBox loss' },
     ],
     brandLogosHeading: 'We Provide Services For These Leading Brands',
-    heroVideo: '',
+    heroVideo: '/uploads/1789926731529_online_shop.mp4',
     brandLogos: [
-      { id: '1', name: 'Deshi', logo: '/Deshi.png' },
-      { id: '2', name: 'Krishna', logo: '/Krishna logo .png' },
-      { id: '3', name: 'Forest Found', logo: '/Forest Found.png' },
-      { id: '4', name: 'SS Logo', logo: '/SS logo .png' },
-      { id: '5', name: 'RPURE', logo: '/RPURE logo .png' },
-      { id: '6', name: 'Nufyt', logo: '/Nufyt.png' },
+      { id: '1', name: 'Deshi', logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562322977_1.webp' },
+      { id: '2', name: 'Krishna', logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562333286_2.webp' },
+      { id: '3', name: 'Forest Found', logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562338237_3.webp' },
+      { id: '4', name: 'SS Logo', logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562343224_4.webp' },
+      { id: '5', name: 'RPURE', logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562347752_5.webp' },
+      { id: '6', name: 'Nufyt', logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562361360_7.webp' },
       { id: '7', name: 'Rasaveda', logo: '/Rasaveda.png' },
       { id: '8', name: 'Bubz', logo: '/Bubz.png' },
       { id: '9', name: 'Ninety Two', logo: '/Ninety Two.png' },
@@ -492,10 +536,11 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       status: 'Open',
     },
   ],
+  careerPage: DEFAULT_CAREER_PAGE_CONTENT,
   aboutUs: {
     heroTitle: 'WHO WE ARE & WHAT WE DO',
     heroSubtitle: 'Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.',
-    heroImage: '/arvian-team-image.jpeg',
+    heroImage: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707303911_ChatGPT_Image_Sep_18__2026__10_24_51_AM.webp',
     storyTitle: 'Who We Are & What We Do',
     storyDesc: 'Whether you\'re just starting out or scaling up, we handle everything — from product listings to ad campaigns. EcomVanta provides complete end-to-end marketplace management helping brands sell smarter, grow faster, and stay stress-free in today\'s competitive e-commerce world.',
     missionTitle: 'Our Mission',
@@ -504,11 +549,11 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     visionDesc: 'To be India\'s premier marketplace growth partner, turning brand potential into sustainable, multi-channel e-commerce market leadership.',
     founderQuote: 'We Treat Your Brand Like Our Own.',
     founderDesc: 'When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.',
-    founderName: 'Arvind Sharma',
+    founderName: 'Shivam Dubey',
     founderTitle: 'Founder & CEO, EcomVanta',
-    founderImage: '/abt-img/Arvind-owner-img.jpeg',
+    founderImage: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789927645231_WhatsApp_Image_2026-09-20_at_22.54.42__2_.webp',
     team: [
-      { id: '1', name: 'Shivam Dubey', designation: 'Director & Founder', image: '/image/Aadil.png' },
+      { id: '1', name: 'Shivam Dubey', designation: 'Director & Founder', image: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707331605_WhatsApp_Image_2026-09-18_at_10.21.32_AM.webp' },
     ],
   },
   contactFooter: {

@@ -71,6 +71,7 @@ function mergeWithDefaults(data: any): SiteContentData {
     caseStudies: { ...DEFAULT_SITE_CONTENT.caseStudies, ...(data.caseStudies || {}) },
     blogs: data.blogs || DEFAULT_SITE_CONTENT.blogs,
     careers: data.careers || DEFAULT_SITE_CONTENT.careers,
+    careerPage: { ...DEFAULT_SITE_CONTENT.careerPage, ...(data.careerPage || {}) },
     aboutUs: { ...DEFAULT_SITE_CONTENT.aboutUs, ...(data.aboutUs || {}) },
     contactFooter: { ...DEFAULT_SITE_CONTENT.contactFooter, ...(data.contactFooter || {}) },
   };
@@ -133,6 +134,32 @@ export async function POST(req: Request) {
             ...data,
           },
         };
+      } else if (section === 'careerPage') {
+        updatedContent = {
+          ...current,
+          careerPage: {
+            ...current.careerPage,
+            ...data,
+          },
+        };
+      } else if (section === 'careers') {
+        if (Array.isArray(data)) {
+          updatedContent = {
+            ...current,
+            careers: data,
+          };
+        } else if (typeof data === 'object') {
+          updatedContent = {
+            ...current,
+            careers: data.careers || current.careers,
+            careerPage: data.careerPage ? { ...current.careerPage, ...data.careerPage } : current.careerPage,
+          };
+        } else {
+          updatedContent = {
+            ...current,
+            careers: data,
+          };
+        }
       } else {
         updatedContent = {
           ...current,

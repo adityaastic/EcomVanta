@@ -29,6 +29,7 @@ export function getSiteContent(): SiteContentData {
         caseStudies: { ...DEFAULT_SITE_CONTENT.caseStudies, ...(parsed.caseStudies || {}) },
         blogs: parsed.blogs || DEFAULT_SITE_CONTENT.blogs,
         careers: parsed.careers || DEFAULT_SITE_CONTENT.careers,
+        careerPage: { ...DEFAULT_SITE_CONTENT.careerPage, ...(parsed.careerPage || {}) },
         aboutUs: { ...DEFAULT_SITE_CONTENT.aboutUs, ...(parsed.aboutUs || {}) },
         contactFooter: { ...DEFAULT_SITE_CONTENT.contactFooter, ...(parsed.contactFooter || {}) },
       };

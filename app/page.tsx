@@ -198,7 +198,7 @@ export default function HomePage() {
                 {/* Main Hero Card Container */}
                 <div className="relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-gradient-to-br from-white via-blue-50/70 to-indigo-50/50 p-4 sm:p-6 shadow-2xl border-4 border-white backdrop-blur-md">
                   <img
-                    src={hero.heroImage || '/home-img/arvian-home-banner-img.webp'}
+                    src={hero.heroImage || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp'}
                     alt={hero.titlePart1 || 'E-Commerce Seller Account Management'}
                     className="w-full h-auto object-contain relative z-10 max-h-[540px] lg:max-h-[620px] scale-105 transition-transform duration-500 hover:scale-110"
                   />

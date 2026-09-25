@@ -70,8 +70,79 @@ export async function GET() {
   }
 }
 
+function getFileMimeType(file: File): string {
+  if (file.type && file.type !== 'application/octet-stream') {
+    return file.type;
+  }
+  const ext = path.extname(file.name).toLowerCase();
+  const mimeMap: Record<string, string> = {
+    '.mp4': 'video/mp4',
+    '.webm': 'video/webm',
+    '.mov': 'video/quicktime',
+    '.ogg': 'video/ogg',
+    '.ogv': 'video/ogg',
+    '.mkv': 'video/x-matroska',
+    '.avi': 'video/x-msvideo',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.webp': 'image/webp',
+    '.svg': 'image/svg+xml',
+    '.gif': 'image/gif',
+    '.ico': 'image/x-icon',
+  };
+  return mimeMap[ext] || 'application/octet-stream';
+}
+
+export const maxDuration = 60;
+
 export async function POST(req: Request) {
   try {
+    const { searchParams } = new URL(req.url);
+    const isSignRequest = searchParams.get('sign') === '1';
+    const contentTypeHeader = req.headers.get('content-type') || '';
+
+    // Handle Signed Upload URL Request (Bypasses Vercel 4.5MB Serverless Body Limit)
+    if (isSignRequest || contentTypeHeader.includes('application/json')) {
+      try {
+        const body = await req.json();
+        const { filename, contentType, size } = body;
+
+        const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
+        if (size && size > MAX_FILE_SIZE) {
+          return NextResponse.json(
+            {
+              success: false,
+              error: `File size (${(size / (1024 * 1024)).toFixed(1)}MB) exceeds 50MB upload limit.`,
+            },
+            { status: 413 }
+          );
+        }
+
+        const safeFilename = filename ? `${Date.now()}_${filename.replace(/[^a-zA-Z0-9.-]/g, '_')}` : `${Date.now()}_asset`;
+        const client = supabaseAdmin || supabase;
+
+        if (client) {
+          const { data: signData, error: signErr } = await client.storage
+            .from('media')
+            .createSignedUploadUrl(safeFilename);
+
+          if (!signErr && signData) {
+            const { data: pUrl } = client.storage.from('media').getPublicUrl(safeFilename);
+            return NextResponse.json({
+              success: true,
+              signedUrl: signData.signedUrl,
+              token: signData.token,
+              path: safeFilename,
+              publicUrl: pUrl.publicUrl,
+            });
+          }
+        }
+      } catch (signCatchErr) {
+        console.warn('Signed upload URL generation exception:', signCatchErr);
+      }
+    }
+
     const formData = await req.formData();
     const file = formData.get('file') as File | null;
 
@@ -82,13 +153,24 @@ export async function POST(req: Request) {
       );
     }
 
+    const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: `File size (${(file.size / (1024 * 1024)).toFixed(1)}MB) exceeds 50MB upload limit. Please compress or optimize the video.`,
+        },
+        { status: 413 }
+      );
+    }
+
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
-    const mimeType = file.type || 'image/png';
+    const mimeType = getFileMimeType(file);
     const sanitizedOriginalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
     const timestamp = Date.now();
     const filename = `${timestamp}_${sanitizedOriginalName}`;
-    let finalUrl = `data:${mimeType};base64,${buffer.toString('base64')}`;
+    let finalUrl = '';
 
     // 1. Upload to Supabase Storage (Public media bucket)
     const client = supabaseAdmin || supabase;
@@ -99,6 +181,7 @@ export async function POST(req: Request) {
           .upload(filename, buffer, {
             contentType: mimeType,
             upsert: true,
+            cacheControl: '3600',
           });
 
         if (!uploadErr && uploadData) {
@@ -117,8 +200,8 @@ export async function POST(req: Request) {
       }
     }
 
-    // 2. Local filesystem write fallback
-    if (finalUrl.startsWith('data:')) {
+    // 2. Local filesystem write fallback (if Supabase upload did not produce a URL)
+    if (!finalUrl) {
       try {
         const uploadDir = path.join(process.cwd(), 'public', 'uploads');
         if (!fs.existsSync(uploadDir)) {
@@ -128,8 +211,13 @@ export async function POST(req: Request) {
         fs.writeFileSync(filePath, buffer);
         finalUrl = `/uploads/${filename}`;
       } catch (fsErr: any) {
-        console.warn('Using base64 fallback for upload:', fsErr?.message);
+        console.warn('Local file write fallback failed:', fsErr?.message);
       }
+    }
+
+    // 3. Fallback to base64 if both cloud & disk write fail
+    if (!finalUrl) {
+      finalUrl = `data:${mimeType};base64,${buffer.toString('base64')}`;
     }
 
     return NextResponse.json({

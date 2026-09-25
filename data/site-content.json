@@ -1243,6 +1243,35 @@
       "status": "Open"
     }
   ],
+  "careerPage": {
+    "heroBadge": "🚀 We Are Hiring!",
+    "heroTitle": "Careers at",
+    "heroHighlight": "EcomVanta",
+    "heroSubtitle": "Build Your Career in eCommerce, Digital Marketing & Brand Growth. Join an elite team scaling top brands on Amazon, Flipkart, Myntra, Zepto, and Blinkit.",
+    "pitchText": "Whether you're an experienced marketplace strategist or looking to launch your career in the hyper-growing e-commerce ecosystem, EcomVanta offers dynamic opportunities to learn, execute, and make a measurable impact.",
+    "pitchBadges": [
+      "📍 New Delhi, India",
+      "📈 High-Growth Agency",
+      "🎓 Continuous Learning & Upskilling"
+    ],
+    "bannerImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp",
+    "whyJoinTitle": "Why Join EcomVanta?",
+    "whyJoinDescription": "At EcomVanta, we believe our talent is our core engine. When you join EcomVanta, you become part of a merit-based culture focused on innovation, autonomy, and continuous growth.",
+    "whyJoinPoints": [
+      "Cross-functional management across 10+ marketplaces",
+      "Quarterly performance bonuses and rapid role promotions",
+      "Vibrant and collaborative modern workspace"
+    ],
+    "whatYouGetTitle": "What You'll Get",
+    "whatYouGetItems": [
+      { "id": "1", "number": "01", "title": "Hands-On High GMV Brand Scaling Experience" },
+      { "id": "2", "number": "02", "title": "Sponsored Certifications (Amazon SPN, Flipkart, Meta, Google)" },
+      { "id": "3", "number": "03", "title": "Direct Mentorship from Senior Marketplace Leaders" },
+      { "id": "4", "number": "04", "title": "Competitive Compensation & High-Impact Incentives" }
+    ],
+    "openingsHeadingBadge": "Job Openings",
+    "openingsHeadingTitle": "Current Open Positions"
+  },
   "aboutUs": {
     "heroTitle": "WHO WE ARE & WHAT WE DO",
     "heroSubtitle": "Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",

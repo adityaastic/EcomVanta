@@ -35,11 +35,16 @@ export const metadata: Metadata = {
   },
 };
 
+import { getSiteContent } from "@/lib/cms";
+import { CmsProvider } from "@/lib/useCmsContent";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialContent = getSiteContent();
+
   return (
     <html lang="en" className={sora.variable}>
       <head>
@@ -50,7 +55,9 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="min-h-screen bg-white font-sans text-[#1A1A1A] antialiased selection:bg-[#0066FF] selection:text-white">
-        {children}
+        <CmsProvider initialContent={initialContent}>
+          {children}
+        </CmsProvider>
       </body>
     </html>
   );
