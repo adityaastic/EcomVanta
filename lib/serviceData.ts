@@ -631,4 +631,292 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
       },
     ],
   },
+
+  'whatsapp-integration-services': {
+    slug: 'whatsapp-integration-services',
+    badge: 'Meta Official WhatsApp Business API Partner',
+    title: 'WhatsApp Integration & Business API Automation',
+    subtitle: 'Connect WhatsApp Business API with Shopify, WooCommerce, CRM & ERP. Automate order updates, abandoned cart recovery, AI chatbots, catalog checkout, and 24/7 customer support.',
+    heroImage: '/home-img/whatsapp-icon-arvian.webp',
+    aboutImage: '/home-img/content-marketing.webp',
+    aboutTitle: 'Scale Direct-to-Consumer Conversions With WhatsApp Automation',
+    aboutDesc: 'With over 500M+ active WhatsApp users in India and an unprecedented 98% message open rate, WhatsApp is the most powerful revenue channel for modern e-commerce brands. EcomVanta helps brands integrate official Meta WhatsApp Cloud API, configure automated sales flows, recover lost carts, and automate 24/7 customer support.',
+    servicesGrid: [
+      {
+        icon: '/brand-img/policy.png',
+        title: 'Official Cloud API & Green Tick Verification',
+        desc: 'End-to-end Meta Business Manager verification, official WhatsApp Cloud API provisioning, and Green Tick verified badge application.',
+      },
+      {
+        icon: '/brand-img/inventory-management.png',
+        title: 'E-commerce & CRM Integration',
+        desc: 'Seamless zero-code and custom API integration with Shopify, WooCommerce, Magento, Custom Web, Zoho, LeadSquared, and ERPs.',
+      },
+      {
+        icon: '/brand-img/bullhorn.png',
+        title: 'Automated Abandoned Cart Recovery',
+        desc: 'Trigger personalized discount messages with 1-click checkout links within 15 minutes of checkout abandonment to recover 25-40% lost sales.',
+      },
+      {
+        icon: '/brand-img/customer-service.png',
+        title: 'Instant Order & Logistics Alerts',
+        desc: 'Automated transactional notifications for order confirmations, live shipment tracking links, NDR (Non-Delivery Report) address re-confirmation, and COD verification.',
+      },
+      {
+        icon: '/brand-img/report.png',
+        title: 'AI Chatbots & Live Agent Routing',
+        desc: 'Intelligent conversational AI bots to handle FAQs, return/exchange requests, sizing guides, and smooth handover to human support agents.',
+      },
+      {
+        icon: '/brand-img/dashboard.png',
+        title: 'WhatsApp Catalog & Interactive Checkout',
+        desc: 'Native in-chat product showcases, quick-reply carousels, payment gateway links (UPI/Razorpay), and frictionless re-ordering.',
+      },
+    ],
+    advantages: [
+      {
+        icon: '/css/Special expertise (2).png',
+        title: '98% Open Rate & Instant Engagement',
+        desc: 'Reach customers where they spend the most time with 5X higher response rates than traditional email and SMS.',
+      },
+      {
+        icon: '/css/Increase in sales performance (2).png',
+        title: '35%+ Cart Recovery Multiplier',
+        desc: 'Proven automated recovery sequences that turn dropped checkouts into high-margin paid orders on autopilot.',
+      },
+      {
+        icon: '/css/Active issue resolution (2).png',
+        title: '100% Meta Compliance & Anti-Spam Protection',
+        desc: 'Strict adherence to Meta quality rating guidelines to protect your business phone number from bans and rate limiting.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the WhatsApp Business API and how does it differ from regular WhatsApp Business app?',
+        answer: 'WhatsApp Business API is designed for growing and medium-to-large businesses. It allows unlimited team members to chat from one number, integrates directly with your Shopify/eCommerce store, enables automated notifications (order updates, abandoned carts), broadcasts promotional campaigns to thousands of opt-in users, and provides AI chatbot capabilities.',
+      },
+      {
+        question: 'Can you help get the Official WhatsApp Green Tick badge?',
+        answer: 'Yes, we assist eligible brands with Meta Business Manager verification, notable brand press coverage submission, and the official Green Tick verification process.',
+      },
+      {
+        question: 'Can WhatsApp API help reduce COD RTO (Return to Origin) rates?',
+        answer: 'Absolutely. We configure automated COD order confirmation messages via WhatsApp where buyers confirm or cancel their order before dispatch. We also automate NDR (Non-Delivery Report) flows to capture alternate delivery addresses and delivery slots.',
+      },
+      {
+        question: 'Which e-commerce platforms can be integrated with WhatsApp?',
+        answer: 'We integrate with Shopify, WooCommerce, Wix, Magento, Custom Next.js/React websites, Webflow, and leading Indian logistics aggregators (Shiprocket, NimbusPost, Delhivery, etc.).',
+      },
+    ],
+  },
+
+  'whatsapp-integration': {
+    slug: 'whatsapp-integration',
+    badge: 'Meta Official WhatsApp Business API Partner',
+    title: 'WhatsApp Integration & Business API Automation',
+    subtitle: 'Connect WhatsApp Business API with Shopify, WooCommerce, CRM & ERP. Automate order updates, abandoned cart recovery, AI chatbots, catalog checkout, and 24/7 customer support.',
+    heroImage: '/home-img/whatsapp-icon-arvian.webp',
+    aboutImage: '/home-img/content-marketing.webp',
+    aboutTitle: 'Scale Direct-to-Consumer Conversions With WhatsApp Automation',
+    aboutDesc: 'With over 500M+ active WhatsApp users in India and an unprecedented 98% message open rate, WhatsApp is the most powerful revenue channel for modern e-commerce brands. EcomVanta helps brands integrate official Meta WhatsApp Cloud API, configure automated sales flows, recover lost carts, and automate 24/7 customer support.',
+    servicesGrid: [
+      {
+        icon: '/brand-img/policy.png',
+        title: 'Official Cloud API & Green Tick Verification',
+        desc: 'End-to-end Meta Business Manager verification, official WhatsApp Cloud API provisioning, and Green Tick verified badge application.',
+      },
+      {
+        icon: '/brand-img/inventory-management.png',
+        title: 'E-commerce & CRM Integration',
+        desc: 'Seamless zero-code and custom API integration with Shopify, WooCommerce, Magento, Custom Web, Zoho, LeadSquared, and ERPs.',
+      },
+      {
+        icon: '/brand-img/bullhorn.png',
+        title: 'Automated Abandoned Cart Recovery',
+        desc: 'Trigger personalized discount messages with 1-click checkout links within 15 minutes of checkout abandonment to recover 25-40% lost sales.',
+      },
+      {
+        icon: '/brand-img/customer-service.png',
+        title: 'Instant Order & Logistics Alerts',
+        desc: 'Automated transactional notifications for order confirmations, live shipment tracking links, NDR (Non-Delivery Report) address re-confirmation, and COD verification.',
+      },
+      {
+        icon: '/brand-img/report.png',
+        title: 'AI Chatbots & Live Agent Routing',
+        desc: 'Intelligent conversational AI bots to handle FAQs, return/exchange requests, sizing guides, and smooth handover to human support agents.',
+      },
+      {
+        icon: '/brand-img/dashboard.png',
+        title: 'WhatsApp Catalog & Interactive Checkout',
+        desc: 'Native in-chat product showcases, quick-reply carousels, payment gateway links (UPI/Razorpay), and frictionless re-ordering.',
+      },
+    ],
+    advantages: [
+      {
+        icon: '/css/Special expertise (2).png',
+        title: '98% Open Rate & Instant Engagement',
+        desc: 'Reach customers where they spend the most time with 5X higher response rates than traditional email and SMS.',
+      },
+      {
+        icon: '/css/Increase in sales performance (2).png',
+        title: '35%+ Cart Recovery Multiplier',
+        desc: 'Proven automated recovery sequences that turn dropped checkouts into high-margin paid orders on autopilot.',
+      },
+      {
+        icon: '/css/Active issue resolution (2).png',
+        title: '100% Meta Compliance & Anti-Spam Protection',
+        desc: 'Strict adherence to Meta quality rating guidelines to protect your business phone number from bans and rate limiting.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the WhatsApp Business API and how does it differ from regular WhatsApp Business app?',
+        answer: 'WhatsApp Business API is designed for growing and medium-to-large businesses. It allows unlimited team members to chat from one number, integrates directly with your Shopify/eCommerce store, enables automated notifications (order updates, abandoned carts), broadcasts promotional campaigns to thousands of opt-in users, and provides AI chatbot capabilities.',
+      },
+      {
+        question: 'Can you help get the Official WhatsApp Green Tick badge?',
+        answer: 'Yes, we assist eligible brands with Meta Business Manager verification, notable brand press coverage submission, and the official Green Tick verification process.',
+      },
+    ],
+  },
+
+  'sms-voice-call-whatsapp-marketing-services': {
+    slug: 'sms-voice-call-whatsapp-marketing-services',
+    badge: 'Omnichannel Direct Outreach & Performance Marketing',
+    title: 'SMS, Voice Call & WhatsApp Marketing Services',
+    subtitle: 'Scale high-ROI omnichannel customer acquisition and retention. Deploy promotional Bulk SMS, automated OBD voice calls, interactive IVR broadcasts, and hyper-targeted WhatsApp marketing campaigns.',
+    heroImage: '/home-img/content-marketing.webp',
+    aboutImage: '/home-img/Amazon-account-management.webp',
+    aboutTitle: 'Reach Millions of Shoppers Directly on Their Mobile Devices',
+    aboutDesc: 'Email alone is no longer enough to scale modern brands. Combining Bulk SMS, Automated Outbound Voice Calls (OBD/IVR), and WhatsApp Marketing creates a powerful 360-degree outreach strategy that maximizes festival sale revenue, re-engages dormant customers, and slashes customer acquisition cost (CAC).',
+    servicesGrid: [
+      {
+        icon: '/brand-img/bullhorn.png',
+        title: 'Promotional & Transactional Bulk SMS',
+        desc: 'High-throughput DLT-approved SMS gateways with 99.9% delivery rate, dynamic name personalization, URL shorteners, and click tracking.',
+      },
+      {
+        icon: '/brand-img/customer-service.png',
+        title: 'Voice Broadcasting & OBD Calling',
+        desc: 'Automated high-volume recorded voice broadcasts for flash sale announcements, festival discounts, event invitations, and VIP customer alerts.',
+      },
+      {
+        icon: '/brand-img/policy.png',
+        title: 'Interactive IVR & Lead Qualification',
+        desc: 'Smart press-1 key input voice campaigns to instantly qualify prospective wholesale buyers, bulk order leads, and direct calls to your sales team.',
+      },
+      {
+        icon: '/brand-img/dashboard.png',
+        title: 'Targeted WhatsApp Broadcast Blasts',
+        desc: 'Rich media WhatsApp campaigns with image banners, videos, CTA buttons, and discount promo codes with instant 98% open rates.',
+      },
+      {
+        icon: '/brand-img/report.png',
+        title: 'Audience Segmentation & RFM Clustering',
+        desc: 'Segment customer lists based on Recency, Frequency, and Monetary value (RFM) to deliver the right message at the right purchase cycle.',
+      },
+      {
+        icon: '/brand-img/inventory-management.png',
+        title: 'DLT Registration & Regulatory Compliance',
+        desc: 'Complete assistance with TRAI DLT portal registration, header/sender ID whitelisting, and template approval with zero compliance bottlenecks.',
+      },
+    ],
+    advantages: [
+      {
+        icon: '/css/Special expertise (2).png',
+        title: '10X Higher Response Rate',
+        desc: 'Mobile-first messaging yields up to 45% click-through and interaction rates compared to traditional channels.',
+      },
+      {
+        icon: '/css/Increase in sales performance (2).png',
+        title: 'Instant Multi-Channel Delivery',
+        desc: 'Transmit up to 100,000+ messages and voice calls per minute during peak festival flash sales and product launches.',
+      },
+      {
+        icon: '/css/Active issue resolution (2).png',
+        title: '100% TRAI DLT & Meta Compliant',
+        desc: 'Zero risk of spam blacklisting or telecom penalties with strictly compliant sender IDs and template approvals.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is TRAI DLT registration and is it required for SMS marketing in India?',
+        answer: 'Yes, as per TRAI regulations in India, every business sending commercial SMS must register their entity, sender IDs (headers), and SMS content templates on an authorized DLT portal (such as Jio, Airtel, Vodafone, or BSNL). EcomVanta handles the full DLT registration and template approval process for you.',
+      },
+      {
+        question: 'How do automated Voice Call broadcasts (OBD) work for e-commerce?',
+        answer: 'Outbound Dialing (OBD) automatically calls customer phone lists simultaneously and plays a pre-recorded audio announcement (e.g., announcing a 50% festival sale or reminding them of an urgent order status). Shoppers can interact by pressing numbers on their phone keypad to receive a WhatsApp link or talk to an agent.',
+      },
+      {
+        question: 'Can we send WhatsApp broadcasts to customers who haven\'t saved our number?',
+        answer: 'Yes, via the official WhatsApp Business API, you can send pre-approved template broadcast messages to opted-in customer phone numbers regardless of whether they have saved your contact details in their phone address book.',
+      },
+      {
+        question: 'How do you measure the ROI of multi-channel marketing campaigns?',
+        answer: 'We provide comprehensive real-time dashboards tracking delivery rates, open rates, unique click-through rates (CTR), UTM-tagged purchases, total revenue generated, and overall return on ad spend (ROAS).',
+      },
+    ],
+  },
+
+  'marketing-whatsapp-sms-voice': {
+    slug: 'marketing-whatsapp-sms-voice',
+    badge: 'Omnichannel Direct Outreach & Performance Marketing',
+    title: 'SMS, Voice Call & WhatsApp Marketing Services',
+    subtitle: 'Scale high-ROI omnichannel customer acquisition and retention. Deploy promotional Bulk SMS, automated OBD voice calls, interactive IVR broadcasts, and hyper-targeted WhatsApp marketing campaigns.',
+    heroImage: '/home-img/content-marketing.webp',
+    aboutImage: '/home-img/Amazon-account-management.webp',
+    aboutTitle: 'Reach Millions of Shoppers Directly on Their Mobile Devices',
+    aboutDesc: 'Email alone is no longer enough to scale modern brands. Combining Bulk SMS, Automated Outbound Voice Calls (OBD/IVR), and WhatsApp Marketing creates a powerful 360-degree outreach strategy that maximizes festival sale revenue, re-engages dormant customers, and slashes customer acquisition cost (CAC).',
+    servicesGrid: [
+      {
+        icon: '/brand-img/bullhorn.png',
+        title: 'Promotional & Transactional Bulk SMS',
+        desc: 'High-throughput DLT-approved SMS gateways with 99.9% delivery rate, dynamic name personalization, URL shorteners, and click tracking.',
+      },
+      {
+        icon: '/brand-img/customer-service.png',
+        title: 'Voice Broadcasting & OBD Calling',
+        desc: 'Automated high-volume recorded voice broadcasts for flash sale announcements, festival discounts, event invitations, and VIP customer alerts.',
+      },
+      {
+        icon: '/brand-img/policy.png',
+        title: 'Interactive IVR & Lead Qualification',
+        desc: 'Smart press-1 key input voice campaigns to instantly qualify prospective wholesale buyers, bulk order leads, and direct calls to your sales team.',
+      },
+      {
+        icon: '/brand-img/dashboard.png',
+        title: 'Targeted WhatsApp Broadcast Blasts',
+        desc: 'Rich media WhatsApp campaigns with image banners, videos, CTA buttons, and discount promo codes with instant 98% open rates.',
+      },
+      {
+        icon: '/brand-img/report.png',
+        title: 'Audience Segmentation & RFM Clustering',
+        desc: 'Segment customer lists based on Recency, Frequency, and Monetary value (RFM) to deliver the right message at the right purchase cycle.',
+      },
+      {
+        icon: '/brand-img/inventory-management.png',
+        title: 'DLT Registration & Regulatory Compliance',
+        desc: 'Complete assistance with TRAI DLT portal registration, header/sender ID whitelisting, and template approval with zero compliance bottlenecks.',
+      },
+    ],
+    advantages: [
+      {
+        icon: '/css/Special expertise (2).png',
+        title: '10X Higher Response Rate',
+        desc: 'Mobile-first messaging yields up to 45% click-through and interaction rates compared to traditional channels.',
+      },
+      {
+        icon: '/css/Increase in sales performance (2).png',
+        title: 'Instant Multi-Channel Delivery',
+        desc: 'Transmit up to 100,000+ messages and voice calls per minute during peak festival flash sales and product launches.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is TRAI DLT registration and is it required for SMS marketing in India?',
+        answer: 'Yes, as per TRAI regulations in India, every business sending commercial SMS must register their entity, sender IDs (headers), and SMS content templates on an authorized DLT portal. EcomVanta handles the full DLT registration for you.',
+      },
+    ],
+  },
 };
+

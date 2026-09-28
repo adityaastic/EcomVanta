@@ -17,7 +17,9 @@ import {
   Sparkles,
   Download,
   FileText,
-  Star
+  Star,
+  MessageCircle,
+  PhoneCall
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -204,6 +206,18 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                         <Link href="/social-media-optimization-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/SMO_logo.jpg" alt="SMO" width={24} height={24} className="w-5 h-5 object-contain rounded" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Social Media Optimization</span>
+                        </Link>
+                        <Link href="/whatsapp-integration-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                          <div className="w-5 h-5 rounded-md bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                            <MessageCircle className="w-3.5 h-3.5 fill-emerald-500 text-emerald-600" />
+                          </div>
+                          <span className="group-hover/item:translate-x-1 transition-transform font-bold text-emerald-700">WhatsApp Integration</span>
+                        </Link>
+                        <Link href="/sms-voice-call-whatsapp-marketing-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                          <div className="w-5 h-5 rounded-md bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
+                            <PhoneCall className="w-3.5 h-3.5 text-blue-600" />
+                          </div>
+                          <span className="group-hover/item:translate-x-1 transition-transform font-bold text-[#0066FF]">SMS, Voice & WhatsApp Marketing</span>
                         </Link>
                         <Link href="/graphic-design-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/graphics-logo.webp" alt="Graphics" width={24} height={24} className="w-5 h-5 object-contain" />
@@ -394,10 +408,20 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                 <Link href="/swiggy-instamart-seller-account-management-and-onboarding" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Swiggy Instamart</Link>
                 <Link href="/zepto-seller-onboarding-and-account-management-service" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Zepto Onboarding</Link>
                 
-                <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider pt-2">Digital Marketing</p>
+                <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider pt-2">Ads & Digital Marketing</p>
                 <Link href="/seo-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Search Engine Optimization</Link>
                 <Link href="/meta-ads-management-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Meta Ads Management</Link>
                 <Link href="/google-ads-management-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Google Ads Management</Link>
+                <Link href="/whatsapp-integration-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1.5">
+                  <MessageCircle className="w-3.5 h-3.5 fill-emerald-500 text-emerald-600 inline" />
+                  <span>WhatsApp Integration</span>
+                </Link>
+                <Link href="/sms-voice-call-whatsapp-marketing-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 font-bold text-[#0066FF] hover:underline flex items-center gap-1.5">
+                  <PhoneCall className="w-3.5 h-3.5 text-[#0066FF] inline" />
+                  <span>SMS, Voice & WhatsApp Marketing</span>
+                </Link>
+                <Link href="/performance-marketing-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Performance Marketing</Link>
+                <Link href="/graphic-design-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Graphic & A+ Design</Link>
               </div>
             )}
           </div>
