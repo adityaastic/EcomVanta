@@ -35,15 +35,15 @@ export const metadata: Metadata = {
   },
 };
 
-import { getSiteContent } from "@/lib/cms";
+import { getLatestContentFromCloud, getSiteContent } from "@/lib/cms";
 import { CmsProvider } from "@/lib/useCmsContent";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialContent = getSiteContent();
+  const initialContent = await getLatestContentFromCloud();
 
   return (
     <html lang="en" className={sora.variable}>

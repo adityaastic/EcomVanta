@@ -335,7 +335,7 @@ export default function AboutUsAdminPage() {
               </label>
               <input
                 type="text"
-                value={aboutUs.founderName || 'Arvind Sharma'}
+                value={aboutUs.founderName || 'Shivam Dubey'}
                 onChange={(e) => setAboutUs({ ...aboutUs, founderName: e.target.value })}
                 className="w-full px-3.5 py-2.5 text-xs font-bold border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] bg-slate-50/50 hover:bg-white transition-colors mb-2"
               />
@@ -354,7 +354,7 @@ export default function AboutUsAdminPage() {
           </div>
           <MediaUploader
             label="Founder / Leadership Photo"
-            value={aboutUs.founderImage || '/abt-img/Arvind-owner-img.jpeg'}
+            value={aboutUs.founderImage || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp'}
             onChange={(url) => setAboutUs({ ...aboutUs, founderImage: url })}
             helperText="Upload the founder image displayed next to the quote"
             previewHeight="h-44"

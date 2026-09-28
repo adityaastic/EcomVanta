@@ -9,12 +9,12 @@ import ContactPopupModal from '@/components/ContactPopupModal';
 import BrandLogoSlider from '@/components/BrandLogoSlider';
 import ContactSection from '@/components/ContactSection';
 import { useCmsContent } from '@/lib/useCmsContent';
-import { Award, Target, Users, TrendingUp, CheckCircle, Star } from 'lucide-react';
+import { Award, Target, Compass, Users, TrendingUp, CheckCircle, Star, ShieldCheck } from 'lucide-react';
 
 export default function AboutUsPage() {
   const [popupOpen, setPopupOpen] = useState(false);
   const { content } = useCmsContent();
-  const about = content.aboutUs;
+  const about = content?.aboutUs;
 
   return (
     <>
@@ -36,11 +36,11 @@ export default function AboutUsPage() {
                 </span>
                 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-                  {about?.heroTitle || 'Driving Unprecedented E-Commerce Growth Since 2018'}
+                  {about?.heroTitle || 'WHO WE ARE & WHAT WE DO'}
                 </h1>
 
                 <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                  {about?.heroSubtitle || about?.storyDesc || 'EcomVanta is one of India\'s leading e-commerce management and growth agencies. With over 8+ years of dedicated marketplace experience, we empower D2C brands, manufacturers, and sellers to dominate Amazon, Flipkart, Blinkit, Meesho, Myntra, and Shopify.'}
+                  {about?.heroSubtitle || about?.storyDesc || 'Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.'}
                 </p>
 
                 {/* Rating Badges from live site */}
@@ -82,7 +82,7 @@ export default function AboutUsPage() {
               <div className="lg:col-span-5 relative">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                   <img
-                    src={about?.heroImage || '/abt-img/About-new-left.png'}
+                    src={about?.heroImage || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707303911_ChatGPT_Image_Sep_18__2026__10_24_51_AM.webp'}
                     alt="About EcomVanta"
                     className="w-full h-auto object-cover max-h-[450px]"
                   />
@@ -92,6 +92,46 @@ export default function AboutUsPage() {
             </div>
           </div>
         </section>
+
+        {/* STORY, MISSION, VISION SECTION (IF AVAILABLE) */}
+        {(about?.storyDesc || about?.missionDesc || about?.visionDesc) && (
+          <section className="py-16 bg-white border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {about?.storyDesc && (
+                <div className="max-w-4xl mx-auto text-center mb-14">
+                  <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+                    {about?.storyTitle || 'Who We Are & What We Do'}
+                  </span>
+                  <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mt-4 font-medium">
+                    {about.storyDesc}
+                  </p>
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {about?.missionDesc && (
+                  <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50/80 to-white border border-blue-100 shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-[#0066FF] text-white flex items-center justify-center mb-5 shadow-md shadow-blue-500/20">
+                      <Target className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-black text-gray-900 mb-3">{about?.missionTitle || 'Our Mission'}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{about.missionDesc}</p>
+                  </div>
+                )}
+
+                {about?.visionDesc && (
+                  <div className="p-8 rounded-2xl bg-gradient-to-br from-cyan-50/80 to-white border border-cyan-100 shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-cyan-600 text-white flex items-center justify-center mb-5 shadow-md shadow-cyan-600/20">
+                      <Compass className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-black text-gray-900 mb-3">{about?.visionTitle || 'Our Vision'}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{about.visionDesc}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* 4 CORE VALUE PILLARS */}
         <section className="py-16 bg-gray-50/60 border-y border-gray-100">
@@ -153,10 +193,10 @@ export default function AboutUsPage() {
             <div className="bg-gradient-to-br from-[#081325] via-[#0B1E36] to-[#07101E] rounded-3xl p-8 sm:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border border-blue-900/40">
               
               <div className="lg:col-span-4 flex justify-center">
-                <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl">
+                <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl bg-[#0B1E36]">
                   <img
-                    src={content?.aboutUs?.founderImage || "/abt-img/Arvind-owner-img.jpeg"}
-                    alt={content?.aboutUs?.founderName || "Arvind - Founder & CEO"}
+                    src={about?.founderImage || "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp"}
+                    alt={about?.founderName || "Shivam Dubey - Founder & CEO"}
                     className="object-cover w-full h-full"
                   />
                 </div>
@@ -167,20 +207,49 @@ export default function AboutUsPage() {
                   Leadership Note
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-                  &ldquo;{content?.aboutUs?.founderQuote || 'We Treat Your Brand Like Our Own.'}&rdquo;
+                  &ldquo;{about?.founderQuote || 'We Treat Your Brand Like Our Own.'}&rdquo;
                 </h2>
                 <p className="text-gray-300 text-base leading-relaxed">
-                  {content?.aboutUs?.founderDesc || 'When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.'}
+                  {about?.founderDesc || 'When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.'}
                 </p>
                 <div className="pt-2">
-                  <h4 className="text-xl font-bold text-white">{content?.aboutUs?.founderName || 'Arvind Sharma'}</h4>
-                  <p className="text-xs text-[#00C2FF] font-semibold">{content?.aboutUs?.founderTitle || 'Founder & CEO, EcomVanta'}</p>
+                  <h4 className="text-xl font-bold text-white">{about?.founderName || 'Shivam Dubey'}</h4>
+                  <p className="text-xs text-[#00C2FF] font-semibold">{about?.founderTitle || 'Founder & CEO, EcomVanta'}</p>
                 </div>
               </div>
 
             </div>
           </div>
         </section>
+
+        {/* TEAM SECTION (IF AVAILABLE) */}
+        {about?.team && about.team.length > 0 && (
+          <section className="py-16 bg-gray-50/50 border-t border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto mb-12">
+                <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">Our Leadership</span>
+                <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mt-2">
+                  Meet the Team Powering Your Growth
+                </h2>
+              </div>
+              <div className="flex flex-wrap justify-center gap-6">
+                {about.team.map((member, idx) => (
+                  <div key={member.id || idx} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center flex flex-col items-center hover:shadow-xl hover:border-blue-200 transition-all w-full sm:w-64">
+                    <div className="w-36 h-36 rounded-2xl overflow-hidden mb-4 border-2 border-blue-500/20 shadow-md bg-slate-100">
+                      <img
+                        src={member.image || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790428729318_pp.webp'}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900">{member.name}</h3>
+                    <p className="text-xs text-[#0066FF] font-semibold mt-1">{member.designation}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <BrandLogoSlider />
         <ContactSection sourcePage="About Us Page" />

@@ -16,7 +16,8 @@ import {
   ArrowRight,
   Sparkles,
   Download,
-  FileText
+  FileText,
+  Star
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -125,6 +126,12 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                         <Link href="/etsy-account-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Etsy-logo.png" alt="Etsy" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Etsy Account Mgmt</span>
+                        </Link>
+                        <Link href="/ecommerce-rating-and-review-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                          <div className="w-5 h-5 rounded-md bg-amber-50 flex items-center justify-center text-amber-500 flex-shrink-0">
+                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
+                          </div>
+                          <span className="group-hover/item:translate-x-1 transition-transform font-bold text-[#0066FF]">Rating & Review Mgmt</span>
                         </Link>
                         <Link href="/ecommerce-product-listing-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Arvian_Listing_Logo.png" alt="Listing" width={24} height={24} className="w-5 h-5 object-contain" />
@@ -377,6 +384,10 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                 <Link href="/shopify-store-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Shopify Account Management</Link>
                 <Link href="/myntra-account-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Myntra Account Management</Link>
                 <Link href="/amazon-product-listing-catalogue-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Amazon Product Listing</Link>
+                <Link href="/ecommerce-rating-and-review-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 font-bold text-[#0066FF] hover:underline flex items-center gap-1.5">
+                  <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500 inline" />
+                  <span>Rating & Review Mgmt</span>
+                </Link>
                 
                 <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider pt-2">Quick Commerce</p>
                 <Link href="/blinkit-seller-account-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Blinkit Onboarding</Link>

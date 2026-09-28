@@ -475,4 +475,160 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
       },
     ],
   },
+
+  'ecommerce-rating-and-review-management-services': {
+    slug: 'ecommerce-rating-and-review-management-services',
+    badge: 'Brand Reputation & Social Proof Scaling',
+    title: 'E-Commerce Rating & Review Management Services',
+    subtitle: 'Build 4.8★+ customer trust on Amazon, Flipkart, Meesho, Myntra, Blinkit & Shopify. We accelerate verified buyer reviews, remove policy-violating negative feedback, and skyrocket sales conversion rates.',
+    heroImage: '/home-img/Amazon-product-listing-optimization.webp',
+    aboutImage: '/flipkart-account/product-dashboard.png',
+    aboutTitle: 'Turn Customer Reviews Into Your Biggest Sales Multiplier',
+    aboutDesc: 'Over 93% of online shoppers read customer reviews before making a purchase. A single 1-star review can drop listing conversions by up to 35%. EcomVanta provides 100% policy-compliant rating and review management services for Amazon, Flipkart, Meesho, Blinkit, and Quick Commerce brands to safeguard your brand reputation and establish category leadership.',
+    servicesGrid: [
+      {
+        icon: '/brand-img/customer-service.png',
+        title: 'Amazon Vine & Review Acceleration',
+        desc: 'Compliant review generation via Amazon Vine, automated "Request a Review" integrations, and post-purchase follow-up systems that multiply positive feedback.',
+      },
+      {
+        icon: '/brand-img/policy.png',
+        title: 'Flipkart Ratings & Buyer Feedback',
+        desc: 'Accelerating verified buyer reviews and improving Listing Quality Score (LQS) to maintain Gold/Diamond seller tier badges.',
+      },
+      {
+        icon: '/brand-img/inventory-management.png',
+        title: 'Blinkit, Zepto & Quick Commerce Reviews',
+        desc: 'Real-time rating monitoring on dark store platforms to maintain 4.5+ star product reputation and rapid impulse reorders.',
+      },
+      {
+        icon: '/brand-img/report.png',
+        title: 'Negative Review Suppression & Removal',
+        desc: 'Proactive escalation and removal of policy-violating reviews, competitor sabotage, fake claims, and delivery/fulfillment complaints (FBA/FBF strike-throughs).',
+      },
+      {
+        icon: '/brand-img/dashboard.png',
+        title: 'Voice of Customer (VOC) Analytics',
+        desc: 'In-depth sentiment analysis and return reason diagnostics to fix root-cause packaging, size, or quality issues before they harm your rating.',
+      },
+      {
+        icon: '/brand-img/bullhorn.png',
+        title: 'Competitor Review Reverse Engineering',
+        desc: 'Auditing top competitor complaints and negative reviews to highlight winning product USPs and comparison tables in your A+ content.',
+      },
+    ],
+    advantages: [
+      {
+        icon: '/css/Special expertise (2).png',
+        title: '100% Marketplace TOS Compliant',
+        desc: 'Zero black-hat techniques. All review acquisition strategies strictly adhere to Amazon Anti-Manipulation Policy and marketplace guidelines.',
+      },
+      {
+        icon: '/css/Increase in sales performance (2).png',
+        title: 'Proven Conversion Rate Multiplier',
+        desc: 'Increasing your listing rating from 3.8★ to 4.5★+ increases organic conversion rate by up to 120% and lowers your ad ACOS.',
+      },
+      {
+        icon: '/css/Active issue resolution (2).png',
+        title: 'Rapid Review Escalation & Support',
+        desc: 'Dedicated account managers monitoring your product ratings 24/7 with swift case logging for unfair or malicious negative feedback.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do you generate reviews legally on Amazon and Flipkart?',
+        answer: 'We utilize 100% compliant official programs including Amazon Vine, the automated Request a Review API, Flipkart Post-Delivery Feedback workflows, and high-converting product inserts that encourage authentic buyer feedback without incentivization or TOS violations.',
+      },
+      {
+        question: 'Can negative reviews be removed from Amazon or Flipkart?',
+        answer: 'Yes, if a negative review violates marketplace community guidelines (e.g., contains vulgarity, mentions competitor names, discusses FBA delivery issues rather than the product, or constitutes abusive competitor sabotage), we raise official policy tickets for complete removal or strike-through.',
+      },
+      {
+        question: 'What marketplaces do you support for review management?',
+        answer: 'We provide review and rating management across Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, Swiggy Instamart, Nykaa, and D2C brand websites (Shopify/WooCommerce).',
+      },
+      {
+        question: 'How does improved product rating impact Amazon PPC advertising?',
+        answer: 'Higher star ratings and positive review counts drastically improve your ad Click-Through Rate (CTR) and Conversion Rate (CVR). This results in lower cost-per-click (CPC), reduced ACOS, and higher ROAS on all your sponsored ad campaigns.',
+      },
+    ],
+  },
+
+  'rating-and-review-management-services': {
+    slug: 'rating-and-review-management-services',
+    badge: 'Brand Reputation & Social Proof Scaling',
+    title: 'Rating & Review Management Services',
+    subtitle: 'Build 4.8★+ customer trust on Amazon, Flipkart, Meesho, Myntra, Blinkit & Shopify. We accelerate verified buyer reviews, remove policy-violating negative feedback, and skyrocket sales conversion rates.',
+    heroImage: '/home-img/Amazon-product-listing-optimization.webp',
+    aboutImage: '/flipkart-account/product-dashboard.png',
+    aboutTitle: 'Turn Customer Reviews Into Your Biggest Sales Multiplier',
+    aboutDesc: 'Over 93% of online shoppers read customer reviews before making a purchase. A single 1-star review can drop listing conversions by up to 35%. EcomVanta provides 100% policy-compliant rating and review management services for Amazon, Flipkart, Meesho, Blinkit, and Quick Commerce brands to safeguard your brand reputation and establish category leadership.',
+    servicesGrid: [
+      {
+        icon: '/brand-img/customer-service.png',
+        title: 'Amazon Vine & Review Acceleration',
+        desc: 'Compliant review generation via Amazon Vine, automated "Request a Review" integrations, and post-purchase follow-up systems that multiply positive feedback.',
+      },
+      {
+        icon: '/brand-img/policy.png',
+        title: 'Flipkart Ratings & Buyer Feedback',
+        desc: 'Accelerating verified buyer reviews and improving Listing Quality Score (LQS) to maintain Gold/Diamond seller tier badges.',
+      },
+      {
+        icon: '/brand-img/inventory-management.png',
+        title: 'Blinkit, Zepto & Quick Commerce Reviews',
+        desc: 'Real-time rating monitoring on dark store platforms to maintain 4.5+ star product reputation and rapid impulse reorders.',
+      },
+      {
+        icon: '/brand-img/report.png',
+        title: 'Negative Review Suppression & Removal',
+        desc: 'Proactive escalation and removal of policy-violating reviews, competitor sabotage, fake claims, and delivery/fulfillment complaints (FBA/FBF strike-throughs).',
+      },
+      {
+        icon: '/brand-img/dashboard.png',
+        title: 'Voice of Customer (VOC) Analytics',
+        desc: 'In-depth sentiment analysis and return reason diagnostics to fix root-cause packaging, size, or quality issues before they harm your rating.',
+      },
+      {
+        icon: '/brand-img/bullhorn.png',
+        title: 'Competitor Review Reverse Engineering',
+        desc: 'Auditing top competitor complaints and negative reviews to highlight winning product USPs and comparison tables in your A+ content.',
+      },
+    ],
+    advantages: [
+      {
+        icon: '/css/Special expertise (2).png',
+        title: '100% Marketplace TOS Compliant',
+        desc: 'Zero black-hat techniques. All review acquisition strategies strictly adhere to Amazon Anti-Manipulation Policy and marketplace guidelines.',
+      },
+      {
+        icon: '/css/Increase in sales performance (2).png',
+        title: 'Proven Conversion Rate Multiplier',
+        desc: 'Increasing your listing rating from 3.8★ to 4.5★+ increases organic conversion rate by up to 120% and lowers your ad ACOS.',
+      },
+      {
+        icon: '/css/Active issue resolution (2).png',
+        title: 'Rapid Review Escalation & Support',
+        desc: 'Dedicated account managers monitoring your product ratings 24/7 with swift case logging for unfair or malicious negative feedback.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do you generate reviews legally on Amazon and Flipkart?',
+        answer: 'We utilize 100% compliant official programs including Amazon Vine, the automated Request a Review API, Flipkart Post-Delivery Feedback workflows, and high-converting product inserts that encourage authentic buyer feedback without incentivization or TOS violations.',
+      },
+      {
+        question: 'Can negative reviews be removed from Amazon or Flipkart?',
+        answer: 'Yes, if a negative review violates marketplace community guidelines (e.g., contains vulgarity, mentions competitor names, discusses FBA delivery issues rather than the product, or constitutes abusive competitor sabotage), we raise official policy tickets for complete removal or strike-through.',
+      },
+      {
+        question: 'What marketplaces do you support for review management?',
+        answer: 'We provide review and rating management across Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, Swiggy Instamart, Nykaa, and D2C brand websites (Shopify/WooCommerce).',
+      },
+      {
+        question: 'How does improved product rating impact Amazon PPC advertising?',
+        answer: 'Higher star ratings and positive review counts drastically improve your ad Click-Through Rate (CTR) and Conversion Rate (CVR). This results in lower cost-per-click (CPC), reduced ACOS, and higher ROAS on all your sponsored ad campaigns.',
+      },
+    ],
+  },
 };

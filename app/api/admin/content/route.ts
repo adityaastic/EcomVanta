@@ -1,81 +1,9 @@
 import { NextResponse } from 'next/server';
-import { getSiteContent, saveSiteContent, SiteContentData, DEFAULT_SITE_CONTENT } from '@/lib/cms';
+import { getSiteContent, saveSiteContent, SiteContentData, DEFAULT_SITE_CONTENT, getLatestContentFromCloud, mergeWithDefaults } from '@/lib/cms';
 import { supabaseAdmin, supabase } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-
-async function getLatestContentFromCloud(): Promise<SiteContentData> {
-  const client = supabaseAdmin || supabase;
-  if (!client) {
-    return getSiteContent();
-  }
-
-  // 1. Try Supabase Database table
-  try {
-    const { data: row, error: dbErr } = await client
-      .from('site_content')
-      .select('content')
-      .eq('id', 'main')
-      .maybeSingle();
-
-    if (!dbErr && row && row.content) {
-      return mergeWithDefaults(row.content);
-    }
-  } catch (err) {
-    // Ignore and fallback to storage
-  }
-
-  // 2. Try Supabase Storage bucket (media/cms/site_content.json) with cache busting
-  try {
-    const { data: pubData } = client.storage.from('media').getPublicUrl('cms/site_content.json');
-    if (pubData?.publicUrl) {
-      const res = await fetch(`${pubData.publicUrl}?t=${Date.now()}`, {
-        cache: 'no-store',
-        headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' },
-      });
-      if (res.ok) {
-        const parsed = await res.json();
-        if (parsed && typeof parsed === 'object') {
-          return mergeWithDefaults(parsed);
-        }
-      }
-    }
-  } catch (err) {
-    // Ignore and fallback to local
-  }
-
-  // 3. Fallback to disk / memory cache
-  return getSiteContent();
-}
-
-function mergeWithDefaults(data: any): SiteContentData {
-  return {
-    ...DEFAULT_SITE_CONTENT,
-    ...data,
-    branding: { ...DEFAULT_SITE_CONTENT.branding, ...(data.branding || {}) },
-    homepage: {
-      ...DEFAULT_SITE_CONTENT.homepage,
-      ...(data.homepage || {}),
-      hero: { ...DEFAULT_SITE_CONTENT.homepage.hero, ...(data.homepage?.hero || {}) },
-      stats: data.homepage?.stats || DEFAULT_SITE_CONTENT.homepage.stats,
-      brandLogos: data.homepage?.brandLogos || DEFAULT_SITE_CONTENT.homepage.brandLogos,
-      platforms: data.homepage?.platforms || DEFAULT_SITE_CONTENT.homepage.platforms,
-      listingServices: data.homepage?.listingServices || DEFAULT_SITE_CONTENT.homepage.listingServices,
-      advantages: data.homepage?.advantages || DEFAULT_SITE_CONTENT.homepage.advantages,
-      clientVideos: data.homepage?.clientVideos || DEFAULT_SITE_CONTENT.homepage.clientVideos,
-      faqs: data.homepage?.faqs || DEFAULT_SITE_CONTENT.homepage.faqs,
-      bottomCta: { ...DEFAULT_SITE_CONTENT.homepage.bottomCta, ...(data.homepage?.bottomCta || {}) },
-    },
-    services: { ...DEFAULT_SITE_CONTENT.services, ...(data.services || {}) },
-    caseStudies: { ...DEFAULT_SITE_CONTENT.caseStudies, ...(data.caseStudies || {}) },
-    blogs: data.blogs || DEFAULT_SITE_CONTENT.blogs,
-    careers: data.careers || DEFAULT_SITE_CONTENT.careers,
-    careerPage: { ...DEFAULT_SITE_CONTENT.careerPage, ...(data.careerPage || {}) },
-    aboutUs: { ...DEFAULT_SITE_CONTENT.aboutUs, ...(data.aboutUs || {}) },
-    contactFooter: { ...DEFAULT_SITE_CONTENT.contactFooter, ...(data.contactFooter || {}) },
-  };
-}
 
 export async function GET() {
   try {

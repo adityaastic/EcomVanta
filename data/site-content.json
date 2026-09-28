@@ -18,7 +18,7 @@
       "twitter": "https://twitter.com/ecomvanta",
       "youtube": "https://youtube.com/@ecomvanta"
     },
-    "catalogPdfUrl": "",
+    "catalogPdfUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317947318_catelog.pdf",
     "catalogButtonText": "Download Catalog",
     "showCatalogInHeader": true,
     "showCatalogInHero": true,
@@ -69,7 +69,7 @@
       }
     ],
     "brandLogosHeading": "We Provide Services For These Leading Brands",
-    "heroVideo": "/uploads/1789926731529_online_shop.mp4",
+    "heroVideo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317012442_12Ecomvanta.mp4",
     "brandLogos": [
       {
         "id": "1",
@@ -205,7 +205,7 @@
       },
       {
         "id": "6",
-        "icon": "/home-img/Bulk Upload & Catalog Management.png",
+        "icon": "/home-img/Listing Error Fixes & Catalog Hygiene.png",
         "title": "Low Stock Alerts & Restock Planning",
         "desc": "Proactive notifications before stock runs out, maintaining the right inventory levels for peak performance."
       }
@@ -239,34 +239,34 @@
     "clientVideos": [
       {
         "id": "1",
-        "name": "Amardeep",
-        "role": "Founder, Home & Kitchen Brand",
-        "videoUrl": "/uploads/1789927112958_online_shop.mp4",
-        "quote": "EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.",
+        "name": "satyam",
+        "role": "EcomVanta Team (Digital Team)",
+        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790315813852_2Ecommanta.mp4",
+        "quote": "",
         "rating": 5
       },
       {
         "id": "2",
         "name": "Arjun",
-        "role": "D2C Apparel Brand Owner",
-        "videoUrl": "/image/Arjun.mp4",
-        "quote": "Their Flipkart ad management reduced our ACOS from 34% down to 15%.",
+        "role": "EcomVanta Team (Digital Team)",
+        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790316735605_12Ecomvanta.mp4",
+        "quote": "",
         "rating": 5
       },
       {
         "id": "3",
-        "name": "Diksha",
-        "role": "Cosmetics Brand Director",
-        "videoUrl": "/image/Diksha.mp4",
-        "quote": "The onboarding on Blinkit & Zepto was seamless and super fast!",
+        "name": "Jatin",
+        "role": "EcomVanta Team",
+        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571128769_1790427955026_Ecomvanta-Digital.mp4",
+        "quote": "",
         "rating": 5
       },
       {
         "id": "4",
-        "name": "Kamna",
-        "role": "Ayurvedic Wellness Brand",
-        "videoUrl": "/image/Kamna Video.mp4",
-        "quote": "Best eCommerce agency. Professional, responsive, and always available.",
+        "name": "Nitish",
+        "role": "EcomVanta Team",
+        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571138292_1790428640547_Online1Shop.mp4",
+        "quote": "",
         "rating": 5
       }
     ],
@@ -292,6 +292,22 @@
         "answer": "We offer flexible plans including fixed monthly retainer or performance-linked growth models tailored to your brand stage and catalog size."
       }
     ],
+    "sellerSpotlight": {
+      "badgeText": "SELLER SPOTLIGHT",
+      "titlePart1": "",
+      "titleHighlight": "Exponential Growth",
+      "subtitle": "Discover how e-commerce brands in fashion, electronics, home essentials, and FMCG transformed underperforming marketplace listings into high-revenue category leaders.",
+      "points": [
+        "+340% Average Revenue Surge in First 90 Days",
+        "60% Reduction in Wasted Ad Spend & Lower ACOS",
+        "100% Policy-Safe Listing & Account Health Protection"
+      ],
+      "buttonText": "Book a Free Consultation",
+      "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317671050_1Ecommanta.mp4",
+      "quote": "“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”",
+      "author": "Amardeep, Home & Kitchen Brand",
+      "rating": 5
+    },
     "bottomCta": {
       "tagline": "Ready to Scale Your E-Commerce Revenue?",
       "title": "Let’s Grow Your E-Commerce Business Together",
@@ -302,6 +318,83 @@
     }
   },
   "services": {
+    "ecommerce-rating-and-review-management-services": {
+      "slug": "ecommerce-rating-and-review-management-services",
+      "badge": "Brand Reputation & Social Proof Scaling",
+      "title": "E-Commerce Rating & Review Management Services",
+      "subtitle": "Build 4.8★+ customer trust on Amazon, Flipkart, Meesho, Myntra, Blinkit & Shopify. We accelerate verified buyer reviews, remove policy-violating negative feedback, and skyrocket sales conversion rates.",
+      "heroImage": "/home-img/Amazon-product-listing-optimization.webp",
+      "aboutImage": "/flipkart-account/product-dashboard.png",
+      "aboutTitle": "Turn Customer Reviews Into Your Biggest Sales Multiplier",
+      "aboutDesc": "Over 93% of online shoppers read customer reviews before making a purchase. A single 1-star review can drop listing conversions by up to 35%. EcomVanta provides 100% policy-compliant rating and review management services for Amazon, Flipkart, Meesho, Blinkit, and Quick Commerce brands to safeguard your brand reputation and establish category leadership.",
+      "servicesGrid": [
+        {
+          "icon": "/brand-img/customer-service.png",
+          "title": "Amazon Vine & Review Acceleration",
+          "desc": "Compliant review generation via Amazon Vine, automated 'Request a Review' integrations, and post-purchase follow-up systems that multiply positive feedback."
+        },
+        {
+          "icon": "/brand-img/policy.png",
+          "title": "Flipkart Ratings & Buyer Feedback",
+          "desc": "Accelerating verified buyer reviews and improving Listing Quality Score (LQS) to maintain Gold/Diamond seller tier badges."
+        },
+        {
+          "icon": "/brand-img/inventory-management.png",
+          "title": "Blinkit, Zepto & Quick Commerce Reviews",
+          "desc": "Real-time rating monitoring on dark store platforms to maintain 4.5+ star product reputation and rapid impulse reorders."
+        },
+        {
+          "icon": "/brand-img/report.png",
+          "title": "Negative Review Suppression & Removal",
+          "desc": "Proactive escalation and removal of policy-violating reviews, competitor sabotage, fake claims, and delivery/fulfillment complaints (FBA/FBF strike-throughs)."
+        },
+        {
+          "icon": "/brand-img/dashboard.png",
+          "title": "Voice of Customer (VOC) Analytics",
+          "desc": "In-depth sentiment analysis and return reason diagnostics to fix root-cause packaging, size, or quality issues before they harm your rating."
+        },
+        {
+          "icon": "/brand-img/bullhorn.png",
+          "title": "Competitor Review Reverse Engineering",
+          "desc": "Auditing top competitor complaints and negative reviews to highlight winning product USPs and comparison tables in your A+ content."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "100% Marketplace TOS Compliant",
+          "desc": "Zero black-hat techniques. All review acquisition strategies strictly adhere to Amazon Anti-Manipulation Policy and marketplace guidelines."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "Proven Conversion Rate Multiplier",
+          "desc": "Increasing your listing rating from 3.8★ to 4.5★+ increases organic conversion rate by up to 120% and lowers your ad ACOS."
+        },
+        {
+          "icon": "/css/Active issue resolution (2).png",
+          "title": "Rapid Review Escalation & Support",
+          "desc": "Dedicated account managers monitoring your product ratings 24/7 with swift case logging for unfair or malicious negative feedback."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do you generate reviews legally on Amazon and Flipkart?",
+          "answer": "We utilize 100% compliant official programs including Amazon Vine, the automated Request a Review API, Flipkart Post-Delivery Feedback workflows, and high-converting product inserts that encourage authentic buyer feedback without incentivization or TOS violations."
+        },
+        {
+          "question": "Can negative reviews be removed from Amazon or Flipkart?",
+          "answer": "Yes, if a negative review violates marketplace community guidelines (e.g., contains vulgarity, mentions competitor names, discusses FBA delivery issues rather than the product, or constitutes abusive competitor sabotage), we raise official policy tickets for complete removal or strike-through."
+        },
+        {
+          "question": "What marketplaces do you support for review management?",
+          "answer": "We provide review and rating management across Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, Swiggy Instamart, Nykaa, and D2C brand websites (Shopify/WooCommerce)."
+        },
+        {
+          "question": "How does improved product rating impact Amazon PPC advertising?",
+          "answer": "Higher star ratings and positive review counts drastically improve your ad Click-Through Rate (CTR) and Conversion Rate (CVR). This results in lower cost-per-click (CPC), reduced ACOS, and higher ROAS on all your sponsored ad campaigns."
+        }
+      ]
+    },
     "flipkart-account-management-services": {
       "slug": "flipkart-account-management-services",
       "badge": "Official Flipkart Partner Network",
@@ -1270,10 +1363,26 @@
     ],
     "whatYouGetTitle": "What You'll Get",
     "whatYouGetItems": [
-      { "id": "1", "number": "01", "title": "Hands-On High GMV Brand Scaling Experience" },
-      { "id": "2", "number": "02", "title": "Sponsored Certifications (Amazon SPN, Flipkart, Meta, Google)" },
-      { "id": "3", "number": "03", "title": "Direct Mentorship from Senior Marketplace Leaders" },
-      { "id": "4", "number": "04", "title": "Competitive Compensation & High-Impact Incentives" }
+      {
+        "id": "1",
+        "number": "01",
+        "title": "Hands-On High GMV Brand Scaling Experience"
+      },
+      {
+        "id": "2",
+        "number": "02",
+        "title": "Sponsored Certifications (Amazon SPN, Flipkart, Meta, Google)"
+      },
+      {
+        "id": "3",
+        "number": "03",
+        "title": "Direct Mentorship from Senior Marketplace Leaders"
+      },
+      {
+        "id": "4",
+        "number": "04",
+        "title": "Competitive Compensation & High-Impact Incentives"
+      }
     ],
     "openingsHeadingBadge": "Job Openings",
     "openingsHeadingTitle": "Current Open Positions"
@@ -1292,13 +1401,13 @@
     "founderDesc": "When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.",
     "founderName": "Shivam Dubey",
     "founderTitle": "Founder & CEO, EcomVanta",
-    "founderImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789927645231_WhatsApp_Image_2026-09-20_at_22.54.42__2_.webp",
+    "founderImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp",
     "team": [
       {
         "id": "1",
         "name": "Shivam Dubey",
         "designation": "Director & Founder",
-        "image": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707331605_WhatsApp_Image_2026-09-18_at_10.21.32_AM.webp"
+        "image": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790428729318_pp.webp"
       }
     ]
   },

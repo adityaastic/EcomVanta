@@ -26,7 +26,11 @@ import {
   Sparkles,
   Award,
   Download,
-  FileText
+  FileText,
+  Search,
+  Layers,
+  RefreshCw,
+  Bell
 } from 'lucide-react';
 
 const WHY_CHOOSE_ITEMS = [
@@ -304,18 +308,19 @@ export default function HomePage() {
 
         {/* SECTION 1.5: Featured Home Video (admin-uploaded) */}
         {hp.heroVideo && (
-          <section className="py-16 bg-gradient-to-b from-blue-50/40 to-white border-b border-slate-100">
+          <section className="py-12 sm:py-16 bg-gradient-to-b from-blue-50/40 to-white border-b border-slate-100">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-10">
+              <div className="text-center mb-8 sm:mb-10">
                 <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">— FEATURED VIDEO</span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">See EcomVanta in Action</h2>
               </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative bg-black">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white relative bg-black aspect-video w-full max-h-[550px] flex items-center justify-center">
                 <video
                   src={hp.heroVideo}
                   controls
                   playsInline
-                  className="w-full max-h-[600px] object-contain"
+                  preload="metadata"
+                  className="w-full h-full object-contain bg-black"
                 />
               </div>
             </div>
@@ -354,13 +359,9 @@ export default function HomePage() {
                       className="w-full h-full object-cover absolute inset-0"
                     />
                     <div className="relative z-10 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white pointer-events-none">
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-600/80 backdrop-blur-sm text-[11px] font-bold mb-1">
-                        <CheckCircle2 className="w-3 h-3 text-white" />
-                        <span>Verified Seller</span>
-                      </div>
                       <p className="text-sm sm:text-base font-extrabold leading-tight">{vid.name}</p>
                       {vid.role && (
-                        <p className="text-[11px] text-slate-300 line-clamp-1">{vid.role}</p>
+                        <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">{vid.role}</p>
                       )}
                     </div>
                   </div>
@@ -421,10 +422,17 @@ export default function HomePage() {
                     alt="E-Commerce Growth Partners"
                     className="w-full h-auto object-cover max-h-[480px] group-hover:scale-102 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent flex items-end p-8">
-                    <div className="text-white">
-                      <p className="text-xs font-bold uppercase tracking-widest text-[#00C2FF]">Proven Multi-Channel Scale</p>
-                      <h4 className="text-xl font-black mt-1">Driving 3X to 10X Revenue Multipliers</h4>
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex items-end">
+                    <div className="bg-slate-950/85 backdrop-blur-md border border-white/20 p-4 sm:p-5 rounded-2xl text-white shadow-2xl w-full">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse"></span>
+                        <p className="text-xs font-black uppercase tracking-widest text-[#00C2FF] drop-shadow-sm">
+                          Proven Multi-Channel Scale
+                        </p>
+                      </div>
+                      <h4 className="text-lg sm:text-xl font-black text-white leading-tight drop-shadow-md">
+                        Driving 3X to 10X Revenue Multipliers
+                      </h4>
                     </div>
                   </div>
                 </div>
@@ -577,20 +585,50 @@ export default function HomePage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {listingServices.map((item: any) => (
-                  <div
-                    key={item.title || item.id}
-                    className="p-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm arvian-card flex items-start gap-4 hover:border-blue-200"
-                  >
-                    <div className="w-14 h-14 flex-shrink-0 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center p-2.5">
-                      <img src={item.icon} alt={item.title} className="max-w-full max-h-full object-contain" />
+                {listingServices.map((item: any, idx: number) => {
+                  const fallbackLucideIcons = [
+                    <Search key="1" className="w-7 h-7 text-[#0066FF]" />,
+                    <Sparkles key="2" className="w-7 h-7 text-[#0066FF]" />,
+                    <FileText key="3" className="w-7 h-7 text-[#0066FF]" />,
+                    <Layers key="4" className="w-7 h-7 text-[#0066FF]" />,
+                    <RefreshCw key="5" className="w-7 h-7 text-[#0066FF]" />,
+                    <Bell key="6" className="w-7 h-7 text-[#0066FF]" />,
+                  ];
+
+                  return (
+                    <div
+                      key={item.title || item.id || idx}
+                      className="p-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm arvian-card flex items-start gap-4 hover:border-blue-200 hover:shadow-lg transition-all"
+                    >
+                      <div className="w-14 h-14 flex-shrink-0 bg-blue-50/80 border border-blue-100 rounded-2xl flex items-center justify-center p-2.5 shadow-xs">
+                        {item.icon ? (
+                          <img
+                            src={encodeURI(item.icon)}
+                            alt={item.title}
+                            className="w-full h-full object-contain"
+                            onError={(e) => {
+                              const target = e.currentTarget;
+                              target.style.display = 'none';
+                              const parent = target.parentElement;
+                              if (parent && !parent.querySelector('svg')) {
+                                const fallback = document.createElement('div');
+                                fallback.className = 'w-7 h-7 text-[#0066FF] flex items-center justify-center font-black';
+                                fallback.innerHTML = '✦';
+                                parent.appendChild(fallback);
+                              }
+                            }}
+                          />
+                        ) : (
+                          fallbackLucideIcons[idx % fallbackLucideIcons.length]
+                        )}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 text-base mb-1">{item.title}</h4>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-base mb-1">{item.title}</h4>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
