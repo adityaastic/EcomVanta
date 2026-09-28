@@ -586,40 +586,40 @@ export default function HomePage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {listingServices.map((item: any, idx: number) => {
-                  const fallbackLucideIcons = [
-                    <Search key="1" className="w-7 h-7 text-[#0066FF]" />,
-                    <Sparkles key="2" className="w-7 h-7 text-[#0066FF]" />,
-                    <FileText key="3" className="w-7 h-7 text-[#0066FF]" />,
-                    <Layers key="4" className="w-7 h-7 text-[#0066FF]" />,
-                    <RefreshCw key="5" className="w-7 h-7 text-[#0066FF]" />,
-                    <Bell key="6" className="w-7 h-7 text-[#0066FF]" />,
+                  const fallbackRedIcons = [
+                    <Search key="1" className="w-6 h-6 text-red-600" />,
+                    <Sparkles key="2" className="w-6 h-6 text-red-600" />,
+                    <FileText key="3" className="w-6 h-6 text-red-600" />,
+                    <Layers key="4" className="w-6 h-6 text-red-600" />,
+                    <RefreshCw key="5" className="w-6 h-6 text-red-600" />,
+                    <Bell key="6" className="w-6 h-6 text-red-600" />,
                   ];
 
                   return (
                     <div
                       key={item.title || item.id || idx}
-                      className="p-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm arvian-card flex items-start gap-4 hover:border-blue-200 hover:shadow-lg transition-all"
+                      className="p-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm arvian-card flex items-start gap-4 hover:border-red-300 hover:shadow-lg transition-all group"
                     >
-                      <div className="w-14 h-14 flex-shrink-0 bg-blue-50/80 border border-blue-100 rounded-2xl flex items-center justify-center p-2.5 shadow-xs">
+                      <div className="w-14 h-14 flex-shrink-0 bg-red-50/90 border border-red-200 rounded-2xl flex items-center justify-center p-3 shadow-xs group-hover:bg-red-100/90 transition-colors">
                         {item.icon ? (
                           <img
                             src={encodeURI(item.icon)}
                             alt={item.title}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain [filter:brightness(0)_saturate(100%)_invert(22%)_sepia(89%)_saturate(4000%)_hue-rotate(345deg)_brightness(95%)_contrast(95%)]"
                             onError={(e) => {
                               const target = e.currentTarget;
                               target.style.display = 'none';
                               const parent = target.parentElement;
                               if (parent && !parent.querySelector('svg')) {
                                 const fallback = document.createElement('div');
-                                fallback.className = 'w-7 h-7 text-[#0066FF] flex items-center justify-center font-black';
-                                fallback.innerHTML = '✦';
+                                fallback.className = 'w-6 h-6 text-red-600 flex items-center justify-center font-black text-base';
+                                fallback.innerHTML = '★';
                                 parent.appendChild(fallback);
                               }
                             }}
                           />
                         ) : (
-                          fallbackLucideIcons[idx % fallbackLucideIcons.length]
+                          fallbackRedIcons[idx % fallbackRedIcons.length]
                         )}
                       </div>
                       <div>
