@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <text x="25" y="40" font-family="'Arial Black', Arial, sans-serif" font-size="28" font-weight="900" font-style="italic" fill="#2874F0">Flipkart</text>
+  <rect x="150" y="16" width="28" height="28" rx="5" fill="#FFE500"/>
+  <text x="164" y="36" dominant-baseline="middle" text-anchor="middle" font-family="'Arial Black', Arial, sans-serif" font-size="20" font-weight="900" font-style="italic" fill="#2874F0">f</text>
+</svg>

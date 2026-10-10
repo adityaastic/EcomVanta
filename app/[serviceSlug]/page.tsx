@@ -11,6 +11,7 @@ import BrandLogoSlider from '@/components/BrandLogoSlider';
 import ClientReviewsSlider from '@/components/ClientReviewsSlider';
 import FaqAccordion from '@/components/FaqAccordion';
 import ContactSection from '@/components/ContactSection';
+import EcommercePlatformsSlider from '@/components/EcommercePlatformsSlider';
 import { useCmsContent } from '@/lib/useCmsContent';
 import { SERVICES_DATABASE } from '@/lib/serviceData';
 import { CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
@@ -280,6 +281,9 @@ export default function DynamicServicePage() {
         />
 
         <ContactSection sourcePage={`${formattedTitle} Page`} />
+
+        {/* Moving E-Commerce Platforms & Marketplaces Marquee */}
+        <EcommercePlatformsSlider />
       </main>
 
       <Footer />

@@ -72,18 +72,16 @@ const ROW_2_SERVICES: ServiceTickerItem[] = [
 export default function HomeServicesTicker() {
   return (
     <section className="py-10 bg-gradient-to-b from-white via-slate-50/60 to-white overflow-hidden border-b border-slate-100 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div>
-            <span className="text-[11px] uppercase font-black text-[#0066FF] tracking-widest flex items-center justify-center sm:justify-start gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#0066FF] animate-pulse"></span>
-              Comprehensive Capabilities
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
-              Our Services
-            </h2>
-          </div>
-          <p className="text-xs sm:text-sm font-semibold text-slate-500 max-w-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
+        <div className="max-w-2xl mx-auto">
+          <span className="text-[11px] uppercase font-black text-[#0066FF] tracking-widest inline-flex items-center justify-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#0066FF] animate-pulse"></span>
+            Comprehensive Capabilities
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+            Our Services
+          </h2>
+          <p className="text-xs sm:text-sm font-semibold text-slate-500 mt-2">
             Complete growth ecosystem across 10+ marketplaces, quick commerce, performance ads & web development.
           </p>
         </div>

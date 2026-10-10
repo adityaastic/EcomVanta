@@ -13,6 +13,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import ContactSection from '@/components/ContactSection';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import HomeServicesTicker from '@/components/HomeServicesTicker';
+import EcommercePlatformsSlider from '@/components/EcommercePlatformsSlider';
 import { useCmsContent } from '@/lib/useCmsContent';
 import { 
   ArrowRight, 
@@ -865,6 +866,9 @@ export default function HomePage() {
         <FaqAccordion />
 
         <ContactSection sourcePage="Main Home Page" />
+
+        {/* Moving E-Commerce Platforms & Marketplaces Marquee */}
+        <EcommercePlatformsSlider />
       </main>
 
       <Footer />

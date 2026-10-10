@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect x="18" y="14" width="34" height="34" rx="8" fill="#F8CB46"/>
+  <text x="35" y="38" dominant-baseline="middle" text-anchor="middle" font-family="'Arial Black', Arial, sans-serif" font-size="24" font-weight="900" fill="#0C831F">b</text>
+  <text x="60" y="39" font-family="'Arial Black', Arial, sans-serif" font-size="28" font-weight="900" fill="#111827">blink<tspan fill="#0C831F">it</tspan></text>
+</svg>
