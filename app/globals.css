@@ -266,10 +266,15 @@
   background-color: #0052CC;
 }
 
-/* Infinite Marquee Animation for Brands */
+/* Infinite Marquee Animation for Brands & Services */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
 .animate-marquee {
@@ -281,4 +286,25 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse-fast {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 26s linear infinite;
+}
+
+.animate-marquee-reverse-fast:hover {
+  animation-play-state: paused;
+}
+
 

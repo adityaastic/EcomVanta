@@ -12,6 +12,7 @@ import ClientReviewsSlider from '@/components/ClientReviewsSlider';
 import FaqAccordion from '@/components/FaqAccordion';
 import ContactSection from '@/components/ContactSection';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import HomeServicesTicker from '@/components/HomeServicesTicker';
 import { useCmsContent } from '@/lib/useCmsContent';
 import { 
   ArrowRight, 
@@ -317,6 +318,9 @@ export default function HomePage() {
           </div>
 
         </section>
+
+        {/* SECTION 1.2: Moving Services Marquee Ticker (Left to Right) */}
+        <HomeServicesTicker />
 
 
         {/* SECTION 1.5: Featured Home Video (admin-uploaded) */}
