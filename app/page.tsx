@@ -11,6 +11,7 @@ import BrandLogoSlider from '@/components/BrandLogoSlider';
 import ClientReviewsSlider from '@/components/ClientReviewsSlider';
 import FaqAccordion from '@/components/FaqAccordion';
 import ContactSection from '@/components/ContactSection';
+import AnimatedCounter from '@/components/AnimatedCounter';
 import { useCmsContent } from '@/lib/useCmsContent';
 import { 
   ArrowRight, 
@@ -229,7 +230,9 @@ export default function HomePage() {
                     📈
                   </div>
                   <div>
-                    <p className="text-xl sm:text-2xl font-black text-slate-900 leading-none">{hero.heroBadgeNumber || '₹50Cr+'}</p>
+                    <p className="text-xl sm:text-2xl font-black text-slate-900 leading-none">
+                      <AnimatedCounter value={hero.heroBadgeNumber || '₹50Cr+'} duration={2000} />
+                    </p>
                     <p className="text-[11px] text-slate-500 font-bold mt-1">{hero.heroBadgeText || 'GMV Generated for Clients'}</p>
                   </div>
                 </div>
@@ -242,7 +245,9 @@ export default function HomePage() {
                     <div className="w-7 h-7 rounded-full bg-white p-0.5 shadow-sm"><Image src="/myntra-logo.webp" alt="Myntra" width={28} height={28} className="w-full h-full object-contain" /></div>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-black text-blue-100 leading-tight">10+ Marketplaces</p>
+                    <p className="text-xs sm:text-sm font-black text-blue-100 leading-tight">
+                      <AnimatedCounter value="10+" duration={1800} /> Marketplaces
+                    </p>
                     <p className="text-[10px] text-slate-400 font-semibold">Amazon, Flipkart & Quick Comm</p>
                   </div>
                 </div>
@@ -261,9 +266,11 @@ export default function HomePage() {
                   <Award className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">1000+</h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Sellers Onboarded</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">Across all Indian marketplaces</p>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <AnimatedCounter value={hp.stats?.[0]?.number || '1000+'} duration={2200} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[0]?.label || 'Sellers Onboarded'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[0]?.description || 'Across all Indian marketplaces'}</p>
                 </div>
               </div>
 
@@ -272,9 +279,11 @@ export default function HomePage() {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">10+</h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Marketplaces</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">Amazon, Flipkart, Quick Comm</p>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <AnimatedCounter value={hp.stats?.[1]?.number || '10+'} duration={2000} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[1]?.label || 'Marketplaces'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[1]?.description || 'Amazon, Flipkart, Quick Comm'}</p>
                 </div>
               </div>
 
@@ -283,9 +292,11 @@ export default function HomePage() {
                   <TrendingUp className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#0066FF]">₹50Cr+</h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">GMV Managed</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">Proven high ROI growth models</p>
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#0066FF]">
+                    <AnimatedCounter value={hp.stats?.[2]?.number || '₹50Cr+'} duration={2400} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[2]?.label || 'GMV Managed'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[2]?.description || 'Proven high ROI growth models'}</p>
                 </div>
               </div>
 
@@ -294,9 +305,11 @@ export default function HomePage() {
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">98%</h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Client Retention</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">Long-term brand partnership</p>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <AnimatedCounter value={hp.stats?.[3]?.number || '98%'} duration={2200} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[3]?.label || 'Client Retention'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[3]?.description || 'Long-term brand partnership'}</p>
                 </div>
               </div>
 
