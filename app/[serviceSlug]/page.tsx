@@ -273,6 +273,9 @@ export default function DynamicServicePage() {
           </section>
         )}
 
+        {/* Moving E-Commerce Platforms & Marketplaces Marquee (Above Rating & Reviews) */}
+        <EcommercePlatformsSlider />
+
         <ClientReviewsSlider />
         
         <FaqAccordion
@@ -281,9 +284,6 @@ export default function DynamicServicePage() {
         />
 
         <ContactSection sourcePage={`${formattedTitle} Page`} />
-
-        {/* Moving E-Commerce Platforms & Marketplaces Marquee */}
-        <EcommercePlatformsSlider />
       </main>
 
       <Footer />

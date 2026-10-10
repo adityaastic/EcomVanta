@@ -861,14 +861,14 @@ export default function HomePage() {
           );
         })()}
 
+        {/* Moving E-Commerce Platforms & Marketplaces Marquee (Above Rating & Reviews) */}
+        <EcommercePlatformsSlider />
+
         <ClientReviewsSlider />
         
         <FaqAccordion />
 
         <ContactSection sourcePage="Main Home Page" />
-
-        {/* Moving E-Commerce Platforms & Marketplaces Marquee */}
-        <EcommercePlatformsSlider />
       </main>
 
       <Footer />
