@@ -2,23 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { 
-  Store, 
-  ShoppingBag, 
-  Sparkles, 
-  Search, 
-  TrendingUp, 
-  Layers, 
-  Star, 
-  Zap, 
-  Globe, 
-  Code, 
-  MessageCircle, 
-  PhoneCall, 
-  Palette, 
-  ShieldCheck,
-  ArrowUpRight
-} from 'lucide-react';
+import { useCmsContent } from '@/lib/useCmsContent';
+import { ArrowUpRight } from 'lucide-react';
 
 interface ServiceTickerItem {
   title: string;
@@ -70,6 +55,11 @@ const ROW_2_SERVICES: ServiceTickerItem[] = [
 ];
 
 export default function HomeServicesTicker() {
+  const { content } = useCmsContent();
+  const hp = content?.homepage;
+  const heading = hp?.servicesTickerHeading || 'Our Services';
+  const subtitle = hp?.servicesTickerSubtitle || 'Complete growth ecosystem across 10+ marketplaces, quick commerce, performance ads & web development.';
+
   return (
     <section className="py-10 bg-gradient-to-b from-white via-slate-50/60 to-white overflow-hidden border-b border-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
@@ -79,10 +69,10 @@ export default function HomeServicesTicker() {
             Comprehensive Capabilities
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
-            Our Services
+            {heading}
           </h2>
           <p className="text-xs sm:text-sm font-semibold text-slate-500 mt-2">
-            Complete growth ecosystem across 10+ marketplaces, quick commerce, performance ads & web development.
+            {subtitle}
           </p>
         </div>
       </div>

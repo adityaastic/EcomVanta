@@ -119,11 +119,32 @@ export interface SellerSpotlightContent {
   rating?: number;
 }
 
+export interface ServiceTickerItemData {
+  id?: string;
+  title: string;
+  href: string;
+  category: string;
+  badgeBg?: string;
+}
+
+export interface EcommercePlatformItemData {
+  id?: string;
+  name: string;
+  logo: string;
+  href: string;
+}
+
 export interface HomepageContent {
   hero: HeroSectionContent;
   stats: StatCounter[];
   brandLogos: BrandLogo[];
   brandLogosHeading?: string;
+  servicesTickerHeading?: string;
+  servicesTickerSubtitle?: string;
+  servicesTickerItems?: ServiceTickerItemData[];
+  ecommercePlatformsHeading?: string;
+  ecommercePlatformsSubtitle?: string;
+  ecommercePlatforms?: EcommercePlatformItemData[];
   heroVideo?: string;
   platforms: PlatformService[];
   listingServices: ListingServiceCard[];

@@ -29,7 +29,7 @@ export default function HomepageEditorPage() {
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'hero' | 'stats' | 'about' | 'brands' | 'platforms' | 'listing' | 'advantages' | 'testimonials' | 'faqs' | 'cta'>('hero');
+  const [activeTab, setActiveTab] = useState<'hero' | 'stats' | 'services-ticker' | 'about' | 'brands' | 'platforms' | 'ecommerce-platforms' | 'listing' | 'advantages' | 'testimonials' | 'faqs' | 'cta'>('hero');
 
   useEffect(() => {
     // 1. Instantly populate from local storage if available
@@ -126,24 +126,26 @@ export default function HomepageEditorPage() {
       tabs: [
         { id: 'hero', label: '1. Hero Banner', icon: Home },
         { id: 'stats', label: '2. Stats Counters', icon: Award },
-        { id: 'about', label: '3. Growth Partners (About)', icon: Users },
-        { id: 'brands', label: '4. Brand Logos', icon: Sparkles },
+        { id: 'services-ticker', label: '3. Services Ticker', icon: Layers },
+        { id: 'about', label: '4. Growth Partners', icon: Users },
       ],
     },
     {
       category: 'SERVICES & VALUE',
       tabs: [
-        { id: 'platforms', label: '5. Platforms Grid', icon: Layers },
-        { id: 'listing', label: '6. Listing Services', icon: Layers },
-        { id: 'advantages', label: '7. Why Choose Us', icon: Award },
+        { id: 'brands', label: '5. Client Brand Logos', icon: Sparkles },
+        { id: 'platforms', label: '6. Platforms Grid', icon: Layers },
+        { id: 'listing', label: '7. Listing Services', icon: Layers },
+        { id: 'advantages', label: '8. Why Choose Us', icon: Award },
       ],
     },
     {
-      category: 'SOCIAL & CONVERSION',
+      category: 'PLATFORMS & CONVERSION',
       tabs: [
-        { id: 'testimonials', label: '8. Video Reviews', icon: Video },
-        { id: 'faqs', label: '9. FAQs', icon: HelpCircle },
-        { id: 'cta', label: '10. Bottom CTA', icon: Sparkles },
+        { id: 'ecommerce-platforms', label: '9. E-Commerce Platforms Bar', icon: Sparkles },
+        { id: 'testimonials', label: '10. Video Reviews', icon: Video },
+        { id: 'faqs', label: '11. FAQs', icon: HelpCircle },
+        { id: 'cta', label: '12. Bottom CTA', icon: Sparkles },
       ],
     },
   ] as const;
@@ -563,7 +565,62 @@ export default function HomepageEditorPage() {
         </div>
       )}
 
-      {/* 3. GROWTH PARTNERS (ABOUT US BANNER) */}
+      {/* 3. SERVICES TICKER */}
+      {activeTab === 'services-ticker' && (
+        <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
+          <div className="border-b border-gray-100 pb-3">
+            <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+              Moving "Our Services" Ticker (Below Hero Stats)
+            </h2>
+            <p className="text-xs text-gray-500">
+              Customize the section heading and subtitle for the infinite moving services marquee bar.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                Section Heading
+              </label>
+              <input
+                type="text"
+                value={homepage.servicesTickerHeading || 'Our Services'}
+                onChange={(e) =>
+                  setHomepage({ ...homepage, servicesTickerHeading: e.target.value })
+                }
+                placeholder="Our Services"
+                className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-white"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                Section Subtitle
+              </label>
+              <input
+                type="text"
+                value={homepage.servicesTickerSubtitle || 'Complete growth ecosystem across 10+ marketplaces, quick commerce, performance ads & web development.'}
+                onChange={(e) =>
+                  setHomepage({ ...homepage, servicesTickerSubtitle: e.target.value })
+                }
+                placeholder="Complete growth ecosystem across 10+ marketplaces, quick commerce, performance ads & web development."
+                className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-white"
+              />
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-100 space-y-2">
+            <p className="text-xs font-bold text-[#0066FF] flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4" /> Active Multi-Channel Service Stream
+            </p>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              The moving ticker automatically showcases all 30+ services across Marketplace Management (Amazon, Flipkart, Meesho, Myntra, etc.), Quick Commerce & Onboarding (Blinkit, Zepto, Swiggy Instamart, Ajio, Nykaa, etc.), Ads & Performance Growth (SEO, Meta Ads, Google Ads, WhatsApp Integration, SMS & Voice Marketing), and Brand Web Development (Shopify, WordPress, WooCommerce, Next.js).
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* 4. GROWTH PARTNERS (ABOUT US BANNER) */}
       {activeTab === 'about' && (
         <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
           <div>
@@ -1074,7 +1131,184 @@ export default function HomepageEditorPage() {
         </div>
       )}
 
-      {/* 7. CLIENT VIDEO TESTIMONIALS */}
+      {/* 9. E-COMMERCE PLATFORMS MARQUEE */}
+      {activeTab === 'ecommerce-platforms' && (
+        <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
+          <div className="flex justify-between items-center border-b border-gray-100 pb-3">
+            <div>
+              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+                Our E-Commerce Platforms Marquee (Above Footer)
+              </h2>
+              <p className="text-xs text-gray-500">
+                Manage the moving carousel displaying original logos of Indian eCommerce and Quick Commerce companies.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                const currentPlatforms = homepage.ecommercePlatforms || [
+                  { name: 'Pepperfry', logo: '/ecommerce-logos/pepperfry.svg', href: '/contact-us' },
+                  { name: 'Tata 1mg', logo: '/ecommerce-logos/tata-1mg.svg', href: '/contact-us' },
+                  { name: 'FirstCry', logo: '/ecommerce-logos/firstcry.svg', href: '/contact-us' },
+                  { name: 'Amazon', logo: '/ecommerce-logos/amazon.svg', href: '/amazon-seller-account-management-services' },
+                  { name: 'Flipkart', logo: '/ecommerce-logos/flipkart.svg', href: '/flipkart-account-management-services' },
+                  { name: 'Myntra', logo: '/ecommerce-logos/myntra.svg', href: '/myntra-account-management-services' },
+                  { name: 'Nykaa', logo: '/ecommerce-logos/nykaa.svg', href: '/nykaa-seller-onboarding-services' },
+                  { name: 'Blinkit', logo: '/ecommerce-logos/blinkit.svg', href: '/blinkit-seller-account-management-services' },
+                  { name: 'Zepto', logo: '/ecommerce-logos/zepto.svg', href: '/zepto-seller-onboarding-and-account-management-service' },
+                  { name: 'Swiggy Instamart', logo: '/ecommerce-logos/swiggy-instamart.svg', href: '/swiggy-instamart-seller-account-management-and-onboarding' },
+                  { name: 'Meesho', logo: '/ecommerce-logos/meesho.svg', href: '/meesho-account-management-services' },
+                  { name: 'Ajio', logo: '/ecommerce-logos/ajio.svg', href: '/ajio-seller-onboarding-services' },
+                  { name: 'Tata CLiQ', logo: '/ecommerce-logos/tata-cliq.svg', href: '/tata-cliq-seller-onboarding-services' },
+                  { name: 'BigBasket', logo: '/ecommerce-logos/bigbasket.svg', href: '/contact-us' },
+                  { name: 'JioMart', logo: '/ecommerce-logos/jiomart.svg', href: '/contact-us' },
+                ];
+                setHomepage({
+                  ...homepage,
+                  ecommercePlatforms: [
+                    ...currentPlatforms,
+                    { name: 'New Platform', logo: '/ecommerce-logos/amazon.svg', href: '/contact-us' },
+                  ],
+                });
+              }}
+              className="px-3 py-1.5 bg-blue-50 text-[#0066FF] hover:bg-blue-100 rounded-lg text-xs font-bold flex items-center gap-1"
+            >
+              <Plus className="w-3.5 h-3.5" /> Add Platform Logo
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                Section Heading
+              </label>
+              <input
+                type="text"
+                value={homepage.ecommercePlatformsHeading || 'Our E-Commerce Platforms'}
+                onChange={(e) =>
+                  setHomepage({ ...homepage, ecommercePlatformsHeading: e.target.value })
+                }
+                placeholder="Our E-Commerce Platforms"
+                className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-white"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                Section Subtitle
+              </label>
+              <input
+                type="text"
+                value={homepage.ecommercePlatformsSubtitle || 'Scale your products across India’s leading marketplaces, fashion destinations & 10-minute quick commerce apps.'}
+                onChange={(e) =>
+                  setHomepage({ ...homepage, ecommercePlatformsSubtitle: e.target.value })
+                }
+                placeholder="Scale your products across India’s leading marketplaces, fashion destinations & 10-minute quick commerce apps."
+                className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0066FF] bg-white"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {(homepage.ecommercePlatforms || [
+              { name: 'Pepperfry', logo: '/ecommerce-logos/pepperfry.svg', href: '/contact-us' },
+              { name: 'Tata 1mg', logo: '/ecommerce-logos/tata-1mg.svg', href: '/contact-us' },
+              { name: 'FirstCry', logo: '/ecommerce-logos/firstcry.svg', href: '/contact-us' },
+              { name: 'Amazon', logo: '/ecommerce-logos/amazon.svg', href: '/amazon-seller-account-management-services' },
+              { name: 'Flipkart', logo: '/ecommerce-logos/flipkart.svg', href: '/flipkart-account-management-services' },
+              { name: 'Myntra', logo: '/ecommerce-logos/myntra.svg', href: '/myntra-account-management-services' },
+              { name: 'Nykaa', logo: '/ecommerce-logos/nykaa.svg', href: '/nykaa-seller-onboarding-services' },
+              { name: 'Blinkit', logo: '/ecommerce-logos/blinkit.svg', href: '/blinkit-seller-account-management-services' },
+              { name: 'Zepto', logo: '/ecommerce-logos/zepto.svg', href: '/zepto-seller-onboarding-and-account-management-service' },
+              { name: 'Swiggy Instamart', logo: '/ecommerce-logos/swiggy-instamart.svg', href: '/swiggy-instamart-seller-account-management-and-onboarding' },
+              { name: 'Meesho', logo: '/ecommerce-logos/meesho.svg', href: '/meesho-account-management-services' },
+              { name: 'Ajio', logo: '/ecommerce-logos/ajio.svg', href: '/ajio-seller-onboarding-services' },
+              { name: 'Tata CLiQ', logo: '/ecommerce-logos/tata-cliq.svg', href: '/tata-cliq-seller-onboarding-services' },
+              { name: 'BigBasket', logo: '/ecommerce-logos/bigbasket.svg', href: '/contact-us' },
+              { name: 'JioMart', logo: '/ecommerce-logos/jiomart.svg', href: '/contact-us' },
+            ]).map((platform: any, index: number) => {
+              const currentList = homepage.ecommercePlatforms || [
+                { name: 'Pepperfry', logo: '/ecommerce-logos/pepperfry.svg', href: '/contact-us' },
+                { name: 'Tata 1mg', logo: '/ecommerce-logos/tata-1mg.svg', href: '/contact-us' },
+                { name: 'FirstCry', logo: '/ecommerce-logos/firstcry.svg', href: '/contact-us' },
+                { name: 'Amazon', logo: '/ecommerce-logos/amazon.svg', href: '/amazon-seller-account-management-services' },
+                { name: 'Flipkart', logo: '/ecommerce-logos/flipkart.svg', href: '/flipkart-account-management-services' },
+                { name: 'Myntra', logo: '/ecommerce-logos/myntra.svg', href: '/myntra-account-management-services' },
+                { name: 'Nykaa', logo: '/ecommerce-logos/nykaa.svg', href: '/nykaa-seller-onboarding-services' },
+                { name: 'Blinkit', logo: '/ecommerce-logos/blinkit.svg', href: '/blinkit-seller-account-management-services' },
+                { name: 'Zepto', logo: '/ecommerce-logos/zepto.svg', href: '/zepto-seller-onboarding-and-account-management-service' },
+                { name: 'Swiggy Instamart', logo: '/ecommerce-logos/swiggy-instamart.svg', href: '/swiggy-instamart-seller-account-management-and-onboarding' },
+                { name: 'Meesho', logo: '/ecommerce-logos/meesho.svg', href: '/meesho-account-management-services' },
+                { name: 'Ajio', logo: '/ecommerce-logos/ajio.svg', href: '/ajio-seller-onboarding-services' },
+                { name: 'Tata CLiQ', logo: '/ecommerce-logos/tata-cliq.svg', href: '/tata-cliq-seller-onboarding-services' },
+                { name: 'BigBasket', logo: '/ecommerce-logos/bigbasket.svg', href: '/contact-us' },
+                { name: 'JioMart', logo: '/ecommerce-logos/jiomart.svg', href: '/contact-us' },
+              ];
+
+              return (
+                <div key={index} className="p-4 bg-gray-50 rounded-xl border border-gray-200 relative space-y-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const filtered = currentList.filter((_, i) => i !== index);
+                      setHomepage({ ...homepage, ecommercePlatforms: filtered });
+                    }}
+                    className="absolute top-3 right-3 text-gray-400 hover:text-red-600"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
+                      Platform Name
+                    </label>
+                    <input
+                      type="text"
+                      value={platform.name}
+                      onChange={(e) => {
+                        const updated = [...currentList];
+                        updated[index] = { ...updated[index], name: e.target.value };
+                        setHomepage({ ...homepage, ecommercePlatforms: updated });
+                      }}
+                      className="w-full px-3 py-1.5 text-xs border border-gray-300 rounded-lg bg-white"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">
+                      Target URL Link
+                    </label>
+                    <input
+                      type="text"
+                      value={platform.href || ''}
+                      onChange={(e) => {
+                        const updated = [...currentList];
+                        updated[index] = { ...updated[index], href: e.target.value };
+                        setHomepage({ ...homepage, ecommercePlatforms: updated });
+                      }}
+                      placeholder="/amazon-seller-account-management-services"
+                      className="w-full px-3 py-1.5 text-xs border border-gray-300 rounded-lg bg-white"
+                    />
+                  </div>
+
+                  <MediaUploader
+                    label="Platform Logo Image"
+                    value={platform.logo}
+                    onChange={(url) => {
+                      const updated = [...currentList];
+                      updated[index] = { ...updated[index], logo: url };
+                      setHomepage({ ...homepage, ecommercePlatforms: updated });
+                    }}
+                    previewHeight="h-16"
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* 10. CLIENT VIDEO TESTIMONIALS */}
       {activeTab === 'testimonials' && (
         <div className="space-y-6">
           {/* Featured Seller Spotlight Video Box */}

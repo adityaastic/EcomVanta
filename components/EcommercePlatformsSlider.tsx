@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { useCmsContent } from '@/lib/useCmsContent';
 
 interface PlatformLogo {
   name: string;
@@ -12,7 +12,7 @@ interface PlatformLogo {
   height?: number;
 }
 
-const ECOMMERCE_PLATFORMS: PlatformLogo[] = [
+const DEFAULT_PLATFORMS: PlatformLogo[] = [
   { name: 'Pepperfry', logo: '/ecommerce-logos/pepperfry.svg', href: '/contact-us' },
   { name: 'Tata 1mg', logo: '/ecommerce-logos/tata-1mg.svg', href: '/contact-us' },
   { name: 'FirstCry', logo: '/ecommerce-logos/firstcry.svg', href: '/contact-us' },
@@ -31,6 +31,12 @@ const ECOMMERCE_PLATFORMS: PlatformLogo[] = [
 ];
 
 export default function EcommercePlatformsSlider() {
+  const { content } = useCmsContent();
+  const hp = content?.homepage;
+  const heading = hp?.ecommercePlatformsHeading || 'Our E-Commerce Platforms';
+  const subtitle = hp?.ecommercePlatformsSubtitle || 'Scale your products across India’s leading marketplaces, fashion destinations & 10-minute quick commerce apps.';
+  const platforms = hp?.ecommercePlatforms?.length ? hp.ecommercePlatforms : DEFAULT_PLATFORMS;
+
   return (
     <section className="py-14 sm:py-18 bg-gradient-to-b from-white via-slate-50/50 to-white overflow-hidden border-t border-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
@@ -38,10 +44,10 @@ export default function EcommercePlatformsSlider() {
           — Multi-Platform Growth
         </span>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
-          Our E-Commerce Platforms
+          {heading}
         </h2>
         <p className="text-slate-500 text-xs sm:text-sm mt-2 max-w-xl mx-auto font-medium">
-          Scale your products across India’s leading marketplaces, fashion destinations & 10-minute quick commerce apps.
+          {subtitle}
         </p>
       </div>
 
@@ -53,10 +59,10 @@ export default function EcommercePlatformsSlider() {
 
         <div className="flex w-max animate-marquee-reverse gap-5 sm:gap-6 px-4">
           {/* First Set */}
-          {ECOMMERCE_PLATFORMS.map((platform, idx) => (
+          {platforms.map((platform: any, idx: number) => (
             <Link
               key={`plat-1-${idx}`}
-              href={platform.href}
+              href={platform.href || '/contact-us'}
               className="h-20 sm:h-24 w-48 sm:w-56 flex items-center justify-center px-6 py-4 bg-white rounded-2xl border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-blue-500/10 hover:border-[#0066FF]/40 hover:scale-105 transition-all duration-300 flex-shrink-0 group cursor-pointer"
             >
               <img
@@ -68,10 +74,10 @@ export default function EcommercePlatformsSlider() {
           ))}
 
           {/* Duplicate Set for Seamless Loop */}
-          {ECOMMERCE_PLATFORMS.map((platform, idx) => (
+          {platforms.map((platform: any, idx: number) => (
             <Link
               key={`plat-2-${idx}`}
-              href={platform.href}
+              href={platform.href || '/contact-us'}
               className="h-20 sm:h-24 w-48 sm:w-56 flex items-center justify-center px-6 py-4 bg-white rounded-2xl border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-blue-500/10 hover:border-[#0066FF]/40 hover:scale-105 transition-all duration-300 flex-shrink-0 group cursor-pointer"
             >
               <img
