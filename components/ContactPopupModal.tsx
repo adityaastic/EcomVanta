@@ -95,11 +95,11 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
           <div className="text-center mb-6">
             <h2 className="text-2xl font-extrabold text-gray-900 flex items-center justify-center gap-2">
               <Mail className="w-6 h-6 text-[#0066FF]" />
-              Book Free Growth Audit
+              Submit Your Query & Get Free Audit
             </h2>
             <div className="w-12 h-1 bg-gradient-to-r from-[#0066FF] to-[#00C2FF] mx-auto mt-2 rounded-full" />
             <p className="text-xs text-gray-500 mt-2 font-medium">
-              Fill the form below and our marketplace growth specialists will call you back!
+              Submit your queries or business requirements below — our specialist will connect with you promptly!
             </p>
           </div>
 
@@ -190,7 +190,7 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                 <textarea
                   rows={3}
                   required
-                  placeholder="Your Business Requirements / Message *"
+                  placeholder="Enter your query or business requirements *"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-gray-50 focus:bg-white resize-none"
@@ -205,10 +205,10 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                 {loading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Sending Inquiry...
+                    Sending Query...
                   </>
                 ) : (
-                  'Request Free Strategy Call'
+                  'Submit Query & Request Call'
                 )}
               </button>
             </form>

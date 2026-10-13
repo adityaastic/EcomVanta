@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -14,6 +14,7 @@ import ContactSection from '@/components/ContactSection';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import HomeServicesTicker from '@/components/HomeServicesTicker';
 import EcommercePlatformsSlider from '@/components/EcommercePlatformsSlider';
+import VideoHeroSection from '@/components/VideoHeroSection';
 import { useCmsContent } from '@/lib/useCmsContent';
 import { 
   ArrowRight, 
@@ -105,14 +106,32 @@ export default function HomePage() {
   const listingServices = hp.listingServices?.length ? hp.listingServices : [];
   const clientVideos = hp.clientVideos?.length ? hp.clientVideos : [];
 
+  // Automatically open the query submission modal after 10 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setPopupOpen(true);
+    }, 10000); // 10 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Header onOpenPopup={() => setPopupOpen(true)} />
 
       <main className="min-h-screen">
         
-        {/* SECTION 1: Exact Home Hero (Arvian Style with Bottom 4-Column Stats Bar) */}
-        <section id="home" className="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-20 bg-gradient-to-b from-blue-50/70 via-white to-white flex flex-col justify-center hero-grid-pattern">
+        {/* SECTION 1: First Hero Section — Video Background Banner */}
+        <VideoHeroSection
+          onOpenPopup={() => setPopupOpen(true)}
+          videoUrl={hp.videoHero?.videoUrl || 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv'}
+          title={hp.videoHero?.title === 'Enabling E-commerce Globally' ? '' : (hp.videoHero?.title || '')}
+          subtitle={hp.videoHero?.subtitle || 'From Strategy to Execution'}
+          buttonText={hp.videoHero?.buttonText || 'Get Started'}
+        />
+
+        {/* SECTION 2: Scaling Growth Hero Section (Shifted from position 1) */}
+        <section id="growth-overview" className="relative overflow-hidden pt-14 pb-12 md:pt-16 md:pb-20 bg-gradient-to-b from-blue-50/70 via-white to-white flex flex-col justify-center hero-grid-pattern border-b border-slate-100">
           
           {/* Layered Ambient Washes */}
           <div className="absolute top-10 right-10 w-[650px] h-[650px] bg-[#0066FF]/10 rounded-full blur-[150px] pointer-events-none" />

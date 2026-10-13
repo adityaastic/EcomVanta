@@ -20,6 +20,7 @@ export function mergeWithDefaults(data: any): SiteContentData {
     homepage: {
       ...DEFAULT_SITE_CONTENT.homepage,
       ...(data?.homepage || {}),
+      videoHero: { ...DEFAULT_SITE_CONTENT.homepage.videoHero, ...(data?.homepage?.videoHero || {}) },
       hero: { ...DEFAULT_SITE_CONTENT.homepage.hero, ...(data?.homepage?.hero || {}) },
       stats: data?.homepage?.stats || DEFAULT_SITE_CONTENT.homepage.stats,
       brandLogos: data?.homepage?.brandLogos || DEFAULT_SITE_CONTENT.homepage.brandLogos,

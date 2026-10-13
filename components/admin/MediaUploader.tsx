@@ -18,11 +18,22 @@ const isPdfUrl = (url: string) => {
   return /\.(pdf|doc|docx|ppt|pptx|xls|xlsx)(\?.*)?$/i.test(url) || url.startsWith('data:application/pdf');
 };
 
+const isYouTubeUrl = (url: string) => {
+  if (!url) return false;
+  return /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/.test(url);
+};
+
+const extractYouTubeId = (url: string) => {
+  const match = url?.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  return match ? match[1] : '';
+};
+
 const isVideoUrl = (url: string) => {
   if (!url) return false;
   return (
     /\.(mp4|webm|ogg|mov|mkv|avi)(\?.*)?$/i.test(url) ||
-    url.startsWith('data:video/')
+    url.startsWith('data:video/') ||
+    isYouTubeUrl(url)
   );
 };
 
@@ -288,16 +299,24 @@ export default function MediaUploader({
                 </div>
               ) : isVideoUrl(value) ? (
                 <div className="relative w-full h-full flex items-center justify-center bg-black/10 rounded-lg overflow-hidden">
-                  <video
-                    src={value}
-                    className="max-h-full max-w-full object-contain rounded-lg"
-                    muted
-                    playsInline
-                    preload="metadata"
-                  />
+                  {isYouTubeUrl(value) ? (
+                    <img
+                      src={`https://i.ytimg.com/vi/${extractYouTubeId(value)}/hqdefault.jpg`}
+                      alt="YouTube Video Preview"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  ) : (
+                    <video
+                      src={value}
+                      className="max-h-full max-w-full object-contain rounded-lg"
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                  )}
                   <div className="absolute top-1.5 left-1.5 bg-slate-900/80 backdrop-blur-xs text-white text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1">
                     <Video className="w-2.5 h-2.5 text-blue-400" />
-                    <span>VIDEO</span>
+                    <span>{isYouTubeUrl(value) ? 'YOUTUBE' : 'VIDEO'}</span>
                   </div>
                   <div className="w-7 h-7 rounded-full bg-white/80 shadow flex items-center justify-center pointer-events-none">
                     <Play className="w-3.5 h-3.5 text-slate-800 fill-slate-800 ml-0.5" />

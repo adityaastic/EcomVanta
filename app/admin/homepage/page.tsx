@@ -237,10 +237,124 @@ export default function HomepageEditorPage() {
 
       {/* 1. HERO SECTION */}
       {activeTab === 'hero' && (
-        <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
-          <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3">
-            Hero Banner & Above-The-Fold
-          </h2>
+        <div className="space-y-6">
+          {/* SECTION 1: Video Hero Banner (Top Position) */}
+          <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
+            <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+              <div>
+                <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  Position 1: Video Hero Banner (Top Hero)
+                </h2>
+                <p className="text-xs text-gray-500 mt-0.5">
+                  Upload an MP4/WebM video from your device or paste a YouTube video link. Updates the homepage top hero banner instantly.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <MediaUploader
+                label="Hero Video File (Upload MP4/WebM or Paste YouTube Link)"
+                value={homepage.videoHero?.videoUrl || 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv'}
+                onChange={(url) =>
+                  setHomepage({
+                    ...homepage,
+                    videoHero: {
+                      ...(homepage.videoHero || {
+                        title: 'Enabling E-commerce Globally',
+                        subtitle: 'From Strategy to Execution',
+                        buttonText: 'Get Started',
+                      }),
+                      videoUrl: url,
+                    },
+                  })
+                }
+                helperText="Click or drag an MP4, WebM, or MOV video file here to upload from your PC, or paste a YouTube video link / ID."
+                accept="video/*,.mp4,.webm,.mov"
+              />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    Hero Main Heading
+                  </label>
+                  <input
+                    type="text"
+                    value={homepage.videoHero?.title ?? 'Enabling E-commerce Globally'}
+                    onChange={(e) =>
+                      setHomepage({
+                        ...homepage,
+                        videoHero: {
+                          ...(homepage.videoHero || {
+                            videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+                            subtitle: 'From Strategy to Execution',
+                            buttonText: 'Get Started',
+                          }),
+                          title: e.target.value,
+                        },
+                      })
+                    }
+                    className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    Hero Tagline / Subtitle
+                  </label>
+                  <input
+                    type="text"
+                    value={homepage.videoHero?.subtitle ?? 'From Strategy to Execution'}
+                    onChange={(e) =>
+                      setHomepage({
+                        ...homepage,
+                        videoHero: {
+                          ...(homepage.videoHero || {
+                            videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+                            title: 'Enabling E-commerce Globally',
+                            buttonText: 'Get Started',
+                          }),
+                          subtitle: e.target.value,
+                        },
+                      })
+                    }
+                    className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl bg-white"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                  CTA Button Label
+                </label>
+                <input
+                  type="text"
+                  value={homepage.videoHero?.buttonText ?? 'Get Started'}
+                  onChange={(e) =>
+                    setHomepage({
+                      ...homepage,
+                      videoHero: {
+                        ...(homepage.videoHero || {
+                          videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+                          title: 'Enabling E-commerce Globally',
+                          subtitle: 'From Strategy to Execution',
+                        }),
+                        buttonText: e.target.value,
+                      },
+                    })
+                  }
+                  className="w-full sm:w-1/2 px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl bg-white"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* SECTION 2: Scaling Growth Hero (Position 2) */}
+          <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
+            <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-3 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#0066FF]"></span>
+              Position 2: Scaling Growth Hero & Above-The-Fold
+            </h2>
 
           <div className="space-y-4">
             <div>
@@ -473,6 +587,7 @@ export default function HomepageEditorPage() {
             </div>
           </div>
         </div>
+      </div>
       )}
 
 

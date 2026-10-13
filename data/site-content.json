@@ -26,6 +26,19 @@
     "showCatalogInFloating": true
   },
   "homepage": {
+    "videoHero": {
+      "enabled": true,
+      "videoUrl": "https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv",
+      "title": "",
+      "subtitle": "From Strategy to Execution",
+      "buttonText": "Get Started",
+      "stats": [
+        { "value": "50+", "label": "Team Members" },
+        { "value": "$100M", "label": "Sales Generated" },
+        { "value": "20+", "label": "Platforms" },
+        { "value": "100+", "label": "Brands" }
+      ]
+    },
     "hero": {
       "badgeText": "🚀 Your Marketplace Growth Partner — From Setup to Sales",
       "titlePart1": "Powering Brands. Scaling",

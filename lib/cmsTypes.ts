@@ -134,7 +134,22 @@ export interface EcommercePlatformItemData {
   href: string;
 }
 
+export interface VideoHeroStatItem {
+  value: string;
+  label: string;
+}
+
+export interface VideoHeroContent {
+  enabled?: boolean;
+  videoUrl?: string;
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+  stats?: VideoHeroStatItem[];
+}
+
 export interface HomepageContent {
+  videoHero?: VideoHeroContent;
   hero: HeroSectionContent;
   stats: StatCounter[];
   brandLogos: BrandLogo[];
@@ -376,6 +391,19 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     showCatalogInFloating: true,
   },
   homepage: {
+    videoHero: {
+      enabled: true,
+      videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+      title: 'Enabling E-commerce Globally',
+      subtitle: 'From Strategy to Execution',
+      buttonText: 'Get Started',
+      stats: [
+        { value: '50+', label: 'Team Members' },
+        { value: '$100M', label: 'Sales Generated' },
+        { value: '20+', label: 'Platforms' },
+        { value: '100+', label: 'Brands' },
+      ],
+    },
     hero: {
       badgeText: '🚀 Your Marketplace Growth Partner — From Setup to Sales',
       titlePart1: 'Powering Brands. Scaling',
