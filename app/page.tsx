@@ -106,11 +106,11 @@ export default function HomePage() {
   const listingServices = hp.listingServices?.length ? hp.listingServices : [];
   const clientVideos = hp.clientVideos?.length ? hp.clientVideos : [];
 
-  // Automatically open the query submission modal after 10 seconds
+  // Automatically open the query submission modal after 45 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setPopupOpen(true);
-    }, 10000); // 10 seconds
+    }, 45000); // 45 seconds
 
     return () => clearTimeout(timer);
   }, []);
