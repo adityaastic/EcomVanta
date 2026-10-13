@@ -123,12 +123,69 @@ export default function HomePage() {
         
         {/* SECTION 1: First Hero Section — Video Background Banner */}
         <VideoHeroSection
-          onOpenPopup={() => setPopupOpen(true)}
           videoUrl={hp.videoHero?.videoUrl || 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv'}
-          title={hp.videoHero?.title === 'Enabling E-commerce Globally' ? '' : (hp.videoHero?.title || '')}
-          subtitle={hp.videoHero?.subtitle || 'From Strategy to Execution'}
-          buttonText={hp.videoHero?.buttonText || 'Get Started'}
         />
+
+        {/* SECTION 1.1: 4-Column Live Stats & Growth Counter Strip (Directly below Video Hero, Full Page Width) */}
+        <section className="relative w-full bg-slate-50/70 border-b border-slate-200/80 py-6 sm:py-8 lg:py-10 z-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-blue-100 shadow-[0_15px_40px_rgba(0,102,255,0.08)]">
+              
+              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3 sm:border-r border-slate-100 last:border-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0 shadow-xs">
+                  <Award className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                    <AnimatedCounter value={hp.stats?.[0]?.number || '500+'} duration={2200} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mt-1">{hp.stats?.[0]?.label || 'Active Brands Managed'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[0]?.description || 'Across all major Indian marketplaces'}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3 lg:border-r border-slate-100">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0 shadow-xs">
+                  <Sparkles className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                    <AnimatedCounter value={hp.stats?.[1]?.number || '₹50Cr+'} duration={2400} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mt-1">{hp.stats?.[1]?.label || 'Client Revenue Generated'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[1]?.description || 'Proven high ROI scaling strategies'}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3 sm:border-r border-slate-100">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0 shadow-xs">
+                  <TrendingUp className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0066FF] tracking-tight">
+                    <AnimatedCounter value={hp.stats?.[2]?.number || '4.8X'} duration={2000} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mt-1">{hp.stats?.[2]?.label || 'Average ROAS Achieved'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[2]?.description || 'On Amazon & Flipkart Sponsored Ads'}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0 shadow-xs">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                    <AnimatedCounter value={hp.stats?.[3]?.number || '99.4%'} duration={2200} />
+                  </h3>
+                  <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mt-1">{hp.stats?.[3]?.label || 'Listing Accuracy & SLA'}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[3]?.description || 'Zero policy strikes or BuyBox loss'}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
         {/* SECTION 2: Scaling Growth Hero Section (Shifted from position 1) */}
         <section id="growth-overview" className="relative overflow-hidden pt-14 pb-12 md:pt-16 md:pb-20 bg-gradient-to-b from-blue-50/70 via-white to-white flex flex-col justify-center hero-grid-pattern border-b border-slate-100">
@@ -151,7 +208,7 @@ export default function HomePage() {
             <Image src="/Meesho_logo.png" alt="Meesho" width={40} height={40} className="w-full h-full object-contain" />
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-10 items-center w-full z-10 mb-14 lg:mb-20">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-10 items-center w-full z-10">
             
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-6">
@@ -277,66 +334,6 @@ export default function HomePage() {
             </div>
 
           </div>
-
-          {/* HERO BOTTOM 4-COLUMN STATS BAR (Exact Arvian Feature) */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-white/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-blue-100 shadow-[0_15px_40px_rgba(0,102,255,0.08)]">
-              
-              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3 sm:border-r border-slate-100 last:border-0">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-                    <AnimatedCounter value={hp.stats?.[0]?.number || '1000+'} duration={2200} />
-                  </h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[0]?.label || 'Sellers Onboarded'}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[0]?.description || 'Across all Indian marketplaces'}</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3 lg:border-r border-slate-100">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-                    <AnimatedCounter value={hp.stats?.[1]?.number || '10+'} duration={2000} />
-                  </h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[1]?.label || 'Marketplaces'}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[1]?.description || 'Amazon, Flipkart, Quick Comm'}</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3 sm:border-r border-slate-100">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0">
-                  <TrendingUp className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#0066FF]">
-                    <AnimatedCounter value={hp.stats?.[2]?.number || '₹50Cr+'} duration={2400} />
-                  </h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[2]?.label || 'GMV Managed'}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[2]?.description || 'Proven high ROI growth models'}</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-3">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0066FF] flex-shrink-0">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-                    <AnimatedCounter value={hp.stats?.[3]?.number || '98%'} duration={2200} />
-                  </h3>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{hp.stats?.[3]?.label || 'Client Retention'}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5 hidden sm:block">{hp.stats?.[3]?.description || 'Long-term brand partnership'}</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
         </section>
 
         {/* SECTION 1.2: Moving Services Marquee Ticker (Left to Right) */}
