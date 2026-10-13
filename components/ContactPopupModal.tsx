@@ -74,32 +74,37 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
 
         {/* Left Image Section */}
         <div 
-          className="hidden md:block md:w-1/2 bg-cover bg-center min-h-[460px] relative"
+          className="hidden md:block md:w-1/2 bg-cover bg-center min-h-[480px] relative"
           style={{ backgroundImage: "url('/coreporate lady.jpg')" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-[#081325]/95 via-[#081325]/50 to-transparent flex flex-col justify-end p-8 text-white">
-            <span className="text-xs uppercase tracking-widest text-[#00C2FF] font-extrabold mb-1">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent flex flex-col justify-end p-8 text-white z-10">
+            <span className="text-xs uppercase tracking-widest !text-[#00C2FF] font-black mb-2 drop-shadow-sm">
               EcomVanta Growth Consultancy
             </span>
-            <h3 className="text-2xl font-bold leading-tight">
+            <h3 className="text-2xl lg:text-3xl font-black !text-white leading-tight drop-shadow-md">
               Scale Your Multi-Channel Online Sales Today
             </h3>
-            <p className="text-xs text-blue-200 mt-2">
+            <p className="text-xs font-semibold !text-blue-100 mt-2.5 tracking-wide drop-shadow-sm">
               Amazon &bull; Flipkart &bull; Blinkit &bull; Myntra &bull; Shopify &bull; Zepto
             </p>
           </div>
         </div>
 
         {/* Right Form Section */}
-        <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center bg-white">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-extrabold text-gray-900 flex items-center justify-center gap-2">
-              <Mail className="w-6 h-6 text-[#0066FF]" />
-              Submit Your Query & Get Free Audit
+        <div className="w-full md:w-1/2 p-5 sm:p-7 md:p-8 flex flex-col justify-center bg-white">
+          <div className="text-center mb-5">
+            <div className="md:hidden flex justify-center mb-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-50 border border-blue-100 text-[#0066FF] text-[11px] font-black uppercase tracking-wider">
+                EcomVanta Growth Consultancy
+              </span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center justify-center gap-2">
+              <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-[#0066FF] flex-shrink-0" />
+              <span>Submit Your Query & Get Free Audit</span>
             </h2>
             <div className="w-12 h-1 bg-gradient-to-r from-[#0066FF] to-[#00C2FF] mx-auto mt-2 rounded-full" />
-            <p className="text-xs text-gray-500 mt-2 font-medium">
-              Submit your queries or business requirements below — our specialist will connect with you promptly!
+            <p className="text-xs text-slate-500 mt-2 font-medium">
+              Submit your requirements below — our specialist will connect with you promptly!
             </p>
           </div>
 
@@ -108,8 +113,8 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
               <div className="w-16 h-16 bg-blue-50 text-[#0066FF] rounded-full flex items-center justify-center mx-auto border border-blue-200">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Inquiry Received!</h3>
-              <p className="text-sm text-gray-600 max-w-sm mx-auto">
+              <h3 className="text-xl font-bold text-slate-900">Inquiry Received!</h3>
+              <p className="text-sm text-slate-600 max-w-sm mx-auto">
                 Thank you for reaching out to EcomVanta. Our ecommerce strategist will contact you within 2 business hours.
               </p>
               <button
@@ -117,15 +122,15 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                   setSubmitted(false);
                   onClose();
                 }}
-                className="mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-semibold text-sm hover:from-[#0052cc] hover:to-[#003d99] transition-all shadow-md"
+                className="mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-semibold text-sm hover:from-[#0052cc] hover:to-[#003d99] transition-all shadow-md cursor-pointer"
               >
                 Close
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 text-left">
+            <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
               {error && (
-                <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg">
+                <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl">
                   {error}
                 </div>
               )}
@@ -136,10 +141,10 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                 <input
                   type="text"
                   required
-                  placeholder="Enter Your Name *"
+                  placeholder="Full Name *"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-gray-50 focus:bg-white"
+                  className="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-base sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-slate-50/70 focus:bg-white"
                 />
               </div>
 
@@ -149,16 +154,16 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                 <input
                   type="email"
                   required
-                  placeholder="Enter Your Email *"
+                  placeholder="Email Address *"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-gray-50 focus:bg-white"
+                  className="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-base sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-slate-50/70 focus:bg-white"
                 />
               </div>
 
               {/* Phone */}
               <div className="relative flex">
-                <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-200 bg-gray-100 text-gray-700 text-xs font-semibold">
+                <span className="inline-flex items-center px-3.5 rounded-l-xl border border-r-0 border-slate-200 bg-slate-100 text-slate-700 text-xs sm:text-sm font-bold">
                   🇮🇳 +91
                 </span>
                 <input
@@ -167,7 +172,7 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                   placeholder="Mobile Number *"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-r-lg border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-gray-50 focus:bg-white"
+                  className="w-full px-4 py-2.5 sm:py-3 rounded-r-xl border border-slate-200 text-base sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-slate-50/70 focus:bg-white"
                 />
               </div>
 
@@ -177,10 +182,10 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                 <input
                   type="text"
                   required
-                  placeholder="Your City *"
+                  placeholder="City Name *"
                   value={formData.city}
                   onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-gray-50 focus:bg-white"
+                  className="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-base sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-slate-50/70 focus:bg-white"
                 />
               </div>
 
@@ -190,25 +195,25 @@ export default function ContactPopupModal({ isOpen, onClose, sourcePage = 'Consu
                 <textarea
                   rows={3}
                   required
-                  placeholder="Enter your query or business requirements *"
+                  placeholder="Your Query / Requirements *"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-gray-50 focus:bg-white resize-none"
+                  className="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-base sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0066FF] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-slate-50/70 focus:bg-white resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-sm tracking-wider uppercase hover:from-[#0052cc] hover:to-[#003d99] shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white font-extrabold text-sm sm:text-base tracking-wide uppercase hover:from-[#0052cc] hover:to-[#003d99] shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {loading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Sending Query...
+                    <span>Submitting...</span>
                   </>
                 ) : (
-                  'Submit Query & Request Call'
+                  <span>Submit Query & Request Call</span>
                 )}
               </button>
             </form>

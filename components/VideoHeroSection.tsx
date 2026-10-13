@@ -86,6 +86,10 @@ export default function VideoHeroSection({
           />
         )}
       </div>
+
+      {/* Subtle white layer & very very light blue effect overlay */}
+      <div className="absolute inset-0 z-20 pointer-events-none bg-white/[0.08]" />
+      <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-tr from-[#0066FF]/[0.10] via-sky-400/[0.05] to-blue-500/[0.08]" />
     </section>
   );
 }
