@@ -633,17 +633,17 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       {
         id: '1',
         heading: 'COMPREHENSIVE E-COMMERCE ACCOUNT MANAGEMENT IN INDIA',
-        content: 'Selling on Indian marketplaces like Amazon, Flipkart, Meesho, Myntra, and Blinkit requires dedicated operational mastery. EcomVanta acts as an end-to-end marketplace management growth agency for D2C brands, manufacturers, and emerging retailers. We manage everything from seller onboarding and GST/brand registry authorizations to cataloging, Sponsored Ads PPC scaling, Buy Box retention, and inventory forecasting across micro-fulfillment centers. With our data-driven growth strategies, brands avoid common account suspensions, suppressed listings, and wasted advertising spend.',
+        content: '<p>Selling on Indian marketplaces like <b>Amazon</b>, <b>Flipkart</b>, <b>Meesho</b>, <b>Myntra</b>, and <b>Blinkit</b> requires dedicated operational mastery. <b>EcomVanta</b> acts as an end-to-end marketplace management growth agency for D2C brands, manufacturers, and emerging retailers. We manage everything from <span style="color: #0066FF; font-weight: bold;">seller onboarding</span> and GST/brand registry authorizations to cataloging, Sponsored Ads PPC scaling, Buy Box retention, and inventory forecasting across micro-fulfillment centers. With our data-driven growth strategies, brands avoid common account suspensions, suppressed listings, and wasted advertising spend.</p>',
       },
       {
         id: '2',
         heading: 'HOW ECOMVANTA MULTIPLIES YOUR SALES ACROSS MARKETPLACES',
-        content: 'Our multi-disciplinary team deploys tested marketplace playbooks. For Amazon and Flipkart, we build search-optimized product titles, persuasive benefit-first bullet points, and high-converting A+ Content / Enhanced Brand Content (EBC) that dramatically lifts conversion rates. Concurrently, our PPC advertising managers structure precise keyword harvesting campaigns, negative keyword filters, and Sponsored Brand video placements that keep ACOS strictly within target profitability margins. On quick commerce platforms like Blinkit and Zepto, we manage dark store allocations and high-visibility category banners.',
+        content: '<p>Our multi-disciplinary team deploys tested marketplace playbooks. For <b>Amazon and Flipkart</b>, we build search-optimized product titles, persuasive benefit-first bullet points, and <b>high-converting A+ Content / Enhanced Brand Content (EBC)</b> that dramatically lifts conversion rates. Concurrently, our PPC advertising managers structure precise keyword harvesting campaigns, negative keyword filters, and Sponsored Brand video placements that keep <span style="color: #16A34A; font-weight: bold;">ACOS strictly within target profitability margins</span>. On quick commerce platforms like <b>Blinkit and Zepto</b>, we manage dark store allocations and high-visibility category banners.</p>',
       },
       {
         id: '3',
         heading: 'WHY CHOOSE A SPECIALIZED MARKETPLACE GROWTH PARTNER?',
-        content: 'Hiring and training separate in-house managers for cataloging, graphics, ad campaigns, customer tickets, and marketplace reconciliation is expensive and difficult to scale. EcomVanta provides a turnkey eCommerce department for a fraction of the overhead. Every partner brand gets a dedicated senior account manager, weekly analytical performance reviews, and proactive account health shielding. We treat your brand as our own, aligning our growth incentives directly with your multi-channel sales milestones.',
+        content: '<p>Hiring and training separate in-house managers for cataloging, graphics, ad campaigns, customer tickets, and marketplace reconciliation is expensive and difficult to scale. <b>EcomVanta provides a turnkey eCommerce department</b> for a fraction of the overhead. Every partner brand gets a dedicated senior account manager, weekly analytical performance reviews, and proactive account health shielding. We treat your brand as our own, aligning our growth incentives directly with your multi-channel sales milestones.</p>',
       },
     ],
     showFounderSection: true,

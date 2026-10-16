@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import MediaUploader from '@/components/admin/MediaUploader';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 import { HomepageContent, AboutUsContent } from '@/lib/cmsTypes';
 import { getLocalCmsContent, saveLocalCmsContent } from '@/lib/useCmsContent';
 import {
@@ -1967,22 +1968,17 @@ export default function HomepageEditorPage() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                    Detailed Paragraph Content
-                  </label>
-                  <textarea
-                    rows={6}
-                    value={block.content}
-                    onChange={(e) => {
-                      const updated = [...(homepage.seoContentBlocks || [])];
-                      updated[index] = { ...updated[index], content: e.target.value };
-                      setHomepage({ ...homepage, seoContentBlocks: updated });
-                    }}
-                    placeholder="Write detailed explanatory content, advice, FAQs, or keyword-rich paragraphs here..."
-                    className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl bg-white leading-relaxed"
-                  />
-                </div>
+                <RichTextEditor
+                  label="Detailed Formatted Content (Bold, Italic, Headings, Size, Font & Colors)"
+                  value={block.content}
+                  onChange={(val) => {
+                    const updated = [...(homepage.seoContentBlocks || [])];
+                    updated[index] = { ...updated[index], content: val };
+                    setHomepage({ ...homepage, seoContentBlocks: updated });
+                  }}
+                  placeholder="Type or format your paragraph text here (use Bold, Italic, Size, Color, Lists etc.)..."
+                  helperText="Use the rich toolbar above to format key phrases with bold, change font size, choose brand colors, or add bullet points."
+                />
               </div>
             ))}
 

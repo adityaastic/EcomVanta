@@ -4,6 +4,7 @@ import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import MediaUploader from '@/components/admin/MediaUploader';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 import { BlogPostItem } from '@/lib/cmsTypes';
 import { getLocalCmsContent, saveLocalCmsContent } from '@/lib/useCmsContent';
 import {
@@ -303,18 +304,14 @@ export default function BlogEditPage({ params }: { params: Promise<{ slug: strin
             />
           </div>
 
-          <div>
-            <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-              Full Article Body / Content
-            </label>
-            <textarea
-              rows={12}
-              value={blog.content}
-              onChange={(e) => setBlog({ ...blog, content: e.target.value })}
-              placeholder="Write or paste your article content here..."
-              className="w-full px-3.5 py-3 text-xs border border-gray-300 rounded-xl font-mono leading-relaxed bg-white"
-            />
-          </div>
+          <RichTextEditor
+            label="Full Article Body / Content (Rich Text)"
+            value={blog.content}
+            onChange={(val) => setBlog({ ...blog, content: val })}
+            placeholder="Write your article here with rich headings, bold keywords, bullet points, font sizes, and custom colors..."
+            helperText="Format your article with H2/H3 subheadings, bold highlights, custom font size, and color accents."
+            minHeight="min-h-[340px]"
+          />
         </div>
       </div>
 

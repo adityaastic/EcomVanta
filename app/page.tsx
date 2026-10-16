@@ -970,9 +970,10 @@ export default function HomePage() {
                       {block.heading}
                     </h2>
                     <div className="w-16 h-1 bg-[#0066FF] mx-auto rounded-full mb-4" />
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify sm:text-left font-normal">
-                      {block.content}
-                    </p>
+                    <div
+                      className="rich-text-content text-slate-700 text-sm sm:text-base leading-relaxed text-justify sm:text-left font-normal"
+                      dangerouslySetInnerHTML={{ __html: block.content }}
+                    />
                   </div>
                 ))}
               </div>
