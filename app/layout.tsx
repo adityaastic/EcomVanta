@@ -10,8 +10,15 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ecomvanta.in"),
   title: "EcomVanta - Powering Brands. Scaling E-commerce | Marketplace Growth Partner",
   description: "EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
+  alternates: {
+    canonical: "https://www.ecomvanta.in",
+    types: {
+      "application/xml": [{ url: "https://www.ecomvanta.in/sitemap.xml", title: "Sitemap" }],
+    },
+  },
   keywords: ["EcomVanta", "Ecommerce Service Provider in Delhi", "Amazon Account Management", "Flipkart Account Management", "Blinkit Seller Onboarding", "Meesho Account Management"],
   authors: [{ name: "EcomVanta" }],
   icons: {
@@ -53,6 +60,7 @@ export default async function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260908" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260908" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
       </head>
       <body className="min-h-screen bg-white font-sans text-[#1A1A1A] antialiased selection:bg-[#0066FF] selection:text-white">
         <CmsProvider initialContent={initialContent}>

@@ -60,6 +60,15 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                 <Clock className="w-3.5 h-3.5 text-[#00C2FF]" />
                 <span>{branding.workingHours || '9:00 AM to 7:00 PM (Mon - Sat)'}</span>
               </div>
+              <a 
+                href="/sitemap.xml" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-[#00C2FF] transition-colors text-slate-300 font-medium"
+                title="Sitemap"
+              >
+                Sitemap
+              </a>
               <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-500/10 text-cyan-400 text-[11px] font-semibold border border-cyan-500/20">
                 <Sparkles className="w-3 h-3" /> E-commerce Growth Partner
               </span>
@@ -458,6 +467,9 @@ export default function Header({ onOpenPopup }: HeaderProps) {
           <Link href="/career" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50">
             Careers
           </Link>
+          <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50 block text-slate-700">
+            Sitemap
+          </a>
 
           <div className="pt-4 space-y-2.5">
             {branding.showCatalogInHeader !== false && (
