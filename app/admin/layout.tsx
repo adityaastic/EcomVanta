@@ -57,6 +57,7 @@ const NAV_GROUPS: NavGroup[] = [
       { name: 'Blogs & Articles', href: '/admin/blogs', icon: BookOpen },
       { name: 'Careers & Jobs', href: '/admin/careers', icon: Briefcase },
       { name: 'About Us Page', href: '/admin/about-us', icon: Users },
+      { name: 'Founder Page', href: '/admin/founder', icon: Award, badge: 'New' },
       { name: 'Contact & Footer', href: '/admin/contact-footer', icon: MapPin },
     ],
   },

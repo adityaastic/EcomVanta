@@ -95,6 +95,7 @@ export default function AdminDashboardPage() {
 
   const QUICK_ACTIONS = [
     { title: 'Edit Hero & Banner Text', desc: 'Modify top headlines, buttons, and graphics', icon: Home, href: '/admin/homepage' },
+    { title: 'Update Founder Page & Story', desc: 'Edit Shivam Dubey photo, quote, bio & milestones', icon: Award, href: '/admin/founder' },
     { title: 'Update Brand Logos & Contact', desc: 'Change header/footer logos, phone, email & hours', icon: Palette, href: '/admin/branding' },
     { title: 'Upload Photos & Banners', desc: 'Add new media assets directly with copyable links', icon: ImageIcon, href: '/admin/media' },
     { title: 'Manage Marketplace Services', desc: 'Edit Amazon, Flipkart, Meesho, Shopify content', icon: Layers, href: '/admin/services' },
