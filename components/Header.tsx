@@ -19,7 +19,9 @@ import {
   FileText,
   Star,
   MessageCircle,
-  PhoneCall
+  PhoneCall,
+  Users,
+  Briefcase
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -32,6 +34,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileCaseStudiesOpen, setMobileCaseStudiesOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
 
   return (
     <>
@@ -304,18 +307,94 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               <Link href="/about-us" className="hover:text-[#0066FF] transition-colors py-2">
                 About us
               </Link>
-              <Link href="/founder" className="hover:text-[#0066FF] transition-colors py-2">
-                Founder
-              </Link>
               <Link href="/portfolio" className="hover:text-[#0066FF] transition-colors py-2">
                 Portfolio
               </Link>
-              <Link href="/blogs" className="hover:text-[#0066FF] transition-colors py-2">
-                Blog
-              </Link>
-              <Link href="/career" className="hover:text-[#0066FF] transition-colors py-2">
-                Careers
-              </Link>
+
+              {/* More Dropdown (Blog, Career, Founder, Download Catalogue) */}
+              <div className="relative menuItem py-6 cursor-pointer group">
+                <span className="flex items-center gap-1.5 hover:text-[#0066FF] transition-colors font-semibold">
+                  More
+                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-400 group-hover:text-[#0066FF]" />
+                </span>
+
+                <div className="megaMenu absolute right-0 top-18 w-72 bg-white p-3.5 rounded-2xl shadow-[0_20px_50px_rgba(0,102,255,0.14)] border border-blue-100 z-50">
+                  <div className="flex flex-col space-y-1 text-sm">
+                    {/* Blog */}
+                    <Link
+                      href="/blogs"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#0066FF] transition-all group/item"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#0066FF] border border-blue-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-[#0066FF] group-hover/item:text-white transition-all">
+                        <FileText className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-slate-900 group-hover/item:text-[#0066FF]">Blog</span>
+                          <span className="text-[10px] font-semibold text-slate-400">Insights</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 line-clamp-1">E-commerce guides &amp; articles</p>
+                      </div>
+                    </Link>
+
+                    {/* Career */}
+                    <Link
+                      href="/career"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#0066FF] transition-all group/item"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-emerald-600 group-hover/item:text-white transition-all">
+                        <Briefcase className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-slate-900 group-hover/item:text-[#0066FF]">Careers</span>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">Hiring</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 line-clamp-1">Join our high-growth team</p>
+                      </div>
+                    </Link>
+
+                    {/* Founder */}
+                    <Link
+                      href="/founder"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#0066FF] transition-all group/item"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-cyan-50 text-cyan-600 border border-cyan-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-cyan-600 group-hover/item:text-white transition-all">
+                        <Users className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-slate-900 group-hover/item:text-[#0066FF]">Founder</span>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200">Leadership</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 line-clamp-1">Meet Shivam Dubey &amp; Story</p>
+                      </div>
+                    </Link>
+
+                    {/* Download Catalogue */}
+                    <div className="pt-2 border-t border-slate-100 mt-1">
+                      <a
+                        href={branding.catalogPdfUrl || '/contact-us'}
+                        target={branding.catalogPdfUrl ? '_blank' : undefined}
+                        rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
+                        download={branding.catalogPdfUrl ? true : undefined}
+                        className="flex items-center gap-3 p-2.5 rounded-xl bg-gradient-to-r from-blue-50/90 to-cyan-50/80 border border-blue-200 hover:border-blue-300 text-[#0066FF] transition-all group/item shadow-2xs"
+                      >
+                        <div className="w-9 h-9 rounded-lg bg-[#0066FF] text-white flex items-center justify-center shrink-0 shadow-sm group-hover/item:scale-105 transition-transform">
+                          <Download className="w-4 h-4" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-[#0066FF]">Download Catalogue</span>
+                            <span className="text-[10px] font-bold text-cyan-700 uppercase bg-white/80 px-1.5 py-0.5 rounded">PDF</span>
+                          </div>
+                          <p className="text-[11px] text-slate-600 line-clamp-1">Full Service Deck &amp; Overview</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </nav>
 
             {/* Action Buttons: Download Catalog & Free Audit */}
@@ -461,19 +540,56 @@ export default function Header({ onOpenPopup }: HeaderProps) {
           <Link href="/about-us" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50">
             About us
           </Link>
-          <Link href="/founder" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50 flex items-center justify-between text-blue-600 font-semibold">
-            <span>Our Founder</span>
-            <span className="text-[10px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Leadership</span>
-          </Link>
           <Link href="/portfolio" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50">
             Portfolio
           </Link>
-          <Link href="/blogs" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50">
-            Blog
-          </Link>
-          <Link href="/career" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50">
-            Careers
-          </Link>
+
+          {/* Mobile More Accordion (Blog, Career, Founder, Download Catalogue) */}
+          <div className="border-b border-slate-50 pb-2">
+            <button 
+              onClick={() => setMobileMoreOpen(!mobileMoreOpen)}
+              className="w-full flex justify-between items-center py-2 text-left font-semibold hover:text-[#0066FF]"
+            >
+              <span>More</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileMoreOpen ? 'rotate-180 text-[#0066FF]' : ''}`} />
+            </button>
+
+            {mobileMoreOpen && (
+              <div className="pl-3 mt-2 space-y-2.5 text-sm text-slate-600">
+                <Link href="/blogs" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF] flex items-center justify-between">
+                  <span className="flex items-center gap-2 font-medium">
+                    <FileText className="w-3.5 h-3.5 text-blue-600" /> Blog
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-semibold">Articles</span>
+                </Link>
+                <Link href="/career" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF] flex items-center justify-between">
+                  <span className="flex items-center gap-2 font-medium">
+                    <Briefcase className="w-3.5 h-3.5 text-emerald-600" /> Careers
+                  </span>
+                  <span className="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full font-bold">Hiring</span>
+                </Link>
+                <Link href="/founder" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF] flex items-center justify-between">
+                  <span className="flex items-center gap-2 font-medium text-slate-900">
+                    <Users className="w-3.5 h-3.5 text-cyan-600" /> Founder
+                  </span>
+                  <span className="text-[10px] bg-blue-50 text-[#0066FF] border border-blue-200 px-2 py-0.5 rounded-full font-bold">Leadership</span>
+                </Link>
+                <a
+                  href={branding.catalogPdfUrl || '/contact-us'}
+                  target={branding.catalogPdfUrl ? '_blank' : undefined}
+                  rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
+                  download={branding.catalogPdfUrl ? true : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-2 px-3 mt-2 rounded-xl bg-blue-50 border border-blue-200 text-[#0066FF] font-bold text-xs flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <Download className="w-3.5 h-3.5" /> Download Catalogue
+                  </span>
+                  <span className="text-[10px] uppercase font-bold text-cyan-700 bg-white px-1.5 py-0.5 rounded">PDF</span>
+                </a>
+              </div>
+            )}
+          </div>
           <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50 block text-slate-700">
             Sitemap
           </a>
