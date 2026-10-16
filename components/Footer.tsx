@@ -197,6 +197,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm text-slate-300 mb-6">
               <li><Link href="/about-us" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">About {siteName}</Link></li>
+              <li><Link href="/founder" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all font-medium text-cyan-300">Meet Our Founder</Link></li>
               <li><Link href="/portfolio" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">Success Portfolio</Link></li>
               <li><Link href="/blogs" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">E-commerce Insights Blog</Link></li>
               <li><Link href="/career" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">Careers &amp; Openings</Link></li>

@@ -882,6 +882,104 @@ export default function HomePage() {
 
         <ClientReviewsSlider />
         
+        {/* SECTION: Featured Founder & Leadership Note */}
+        {hp.showFounderSection !== false && (
+          <section className="py-20 bg-gradient-to-b from-white via-slate-50/70 to-white border-t border-slate-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="bg-gradient-to-br from-[#081325] via-[#0B1E36] to-[#07101E] rounded-3xl p-8 sm:p-12 lg:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border border-blue-900/40 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#00C2FF]/10 rounded-full blur-[120px] pointer-events-none" />
+                
+                <div className="lg:col-span-4 flex justify-center">
+                  <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl bg-[#0B1E36] group">
+                    <img
+                      src={content.founder?.founderImage || content.aboutUs?.founderImage || "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp"}
+                      alt={content.founder?.founderName || "Shivam Dubey - Founder & CEO"}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                      <div>
+                        <p className="text-white font-black text-lg">{content.founder?.founderName || "Shivam Dubey"}</p>
+                        <p className="text-cyan-400 text-xs font-semibold">{content.founder?.founderRole || "Founder & CEO, EcomVanta"}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-8 space-y-5 relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-[#00C2FF] text-xs font-extrabold uppercase tracking-widest border border-cyan-400/30">
+                    <Sparkles className="w-3.5 h-3.5" /> Leadership & Vision
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black !text-white leading-tight">
+                    &ldquo;{content.founder?.founderQuote || 'We Treat Your Brand Like Our Own.'}&rdquo;
+                  </h2>
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    {content.founder?.bioParagraphs?.[0] || 'When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.'}
+                  </p>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
+                      <p className="text-xl sm:text-2xl font-black text-cyan-400">₹50Cr+</p>
+                      <p className="text-[11px] text-slate-400 font-semibold mt-0.5">GMV Scaled</p>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
+                      <p className="text-xl sm:text-2xl font-black text-cyan-400">500+</p>
+                      <p className="text-[11px] text-slate-400 font-semibold mt-0.5">Brands Managed</p>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
+                      <p className="text-xl sm:text-2xl font-black text-cyan-400">50+</p>
+                      <p className="text-[11px] text-slate-400 font-semibold mt-0.5">In-House Experts</p>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
+                      <p className="text-xl sm:text-2xl font-black text-cyan-400">98%</p>
+                      <p className="text-[11px] text-slate-400 font-semibold mt-0.5">Client Retention</p>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 flex flex-wrap gap-4 items-center">
+                    <Link
+                      href="/founder"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00C2FF] text-white font-extrabold text-sm shadow-xl shadow-blue-500/25 hover:brightness-110 transition-all group"
+                    >
+                      <span>Read Founder’s Story & Vision</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+
+                    <button
+                      onClick={() => setPopupOpen(true)}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-all cursor-pointer"
+                    >
+                      <Phone className="w-4 h-4 text-cyan-400" />
+                      <span>Book Consultation Call</span>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* SECTION: SEO Long-form Informational Content Guide (Matching User Screenshot) */}
+        {hp.seoContentBlocks && hp.seoContentBlocks.length > 0 && (
+          <section className="py-16 sm:py-20 bg-white border-t border-slate-100">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="space-y-12 sm:space-y-14">
+                {hp.seoContentBlocks.map((block: any, idx: number) => (
+                  <div key={block.id || idx} className="text-center sm:text-left space-y-4">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight text-center">
+                      {block.heading}
+                    </h2>
+                    <div className="w-16 h-1 bg-[#0066FF] mx-auto rounded-full mb-4" />
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed text-justify sm:text-left font-normal">
+                      {block.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <FaqAccordion />
 
         <ContactSection sourcePage="Main Home Page" />

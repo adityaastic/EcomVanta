@@ -172,6 +172,45 @@ export interface HomepageContent {
   sellerSpotlight?: SellerSpotlightContent;
   faqs: FaqItem[];
   bottomCta: CtaBannerContent;
+  seoContentBlocks?: SeoContentBlock[];
+  showFounderSection?: boolean;
+}
+
+export interface SeoContentBlock {
+  id: string;
+  heading: string;
+  content: string;
+}
+
+export interface FounderMilestone {
+  id: string;
+  number: string;
+  label: string;
+  desc: string;
+}
+
+export interface FounderPrinciple {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface FounderPageContent {
+  heroBadge?: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
+  founderName?: string;
+  founderRole?: string;
+  founderImage?: string;
+  founderQuote?: string;
+  bioHeading?: string;
+  bioParagraphs?: string[];
+  milestones?: FounderMilestone[];
+  principles?: FounderPrinciple[];
+  visionHeading?: string;
+  visionText?: string;
+  calloutTitle?: string;
+  calloutDesc?: string;
 }
 
 
@@ -259,6 +298,7 @@ export interface SiteContentData {
   careers: JobOpening[];
   careerPage: CareerPageContent;
   aboutUs: AboutUsContent;
+  founder?: FounderPageContent;
   contactFooter: ContactFooterContent;
 }
 
@@ -589,6 +629,24 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       buttonLink: '/contact-us',
       backgroundImage: '/contact-bg.webp',
     },
+    seoContentBlocks: [
+      {
+        id: '1',
+        heading: 'COMPREHENSIVE E-COMMERCE ACCOUNT MANAGEMENT IN INDIA',
+        content: 'Selling on Indian marketplaces like Amazon, Flipkart, Meesho, Myntra, and Blinkit requires dedicated operational mastery. EcomVanta acts as an end-to-end marketplace management growth agency for D2C brands, manufacturers, and emerging retailers. We manage everything from seller onboarding and GST/brand registry authorizations to cataloging, Sponsored Ads PPC scaling, Buy Box retention, and inventory forecasting across micro-fulfillment centers. With our data-driven growth strategies, brands avoid common account suspensions, suppressed listings, and wasted advertising spend.',
+      },
+      {
+        id: '2',
+        heading: 'HOW ECOMVANTA MULTIPLIES YOUR SALES ACROSS MARKETPLACES',
+        content: 'Our multi-disciplinary team deploys tested marketplace playbooks. For Amazon and Flipkart, we build search-optimized product titles, persuasive benefit-first bullet points, and high-converting A+ Content / Enhanced Brand Content (EBC) that dramatically lifts conversion rates. Concurrently, our PPC advertising managers structure precise keyword harvesting campaigns, negative keyword filters, and Sponsored Brand video placements that keep ACOS strictly within target profitability margins. On quick commerce platforms like Blinkit and Zepto, we manage dark store allocations and high-visibility category banners.',
+      },
+      {
+        id: '3',
+        heading: 'WHY CHOOSE A SPECIALIZED MARKETPLACE GROWTH PARTNER?',
+        content: 'Hiring and training separate in-house managers for cataloging, graphics, ad campaigns, customer tickets, and marketplace reconciliation is expensive and difficult to scale. EcomVanta provides a turnkey eCommerce department for a fraction of the overhead. Every partner brand gets a dedicated senior account manager, weekly analytical performance reviews, and proactive account health shielding. We treat your brand as our own, aligning our growth incentives directly with your multi-channel sales milestones.',
+      },
+    ],
+    showFounderSection: true,
   },
   services: SERVICES_DATABASE,
   caseStudies: CASE_STUDIES_DATA,
@@ -647,6 +705,36 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     team: [
       { id: '1', name: 'Shivam Dubey', designation: 'Director & Founder', image: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707331605_WhatsApp_Image_2026-09-18_at_10.21.32_AM.webp' },
     ],
+  },
+  founder: {
+    heroBadge: 'LEADERSHIP & VISION',
+    heroTitle: 'Meet Our Founder & CEO',
+    heroSubtitle: 'The driving force behind EcomVanta’s journey from a bootstrap agency to managing ₹50Cr+ GMV for India’s fastest-growing marketplace brands.',
+    founderName: 'Shivam Dubey',
+    founderRole: 'Founder & CEO, EcomVanta',
+    founderImage: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp',
+    founderQuote: 'We Don’t Just Manage Accounts — We Build Enduring E-Commerce Market Leaders.',
+    bioHeading: 'The Story Behind EcomVanta',
+    bioParagraphs: [
+      'Shivam Dubey founded EcomVanta with a straightforward mission: to eliminate the chaos, hidden fees, and empty promises prevalent in the e-commerce agency ecosystem. Having witnessed hundreds of promising sellers struggle with suppressed listings, spiraling ad spend, and bureaucratic marketplace support, Shivam envisioned a truly specialized partner with skin in the game.',
+      'Under his leadership, EcomVanta has grown from managing a single seller account to orchestrating multi-channel e-commerce growth for over 500+ brands across Amazon, Flipkart, Meesho, Blinkit, Zepto, Myntra, and custom D2C stores.',
+      'Today, Shivam leads a team of 50+ marketplace specialists, ad analysts, and catalog designers in New Delhi, helping manufacturers, heritage businesses, and innovative consumer brands scale profitably across India and overseas.',
+    ],
+    milestones: [
+      { id: '1', number: '₹50Cr+', label: 'GMV Generated', desc: 'For partner brands across Indian marketplaces' },
+      { id: '2', number: '500+', label: 'Brands Scaled', desc: 'From startup sellers to multi-crore enterprises' },
+      { id: '3', number: '50+', label: 'In-House Specialists', desc: 'Category experts, ad managers & designers' },
+      { id: '4', number: '98%', label: 'Client Retention', desc: 'Long-term partnerships built on verified ROI' },
+    ],
+    principles: [
+      { id: '1', title: 'Complete Transparency', description: 'No inflated metrics or vanity reporting. We share real-time analytics, exact ad spend figures, and clear profitability margins.' },
+      { id: '2', title: 'Execution Over Excuses', description: 'Marketplace algorithms change daily. We stay ahead with rapid listing experiments, proactive account health checks, and swift problem resolution.' },
+      { id: '3', title: 'Your Brand, Our Responsibility', description: 'We treat your capital, inventory, and reputation with the same care and scrutiny as if it were our own business.' },
+    ],
+    visionHeading: 'Our Vision for Indian E-Commerce',
+    visionText: 'To empower every visionary manufacturer and brand in India with world-class marketplace capabilities, ensuring domestic products dominate online market share globally.',
+    calloutTitle: 'Want to Scale Your Brand with Shivam Dubey’s Team?',
+    calloutDesc: 'Schedule an exclusive 1-on-1 marketplace growth audit and uncover hidden revenue opportunities in your catalog.',
   },
   contactFooter: {
     officeAddress: 'New Delhi, India',

@@ -30,6 +30,8 @@ export function mergeWithDefaults(data: any): SiteContentData {
       clientVideos: data?.homepage?.clientVideos || DEFAULT_SITE_CONTENT.homepage.clientVideos,
       faqs: data?.homepage?.faqs || DEFAULT_SITE_CONTENT.homepage.faqs,
       bottomCta: { ...DEFAULT_SITE_CONTENT.homepage.bottomCta, ...(data?.homepage?.bottomCta || {}) },
+      seoContentBlocks: data?.homepage?.seoContentBlocks || DEFAULT_SITE_CONTENT.homepage.seoContentBlocks,
+      showFounderSection: data?.homepage?.showFounderSection !== undefined ? data.homepage.showFounderSection : true,
     },
     services: { ...DEFAULT_SITE_CONTENT.services, ...(data?.services || {}) },
     caseStudies: { ...DEFAULT_SITE_CONTENT.caseStudies, ...(data?.caseStudies || {}) },
@@ -37,6 +39,7 @@ export function mergeWithDefaults(data: any): SiteContentData {
     careers: data?.careers || DEFAULT_SITE_CONTENT.careers,
     careerPage: { ...DEFAULT_SITE_CONTENT.careerPage, ...(data?.careerPage || {}) },
     aboutUs: { ...DEFAULT_SITE_CONTENT.aboutUs, ...(data?.aboutUs || {}) },
+    founder: { ...DEFAULT_SITE_CONTENT.founder, ...(data?.founder || {}) },
     contactFooter: { ...DEFAULT_SITE_CONTENT.contactFooter, ...(data?.contactFooter || {}) },
   };
 }

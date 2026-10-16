@@ -304,6 +304,9 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               <Link href="/about-us" className="hover:text-[#0066FF] transition-colors py-2">
                 About us
               </Link>
+              <Link href="/founder" className="hover:text-[#0066FF] transition-colors py-2">
+                Founder
+              </Link>
               <Link href="/portfolio" className="hover:text-[#0066FF] transition-colors py-2">
                 Portfolio
               </Link>
@@ -457,6 +460,10 @@ export default function Header({ onOpenPopup }: HeaderProps) {
 
           <Link href="/about-us" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50">
             About us
+          </Link>
+          <Link href="/founder" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50 flex items-center justify-between text-blue-600 font-semibold">
+            <span>Our Founder</span>
+            <span className="text-[10px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Leadership</span>
           </Link>
           <Link href="/portfolio" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50">
             Portfolio

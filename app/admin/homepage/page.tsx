@@ -19,7 +19,8 @@ import {
   Sparkles,
   Users,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  FileText
 } from 'lucide-react';
 
 export default function HomepageEditorPage() {
@@ -29,7 +30,7 @@ export default function HomepageEditorPage() {
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'hero' | 'stats' | 'services-ticker' | 'about' | 'brands' | 'platforms' | 'ecommerce-platforms' | 'listing' | 'advantages' | 'testimonials' | 'faqs' | 'cta'>('hero');
+  const [activeTab, setActiveTab] = useState<'hero' | 'stats' | 'services-ticker' | 'about' | 'brands' | 'platforms' | 'ecommerce-platforms' | 'listing' | 'advantages' | 'testimonials' | 'faqs' | 'cta' | 'seo-content'>('hero');
 
   useEffect(() => {
     // 1. Instantly populate from local storage if available
@@ -146,6 +147,7 @@ export default function HomepageEditorPage() {
         { id: 'testimonials', label: '10. Video Reviews', icon: Video },
         { id: 'faqs', label: '11. FAQs', icon: HelpCircle },
         { id: 'cta', label: '12. Bottom CTA', icon: Sparkles },
+        { id: 'seo-content', label: '13. SEO Content Guide', icon: FileText },
       ],
     },
   ] as const;
@@ -1892,6 +1894,104 @@ export default function HomepageEditorPage() {
               }
               helperText="Background banner texture or photo"
             />
+          </div>
+        </div>
+      )}
+
+      {activeTab === 'seo-content' && (
+        <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-6 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-100 pb-4 gap-3">
+            <div>
+              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+                13. Long-Form SEO Content Guide (Headings + Paragraphs)
+              </h2>
+              <p className="text-xs text-gray-500 mt-1">
+                Add rich SEO content blocks (bold H2/H3 headings and keyword-rich paragraphs) displayed on the homepage for organic Google rankings.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                const newBlock = {
+                  id: String(Date.now()),
+                  heading: 'NEW SEO TOPIC HEADING',
+                  content: 'Enter detailed informational content and keyword-rich explanation here...',
+                };
+                setHomepage({
+                  ...homepage,
+                  seoContentBlocks: [...(homepage.seoContentBlocks || []), newBlock],
+                });
+              }}
+              className="px-4 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white text-xs font-bold rounded-xl shadow-xs transition-colors flex items-center gap-1.5 w-fit cursor-pointer"
+            >
+              + Add Content Block
+            </button>
+          </div>
+
+          <div className="space-y-6">
+            {(homepage.seoContentBlocks || []).map((block, index) => (
+              <div
+                key={block.id || index}
+                className="p-5 rounded-2xl border border-gray-200 bg-gray-50/50 space-y-4 relative"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black text-[#0066FF] uppercase tracking-wider">
+                    Block #{index + 1}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updated = (homepage.seoContentBlocks || []).filter((_, i) => i !== index);
+                      setHomepage({ ...homepage, seoContentBlocks: updated });
+                    }}
+                    className="text-xs font-bold text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
+                  >
+                    Delete Block
+                  </button>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    Section Heading (H2 / H3)
+                  </label>
+                  <input
+                    type="text"
+                    value={block.heading}
+                    onChange={(e) => {
+                      const updated = [...(homepage.seoContentBlocks || [])];
+                      updated[index] = { ...updated[index], heading: e.target.value };
+                      setHomepage({ ...homepage, seoContentBlocks: updated });
+                    }}
+                    placeholder="e.g. COMPREHENSIVE E-COMMERCE ACCOUNT MANAGEMENT IN INDIA"
+                    className="w-full px-3.5 py-2.5 text-xs font-bold border border-gray-300 rounded-xl bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    Detailed Paragraph Content
+                  </label>
+                  <textarea
+                    rows={6}
+                    value={block.content}
+                    onChange={(e) => {
+                      const updated = [...(homepage.seoContentBlocks || [])];
+                      updated[index] = { ...updated[index], content: e.target.value };
+                      setHomepage({ ...homepage, seoContentBlocks: updated });
+                    }}
+                    placeholder="Write detailed explanatory content, advice, FAQs, or keyword-rich paragraphs here..."
+                    className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-xl bg-white leading-relaxed"
+                  />
+                </div>
+              </div>
+            ))}
+
+            {(!homepage.seoContentBlocks || homepage.seoContentBlocks.length === 0) && (
+              <div className="text-center py-10 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                <p className="text-xs text-gray-500 font-medium">No SEO content blocks added yet.</p>
+                <p className="text-[11px] text-gray-400 mt-1">Click the button above to add your first heading and paragraph.</p>
+              </div>
+            )}
           </div>
         </div>
       )}
