@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { DEFAULT_SITE_CONTENT, SiteContentData } from './cmsTypes';
+import { DEFAULT_SITE_CONTENT, SiteContentData, INITIAL_BLOGS, DEFAULT_SEO_CONFIG, BlogPostItem, SeoSystemConfig } from './cmsTypes';
 import { supabaseAdmin, supabase } from './supabase';
 
 export * from './cmsTypes';
@@ -10,6 +10,105 @@ const DATA_FILE_PATH = path.join(process.cwd(), 'data', 'site-content.json');
 // Declare global type for serverless memory cache
 declare global {
   var __SITE_CONTENT_CACHE__: SiteContentData | undefined;
+}
+
+export function normalizeBlogs(rawBlogs?: BlogPostItem[]): BlogPostItem[] {
+  const list = Array.isArray(rawBlogs) && rawBlogs.length > 0 ? rawBlogs : INITIAL_BLOGS;
+  return list.map((b) => {
+    const defaultMatch = INITIAL_BLOGS.find((ib) => ib.slug === b.slug || ib.id === b.id);
+    const slug = b.slug || b.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || b.id;
+    const isLegacyShortContent =
+      defaultMatch &&
+      (!b.content || b.content.length < 240) &&
+      defaultMatch.content.length > 240;
+
+    return {
+      ...(defaultMatch || {}),
+      ...b,
+      slug,
+      status: b.status || 'published',
+      content: isLegacyShortContent ? defaultMatch.content : (b.content || defaultMatch?.content || ''),
+      imageAlt: b.imageAlt ?? defaultMatch?.imageAlt ?? b.title,
+      imageTitle: b.imageTitle ?? defaultMatch?.imageTitle ?? b.title,
+      tags: b.tags ?? defaultMatch?.tags ?? (b.category ? [b.category] : []),
+      showToc: b.showToc !== undefined ? b.showToc : true,
+      link: `/blogs/${slug}`,
+      seo: {
+        ...(defaultMatch?.seo || {
+          focusKeyword: '',
+          secondaryKeywords: [],
+          seoTitle: '',
+          metaDescription: '',
+          canonicalUrl: '',
+          robotsIndex: 'index',
+          robotsFollow: 'follow',
+          robotsAdvanced: ['max-snippet:-1', 'max-image-preview:large'],
+          ogTitle: '',
+          ogDescription: '',
+          ogImage: '',
+          ogType: 'article',
+          twitterCard: 'summary_large_image',
+          twitterTitle: '',
+          twitterDescription: '',
+          twitterImage: '',
+          breadcrumbTitle: b.title || '',
+          schemaType: 'BlogPosting',
+        }),
+        ...(b.seo || {}),
+      },
+    };
+  });
+}
+
+export function mergeSeoConfig(raw?: Partial<SeoSystemConfig>): SeoSystemConfig {
+  if (!raw) return DEFAULT_SEO_CONFIG;
+  return {
+    ...DEFAULT_SEO_CONFIG,
+    ...raw,
+    paginationControl: {
+      ...DEFAULT_SEO_CONFIG.paginationControl,
+      ...(raw.paginationControl || {}),
+    },
+    publishPreChecks: {
+      ...DEFAULT_SEO_CONFIG.publishPreChecks,
+      ...(raw.publishPreChecks || {}),
+    },
+    templates: {
+      ...DEFAULT_SEO_CONFIG.templates,
+      ...(raw.templates || {}),
+    },
+    pageSeo: {
+      ...DEFAULT_SEO_CONFIG.pageSeo,
+      ...(raw.pageSeo || {}),
+    },
+    redirects: Array.isArray(raw.redirects) ? raw.redirects : DEFAULT_SEO_CONFIG.redirects,
+    robotsTxt: {
+      ...DEFAULT_SEO_CONFIG.robotsTxt,
+      ...(raw.robotsTxt || {}),
+    },
+    sitemapConfig: {
+      ...DEFAULT_SEO_CONFIG.sitemapConfig,
+      ...(raw.sitemapConfig || {}),
+    },
+    schemaOrg: {
+      ...DEFAULT_SEO_CONFIG.schemaOrg,
+      ...(raw.schemaOrg || {}),
+    },
+    integrations: {
+      ...DEFAULT_SEO_CONFIG.integrations,
+      ...(raw.integrations || {}),
+    },
+    notFoundLogs: Array.isArray(raw.notFoundLogs) ? raw.notFoundLogs : DEFAULT_SEO_CONFIG.notFoundLogs,
+    seoTasks: Array.isArray(raw.seoTasks) ? raw.seoTasks : DEFAULT_SEO_CONFIG.seoTasks,
+    analyzerWeights: {
+      ...DEFAULT_SEO_CONFIG.analyzerWeights,
+      ...(raw.analyzerWeights || {}),
+    },
+    rolePermissions: {
+      ...DEFAULT_SEO_CONFIG.rolePermissions,
+      ...(raw.rolePermissions || {}),
+    },
+  };
 }
 
 export function mergeWithDefaults(data: any): SiteContentData {
@@ -35,12 +134,14 @@ export function mergeWithDefaults(data: any): SiteContentData {
     },
     services: { ...DEFAULT_SITE_CONTENT.services, ...(data?.services || {}) },
     caseStudies: { ...DEFAULT_SITE_CONTENT.caseStudies, ...(data?.caseStudies || {}) },
-    blogs: data?.blogs || DEFAULT_SITE_CONTENT.blogs,
+    blogs: normalizeBlogs(data?.blogs),
     careers: data?.careers || DEFAULT_SITE_CONTENT.careers,
     careerPage: { ...DEFAULT_SITE_CONTENT.careerPage, ...(data?.careerPage || {}) },
     aboutUs: { ...DEFAULT_SITE_CONTENT.aboutUs, ...(data?.aboutUs || {}) },
     founder: { ...DEFAULT_SITE_CONTENT.founder, ...(data?.founder || {}) },
     contactFooter: { ...DEFAULT_SITE_CONTENT.contactFooter, ...(data?.contactFooter || {}) },
+    seoConfig: mergeSeoConfig(data?.seoConfig || data?.seoSystem),
+    seoSystem: mergeSeoConfig(data?.seoSystem || data?.seoConfig),
   };
 }
 

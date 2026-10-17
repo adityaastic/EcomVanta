@@ -94,6 +94,7 @@ export default function AdminDashboardPage() {
   ];
 
   const QUICK_ACTIONS = [
+    { title: 'RankMath / Yoast SEO Suite', desc: 'Audit on-page SEO, bulk metadata, internal links, sitemaps & schema', icon: Sparkles, href: '/admin/seo' },
     { title: 'Edit Hero & Banner Text', desc: 'Modify top headlines, buttons, and graphics', icon: Home, href: '/admin/homepage' },
     { title: 'Update Founder Page & Story', desc: 'Edit Shivam Dubey photo, quote, bio & milestones', icon: Award, href: '/admin/founder' },
     { title: 'Update Brand Logos & Contact', desc: 'Change header/footer logos, phone, email & hours', icon: Palette, href: '/admin/branding' },
@@ -108,15 +109,22 @@ export default function AdminDashboardPage() {
         <div className="relative z-10 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0066FF]/30 border border-[#0066FF]/40 text-blue-300 text-xs font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#00C2FF]" />
-            <span>Master Content Management System</span>
+            <span>Master Content & SEO Management System</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
             Welcome to EcomVanta Control Panel
           </h1>
           <p className="text-slate-300 text-sm mt-2 leading-relaxed">
-            Manage every section, image, banner, text, logo, service, blog, and customer inquiry across your entire website in real-time.
+            Manage every section, image, banner, text, logo, service, blog, on-page SEO, technical sitemaps, redirects, and customer inquiries in real-time.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              href="/admin/seo"
+              className="px-4 py-2 bg-[#00C2FF] hover:bg-white text-slate-950 rounded-xl text-xs font-black transition-all shadow-md flex items-center gap-1.5"
+            >
+              <span>Open SEO Management Suite</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
             <Link
               href="/admin/homepage"
               className="px-4 py-2 bg-[#0066FF] hover:bg-[#0052cc] text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-[#0066FF]/25 flex items-center gap-1.5"

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import { getLatestContentFromCloud } from "@/lib/cms";
+import { CmsProvider } from "@/lib/useCmsContent";
+import { buildNextMetadataForRoute } from "@/lib/seoServer";
+import SeoJsonLd from "@/components/SeoJsonLd";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -9,41 +13,25 @@ const sora = Sora({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.ecomvanta.in"),
-  title: "EcomVanta - Powering Brands. Scaling E-commerce | Marketplace Growth Partner",
-  description: "EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
-  alternates: {
-    canonical: "https://www.ecomvanta.in",
-    types: {
-      "application/xml": [{ url: "https://www.ecomvanta.in/sitemap.xml", title: "Sitemap" }],
+export async function generateMetadata(): Promise<Metadata> {
+  const dynamicMeta = await buildNextMetadataForRoute("/");
+  return {
+    ...dynamicMeta,
+    icons: {
+      icon: [
+        { url: "/favicon.ico?v=20260908", sizes: "any" },
+        { url: "/favicon-32x32.png?v=20260908", type: "image/png", sizes: "32x32" },
+        { url: "/favicon-16x16.png?v=20260908", type: "image/png", sizes: "16x16" },
+        { url: "/icon.png?v=20260908", type: "image/png", sizes: "512x512" },
+      ],
+      shortcut: "/favicon.ico?v=20260908",
+      apple: [
+        { url: "/apple-touch-icon.png?v=20260908", sizes: "180x180", type: "image/png" },
+      ],
     },
-  },
-  keywords: ["EcomVanta", "Ecommerce Service Provider in Delhi", "Amazon Account Management", "Flipkart Account Management", "Blinkit Seller Onboarding", "Meesho Account Management"],
-  authors: [{ name: "EcomVanta" }],
-  icons: {
-    icon: [
-      { url: "/favicon.ico?v=20260908", sizes: "any" },
-      { url: "/favicon-32x32.png?v=20260908", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png?v=20260908", type: "image/png", sizes: "16x16" },
-      { url: "/icon.png?v=20260908", type: "image/png", sizes: "512x512" },
-    ],
-    shortcut: "/favicon.ico?v=20260908",
-    apple: [
-      { url: "/apple-touch-icon.png?v=20260908", sizes: "180x180", type: "image/png" },
-    ],
-  },
-  manifest: "/site.webmanifest",
-  openGraph: {
-    title: "EcomVanta | Powering Brands. Scaling E-commerce",
-    description: "Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
-    siteName: "EcomVanta",
-    type: "website",
-  },
-};
-
-import { getLatestContentFromCloud, getSiteContent } from "@/lib/cms";
-import { CmsProvider } from "@/lib/useCmsContent";
+    manifest: "/site.webmanifest",
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -51,6 +39,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const initialContent = await getLatestContentFromCloud();
+  const ga4Id =
+    initialContent.seoConfig?.integrations?.ga4Enabled &&
+    initialContent.seoConfig?.integrations?.ga4MeasurementId
+      ? initialContent.seoConfig.integrations.ga4MeasurementId.trim()
+      : "";
 
   return (
     <html lang="en" className={sora.variable}>
@@ -61,6 +54,17 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260908" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+        <SeoJsonLd urlPath="/" />
+        {ga4Id && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${ga4Id}');`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="min-h-screen bg-white font-sans text-[#1A1A1A] antialiased selection:bg-[#0066FF] selection:text-white">
         <CmsProvider initialContent={initialContent}>

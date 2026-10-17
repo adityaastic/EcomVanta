@@ -4,7 +4,9 @@ import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import MediaUploader from '@/components/admin/MediaUploader';
+import SeoEditorPanel from '@/components/admin/SeoEditorPanel';
 import { CaseStudyData } from '@/lib/caseStudyData';
+import { SeoMetaItem } from '@/lib/seoTypes';
 import { getLocalCmsContent, saveLocalCmsContent } from '@/lib/useCmsContent';
 import {
   Save,
@@ -58,6 +60,8 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
 
   const [caseStudy, setCaseStudy] = useState<CaseStudyData | null>(null);
   const [allCaseStudies, setAllCaseStudies] = useState<Record<string, CaseStudyData>>({});
+  const [seoSystem, setSeoSystem] = useState<any>(null);
+  const [caseStudySeo, setCaseStudySeo] = useState<Partial<SeoMetaItem>>({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -67,6 +71,10 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
     const local = getLocalCmsContent();
     if (local?.caseStudies) {
       setAllCaseStudies(local.caseStudies);
+      if (local.seoSystem) {
+        setSeoSystem(local.seoSystem);
+        setCaseStudySeo(local.seoSystem.pageSeo?.[`/case-study/${slugParam}`] || {});
+      }
       if (isNew) {
         setCaseStudy({ ...EMPTY_CASE_STUDY });
         setLoading(false);
@@ -87,6 +95,10 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
         if (data.success && data.data?.caseStudies) {
           const existing = data.data.caseStudies;
           setAllCaseStudies(existing);
+          if (data.data.seoSystem) {
+            setSeoSystem(data.data.seoSystem);
+            setCaseStudySeo(data.data.seoSystem.pageSeo?.[`/case-study/${slugParam}`] || {});
+          }
 
           if (isNew) {
             setCaseStudy((prev) => prev || { ...EMPTY_CASE_STUDY });
@@ -129,6 +141,25 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
       };
 
       saveLocalCmsContent({ caseStudies: updatedCaseStudies });
+
+      if (seoSystem) {
+        const updatedSeoSystem = {
+          ...seoSystem,
+          pageSeo: {
+            ...(seoSystem.pageSeo || {}),
+            [`/case-study/${slug}`]: caseStudySeo,
+          },
+        };
+        setSeoSystem(updatedSeoSystem);
+        await fetch('/api/admin/content', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            section: 'seoSystem',
+            data: updatedSeoSystem,
+          }),
+        });
+      }
 
       const res = await fetch('/api/admin/content', {
         method: 'POST',
@@ -733,6 +764,21 @@ export default function CaseStudyEditPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </div>
+
+      {/* 9. Dedicated Rank Math / Yoast SEO Panel for Case Study */}
+      <SeoEditorPanel
+        title={caseStudy.title}
+        slug={caseStudy.slug}
+        onSlugChange={(newSlug) => setCaseStudy({ ...caseStudy, slug: newSlug })}
+        urlPath={`/case-study/${caseStudy.slug || 'case-study-slug'}`}
+        contentHtml={`<h2>${caseStudy.challengeTitle}</h2><p>${caseStudy.subtitle}</p>${(caseStudy.solutions || []).map((s) => `<h3>${s.title}</h3><p>${s.desc}</p>`).join('')}${(caseStudy.results || []).map((r) => `<h3>${r.stat} ${r.title}</h3><p>${r.desc}</p>`).join('')}`}
+        excerpt={caseStudy.subtitle}
+        featuredImage={caseStudy.dashboardImage}
+        featuredImageAlt={caseStudy.brandName}
+        seo={caseStudySeo}
+        onChange={setCaseStudySeo}
+        contentType="case_study"
+      />
 
       {/* Clean Bottom Save Card */}
       <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">

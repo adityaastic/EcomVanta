@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getSiteContent, saveSiteContent, SiteContentData, DEFAULT_SITE_CONTENT, getLatestContentFromCloud, mergeWithDefaults } from '@/lib/cms';
+import { getSiteContent, saveSiteContent, SiteContentData, DEFAULT_SITE_CONTENT, getLatestContentFromCloud, mergeWithDefaults, mergeSeoConfig, normalizeBlogs } from '@/lib/cms';
 import { supabaseAdmin, supabase } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
@@ -88,6 +88,28 @@ export async function POST(req: Request) {
             careers: data,
           };
         }
+      } else if (section === 'seoConfig' || section === 'seoSystem') {
+        const baseSeo = (current.seoConfig || current.seoSystem || {}) as Partial<typeof DEFAULT_SITE_CONTENT.seoSystem>;
+        const mergedSeo = mergeSeoConfig({
+          ...baseSeo,
+          ...data,
+          pageSeo: data.pageSeo
+            ? { ...(baseSeo.pageSeo || {}), ...data.pageSeo }
+            : baseSeo.pageSeo,
+          templates: data.templates
+            ? { ...(baseSeo.templates || {}), ...data.templates }
+            : baseSeo.templates,
+        });
+        updatedContent = {
+          ...current,
+          seoConfig: mergedSeo,
+          seoSystem: mergedSeo,
+        };
+      } else if (section === 'blogs') {
+        updatedContent = {
+          ...current,
+          blogs: normalizeBlogs(data),
+        };
       } else {
         updatedContent = {
           ...current,

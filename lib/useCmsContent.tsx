@@ -22,7 +22,9 @@ export function getLocalCmsContent(): SiteContentData | null {
         careers: parsed.careers || DEFAULT_SITE_CONTENT.careers,
         careerPage: { ...DEFAULT_SITE_CONTENT.careerPage, ...(parsed.careerPage || {}) },
         aboutUs: { ...DEFAULT_SITE_CONTENT.aboutUs, ...(parsed.aboutUs || {}) },
+        founder: { ...DEFAULT_SITE_CONTENT.founder, ...(parsed.founder || {}) },
         contactFooter: { ...DEFAULT_SITE_CONTENT.contactFooter, ...(parsed.contactFooter || {}) },
+        seoConfig: { ...DEFAULT_SITE_CONTENT.seoConfig, ...(parsed.seoConfig || {}) } as any,
       };
     }
   } catch (e) {

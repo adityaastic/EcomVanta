@@ -4,7 +4,9 @@ import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import MediaUploader from '@/components/admin/MediaUploader';
+import SeoEditorPanel from '@/components/admin/SeoEditorPanel';
 import { ServiceData } from '@/lib/serviceData';
+import { SeoMetaItem } from '@/lib/seoTypes';
 import { getLocalCmsContent, saveLocalCmsContent } from '@/lib/useCmsContent';
 import {
   Save,
@@ -50,6 +52,8 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
 
   const [service, setService] = useState<ServiceData | null>(null);
   const [allServices, setAllServices] = useState<Record<string, ServiceData>>({});
+  const [seoSystem, setSeoSystem] = useState<any>(null);
+  const [serviceSeo, setServiceSeo] = useState<Partial<SeoMetaItem>>({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -59,6 +63,10 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
     const local = getLocalCmsContent();
     if (local?.services) {
       setAllServices(local.services);
+      if (local.seoSystem) {
+        setSeoSystem(local.seoSystem);
+        setServiceSeo(local.seoSystem.pageSeo?.[`/${slugParam}`] || {});
+      }
       if (isNew) {
         setService({ ...EMPTY_SERVICE });
         setLoading(false);
@@ -78,6 +86,10 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
         if (data.success && data.data?.services) {
           const servicesMap = data.data.services;
           setAllServices(servicesMap);
+          if (data.data.seoSystem) {
+            setSeoSystem(data.data.seoSystem);
+            setServiceSeo(data.data.seoSystem.pageSeo?.[`/${slugParam}`] || {});
+          }
           if (isNew) {
             setService((prev) => prev || { ...EMPTY_SERVICE });
           } else if (servicesMap[slugParam]) {
@@ -122,6 +134,25 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
     saveLocalCmsContent({ services: updatedMap });
 
     try {
+      if (seoSystem) {
+        const updatedSeoSystem = {
+          ...seoSystem,
+          pageSeo: {
+            ...(seoSystem.pageSeo || {}),
+            [`/${formattedSlug}`]: serviceSeo,
+          },
+        };
+        setSeoSystem(updatedSeoSystem);
+        await fetch('/api/admin/content', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            section: 'seoSystem',
+            data: updatedSeoSystem,
+          }),
+        });
+      }
+
       const res = await fetch('/api/admin/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -506,6 +537,21 @@ export default function ServiceEditPage({ params }: { params: Promise<{ slug: st
           ))}
         </div>
       </div>
+
+      {/* 5. Dedicated Rank Math / Yoast SEO Panel for Service Page */}
+      <SeoEditorPanel
+        title={service.title}
+        slug={service.slug}
+        onSlugChange={(newSlug) => setService({ ...service, slug: newSlug })}
+        urlPath={`/${service.slug || 'service-slug'}`}
+        contentHtml={`<h2>${service.aboutTitle || service.title}</h2><p>${service.subtitle}</p><p>${service.aboutDesc}</p>${(service.servicesGrid || []).map((g) => `<h3>${g.title}</h3><p>${g.desc}</p>`).join('')}`}
+        excerpt={service.subtitle || service.aboutDesc}
+        featuredImage={service.heroImage}
+        featuredImageAlt={service.title}
+        seo={serviceSeo}
+        onChange={setServiceSeo}
+        contentType="service"
+      />
 
       {/* Clean Bottom Save Card */}
       <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">

@@ -1,5 +1,14 @@
 import { SERVICES_DATABASE, ServiceData } from './serviceData';
 import { CASE_STUDIES_DATA, CaseStudyData } from './caseStudyData';
+import {
+  SeoMetaItem,
+  BlogRevision,
+  SeoSystemConfig,
+  DEFAULT_SEO_CONFIG,
+  createEmptySeoMeta,
+} from './seoTypes';
+
+export * from './seoTypes';
 
 export interface SiteBranding {
   siteName: string;
@@ -220,11 +229,32 @@ export interface BlogPostItem {
   title: string;
   category: string;
   image: string;
+  imageAlt?: string;
+  imageTitle?: string;
+  imageCaption?: string;
   author: string;
+  authorRole?: string;
+  authorBio?: string;
   date: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  scheduledAt?: string;
+  status?: 'published' | 'draft' | 'scheduled';
   excerpt: string;
+  customIntro?: string;
   content: string;
   link?: string;
+  tags?: string[];
+  featured?: boolean;
+  relatedSlugs?: string[];
+  showToc?: boolean;
+  enableToc?: boolean;
+  readingTime?: number;
+  readingTimeMinutes?: number;
+  wordCount?: number;
+  seo?: SeoMetaItem;
+  revisions?: BlogRevision[];
+  previousSlugs?: string[];
 }
 
 export interface JobOpening {
@@ -300,6 +330,8 @@ export interface SiteContentData {
   aboutUs: AboutUsContent;
   founder?: FounderPageContent;
   contactFooter: ContactFooterContent;
+  seoConfig?: SeoSystemConfig;
+  seoSystem: SeoSystemConfig;
 }
 
 export const INITIAL_BLOGS: BlogPostItem[] = [
@@ -309,11 +341,49 @@ export const INITIAL_BLOGS: BlogPostItem[] = [
     title: 'eCommerce Account Management: What Does an Account Manager Actually Do?',
     category: 'eCommerce',
     image: '/arvian-blogs.jpeg',
+    imageAlt: 'eCommerce Account Management workflow and seller dashboard',
+    imageTitle: 'eCommerce Account Management by EcomVanta',
+    imageCaption: 'End-to-end marketplace account management drives sustained GMV growth across Amazon, Flipkart, and Blinkit.',
     author: 'Arvind Ajmera',
+    authorRole: 'Senior Marketplace Strategist',
     date: 'August 31, 2026',
-    excerpt: 'Discover the exact responsibilities of a professional eCommerce account manager and how they multiply your marketplace sales.',
-    content: 'Full end-to-end marketplace management involves product cataloging, listing optimization, price strategy, Buy Box monitoring, ad campaign management, stock planning, and daily customer sentiment tracking.',
-    link: '/blogs',
+    publishedAt: '2026-08-31T10:00:00.000Z',
+    updatedAt: '2026-09-15T12:00:00.000Z',
+    status: 'published',
+    featured: true,
+    showToc: true,
+    tags: ['eCommerce Account Management', 'Amazon Seller Central', 'Flipkart Growth', 'Buy Box Strategy'],
+    relatedSlugs: ['amazon-selling-mistakes-that-reduce-sales-and-profits', 'how-to-sell-on-myntra-seller-onboarding-guide'],
+    excerpt: 'Discover the exact responsibilities of a professional eCommerce account manager and how they multiply your marketplace sales across Amazon, Flipkart, and Blinkit.',
+    customIntro: 'Scaling a consumer brand across Indian marketplaces requires daily algorithmic monitoring, catalog SEO, and profitable PPC advertising.',
+    content: `<h2>What Is eCommerce Account Management?</h2>
+<p>Professional <strong>eCommerce Account Management</strong> is the complete operational, strategic, and promotional handling of a brand's seller portals across platforms like <a href="/amazon-seller-account-management-services">Amazon Seller Account Management</a>, <a href="/flipkart-account-management-services">Flipkart Account Management</a>, <a href="/meesho-account-management-services">Meesho</a>, and Quick Commerce dark stores.</p>
+<p>Instead of juggling inventory spreadsheets, suppressed listings, and rising ad costs alone, brands partner with dedicated account managers who monitor key performance indicators every single day.</p>
+<h2>Core Responsibilities of an Account Manager</h2>
+<h3>1. Search-Optimized Cataloging &amp; A+ Content</h3>
+<p>Your product listing is your digital storefront. Account managers conduct deep keyword research to craft high-converting product titles, bullet points, backend search terms, and Enhanced Brand Content (A+ modules). Check out our specialized <a href="/ecommerce-product-listing-services">eCommerce Product Listing Services</a> to see how structured taxonomy improves organic rank.</p>
+<h3>2. Sponsored Ads &amp; ACOS Optimization</h3>
+<p>Running marketplace PPC without negative keyword harvesting quickly drains margins. A dedicated manager structures Sponsored Products, Sponsored Brands, and Flipkart PLA campaigns to lower ACOS and maximize ROAS.</p>
+<h3>3. Inventory Forecasting &amp; Buy Box Protection</h3>
+<ul>
+  <li>Real-time FBA and Smart Fulfilment warehouse stock planning.</li>
+  <li>Automated Buy Box win-rate tracking and dynamic pricing alerts.</li>
+  <li>Proactive account health defense against policy notices and listing suppressions.</li>
+</ul>
+<h2>When Should Your Brand Hire an eCommerce Agency?</h2>
+<p>If your internal team spends more time resolving Seller Support tickets than developing great products, partnering with <a href="/contact-us">EcomVanta's certified account specialists</a> provides an immediate turnkey growth department.</p>`,
+    link: '/blogs/ecommerce-account-management',
+    seo: createEmptySeoMeta({
+      focusKeyword: 'eCommerce Account Management',
+      secondaryKeywords: ['Marketplace Account Manager', 'Amazon Seller Management', 'Flipkart Account Handling'],
+      seoTitle: 'eCommerce Account Management: What Does an Account Manager Do? | EcomVanta',
+      metaDescription: 'Discover the exact responsibilities of a professional eCommerce account manager and how they multiply your marketplace sales on Amazon, Flipkart & Blinkit.',
+      canonicalUrl: 'https://www.ecomvanta.in/blogs/ecommerce-account-management',
+      breadcrumbTitle: 'eCommerce Account Management Guide',
+      schemaType: 'BlogPosting',
+      ogType: 'article',
+      isCustomized: true,
+    }),
   },
   {
     id: '2',
@@ -321,11 +391,45 @@ export const INITIAL_BLOGS: BlogPostItem[] = [
     title: 'How to Sell on AJIO: Complete Seller Registration and Account Setup Guide',
     category: 'Ajio',
     image: '/header-img/Ajio logo.png',
+    imageAlt: 'How to Sell on AJIO Seller Registration Guide',
+    imageTitle: 'AJIO Seller Onboarding & Registration Guide',
     author: 'Arvind Ajmera',
+    authorRole: 'Fashion Marketplace Consultant',
     date: 'August 22, 2026',
+    publishedAt: '2026-08-22T10:00:00.000Z',
+    updatedAt: '2026-09-10T10:00:00.000Z',
+    status: 'published',
+    showToc: true,
+    tags: ['AJIO Seller Registration', 'Fashion eCommerce', 'Reliance Retail', 'Apparel Onboarding'],
+    relatedSlugs: ['how-to-sell-on-myntra-seller-onboarding-guide', 'ecommerce-account-management'],
     excerpt: 'Step-by-step tutorial on registering as a brand partner on AJIO, listing catalog products, and scaling fashion sales.',
-    content: 'AJIO is one of Reliance Retail’s premier digital platforms with strict catalog standards. Learn how to onboard smoothly with brand authorization, trademark certificates, and high-resolution lookbooks.',
-    link: '/blogs',
+    content: `<h2>Why Fashion &amp; Lifestyle Brands Must Sell on AJIO</h2>
+<p><strong>AJIO</strong> is Reliance Retail’s premier digital fashion powerhouse, attracting millions of trend-conscious shoppers across Tier 1, Tier 2, and Tier 3 cities in India. Through our <a href="/ajio-seller-onboarding-services">AJIO Seller Onboarding Services</a>, fashion and D2C apparel brands can fast-track their vendor approval.</p>
+<h2>Documents Required for AJIO Seller Registration</h2>
+<ul>
+  <li>Active GSTIN Certificate and PAN Card of the business entity.</li>
+  <li>Trademark Registration Certificate or official Brand Authorization Letter.</li>
+  <li>Cancelled cheque and bank account verification details.</li>
+  <li>High-resolution brand lookbook and SKU catalog sheet with HSN codes.</li>
+</ul>
+<h2>Step-by-Step AJIO Onboarding Process</h2>
+<h3>Step 1: Brand Evaluation &amp; Portal Application</h3>
+<p>Submit your brand profile, category mix, and price range for curation approval by the AJIO category merchandising team.</p>
+<h3>Step 2: Model Shoot &amp; Cataloging Guidelines</h3>
+<p>AJIO enforces strict visual merchandising standards. Ensure your product photography follows AJIO's background, pose, and lighting specifications before uploading master catalog templates.</p>
+<p>Need help getting approved? Explore our <a href="/myntra-account-management-services">Myntra &amp; Fashion Portal Management</a> or <a href="/contact-us">book a free fashion onboarding consultation</a> today.</p>`,
+    link: '/blogs/how-to-sell-on-ajio-seller-registration-guide',
+    seo: createEmptySeoMeta({
+      focusKeyword: 'How to Sell on AJIO',
+      secondaryKeywords: ['AJIO Seller Registration', 'AJIO Onboarding Guide', 'Sell Fashion on AJIO'],
+      seoTitle: 'How to Sell on AJIO: Complete Seller Registration & Setup Guide | EcomVanta',
+      metaDescription: 'Step-by-step tutorial on how to sell on AJIO. Learn the required documents, brand approval workflow, catalog standards, and strategies to scale fashion sales.',
+      canonicalUrl: 'https://www.ecomvanta.in/blogs/how-to-sell-on-ajio-seller-registration-guide',
+      breadcrumbTitle: 'How to Sell on AJIO',
+      schemaType: 'BlogPosting',
+      ogType: 'article',
+      isCustomized: true,
+    }),
   },
   {
     id: '3',
@@ -333,11 +437,39 @@ export const INITIAL_BLOGS: BlogPostItem[] = [
     title: 'How to Sell on Myntra: Seller Onboarding Guide 2026',
     category: 'Myntra',
     image: '/myntra-logo.webp',
+    imageAlt: 'How to Sell on Myntra Seller Onboarding Guide 2026',
+    imageTitle: 'Myntra Seller Onboarding Guide 2026',
     author: 'Arvind Ajmera',
+    authorRole: 'Fashion Marketplace Consultant',
     date: 'August 11, 2026',
+    publishedAt: '2026-08-11T10:00:00.000Z',
+    updatedAt: '2026-09-05T10:00:00.000Z',
+    status: 'published',
+    showToc: true,
+    tags: ['Myntra Seller Onboarding', 'Sell on Myntra', 'Fashion Marketplace', 'EORS Sale'],
+    relatedSlugs: ['how-to-sell-on-ajio-seller-registration-guide', 'ecommerce-account-management'],
     excerpt: 'Complete walkthrough of getting your apparel or lifestyle brand listed on Myntra Seller Portal in 2026.',
-    content: 'Myntra provides unprecedented brand prestige in fashion & lifestyle. Here are the core documents, style tag formats, and EORS sale participation guidelines to get approved.',
-    link: '/blogs',
+    content: `<h2>Scaling Your Fashion Brand on Myntra in 2026</h2>
+<p><strong>How to Sell on Myntra</strong> is one of the most searched questions among Indian apparel, footwear, beauty, and home decor founders. Myntra offers unmatched brand prestige and massive order volume during flagship events like the End of Reason Sale (EORS).</p>
+<h2>Eligibility &amp; Brand Approval Criteria</h2>
+<p>Unlike open marketplaces, Myntra curates brands based on product quality, catalog depth (minimum 30–50 live styles recommended), and trademark ownership. Our <a href="/myntra-seller-onboarding-services">Myntra Seller Onboarding Services</a> handle the entire pitch deck and category manager approval for your brand.</p>
+<h2>Key Steps to Launch on Myntra Partner Portal</h2>
+<h3>1. Brand Pitch Deck &amp; Sample Quality Check</h3>
+<p>Prepare a compelling lookbook showcasing fabric quality, MRP positioning, and manufacturing capacity.</p>
+<h3>2. Style Tagging &amp; Attribute Mapping</h3>
+<p>Accurate attribute mapping (neck type, sleeve length, fabric composition, occasion) is critical for Myntra's internal search engine. Partner with our <a href="/myntra-account-management-services">Myntra Account Management Services</a> team to maximize visibility and PLA ad ROI.</p>`,
+    link: '/blogs/how-to-sell-on-myntra-seller-onboarding-guide',
+    seo: createEmptySeoMeta({
+      focusKeyword: 'How to Sell on Myntra',
+      secondaryKeywords: ['Myntra Seller Onboarding', 'Myntra Partner Registration', 'Sell Apparel on Myntra'],
+      seoTitle: 'How to Sell on Myntra: Complete Seller Onboarding Guide 2026 | EcomVanta',
+      metaDescription: 'Complete walkthrough on how to sell on Myntra in 2026. Learn eligibility criteria, required documents, style cataloging, and EORS growth strategies.',
+      canonicalUrl: 'https://www.ecomvanta.in/blogs/how-to-sell-on-myntra-seller-onboarding-guide',
+      breadcrumbTitle: 'How to Sell on Myntra',
+      schemaType: 'BlogPosting',
+      ogType: 'article',
+      isCustomized: true,
+    }),
   },
   {
     id: '4',
@@ -345,11 +477,39 @@ export const INITIAL_BLOGS: BlogPostItem[] = [
     title: '10 Amazon Selling Mistakes That Reduce Sales and Profits',
     category: 'Amazon',
     image: '/images/images/amazon-logo.webp',
+    imageAlt: '10 Amazon Selling Mistakes That Reduce Sales and Profits',
+    imageTitle: 'Top 10 Amazon Selling Mistakes to Avoid',
     author: 'Arvind Ajmera',
+    authorRole: 'Amazon Growth Specialist',
     date: 'July 23, 2026',
+    publishedAt: '2026-07-23T10:00:00.000Z',
+    updatedAt: '2026-09-01T10:00:00.000Z',
+    status: 'published',
+    showToc: true,
+    tags: ['Amazon Selling Mistakes', 'Amazon PPC', 'Amazon FBA', 'Listing Optimization'],
+    relatedSlugs: ['ecommerce-account-management', 'blinkit-seller-onboarding-guide'],
     excerpt: 'Avoid these critical mistakes in keyword targeting, FBA inventory limits, Buy Box pricing, and PPC bidding.',
-    content: 'From ignoring negative keywords to poor infographic design and stockouts, learn the top 10 pitfalls costing sellers thousands in lost revenue.',
-    link: '/blogs',
+    content: `<h2>Why Most Amazon Sellers Lose Profit Margin</h2>
+<p>Identifying common <strong>Amazon Selling Mistakes</strong> early can save your brand lakhs in wasted ad spend and lost organic rankings. Through our <a href="/amazon-seller-account-management-services">Amazon Seller Account Management Services</a>, we audit hundreds of seller accounts every quarter.</p>
+<h2>Top Mistakes Costing Sellers Revenue</h2>
+<h3>1. Ignoring Backend Search Terms and A+ Cataloging</h3>
+<p>Many sellers stuff keywords into titles while leaving backend generic keywords blank or neglecting mobile-friendly infographics. Professional <a href="/amazon-product-listing-catalogue-services">Amazon Product Listing &amp; Catalogue Services</a> ensure every high-intent search query is indexed.</p>
+<h3>2. Running Auto PPC Campaigns Without Negative Keywords</h3>
+<p>Letting automatic Sponsored Product campaigns run unchecked leads to high ACOS on irrelevant clicks. Weekly search-term harvesting and negative exact matching are mandatory for profitable scaling.</p>
+<h3>3. Stocking Out of Hero SKUs on FBA</h3>
+<p>Going out of stock resets your BSR velocity. Read our <a href="/kay-kay-industries-amazon-case-study">Kay Kay Industries Amazon Case Study</a> to see how disciplined FBA forecasting and PPC restructuring delivered +340% revenue growth.</p>`,
+    link: '/blogs/amazon-selling-mistakes-that-reduce-sales-and-profits',
+    seo: createEmptySeoMeta({
+      focusKeyword: 'Amazon Selling Mistakes',
+      secondaryKeywords: ['Amazon Seller Tips', 'Reduce Amazon ACOS', 'Amazon FBA Optimization'],
+      seoTitle: '10 Amazon Selling Mistakes That Reduce Sales and Profits | EcomVanta',
+      metaDescription: 'Avoid these 10 costly Amazon selling mistakes in keyword targeting, FBA stock planning, Buy Box pricing, and Sponsored Ads PPC bidding.',
+      canonicalUrl: 'https://www.ecomvanta.in/blogs/amazon-selling-mistakes-that-reduce-sales-and-profits',
+      breadcrumbTitle: '10 Amazon Selling Mistakes',
+      schemaType: 'BlogPosting',
+      ogType: 'article',
+      isCustomized: true,
+    }),
   },
   {
     id: '5',
@@ -357,11 +517,41 @@ export const INITIAL_BLOGS: BlogPostItem[] = [
     title: 'Blinkit Seller Onboarding Guide: How to Sell on Blinkit Successfully',
     category: 'Blinkit Seller',
     image: '/header-img/Blinkit-logo.svg',
+    imageAlt: 'Blinkit Seller Onboarding Guide - Sell on Quick Commerce',
+    imageTitle: 'Blinkit Seller Onboarding Guide',
     author: 'Arvind Ajmera',
+    authorRole: 'Quick Commerce Lead',
     date: 'July 10, 2026',
+    publishedAt: '2026-07-10T10:00:00.000Z',
+    updatedAt: '2026-08-25T10:00:00.000Z',
+    status: 'published',
+    showToc: true,
+    tags: ['Blinkit Seller Onboarding', 'Quick Commerce India', 'Dark Store Listing', 'Sell on Blinkit'],
+    relatedSlugs: ['zepto-seller-registration-guide', 'ecommerce-account-management'],
     excerpt: 'Quick Commerce is exploding in India. Learn how to list your products in Blinkit dark stores across major metros.',
-    content: 'Discover the requirements for FSSAI licenses, GST state registrations, micro-warehouse inventory dispatch, and sponsored banner advertising on Blinkit.',
-    link: '/blogs',
+    content: `<h2>Complete Blinkit Seller Onboarding Guide for D2C Brands</h2>
+<p>Quick commerce has transformed how urban India shops for groceries, personal care, electronics, and daily essentials. This <strong>Blinkit Seller Onboarding Guide</strong> explains how to list your brand across Blinkit's feeder warehouses and dark stores using our <a href="/blinkit-seller-account-management-services">Blinkit Seller Account Management Services</a>.</p>
+<h2>Mandatory Compliance &amp; Documentation</h2>
+<ul>
+  <li>Multi-state GST registrations or APOB (Additional Place of Business) for target dark store states.</li>
+  <li>Valid FSSAI License for food, beverage, and nutraceutical products.</li>
+  <li>GS1 Barcode (EAN/UPC) printed clearly on all retail packaging units.</li>
+  <li>Trademark certificate and brand authorization documents.</li>
+</ul>
+<h2>Scaling Velocity inside Blinkit Dark Stores</h2>
+<p>Getting listed is only the first step. Maintaining high fill rates against Purchase Orders (POs) and running targeted search banner ads ensure your SKUs aren't delisted due to low off-take. Also explore our <a href="/zepto-seller-onboarding-and-account-management-service">Zepto Seller Onboarding</a> and <a href="/swiggy-instamart-seller-account-management-and-onboarding">Swiggy Instamart Management</a> solutions.</p>`,
+    link: '/blogs/blinkit-seller-onboarding-guide',
+    seo: createEmptySeoMeta({
+      focusKeyword: 'Blinkit Seller Onboarding Guide',
+      secondaryKeywords: ['How to Sell on Blinkit', 'Blinkit Dark Store Registration', 'Quick Commerce Onboarding'],
+      seoTitle: 'Blinkit Seller Onboarding Guide: How to Sell on Blinkit (2026) | EcomVanta',
+      metaDescription: 'Learn how to sell on Blinkit with our step-by-step Blinkit Seller Onboarding Guide. Discover GST, FSSAI, barcode, and dark store PO management rules.',
+      canonicalUrl: 'https://www.ecomvanta.in/blogs/blinkit-seller-onboarding-guide',
+      breadcrumbTitle: 'Blinkit Seller Onboarding Guide',
+      schemaType: 'BlogPosting',
+      ogType: 'article',
+      isCustomized: true,
+    }),
   },
   {
     id: '6',
@@ -369,11 +559,37 @@ export const INITIAL_BLOGS: BlogPostItem[] = [
     title: 'How to Sell on Zepto: Complete Zepto Seller Registration Guide',
     category: 'Zepto Seller',
     image: '/header-img/zepto-logo.webp',
+    imageAlt: 'Zepto Seller Registration Guide for 10-Minute Delivery Brands',
+    imageTitle: 'Zepto Seller Registration Guide',
     author: 'Arvind Ajmera',
+    authorRole: 'Quick Commerce Lead',
     date: 'June 20, 2026',
+    publishedAt: '2026-06-20T10:00:00.000Z',
+    updatedAt: '2026-08-18T10:00:00.000Z',
+    status: 'published',
+    showToc: true,
+    tags: ['Zepto Seller Registration', 'Quick Commerce', '10 Minute Delivery', 'D2C FMCG'],
+    relatedSlugs: ['blinkit-seller-onboarding-guide', 'ecommerce-account-management'],
     excerpt: 'Detailed process for D2C FMCG and grocery brands to partner with Zepto for 10-minute delivery.',
-    content: 'Zepto seller onboarding requires active inventory allocation and regional pricing sync. Explore our step-by-step guidance on maximizing dark store sales.',
-    link: '/blogs',
+    content: `<h2>How to Complete Your Zepto Seller Registration</h2>
+<p>Partnering with Zepto puts your consumer brand in front of millions of high-frequency urban buyers seeking 10-minute doorstep delivery. Our <a href="/zepto-seller-onboarding-and-account-management-service">Zepto Seller Onboarding &amp; Account Management Service</a> helps FMCG, beauty, wellness, and electronics brands launch smoothly.</p>
+<h2>Step-by-Step Zepto Vendor Onboarding Workflow</h2>
+<h3>1. Category Pitch &amp; Commercial Margin Alignment</h3>
+<p>Zepto's category buyers evaluate brand search demand, shelf life, unit economics, and margin structure before issuing a vendor code.</p>
+<h3>2. Mother Hub &amp; Dark Store PO Fulfillment</h3>
+<p>Once onboarded, brands dispatch inventory to Zepto's regional Mother Hubs with strict appointment scheduling, ASN generation, and barcode labeling compliance. Combine Zepto with <a href="/blinkit-seller-account-management-services">Blinkit Account Management</a> for nationwide Quick Commerce dominance.</p>`,
+    link: '/blogs/zepto-seller-registration-guide',
+    seo: createEmptySeoMeta({
+      focusKeyword: 'Zepto Seller Registration',
+      secondaryKeywords: ['How to Sell on Zepto', 'Zepto Vendor Onboarding', 'Quick Commerce India'],
+      seoTitle: 'How to Sell on Zepto: Complete Zepto Seller Registration Guide | EcomVanta',
+      metaDescription: 'Detailed guide to Zepto Seller Registration for D2C FMCG, beauty, and grocery brands. Learn vendor onboarding, margin setup, and dark store PO fulfillment.',
+      canonicalUrl: 'https://www.ecomvanta.in/blogs/zepto-seller-registration-guide',
+      breadcrumbTitle: 'Zepto Seller Registration Guide',
+      schemaType: 'BlogPosting',
+      ogType: 'article',
+      isCustomized: true,
+    }),
   }
 ];
 
@@ -745,4 +961,6 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     footerAboutText: 'EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites. Powering Brands. Scaling E-commerce.',
     copyrightText: '© 2026 EcomVanta. All rights reserved. Powering Brands. Scaling E-commerce.',
   },
+  seoConfig: DEFAULT_SEO_CONFIG,
+  seoSystem: DEFAULT_SEO_CONFIG,
 };

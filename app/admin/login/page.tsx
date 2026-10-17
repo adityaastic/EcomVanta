@@ -2,11 +2,20 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { Lock, ArrowRight, ShieldCheck, AlertCircle, KeyRound, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck, AlertCircle, KeyRound, UserCheck } from 'lucide-react';
+import { AdminUserRole } from '@/lib/seoTypes';
+
+const ROLE_OPTIONS: { value: AdminUserRole; label: string; desc: string }[] = [
+  { value: 'super_admin', label: 'Super Administrator', desc: 'Full access to CMS, SEO Suite, Technical SEO & Settings' },
+  { value: 'seo_manager', label: 'SEO Manager', desc: 'Manage all SEO panels, bulk editor, redirects, schema, and blogs' },
+  { value: 'content_editor', label: 'Content & Blog Editor', desc: 'Create/edit blog articles, on-page SEO panels, and internal links' },
+  { value: 'technical_seo', label: 'Technical SEO Specialist', desc: 'Manage sitemaps, robots.txt, redirects, schema, and Search Console' },
+  { value: 'seo_analyst', label: 'SEO Analyst (Read & Audit)', desc: 'View SEO dashboard, audits, internal link reports, and GSC metrics' },
+];
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
+  const [requestedRole, setRequestedRole] = useState<AdminUserRole>('super_admin');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -20,14 +29,15 @@ export default function AdminLoginPage() {
       const res = await fetch('/api/admin/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ password, requestedRole }),
       });
 
       const data = await res.json();
 
       if (data.success && data.token) {
         localStorage.setItem('arvian_admin_token', data.token);
-        router.push('/admin');
+        localStorage.setItem('arvian_admin_role', data.role || requestedRole);
+        router.push('/admin/seo');
       } else {
         setError(data.error || 'Invalid credentials');
       }
@@ -46,15 +56,38 @@ export default function AdminLoginPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#0066FF] to-[#00C2FF] text-white font-black text-2xl shadow-xl shadow-blue-600/30 mb-4 border border-blue-400/20">
             E
           </div>
-          <h1 className="text-2xl font-black text-white tracking-tight">EcomVanta CMS Control</h1>
+          <h1 className="text-2xl font-black text-white tracking-tight">EcomVanta CMS & SEO Suite</h1>
           <p className="text-sm text-blue-200 mt-1">
-            Complete Website Content & Asset Management
+            Enterprise Content, On-Page SEO & Technical Search Control
           </p>
         </div>
 
         {/* Login Form Box */}
         <div className="bg-slate-900/90 backdrop-blur-xl border border-blue-900/40 rounded-2xl p-6 sm:p-8 shadow-2xl">
           <form onSubmit={handleLogin} className="space-y-5">
+            <div>
+              <label className="block text-xs font-semibold text-blue-200 uppercase tracking-wider mb-2">
+                Select Workspace Role
+              </label>
+              <div className="relative">
+                <select
+                  value={requestedRole}
+                  onChange={(e) => setRequestedRole(e.target.value as AdminUserRole)}
+                  className="w-full pl-10 pr-4 py-3 bg-slate-950/90 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:border-[#0066FF] transition-all"
+                >
+                  {ROLE_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value} className="bg-slate-900 text-white">
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+                <UserCheck className="w-4 h-4 text-blue-300 absolute left-3.5 top-3.5" />
+              </div>
+              <p className="text-[11px] text-slate-400 mt-1.5">
+                {ROLE_OPTIONS.find((r) => r.value === requestedRole)?.desc}
+              </p>
+            </div>
+
             <div>
               <label className="block text-xs font-semibold text-blue-200 uppercase tracking-wider mb-2">
                 Administrator Access Code
@@ -84,25 +117,30 @@ export default function AdminLoginPage() {
               disabled={loading}
               className="w-full py-3 px-4 bg-gradient-to-r from-[#0066FF] to-[#0052cc] hover:from-[#0052cc] hover:to-[#003d99] text-white font-bold rounded-xl text-sm shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
             >
-              <span>{loading ? 'Verifying...' : 'Unlock CMS Dashboard'}</span>
+              <span>{loading ? 'Verifying...' : 'Unlock CMS & SEO Dashboard'}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </form>
 
           {/* Quick Info & Hint */}
-          <div className="mt-6 pt-5 border-t border-slate-700/60 text-center text-xs text-slate-400">
+          <div className="mt-6 pt-5 border-t border-slate-700/60 text-center text-xs text-slate-400 space-y-1.5">
             <p className="flex items-center justify-center gap-1 text-slate-300 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Default Passcode:{' '}
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Master Passcode:{' '}
               <span className="font-mono text-white bg-slate-950 px-1.5 py-0.5 rounded border border-blue-900/50">
                 ecomvanta2026
               </span>
+            </p>
+            <p className="text-[11px] text-slate-500">
+              Role Passcodes: <code className="text-slate-300">seo2026</code> •{' '}
+              <code className="text-slate-300">editor2026</code> •{' '}
+              <code className="text-slate-300">techseo2026</code>
             </p>
           </div>
         </div>
 
         {/* Footer */}
         <div className="mt-6 text-center text-xs text-slate-400">
-          <p>© 2026 EcomVanta • Enterprise Edition</p>
+          <p>© 2026 EcomVanta • WordPress-Level SEO & CMS Edition</p>
         </div>
       </div>
     </div>

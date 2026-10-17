@@ -247,17 +247,30 @@ export default function BlogsPage() {
 
   const allPosts = useMemo(() => {
     if (content.blogs && content.blogs.length > 0) {
-      return content.blogs.map((b) => ({
-        id: b.id,
-        title: b.title,
-        category: b.category,
-        image: b.image,
-        author: b.author,
-        date: b.date,
-        link: b.link || `/blogs`,
-      }));
+      return content.blogs
+        .filter((b) => {
+          if (!b.status || b.status === 'published') return true;
+          if (b.status === 'draft') return false;
+          if (b.status === 'scheduled' && b.scheduledAt) {
+            const t = new Date(b.scheduledAt).getTime();
+            return !isNaN(t) && t <= Date.now();
+          }
+          return false;
+        })
+        .map((b) => ({
+          id: b.id,
+          slug: b.slug,
+          title: b.title,
+          category: b.category,
+          image: b.image,
+          imageAlt: b.imageAlt || b.title,
+          excerpt: b.excerpt || '',
+          author: b.author,
+          date: b.date,
+          link: b.slug ? `/blogs/${b.slug}` : b.link || `/blogs`,
+        }));
     }
-    return ALL_BLOGS;
+    return ALL_BLOGS.map((b) => ({ ...b, slug: String(b.id), imageAlt: b.title, excerpt: '' }));
   }, [content.blogs]);
 
   const filteredPosts = useMemo(() => {
@@ -386,17 +399,17 @@ export default function BlogsPage() {
                   >
                     <div>
                       {/* Image Preview */}
-                      <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
+                      <Link href={post.link} className="block relative aspect-[16/10] bg-gray-100 overflow-hidden">
                         <Image
                           src={post.image}
-                          alt={post.title}
+                          alt={post.imageAlt || post.title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 backdrop-blur-sm text-[#0066FF] text-xs font-extrabold rounded-full shadow-xs">
                           {post.category}
                         </span>
-                      </div>
+                      </Link>
 
                       {/* Content */}
                       <div className="p-6">
@@ -411,9 +424,17 @@ export default function BlogsPage() {
                           </span>
                         </div>
 
-                        <h3 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-[#0066FF] transition-colors line-clamp-2">
-                          {post.title}
-                        </h3>
+                        <Link href={post.link}>
+                          <h3 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-[#0066FF] transition-colors line-clamp-2">
+                            {post.title}
+                          </h3>
+                        </Link>
+
+                        {post.excerpt && (
+                          <p className="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -422,7 +443,7 @@ export default function BlogsPage() {
                         href={post.link}
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0066FF] group-hover:underline pt-3"
                       >
-                        <span>Read More</span>
+                        <span>Read Full Article</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
