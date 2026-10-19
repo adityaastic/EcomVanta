@@ -420,11 +420,139 @@ export default function SearchConsoleIntegrationPage() {
               onChange={(e) =>
                 setSeoSystem({
                   ...seoSystem,
-                  integrations: { ...gsc, ga4MeasurementId: e.target.value },
+                  integrations: {
+                    ...gsc,
+                    ga4MeasurementId: e.target.value,
+                    ga4Enabled: Boolean(e.target.value.trim()),
+                  },
                 })
               }
               placeholder="G-XXXXXXXXXX"
               className="w-full px-3 py-2 border border-slate-300 rounded-xl font-mono"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Section 2: Marketing Pixels, Tag Manager & Custom Head/Body Scripts */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 space-y-4">
+        <div className="border-b border-slate-100 pb-3">
+          <h2 className="text-sm font-black text-slate-900">
+            2. Marketing Pixels, Tag Manager & Custom Tracking Scripts
+          </h2>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Enter your Pixel IDs below or paste any custom tracking script (Meta Pixel, Google Tag Manager, Google Ads, Microsoft Clarity, LinkedIn Insight Tag). They are automatically injected into your live website&apos;s <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label className="block font-bold text-slate-600 uppercase mb-1">
+              Meta (Facebook) Pixel ID
+            </label>
+            <input
+              type="text"
+              value={gsc.metaPixelId || ''}
+              onChange={(e) =>
+                setSeoSystem({
+                  ...seoSystem,
+                  integrations: { ...gsc, metaPixelId: e.target.value },
+                })
+              }
+              placeholder="e.g. 123456789012345"
+              className="w-full px-3 py-2 border border-slate-300 rounded-xl font-mono"
+            />
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-600 uppercase mb-1">
+              Google Tag Manager (GTM) ID
+            </label>
+            <input
+              type="text"
+              value={gsc.gtmContainerId || ''}
+              onChange={(e) =>
+                setSeoSystem({
+                  ...seoSystem,
+                  integrations: { ...gsc, gtmContainerId: e.target.value },
+                })
+              }
+              placeholder="GTM-XXXXXXX"
+              className="w-full px-3 py-2 border border-slate-300 rounded-xl font-mono"
+            />
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-600 uppercase mb-1">
+              Google Ads Tag ID
+            </label>
+            <input
+              type="text"
+              value={gsc.googleAdsId || ''}
+              onChange={(e) =>
+                setSeoSystem({
+                  ...seoSystem,
+                  integrations: { ...gsc, googleAdsId: e.target.value },
+                })
+              }
+              placeholder="AW-XXXXXXXXXX"
+              className="w-full px-3 py-2 border border-slate-300 rounded-xl font-mono"
+            />
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-600 uppercase mb-1">
+              Microsoft Clarity Project ID
+            </label>
+            <input
+              type="text"
+              value={gsc.clarityProjectId || ''}
+              onChange={(e) =>
+                setSeoSystem({
+                  ...seoSystem,
+                  integrations: { ...gsc, clarityProjectId: e.target.value },
+                })
+              }
+              placeholder="e.g. k8x9abcdef"
+              className="w-full px-3 py-2 border border-slate-300 rounded-xl font-mono"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs pt-2">
+          <div>
+            <label className="block font-bold text-slate-600 uppercase mb-1">
+              Custom <code>&lt;head&gt;</code> Scripts / Pixels (Optional)
+            </label>
+            <textarea
+              rows={4}
+              value={gsc.customHeadScripts || ''}
+              onChange={(e) =>
+                setSeoSystem({
+                  ...seoSystem,
+                  integrations: { ...gsc, customHeadScripts: e.target.value },
+                })
+              }
+              placeholder="<!-- Paste any custom <script> or <meta> tag for <head> here -->"
+              className="w-full px-3 py-2 border border-slate-300 rounded-xl font-mono text-[11px]"
+            />
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-600 uppercase mb-1">
+              Custom <code>&lt;body&gt;</code> Scripts / Noscript Tags (Optional)
+            </label>
+            <textarea
+              rows={4}
+              value={gsc.customBodyScripts || ''}
+              onChange={(e) =>
+                setSeoSystem({
+                  ...seoSystem,
+                  integrations: { ...gsc, customBodyScripts: e.target.value },
+                })
+              }
+              placeholder="<!-- Paste any custom <noscript> or body tracking snippet here -->"
+              className="w-full px-3 py-2 border border-slate-300 rounded-xl font-mono text-[11px]"
             />
           </div>
         </div>

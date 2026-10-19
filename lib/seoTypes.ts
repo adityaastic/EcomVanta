@@ -195,6 +195,13 @@ export interface GscIntegrationConfig {
   lastSyncedAt?: string;
   ga4MeasurementId?: string;
   ga4Enabled?: boolean;
+  gtmContainerId?: string;
+  metaPixelId?: string;
+  googleAdsId?: string;
+  clarityProjectId?: string;
+  linkedInPartnerId?: string;
+  customHeadScripts?: string;
+  customBodyScripts?: string;
   bingVerificationMetaTag?: string;
   // Cached or imported real Search Console snapshot data when connected or uploaded via CSV/API
   syncedMetrics?: {
