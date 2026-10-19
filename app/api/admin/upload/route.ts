@@ -2,68 +2,65 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { supabaseAdmin, supabase } from '@/lib/supabase';
+import {
+  createR2PresignedPutUrl,
+  putR2Object,
+  deleteR2Object,
+  listR2Objects,
+} from '@/lib/r2';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
+export const maxDuration = 60;
 
 export async function GET() {
   try {
     let mediaList: any[] = [];
-    const client = supabaseAdmin || supabase;
 
-    if (client) {
-      try {
-        const { data: files, error } = await client.storage.from('media').list('', {
-          limit: 100,
-          sortBy: { column: 'created_at', order: 'desc' },
-        });
-        if (!error && files && files.length > 0) {
-          mediaList = files
-            .filter((f) => f.name !== '.emptyFolderPlaceholder')
-            .map((f) => {
-              const { data: pUrl } = client.storage.from('media').getPublicUrl(f.name);
-              return {
-                name: f.name,
-                url: pUrl.publicUrl,
-                size: f.metadata?.size || 0,
-                createdAt: f.created_at || new Date(),
-              };
-            });
-          return NextResponse.json({ success: true, media: mediaList });
-        }
-      } catch (sbErr) {
-        console.warn('Failed to list from Supabase storage:', sbErr);
+    // 1. Primary: List from Cloudflare R2 bucket
+    try {
+      const r2Files = await listR2Objects(100);
+      if (r2Files && r2Files.length > 0) {
+        mediaList.push(...r2Files);
       }
+    } catch (r2Err) {
+      console.warn('Failed to list from Cloudflare R2:', r2Err);
     }
 
+    // 2. Also include local /public/uploads files if present
     const uploadDir = path.join(process.cwd(), 'public', 'uploads');
     try {
       if (fs.existsSync(uploadDir)) {
         const files = fs.readdirSync(uploadDir);
-        mediaList = files.map((filename) => {
-          try {
-            const filePath = path.join(uploadDir, filename);
-            const stats = fs.statSync(filePath);
-            return {
-              name: filename,
-              url: `/uploads/${filename}`,
-              size: stats.size,
-              createdAt: stats.birthtime,
-            };
-          } catch {
-            return {
-              name: filename,
-              url: `/uploads/${filename}`,
-              size: 0,
-              createdAt: new Date(),
-            };
-          }
-        }).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        const existingNames = new Set(mediaList.map((m) => m.name));
+        const localFiles = files
+          .filter((f) => !existingNames.has(f))
+          .map((filename) => {
+            try {
+              const filePath = path.join(uploadDir, filename);
+              const stats = fs.statSync(filePath);
+              return {
+                name: filename,
+                url: `/uploads/${filename}`,
+                size: stats.size,
+                createdAt: stats.birthtime,
+              };
+            } catch {
+              return {
+                name: filename,
+                url: `/uploads/${filename}`,
+                size: 0,
+                createdAt: new Date(),
+              };
+            }
+          });
+        mediaList.push(...localFiles);
       }
     } catch (fsErr) {
-      console.warn('Cannot read uploads directory (serverless environment):', fsErr);
+      // Serverless environment
     }
 
+    mediaList.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     return NextResponse.json({ success: true, media: mediaList });
   } catch (error: any) {
     return NextResponse.json({ success: true, media: [] });
@@ -101,52 +98,49 @@ function getFileMimeType(file: File): string {
   return mimeMap[ext] || 'application/octet-stream';
 }
 
-export const maxDuration = 60;
-
 export async function POST(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const isSignRequest = searchParams.get('sign') === '1';
     const contentTypeHeader = req.headers.get('content-type') || '';
+    const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500MB
 
-    // Handle Signed Upload URL Request (Bypasses Vercel 4.5MB Serverless Body Limit)
+    // 1. Handle Direct Presigned Upload URL Request (Bypasses Vercel 4.5MB Serverless Body Limit for large videos up to 500MB)
     if (isSignRequest || contentTypeHeader.includes('application/json')) {
       try {
         const body = await req.json();
-        const { filename, size } = body;
+        const { filename, contentType, size } = body;
 
-        const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
         if (size && size > MAX_FILE_SIZE) {
           return NextResponse.json(
             {
               success: false,
-              error: `File size (${(size / (1024 * 1024)).toFixed(1)}MB) exceeds 50MB upload limit.`,
+              error: `File size (${(size / (1024 * 1024)).toFixed(1)}MB) exceeds 500MB upload limit.`,
             },
             { status: 413 }
           );
         }
 
-        const safeFilename = filename ? `${Date.now()}_${filename.replace(/[^a-zA-Z0-9.-]/g, '_')}` : `${Date.now()}_asset`;
-        const client = supabaseAdmin || supabase;
+        const safeFilename = filename
+          ? `${Date.now()}_${filename.replace(/[^a-zA-Z0-9.-]/g, '_')}`
+          : `${Date.now()}_asset`;
 
-        if (client) {
-          const { data: signData, error: signErr } = await client.storage
-            .from('media')
-            .createSignedUploadUrl(safeFilename);
+        // Generate Cloudflare R2 S3 Presigned PUT URL
+        const r2Sign = createR2PresignedPutUrl(
+          safeFilename,
+          contentType || 'application/octet-stream',
+          3600
+        );
 
-          if (!signErr && signData) {
-            const { data: pUrl } = client.storage.from('media').getPublicUrl(safeFilename);
-            return NextResponse.json({
-              success: true,
-              signedUrl: signData.signedUrl,
-              token: signData.token,
-              path: safeFilename,
-              publicUrl: pUrl.publicUrl,
-            });
-          }
-        }
+        return NextResponse.json({
+          success: true,
+          provider: 'r2',
+          signedUrl: r2Sign.signedUrl,
+          path: r2Sign.key,
+          publicUrl: r2Sign.publicUrl,
+        });
       } catch (signCatchErr) {
-        console.warn('Signed upload URL generation exception:', signCatchErr);
+        console.warn('R2 presigned upload URL generation exception:', signCatchErr);
       }
 
       return NextResponse.json(
@@ -155,6 +149,7 @@ export async function POST(req: Request) {
       );
     }
 
+    // 2. Standard Multipart Upload (Uploads directly to Cloudflare R2 via REST API v4)
     const formData = await req.formData();
     const file = formData.get('file') as File | null;
 
@@ -165,12 +160,11 @@ export async function POST(req: Request) {
       );
     }
 
-    const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
     if (file.size > MAX_FILE_SIZE) {
       return NextResponse.json(
         {
           success: false,
-          error: `File size (${(file.size / (1024 * 1024)).toFixed(1)}MB) exceeds 50MB upload limit. Please compress or optimize the video.`,
+          error: `File size (${(file.size / (1024 * 1024)).toFixed(1)}MB) exceeds 500MB upload limit.`,
         },
         { status: 413 }
       );
@@ -184,38 +178,15 @@ export async function POST(req: Request) {
     const filename = `${timestamp}_${sanitizedOriginalName}`;
     let finalUrl = '';
 
-    // 1. Upload to Supabase Storage (Public media bucket) and verify public URL isn't blocked by quota (402)
-    const client = supabaseAdmin || supabase;
-    if (client) {
-      try {
-        const { data: uploadData, error: uploadErr } = await client.storage
-          .from('media')
-          .upload(filename, buffer, {
-            contentType: mimeType,
-            upsert: true,
-            cacheControl: '3600',
-          });
-
-        if (!uploadErr && uploadData) {
-          const { data: publicUrlData } = client.storage
-            .from('media')
-            .getPublicUrl(filename);
-
-          if (publicUrlData?.publicUrl) {
-            const checkRes = await fetch(publicUrlData.publicUrl, { method: 'HEAD' }).catch(() => null);
-            if (checkRes && checkRes.ok) {
-              finalUrl = publicUrlData.publicUrl;
-            }
-          }
-        } else if (uploadErr) {
-          console.warn('Supabase storage upload warning:', uploadErr.message);
-        }
-      } catch (sbErr: any) {
-        console.warn('Supabase storage upload exception:', sbErr?.message);
-      }
+    // 2a. Primary Cloud Upload: Cloudflare R2 (Zero Egress, 10GB Free Storage)
+    const r2Result = await putR2Object(filename, buffer, mimeType);
+    if (r2Result.success && r2Result.publicUrl) {
+      finalUrl = r2Result.publicUrl;
+    } else if (r2Result.error) {
+      console.warn('Cloudflare R2 upload warning:', r2Result.error);
     }
 
-    // 2. Local filesystem write fallback (if Supabase upload did not produce a reachable URL)
+    // 2b. Local filesystem write fallback (if R2 upload did not produce a URL)
     if (!finalUrl) {
       try {
         const uploadDir = path.join(process.cwd(), 'public', 'uploads');
@@ -230,7 +201,7 @@ export async function POST(req: Request) {
       }
     }
 
-    // 3. Fallback to base64 if both cloud & disk write fail
+    // 2c. Fallback to base64 if both cloud & disk write fail
     if (!finalUrl) {
       finalUrl = `data:${mimeType};base64,${buffer.toString('base64')}`;
     }
@@ -263,28 +234,33 @@ export async function DELETE(req: Request) {
       );
     }
 
+    // 1. Delete from Cloudflare R2
+    try {
+      await deleteR2Object(filename);
+    } catch (r2Err) {
+      console.warn('R2 remove warning:', r2Err);
+    }
+
+    // 2. Delete from Supabase if active
     const client = supabaseAdmin || supabase;
     if (client) {
       try {
         await client.storage.from('media').remove([filename]);
-      } catch (sbErr) {
-        console.warn('Supabase remove failed:', sbErr);
-      }
+      } catch {}
     }
 
+    // 3. Delete from local /public/uploads if present
     try {
       const safeName = path.basename(filename);
       const filePath = path.join(process.cwd(), 'public', 'uploads', safeName);
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
       }
-    } catch (fsErr) {
-      console.warn('Could not unlink file:', fsErr);
-    }
+    } catch {}
 
     return NextResponse.json({
       success: true,
-      message: `File processed successfully`,
+      message: 'File deleted successfully',
     });
   } catch (error: any) {
     return NextResponse.json(

@@ -29,6 +29,7 @@ function isDirectVideoUrl(url: string): boolean {
   return (
     /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(clean) ||
     clean.startsWith('/uploads/') ||
+    clean.includes('.r2.dev/') ||
     clean.includes('/storage/v1/object/public/') ||
     clean.startsWith('data:video/')
   );

@@ -126,10 +126,10 @@ export default function MediaUploader({
   const uploadFile = async (rawFile: File) => {
     if (!rawFile) return;
 
-    // Check size limit: 50MB
-    const MAX_SIZE = 50 * 1024 * 1024;
+    // Check size limit: 500MB (Cloudflare R2 supports large videos & documents)
+    const MAX_SIZE = 500 * 1024 * 1024;
     if (rawFile.size > MAX_SIZE) {
-      setError(`File size (${(rawFile.size / (1024 * 1024)).toFixed(1)}MB) exceeds maximum limit of 50MB. Please compress or optimize the file.`);
+      setError(`File size (${(rawFile.size / (1024 * 1024)).toFixed(1)}MB) exceeds maximum limit of 500MB.`);
       return;
     }
 
@@ -141,61 +141,53 @@ export default function MediaUploader({
       const file = await compressImageFile(rawFile);
       let finalUploadedUrl = '';
 
-      // 1. Direct Signed URL Upload to Supabase (Bypasses Vercel 4.5MB Serverless Body Limit)
-      try {
-        const signRes = await fetch('/api/admin/upload?sign=1', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            filename: file.name,
-            contentType: file.type || 'application/octet-stream',
-            size: file.size,
-          }),
-        });
+      // 1. For files > 3.5MB on production, try Direct Presigned PUT to Cloudflare R2 first
+      if (file.size > 3.5 * 1024 * 1024) {
+        try {
+          const signRes = await fetch('/api/admin/upload?sign=1', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              filename: file.name,
+              contentType: file.type || 'application/octet-stream',
+              size: file.size,
+            }),
+          });
 
-        if (signRes.ok) {
-          const signData = await signRes.json();
-          if (signData.success && signData.signedUrl && signData.token) {
-            // Use Supabase JS SDK uploadToSignedUrl if client is initialized
-            if (supabase) {
-              const { error: upErr } = await supabase.storage
-                .from('media')
-                .uploadToSignedUrl(signData.path, signData.token, file, {
-                  contentType: file.type || 'application/octet-stream',
+          if (signRes.ok) {
+            const signData = await signRes.json();
+            if (signData.success && signData.signedUrl) {
+              if (signData.provider !== 'r2' && signData.token && supabase) {
+                const { error: upErr } = await supabase.storage
+                  .from('media')
+                  .uploadToSignedUrl(signData.path, signData.token, file, {
+                    contentType: file.type || 'application/octet-stream',
+                  });
+                if (!upErr) {
+                  finalUploadedUrl = signData.publicUrl;
+                }
+              }
+
+              if (!finalUploadedUrl) {
+                const putRes = await fetch(signData.signedUrl, {
+                  method: 'PUT',
+                  headers: {
+                    'Content-Type': file.type || 'application/octet-stream',
+                  },
+                  body: file,
                 });
-
-              if (!upErr) {
-                finalUploadedUrl = signData.publicUrl;
-              }
-            }
-
-            // Direct PUT fallback
-            if (!finalUploadedUrl) {
-              const putRes = await fetch(signData.signedUrl, {
-                method: 'PUT',
-                headers: {
-                  'Content-Type': file.type || 'application/octet-stream',
-                },
-                body: file,
-              });
-              if (putRes.ok) {
-                finalUploadedUrl = signData.publicUrl;
-              }
-            }
-
-            if (finalUploadedUrl) {
-              const verifyRes = await fetch(finalUploadedUrl, { method: 'HEAD' }).catch(() => null);
-              if (!verifyRes || !verifyRes.ok) {
-                finalUploadedUrl = '';
+                if (putRes.ok) {
+                  finalUploadedUrl = signData.publicUrl;
+                }
               }
             }
           }
+        } catch (directSignErr) {
+          console.warn('Direct presigned upload fallback to server upload:', directSignErr);
         }
-      } catch (directSignErr) {
-        console.warn('Direct signed upload attempt:', directSignErr);
       }
 
-      // 2. Fallback to standard multipart upload route if direct signed upload wasn't used
+      // 2. Upload via /api/admin/upload (Uploads directly to Cloudflare R2 via Cloudflare REST API v4)
       if (!finalUploadedUrl) {
         const formData = new FormData();
         formData.append('file', file);

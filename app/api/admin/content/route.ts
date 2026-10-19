@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getSiteContent, saveSiteContent, SiteContentData, DEFAULT_SITE_CONTENT, getLatestContentFromCloud, mergeWithDefaults, mergeSeoConfig, normalizeBlogs } from '@/lib/cms';
 import { supabaseAdmin, supabase } from '@/lib/supabase';
+import { putR2Object } from '@/lib/r2';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -128,11 +129,19 @@ export async function POST(req: Request) {
       });
     }
 
+    // 2. Primary Cloud Sync: Cloudflare R2 (Zero Egress, Unlimited Bandwidth)
+    const serialized = JSON.stringify(updatedContent, null, 2);
+    try {
+      await putR2Object('cms/site_content.json', serialized, 'application/json', 'no-cache');
+    } catch (r2Err) {
+      console.warn('Cloudflare R2 site_content upload warning:', r2Err);
+    }
+
+    // 3. Secondary Cloud Sync: Supabase (if active)
     const client = supabaseAdmin || supabase;
     if (client) {
-      // 2a. Always sync to Supabase Storage Bucket (reliable JSON CDN file)
       try {
-        const buffer = Buffer.from(JSON.stringify(updatedContent, null, 2), 'utf-8');
+        const buffer = Buffer.from(serialized, 'utf-8');
         await client.storage.from('media').upload('cms/site_content.json', buffer, {
           contentType: 'application/json',
           upsert: true,
@@ -141,7 +150,6 @@ export async function POST(req: Request) {
         console.warn('Supabase storage upload error:', storageErr);
       }
 
-      // 2b. Sync to Supabase Database table if it exists
       try {
         await client.from('site_content').upsert(
           {
@@ -156,7 +164,7 @@ export async function POST(req: Request) {
       }
     }
 
-    // 3. Save to runtime memory cache and local disk if available
+    // 4. Save to runtime memory cache and local disk if available
     saveSiteContent(updatedContent);
 
     return NextResponse.json(

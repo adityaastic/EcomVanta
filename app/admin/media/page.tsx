@@ -69,46 +69,48 @@ export default function MediaLibraryPage() {
       let lastError = '';
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        if (file.size > 50 * 1024 * 1024) {
-          lastError = `File "${file.name}" exceeds 50MB limit.`;
+        if (file.size > 500 * 1024 * 1024) {
+          lastError = `File "${file.name}" exceeds 500MB limit.`;
           continue;
         }
 
         let uploaded = false;
 
-        // 1. Direct Signed URL Upload to Supabase
-        try {
-          const signRes = await fetch('/api/admin/upload?sign=1', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              filename: file.name,
-              contentType: file.type || 'application/octet-stream',
-              size: file.size,
-            }),
-          });
+        // 1. For files > 3.5MB, try Direct Signed URL Upload to Cloudflare R2 first
+        if (file.size > 3.5 * 1024 * 1024) {
+          try {
+            const signRes = await fetch('/api/admin/upload?sign=1', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                filename: file.name,
+                contentType: file.type || 'application/octet-stream',
+                size: file.size,
+              }),
+            });
 
-          if (signRes.ok) {
-            const signData = await signRes.json();
-            if (signData.success && signData.signedUrl) {
-              const putRes = await fetch(signData.signedUrl, {
-                method: 'PUT',
-                headers: {
-                  'Content-Type': file.type || 'application/octet-stream',
-                },
-                body: file,
-              });
-              if (putRes.ok) {
-                uploaded = true;
-                count++;
+            if (signRes.ok) {
+              const signData = await signRes.json();
+              if (signData.success && signData.signedUrl) {
+                const putRes = await fetch(signData.signedUrl, {
+                  method: 'PUT',
+                  headers: {
+                    'Content-Type': file.type || 'application/octet-stream',
+                  },
+                  body: file,
+                });
+                if (putRes.ok) {
+                  uploaded = true;
+                  count++;
+                }
               }
             }
+          } catch (directSignErr) {
+            console.warn('Direct sign upload in media page fallback to server:', directSignErr);
           }
-        } catch (directSignErr) {
-          console.warn('Direct sign upload in media page failed:', directSignErr);
         }
 
-        // 2. Fallback to multipart formData
+        // 2. Upload via /api/admin/upload (Cloudflare R2 REST API v4)
         if (!uploaded) {
           const formData = new FormData();
           formData.append('file', file);

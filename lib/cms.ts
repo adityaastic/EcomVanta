@@ -11,6 +11,7 @@ import {
   LEGACY_BLOG_LOGO_IMAGES,
 } from './cmsTypes';
 import { supabaseAdmin, supabase } from './supabase';
+import { getR2ObjectText } from './r2';
 
 export * from './cmsTypes';
 
@@ -211,13 +212,29 @@ export function getSiteContent(): SiteContentData {
 }
 
 export async function getLatestContentFromCloud(): Promise<SiteContentData> {
-  // Use in-memory cache if refreshed within the last 30 seconds to avoid hammering Supabase when quota is restricted
+  // Use in-memory cache if refreshed within the last 10 seconds
   if (
     globalThis.__SITE_CONTENT_CACHE__ &&
     globalThis.__SITE_CONTENT_CACHE_TIME__ &&
-    Date.now() - globalThis.__SITE_CONTENT_CACHE_TIME__ < 30_000
+    Date.now() - globalThis.__SITE_CONTENT_CACHE_TIME__ < 10_000
   ) {
     return globalThis.__SITE_CONTENT_CACHE__;
+  }
+
+  // 1. Primary Cloud Storage: Cloudflare R2 (Zero Egress, Unlimited Bandwidth)
+  try {
+    const r2Text = await getR2ObjectText('cms/site_content.json');
+    if (r2Text) {
+      const parsed = JSON.parse(r2Text);
+      if (parsed && typeof parsed === 'object') {
+        const merged = mergeWithDefaults(parsed);
+        globalThis.__SITE_CONTENT_CACHE__ = merged;
+        globalThis.__SITE_CONTENT_CACHE_TIME__ = Date.now();
+        return merged;
+      }
+    }
+  } catch (r2Err) {
+    // Fallback to Supabase / local disk
   }
 
   const client = supabaseAdmin || supabase;
@@ -225,7 +242,7 @@ export async function getLatestContentFromCloud(): Promise<SiteContentData> {
     return getSiteContent();
   }
 
-  // 1. Try Supabase Database table
+  // 2. Try Supabase Database table
   try {
     const { data: row, error: dbErr } = await client
       .from('site_content')
@@ -243,7 +260,7 @@ export async function getLatestContentFromCloud(): Promise<SiteContentData> {
     // Ignore and fallback to storage
   }
 
-  // 2. Try Supabase Storage bucket (media/cms/site_content.json) with cache busting
+  // 3. Try Supabase Storage bucket (media/cms/site_content.json)
   try {
     const { data: pubData } = client.storage.from('media').getPublicUrl('cms/site_content.json');
     if (pubData?.publicUrl) {
@@ -265,7 +282,7 @@ export async function getLatestContentFromCloud(): Promise<SiteContentData> {
     // Ignore and fallback to local
   }
 
-  // 3. Fallback to disk / memory cache
+  // 4. Fallback to disk / memory cache
   return getSiteContent();
 }
 
