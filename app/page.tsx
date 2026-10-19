@@ -378,28 +378,38 @@ export default function HomePage() {
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                {clientVideos.map((vid: any) => (
-                  <div
-                    key={vid.name || vid.id}
-                    className="rounded-3xl overflow-hidden bg-black aspect-[9/16] shadow-xl border border-slate-200 group relative arvian-card flex flex-col justify-end"
-                  >
-                    <video
-                      src={vid.videoUrl || vid.src}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      controls
-                      className="w-full h-full object-cover absolute inset-0"
-                    />
-                    <div className="relative z-10 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white pointer-events-none">
-                      <p className="text-sm sm:text-base font-extrabold leading-tight">{vid.name}</p>
-                      {vid.role && (
-                        <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">{vid.role}</p>
-                      )}
+                {clientVideos.map((vid: any) => {
+                  const rawSrc = vid.videoUrl || vid.src || '';
+                  const videoSrc = rawSrc && !rawSrc.includes('#t=') ? `${rawSrc}#t=0.1` : rawSrc;
+                  return (
+                    <div
+                      key={vid.name || vid.id}
+                      className="rounded-3xl overflow-hidden bg-black aspect-[9/16] shadow-xl border border-slate-200 group relative arvian-card flex flex-col justify-end"
+                    >
+                      <video
+                        src={videoSrc}
+                        muted
+                        loop
+                        playsInline
+                        controls
+                        preload="metadata"
+                        onMouseEnter={(e) => {
+                          e.currentTarget.play().catch(() => {});
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.pause();
+                        }}
+                        className="w-full h-full object-cover absolute inset-0"
+                      />
+                      <div className="relative z-10 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white pointer-events-none">
+                        <p className="text-sm sm:text-base font-extrabold leading-tight">{vid.name}</p>
+                        {vid.role && (
+                          <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">{vid.role}</p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
