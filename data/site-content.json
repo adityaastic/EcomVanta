@@ -97,54 +97,59 @@
     "heroVideo": "/uploads/ecomvanta-hero.mp4",
     "brandLogos": [
       {
-        "id": "1",
-        "name": "Deshi",
-        "logo": "/Deshi.png"
-      },
-      {
-        "id": "2",
-        "name": "Krishna",
-        "logo": "/Krishna logo .png"
-      },
-      {
-        "id": "3",
-        "name": "Forest Found",
-        "logo": "/Forest Found.png"
-      },
-      {
-        "id": "4",
-        "name": "SS Logo",
-        "logo": "/SS logo .png"
-      },
-      {
-        "id": "5",
-        "name": "RPURE",
-        "logo": "/RPURE logo .png"
-      },
-      {
-        "id": "6",
-        "name": "Nufyt",
-        "logo": "/Nufyt.png"
-      },
-      {
-        "id": "1789926477432",
-        "name": "Rasaveda",
-        "logo": "/Rasaveda.png"
-      },
-      {
-        "id": "1789926478482",
-        "name": "Bubz",
-        "logo": "/Bubz.png"
-      },
-      {
-        "id": "1789926479415",
-        "name": "Ninety Two",
-        "logo": "/Ninety Two.png"
-      },
-      {
         "id": "1789926480082",
-        "name": "Snackes",
-        "logo": "/Snackes .png"
+        "name": "DANLITE",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411028874_WhatsApp_Image_2026-10-19_at_5.25.56_PM__1_.webp"
+      },
+      {
+        "id": "1792411041162",
+        "name": "New Brand",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411045801_WhatsApp_Image_2026-10-19_at_5.25.56_PM__2_.webp"
+      },
+      {
+        "id": "1792411041570",
+        "name": "Butru",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411053554_WhatsApp_Image_2026-10-19_at_5.25.56_PM.webp"
+      },
+      {
+        "id": "1792411041770",
+        "name": "GT",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411067251_WhatsApp_Image_2026-10-19_at_5.25.57_PM__1_.webp"
+      },
+      {
+        "id": "1792411075914",
+        "name": "RHYNOX",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411081707_WhatsApp_Image_2026-10-19_at_5.25.57_PM.webp"
+      },
+      {
+        "id": "1792411095426",
+        "name": "DRY CLODE",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411100820_WhatsApp_Image_2026-10-19_at_5.25.57_PM__2_.webp"
+      },
+      {
+        "id": "1792411109306",
+        "name": "Magic pebbles",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411114107_WhatsApp_Image_2026-10-19_at_5.25.58_PM__1_.webp"
+      },
+      {
+        "id": "1792411127386",
+        "name": "sifra",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411133462_WhatsApp_Image_2026-10-19_at_5.25.58_PM__2_.webp"
+      },
+      {
+        "id": "1792411142194",
+        "name": "anju",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411149699_WhatsApp_Image_2026-10-19_at_5.25.58_PM.webp"
+      },
+      {
+        "id": "1792411157370",
+        "name": "New Brand",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411167651_WhatsApp_Image_2026-10-19_at_5.25.59_PM__1_.webp"
+      },
+      {
+        "id": "1792411158858",
+        "name": "New Brand",
+        "logo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411171816_WhatsApp_Image_2026-10-19_at_5.25.59_PM__2_.webp"
       }
     ],
     "platforms": [
@@ -3244,9 +3249,27 @@
       "verificationMetaTag": "",
       "ga4MeasurementId": "",
       "ga4Enabled": false,
-      "bingVerificationMetaTag": ""
+      "bingVerificationMetaTag": "",
+      "metaPixelId": "3203677769838663"
     },
-    "notFoundLogs": [],
+    "notFoundLogs": [
+      {
+        "id": "404-1792411291556",
+        "path": "/category/baby",
+        "referrer": "http://localhost:3000/category/baby",
+        "hits": 2,
+        "firstSeen": "2026-10-19T12:01:31.555Z",
+        "lastSeen": "2026-10-19T12:01:31.647Z"
+      },
+      {
+        "id": "404-1792411291296",
+        "path": "/products/steel-balls",
+        "referrer": "http://localhost:3000/products/steel-balls",
+        "hits": 2,
+        "firstSeen": "2026-10-19T12:01:31.296Z",
+        "lastSeen": "2026-10-19T12:01:31.385Z"
+      }
+    ],
     "seoTasks": [
       {
         "id": "task-1",
@@ -3811,7 +3834,8 @@
       "verificationMetaTag": "",
       "ga4MeasurementId": "",
       "ga4Enabled": false,
-      "bingVerificationMetaTag": ""
+      "bingVerificationMetaTag": "",
+      "metaPixelId": "3203677769838663"
     },
     "notFoundLogs": [],
     "seoTasks": [

@@ -45,7 +45,7 @@ export default async function RootLayout({
   const ga4Id = integrations?.ga4MeasurementId?.trim() || "";
   const googleAdsId = integrations?.googleAdsId?.trim() || "";
   const gtmId = integrations?.gtmContainerId?.trim() || "";
-  const metaPixelId = integrations?.metaPixelId?.trim() || "";
+  const metaPixelId = integrations?.metaPixelId?.trim() || "3203677769838663";
   const clarityId = integrations?.clarityProjectId?.trim() || "";
   const linkedInId = integrations?.linkedInPartnerId?.trim() || "";
   const customHeadScripts = integrations?.customHeadScripts?.trim() || "";

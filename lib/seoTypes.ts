@@ -671,6 +671,7 @@ export const DEFAULT_SEO_CONFIG: SeoSystemConfig = {
     ga4MeasurementId: '',
     ga4Enabled: false,
     bingVerificationMetaTag: '',
+    metaPixelId: '3203677769838663',
   },
   notFoundLogs: [],
   seoTasks: [
