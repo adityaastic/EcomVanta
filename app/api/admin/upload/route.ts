@@ -113,7 +113,7 @@ export async function POST(req: Request) {
     if (isSignRequest || contentTypeHeader.includes('application/json')) {
       try {
         const body = await req.json();
-        const { filename, contentType, size } = body;
+        const { filename, size } = body;
 
         const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
         if (size && size > MAX_FILE_SIZE) {
@@ -148,6 +148,11 @@ export async function POST(req: Request) {
       } catch (signCatchErr) {
         console.warn('Signed upload URL generation exception:', signCatchErr);
       }
+
+      return NextResponse.json(
+        { success: false, error: 'Direct signed URL unavailable, use standard upload fallback' },
+        { status: 200 }
+      );
     }
 
     const formData = await req.formData();
@@ -179,7 +184,7 @@ export async function POST(req: Request) {
     const filename = `${timestamp}_${sanitizedOriginalName}`;
     let finalUrl = '';
 
-    // 1. Upload to Supabase Storage (Public media bucket)
+    // 1. Upload to Supabase Storage (Public media bucket) and verify public URL isn't blocked by quota (402)
     const client = supabaseAdmin || supabase;
     if (client) {
       try {
@@ -197,7 +202,10 @@ export async function POST(req: Request) {
             .getPublicUrl(filename);
 
           if (publicUrlData?.publicUrl) {
-            finalUrl = publicUrlData.publicUrl;
+            const checkRes = await fetch(publicUrlData.publicUrl, { method: 'HEAD' }).catch(() => null);
+            if (checkRes && checkRes.ok) {
+              finalUrl = publicUrlData.publicUrl;
+            }
           }
         } else if (uploadErr) {
           console.warn('Supabase storage upload warning:', uploadErr.message);
@@ -207,7 +215,7 @@ export async function POST(req: Request) {
       }
     }
 
-    // 2. Local filesystem write fallback (if Supabase upload did not produce a URL)
+    // 2. Local filesystem write fallback (if Supabase upload did not produce a reachable URL)
     if (!finalUrl) {
       try {
         const uploadDir = path.join(process.cwd(), 'public', 'uploads');

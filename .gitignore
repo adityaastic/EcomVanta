@@ -56,5 +56,5 @@ css_ab-1.css
 css_service.css
 include_css_style.css
 
-# Uploads
-public/uploads/
+# Keep public/uploads tracked for reliable CDN delivery
+!public/uploads/

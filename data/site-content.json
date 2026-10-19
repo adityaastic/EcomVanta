@@ -18,7 +18,7 @@
       "twitter": "https://twitter.com/ecomvanta",
       "youtube": "https://youtube.com/@ecomvanta"
     },
-    "catalogPdfUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317947318_catelog.pdf",
+    "catalogPdfUrl": "/uploads/ecomvanta-catalog.pdf",
     "catalogButtonText": "Download Catalog",
     "showCatalogInHeader": true,
     "showCatalogInHero": true,
@@ -33,10 +33,22 @@
       "subtitle": "From Strategy to Execution",
       "buttonText": "Get Started",
       "stats": [
-        { "value": "50+", "label": "Team Members" },
-        { "value": "$100M", "label": "Sales Generated" },
-        { "value": "20+", "label": "Platforms" },
-        { "value": "100+", "label": "Brands" }
+        {
+          "value": "50+",
+          "label": "Team Members"
+        },
+        {
+          "value": "$100M",
+          "label": "Sales Generated"
+        },
+        {
+          "value": "20+",
+          "label": "Platforms"
+        },
+        {
+          "value": "100+",
+          "label": "Brands"
+        }
       ]
     },
     "hero": {
@@ -49,7 +61,7 @@
       "primaryCtaLink": "/contact-us",
       "secondaryCtaText": "View Case Studies",
       "secondaryCtaLink": "/portfolio",
-      "heroImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp",
+      "heroImage": "/uploads/ecomvanta-team.png",
       "heroBadgeNumber": "₹50Cr+",
       "heroBadgeText": "GMV Generated for Clients",
       "trustRating": "4.9 / 5.0",
@@ -82,57 +94,57 @@
       }
     ],
     "brandLogosHeading": "We Provide Services For These Leading Brands",
-    "heroVideo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317012442_12Ecomvanta.mp4",
+    "heroVideo": "/uploads/ecomvanta-hero.mp4",
     "brandLogos": [
       {
         "id": "1",
         "name": "Deshi",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562322977_1.webp"
+        "logo": "/Deshi.png"
       },
       {
         "id": "2",
         "name": "Krishna",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562333286_2.webp"
+        "logo": "/Krishna logo .png"
       },
       {
         "id": "3",
         "name": "Forest Found",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562338237_3.webp"
+        "logo": "/Forest Found.png"
       },
       {
         "id": "4",
         "name": "SS Logo",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562343224_4.webp"
+        "logo": "/SS logo .png"
       },
       {
         "id": "5",
         "name": "RPURE",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562347752_5.webp"
+        "logo": "/RPURE logo .png"
       },
       {
         "id": "6",
         "name": "Nufyt",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562361360_7.webp"
+        "logo": "/Nufyt.png"
       },
       {
         "id": "1789926477432",
-        "name": "New Brand",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926514641_WhatsApp_Image_2026-09-20_at_22.54.41.webp"
+        "name": "Rasaveda",
+        "logo": "/Rasaveda.png"
       },
       {
         "id": "1789926478482",
-        "name": "New Brand",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926552550_WhatsApp_Image_2026-09-20_at_22.54.42__1_.webp"
+        "name": "Bubz",
+        "logo": "/Bubz.png"
       },
       {
         "id": "1789926479415",
-        "name": "New Brand",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926559447_WhatsApp_Image_2026-09-20_at_22.54.41__1_.webp"
+        "name": "Ninety Two",
+        "logo": "/Ninety Two.png"
       },
       {
         "id": "1789926480082",
-        "name": "New Brand",
-        "logo": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926577132_WhatsApp_Image_2026-09-20_at_22.54.42.webp"
+        "name": "Snackes",
+        "logo": "/Snackes .png"
       }
     ],
     "platforms": [
@@ -254,7 +266,7 @@
         "id": "1",
         "name": "satyam",
         "role": "EcomVanta Team (Digital Team)",
-        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790315813852_2Ecommanta.mp4",
+        "videoUrl": "/image/Amardeep.mp4",
         "quote": "",
         "rating": 5
       },
@@ -262,7 +274,7 @@
         "id": "2",
         "name": "Arjun",
         "role": "EcomVanta Team (Digital Team)",
-        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790316735605_12Ecomvanta.mp4",
+        "videoUrl": "/image/Arjun.mp4",
         "quote": "",
         "rating": 5
       },
@@ -270,7 +282,7 @@
         "id": "3",
         "name": "Jatin",
         "role": "EcomVanta Team",
-        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571128769_1790427955026_Ecomvanta-Digital.mp4",
+        "videoUrl": "/image/Diksha.mp4",
         "quote": "",
         "rating": 5
       },
@@ -278,7 +290,7 @@
         "id": "4",
         "name": "Nitish",
         "role": "EcomVanta Team",
-        "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571138292_1790428640547_Online1Shop.mp4",
+        "videoUrl": "/image/Kamna Video.mp4",
         "quote": "",
         "rating": 5
       }
@@ -316,7 +328,7 @@
         "100% Policy-Safe Listing & Account Health Protection"
       ],
       "buttonText": "Book a Free Consultation",
-      "videoUrl": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317671050_1Ecommanta.mp4",
+      "videoUrl": "/uploads/ecomvanta-hero.mp4",
       "quote": "“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”",
       "author": "Amardeep, Home & Kitchen Brand",
       "rating": 5
@@ -349,89 +361,12 @@
     "showFounderSection": true
   },
   "services": {
-    "ecommerce-rating-and-review-management-services": {
-      "slug": "ecommerce-rating-and-review-management-services",
-      "badge": "Brand Reputation & Social Proof Scaling",
-      "title": "E-Commerce Rating & Review Management Services",
-      "subtitle": "Build 4.8★+ customer trust on Amazon, Flipkart, Meesho, Myntra, Blinkit & Shopify. We accelerate verified buyer reviews, remove policy-violating negative feedback, and skyrocket sales conversion rates.",
-      "heroImage": "/home-img/Amazon-product-listing-optimization.webp",
-      "aboutImage": "/flipkart-account/product-dashboard.png",
-      "aboutTitle": "Turn Customer Reviews Into Your Biggest Sales Multiplier",
-      "aboutDesc": "Over 93% of online shoppers read customer reviews before making a purchase. A single 1-star review can drop listing conversions by up to 35%. EcomVanta provides 100% policy-compliant rating and review management services for Amazon, Flipkart, Meesho, Blinkit, and Quick Commerce brands to safeguard your brand reputation and establish category leadership.",
-      "servicesGrid": [
-        {
-          "icon": "/brand-img/customer-service.png",
-          "title": "Amazon Vine & Review Acceleration",
-          "desc": "Compliant review generation via Amazon Vine, automated 'Request a Review' integrations, and post-purchase follow-up systems that multiply positive feedback."
-        },
-        {
-          "icon": "/brand-img/policy.png",
-          "title": "Flipkart Ratings & Buyer Feedback",
-          "desc": "Accelerating verified buyer reviews and improving Listing Quality Score (LQS) to maintain Gold/Diamond seller tier badges."
-        },
-        {
-          "icon": "/brand-img/inventory-management.png",
-          "title": "Blinkit, Zepto & Quick Commerce Reviews",
-          "desc": "Real-time rating monitoring on dark store platforms to maintain 4.5+ star product reputation and rapid impulse reorders."
-        },
-        {
-          "icon": "/brand-img/report.png",
-          "title": "Negative Review Suppression & Removal",
-          "desc": "Proactive escalation and removal of policy-violating reviews, competitor sabotage, fake claims, and delivery/fulfillment complaints (FBA/FBF strike-throughs)."
-        },
-        {
-          "icon": "/brand-img/dashboard.png",
-          "title": "Voice of Customer (VOC) Analytics",
-          "desc": "In-depth sentiment analysis and return reason diagnostics to fix root-cause packaging, size, or quality issues before they harm your rating."
-        },
-        {
-          "icon": "/brand-img/bullhorn.png",
-          "title": "Competitor Review Reverse Engineering",
-          "desc": "Auditing top competitor complaints and negative reviews to highlight winning product USPs and comparison tables in your A+ content."
-        }
-      ],
-      "advantages": [
-        {
-          "icon": "/css/Special expertise (2).png",
-          "title": "100% Marketplace TOS Compliant",
-          "desc": "Zero black-hat techniques. All review acquisition strategies strictly adhere to Amazon Anti-Manipulation Policy and marketplace guidelines."
-        },
-        {
-          "icon": "/css/Increase in sales performance (2).png",
-          "title": "Proven Conversion Rate Multiplier",
-          "desc": "Increasing your listing rating from 3.8★ to 4.5★+ increases organic conversion rate by up to 120% and lowers your ad ACOS."
-        },
-        {
-          "icon": "/css/Active issue resolution (2).png",
-          "title": "Rapid Review Escalation & Support",
-          "desc": "Dedicated account managers monitoring your product ratings 24/7 with swift case logging for unfair or malicious negative feedback."
-        }
-      ],
-      "faqs": [
-        {
-          "question": "How do you generate reviews legally on Amazon and Flipkart?",
-          "answer": "We utilize 100% compliant official programs including Amazon Vine, the automated Request a Review API, Flipkart Post-Delivery Feedback workflows, and high-converting product inserts that encourage authentic buyer feedback without incentivization or TOS violations."
-        },
-        {
-          "question": "Can negative reviews be removed from Amazon or Flipkart?",
-          "answer": "Yes, if a negative review violates marketplace community guidelines (e.g., contains vulgarity, mentions competitor names, discusses FBA delivery issues rather than the product, or constitutes abusive competitor sabotage), we raise official policy tickets for complete removal or strike-through."
-        },
-        {
-          "question": "What marketplaces do you support for review management?",
-          "answer": "We provide review and rating management across Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, Swiggy Instamart, Nykaa, and D2C brand websites (Shopify/WooCommerce)."
-        },
-        {
-          "question": "How does improved product rating impact Amazon PPC advertising?",
-          "answer": "Higher star ratings and positive review counts drastically improve your ad Click-Through Rate (CTR) and Conversion Rate (CVR). This results in lower cost-per-click (CPC), reduced ACOS, and higher ROAS on all your sponsored ad campaigns."
-        }
-      ]
-    },
     "flipkart-account-management-services": {
       "slug": "flipkart-account-management-services",
       "badge": "Official Flipkart Partner Network",
       "title": "Flipkart Account Management Services",
       "subtitle": "Scale your revenue on Flipkart with end-to-end account handling, listing score optimization, Flipkart Ads (PCA/PLA), and Big Billion Days strategy.",
-      "heroImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707560459_ChatGPT_Image_Sep_18__2026__10_28_59_AM.webp",
+      "heroImage": "/service-img/Amazon-left-img.png",
       "aboutImage": "/abt-img/flipkart-web-about.png",
       "aboutTitle": "Maximize Your Brand Visibility on Flipkart",
       "aboutDesc": "With over 500M+ registered customers on Flipkart, achieving organic rank requires algorithmic listing precision. Our certified managers handle daily catalog maintenance, inventory sync, and ad spend efficiency.",
@@ -869,6 +804,160 @@
         }
       ]
     },
+    "ecommerce-rating-and-review-management-services": {
+      "slug": "ecommerce-rating-and-review-management-services",
+      "badge": "Brand Reputation & Social Proof Scaling",
+      "title": "E-Commerce Rating & Review Management Services",
+      "subtitle": "Build 4.8★+ customer trust on Amazon, Flipkart, Meesho, Myntra, Blinkit & Shopify. We accelerate verified buyer reviews, remove policy-violating negative feedback, and skyrocket sales conversion rates.",
+      "heroImage": "/home-img/Amazon-product-listing-optimization.webp",
+      "aboutImage": "/flipkart-account/product-dashboard.png",
+      "aboutTitle": "Turn Customer Reviews Into Your Biggest Sales Multiplier",
+      "aboutDesc": "Over 93% of online shoppers read customer reviews before making a purchase. A single 1-star review can drop listing conversions by up to 35%. EcomVanta provides 100% policy-compliant rating and review management services for Amazon, Flipkart, Meesho, Blinkit, and Quick Commerce brands to safeguard your brand reputation and establish category leadership.",
+      "servicesGrid": [
+        {
+          "icon": "/brand-img/customer-service.png",
+          "title": "Amazon Vine & Review Acceleration",
+          "desc": "Compliant review generation via Amazon Vine, automated 'Request a Review' integrations, and post-purchase follow-up systems that multiply positive feedback."
+        },
+        {
+          "icon": "/brand-img/policy.png",
+          "title": "Flipkart Ratings & Buyer Feedback",
+          "desc": "Accelerating verified buyer reviews and improving Listing Quality Score (LQS) to maintain Gold/Diamond seller tier badges."
+        },
+        {
+          "icon": "/brand-img/inventory-management.png",
+          "title": "Blinkit, Zepto & Quick Commerce Reviews",
+          "desc": "Real-time rating monitoring on dark store platforms to maintain 4.5+ star product reputation and rapid impulse reorders."
+        },
+        {
+          "icon": "/brand-img/report.png",
+          "title": "Negative Review Suppression & Removal",
+          "desc": "Proactive escalation and removal of policy-violating reviews, competitor sabotage, fake claims, and delivery/fulfillment complaints (FBA/FBF strike-throughs)."
+        },
+        {
+          "icon": "/brand-img/dashboard.png",
+          "title": "Voice of Customer (VOC) Analytics",
+          "desc": "In-depth sentiment analysis and return reason diagnostics to fix root-cause packaging, size, or quality issues before they harm your rating."
+        },
+        {
+          "icon": "/brand-img/bullhorn.png",
+          "title": "Competitor Review Reverse Engineering",
+          "desc": "Auditing top competitor complaints and negative reviews to highlight winning product USPs and comparison tables in your A+ content."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "100% Marketplace TOS Compliant",
+          "desc": "Zero black-hat techniques. All review acquisition strategies strictly adhere to Amazon Anti-Manipulation Policy and marketplace guidelines."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "Proven Conversion Rate Multiplier",
+          "desc": "Increasing your listing rating from 3.8★ to 4.5★+ increases organic conversion rate by up to 120% and lowers your ad ACOS."
+        },
+        {
+          "icon": "/css/Active issue resolution (2).png",
+          "title": "Rapid Review Escalation & Support",
+          "desc": "Dedicated account managers monitoring your product ratings 24/7 with swift case logging for unfair or malicious negative feedback."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do you generate reviews legally on Amazon and Flipkart?",
+          "answer": "We utilize 100% compliant official programs including Amazon Vine, the automated Request a Review API, Flipkart Post-Delivery Feedback workflows, and high-converting product inserts that encourage authentic buyer feedback without incentivization or TOS violations."
+        },
+        {
+          "question": "Can negative reviews be removed from Amazon or Flipkart?",
+          "answer": "Yes, if a negative review violates marketplace community guidelines (e.g., contains vulgarity, mentions competitor names, discusses FBA delivery issues rather than the product, or constitutes abusive competitor sabotage), we raise official policy tickets for complete removal or strike-through."
+        },
+        {
+          "question": "What marketplaces do you support for review management?",
+          "answer": "We provide review and rating management across Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, Swiggy Instamart, Nykaa, and D2C brand websites (Shopify/WooCommerce)."
+        },
+        {
+          "question": "How does improved product rating impact Amazon PPC advertising?",
+          "answer": "Higher star ratings and positive review counts drastically improve your ad Click-Through Rate (CTR) and Conversion Rate (CVR). This results in lower cost-per-click (CPC), reduced ACOS, and higher ROAS on all your sponsored ad campaigns."
+        }
+      ]
+    },
+    "rating-and-review-management-services": {
+      "slug": "rating-and-review-management-services",
+      "badge": "Brand Reputation & Social Proof Scaling",
+      "title": "Rating & Review Management Services",
+      "subtitle": "Build 4.8★+ customer trust on Amazon, Flipkart, Meesho, Myntra, Blinkit & Shopify. We accelerate verified buyer reviews, remove policy-violating negative feedback, and skyrocket sales conversion rates.",
+      "heroImage": "/home-img/Amazon-product-listing-optimization.webp",
+      "aboutImage": "/flipkart-account/product-dashboard.png",
+      "aboutTitle": "Turn Customer Reviews Into Your Biggest Sales Multiplier",
+      "aboutDesc": "Over 93% of online shoppers read customer reviews before making a purchase. A single 1-star review can drop listing conversions by up to 35%. EcomVanta provides 100% policy-compliant rating and review management services for Amazon, Flipkart, Meesho, Blinkit, and Quick Commerce brands to safeguard your brand reputation and establish category leadership.",
+      "servicesGrid": [
+        {
+          "icon": "/brand-img/customer-service.png",
+          "title": "Amazon Vine & Review Acceleration",
+          "desc": "Compliant review generation via Amazon Vine, automated \"Request a Review\" integrations, and post-purchase follow-up systems that multiply positive feedback."
+        },
+        {
+          "icon": "/brand-img/policy.png",
+          "title": "Flipkart Ratings & Buyer Feedback",
+          "desc": "Accelerating verified buyer reviews and improving Listing Quality Score (LQS) to maintain Gold/Diamond seller tier badges."
+        },
+        {
+          "icon": "/brand-img/inventory-management.png",
+          "title": "Blinkit, Zepto & Quick Commerce Reviews",
+          "desc": "Real-time rating monitoring on dark store platforms to maintain 4.5+ star product reputation and rapid impulse reorders."
+        },
+        {
+          "icon": "/brand-img/report.png",
+          "title": "Negative Review Suppression & Removal",
+          "desc": "Proactive escalation and removal of policy-violating reviews, competitor sabotage, fake claims, and delivery/fulfillment complaints (FBA/FBF strike-throughs)."
+        },
+        {
+          "icon": "/brand-img/dashboard.png",
+          "title": "Voice of Customer (VOC) Analytics",
+          "desc": "In-depth sentiment analysis and return reason diagnostics to fix root-cause packaging, size, or quality issues before they harm your rating."
+        },
+        {
+          "icon": "/brand-img/bullhorn.png",
+          "title": "Competitor Review Reverse Engineering",
+          "desc": "Auditing top competitor complaints and negative reviews to highlight winning product USPs and comparison tables in your A+ content."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "100% Marketplace TOS Compliant",
+          "desc": "Zero black-hat techniques. All review acquisition strategies strictly adhere to Amazon Anti-Manipulation Policy and marketplace guidelines."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "Proven Conversion Rate Multiplier",
+          "desc": "Increasing your listing rating from 3.8★ to 4.5★+ increases organic conversion rate by up to 120% and lowers your ad ACOS."
+        },
+        {
+          "icon": "/css/Active issue resolution (2).png",
+          "title": "Rapid Review Escalation & Support",
+          "desc": "Dedicated account managers monitoring your product ratings 24/7 with swift case logging for unfair or malicious negative feedback."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do you generate reviews legally on Amazon and Flipkart?",
+          "answer": "We utilize 100% compliant official programs including Amazon Vine, the automated Request a Review API, Flipkart Post-Delivery Feedback workflows, and high-converting product inserts that encourage authentic buyer feedback without incentivization or TOS violations."
+        },
+        {
+          "question": "Can negative reviews be removed from Amazon or Flipkart?",
+          "answer": "Yes, if a negative review violates marketplace community guidelines (e.g., contains vulgarity, mentions competitor names, discusses FBA delivery issues rather than the product, or constitutes abusive competitor sabotage), we raise official policy tickets for complete removal or strike-through."
+        },
+        {
+          "question": "What marketplaces do you support for review management?",
+          "answer": "We provide review and rating management across Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, Swiggy Instamart, Nykaa, and D2C brand websites (Shopify/WooCommerce)."
+        },
+        {
+          "question": "How does improved product rating impact Amazon PPC advertising?",
+          "answer": "Higher star ratings and positive review counts drastically improve your ad Click-Through Rate (CTR) and Conversion Rate (CVR). This results in lower cost-per-click (CPC), reduced ACOS, and higher ROAS on all your sponsored ad campaigns."
+        }
+      ]
+    },
     "whatsapp-integration-services": {
       "slug": "whatsapp-integration-services",
       "badge": "Meta Official WhatsApp Business API Partner",
@@ -938,8 +1027,137 @@
         }
       ]
     },
+    "whatsapp-integration": {
+      "slug": "whatsapp-integration",
+      "badge": "Meta Official WhatsApp Business API Partner",
+      "title": "WhatsApp Integration & Business API Automation",
+      "subtitle": "Connect WhatsApp Business API with Shopify, WooCommerce, CRM & ERP. Automate order updates, abandoned cart recovery, AI chatbots, catalog checkout, and 24/7 customer support.",
+      "heroImage": "/home-img/whatsapp-icon-arvian.webp",
+      "aboutImage": "/home-img/content-marketing.webp",
+      "aboutTitle": "Scale Direct-to-Consumer Conversions With WhatsApp Automation",
+      "aboutDesc": "With over 500M+ active WhatsApp users in India and an unprecedented 98% message open rate, WhatsApp is the most powerful revenue channel for modern e-commerce brands. EcomVanta helps brands integrate official Meta WhatsApp Cloud API, configure automated sales flows, recover lost carts, and automate 24/7 customer support.",
+      "servicesGrid": [
+        {
+          "icon": "/brand-img/policy.png",
+          "title": "Official Cloud API & Green Tick Verification",
+          "desc": "End-to-end Meta Business Manager verification, official WhatsApp Cloud API provisioning, and Green Tick verified badge application."
+        },
+        {
+          "icon": "/brand-img/inventory-management.png",
+          "title": "E-commerce & CRM Integration",
+          "desc": "Seamless zero-code and custom API integration with Shopify, WooCommerce, Magento, Custom Web, Zoho, LeadSquared, and ERPs."
+        },
+        {
+          "icon": "/brand-img/bullhorn.png",
+          "title": "Automated Abandoned Cart Recovery",
+          "desc": "Trigger personalized discount messages with 1-click checkout links within 15 minutes of checkout abandonment to recover 25-40% lost sales."
+        },
+        {
+          "icon": "/brand-img/customer-service.png",
+          "title": "Instant Order & Logistics Alerts",
+          "desc": "Automated transactional notifications for order confirmations, live shipment tracking links, NDR (Non-Delivery Report) address re-confirmation, and COD verification."
+        },
+        {
+          "icon": "/brand-img/report.png",
+          "title": "AI Chatbots & Live Agent Routing",
+          "desc": "Intelligent conversational AI bots to handle FAQs, return/exchange requests, sizing guides, and smooth handover to human support agents."
+        },
+        {
+          "icon": "/brand-img/dashboard.png",
+          "title": "WhatsApp Catalog & Interactive Checkout",
+          "desc": "Native in-chat product showcases, quick-reply carousels, payment gateway links (UPI/Razorpay), and frictionless re-ordering."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "98% Open Rate & Instant Engagement",
+          "desc": "Reach customers where they spend the most time with 5X higher response rates than traditional email and SMS."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "35%+ Cart Recovery Multiplier",
+          "desc": "Proven automated recovery sequences that turn dropped checkouts into high-margin paid orders on autopilot."
+        },
+        {
+          "icon": "/css/Active issue resolution (2).png",
+          "title": "100% Meta Compliance & Anti-Spam Protection",
+          "desc": "Strict adherence to Meta quality rating guidelines to protect your business phone number from bans and rate limiting."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the WhatsApp Business API and how does it differ from regular WhatsApp Business app?",
+          "answer": "WhatsApp Business API is designed for growing and medium-to-large businesses. It allows unlimited team members to chat from one number, integrates directly with your Shopify/eCommerce store, enables automated notifications (order updates, abandoned carts), broadcasts promotional campaigns to thousands of opt-in users, and provides AI chatbot capabilities."
+        },
+        {
+          "question": "Can you help get the Official WhatsApp Green Tick badge?",
+          "answer": "Yes, we assist eligible brands with Meta Business Manager verification, notable brand press coverage submission, and the official Green Tick verification process."
+        }
+      ]
+    },
     "sms-voice-call-whatsapp-marketing-services": {
       "slug": "sms-voice-call-whatsapp-marketing-services",
+      "badge": "Omnichannel Direct Outreach & Performance Marketing",
+      "title": "SMS, Voice Call & WhatsApp Marketing Services",
+      "subtitle": "Scale high-ROI omnichannel customer acquisition and retention. Deploy promotional Bulk SMS, automated OBD voice calls, interactive IVR broadcasts, and hyper-targeted WhatsApp marketing campaigns.",
+      "heroImage": "/home-img/content-marketing.webp",
+      "aboutImage": "/home-img/Amazon-account-management.webp",
+      "aboutTitle": "Reach Millions of Shoppers Directly on Their Mobile Devices",
+      "aboutDesc": "Email alone is no longer enough to scale modern brands. Combining Bulk SMS, Automated Outbound Voice Calls (OBD/IVR), and WhatsApp Marketing creates a powerful 360-degree outreach strategy that maximizes festival sale revenue, re-engages dormant customers, and slashes customer acquisition cost (CAC).",
+      "servicesGrid": [
+        {
+          "icon": "/brand-img/bullhorn.png",
+          "title": "Promotional & Transactional Bulk SMS",
+          "desc": "High-throughput DLT-approved SMS gateways with 99.9% delivery rate, dynamic name personalization, URL shorteners, and click tracking."
+        },
+        {
+          "icon": "/brand-img/customer-service.png",
+          "title": "Voice Broadcasting & OBD Calling",
+          "desc": "Automated high-volume recorded voice broadcasts for flash sale announcements, festival discounts, event invitations, and VIP customer alerts."
+        },
+        {
+          "icon": "/brand-img/policy.png",
+          "title": "Interactive IVR & Lead Qualification",
+          "desc": "Smart press-1 key input voice campaigns to instantly qualify prospective wholesale buyers, bulk order leads, and direct calls to your sales team."
+        },
+        {
+          "icon": "/brand-img/dashboard.png",
+          "title": "Targeted WhatsApp Broadcast Blasts",
+          "desc": "Rich media WhatsApp campaigns with image banners, videos, CTA buttons, and discount promo codes with instant 98% open rates."
+        },
+        {
+          "icon": "/brand-img/report.png",
+          "title": "Audience Segmentation & RFM Clustering",
+          "desc": "Segment customer lists based on Recency, Frequency, and Monetary value (RFM) to deliver the right message at the right purchase cycle."
+        },
+        {
+          "icon": "/brand-img/inventory-management.png",
+          "title": "DLT Registration & Regulatory Compliance",
+          "desc": "Complete assistance with TRAI DLT portal registration, header/sender ID whitelisting, and template approval with zero compliance bottlenecks."
+        }
+      ],
+      "advantages": [
+        {
+          "icon": "/css/Special expertise (2).png",
+          "title": "10X Higher Response Rate",
+          "desc": "Mobile-first messaging yields up to 45% click-through and interaction rates compared to traditional channels."
+        },
+        {
+          "icon": "/css/Increase in sales performance (2).png",
+          "title": "Instant Multi-Channel Delivery",
+          "desc": "Transmit up to 100,000+ messages and voice calls per minute during peak festival flash sales and product launches."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is TRAI DLT registration and is it required for SMS marketing in India?",
+          "answer": "Yes, as per TRAI regulations in India, every business sending commercial SMS must register their entity, sender IDs (headers), and SMS content templates on an authorized DLT portal. EcomVanta handles the full DLT registration for you."
+        }
+      ]
+    },
+    "marketing-whatsapp-sms-voice": {
+      "slug": "marketing-whatsapp-sms-voice",
       "badge": "Omnichannel Direct Outreach & Performance Marketing",
       "title": "SMS, Voice Call & WhatsApp Marketing Services",
       "subtitle": "Scale high-ROI omnichannel customer acquisition and retention. Deploy promotional Bulk SMS, automated OBD voice calls, interactive IVR broadcasts, and hyper-targeted WhatsApp marketing campaigns.",
@@ -1387,72 +1605,1035 @@
       "slug": "ecommerce-account-management",
       "title": "eCommerce Account Management: What Does an Account Manager Actually Do?",
       "category": "eCommerce",
-      "image": "/arvian-blogs.jpeg",
+      "image": "/blog/images/ecom-into.png",
+      "imageAlt": "eCommerce Account Management workflow and seller dashboard",
+      "imageTitle": "eCommerce Account Management by EcomVanta",
+      "imageCaption": "End-to-end marketplace account management drives sustained GMV growth across Amazon, Flipkart, and Blinkit.",
       "author": "Arvind Ajmera",
+      "authorRole": "Senior Marketplace Strategist",
       "date": "August 31, 2026",
+      "publishedAt": "2026-08-31T10:00:00.000Z",
+      "updatedAt": "2026-09-15T12:00:00.000Z",
+      "status": "published",
+      "featured": true,
+      "showToc": true,
+      "tags": [
+        "eCommerce Account Management",
+        "Amazon Seller Central",
+        "Flipkart Growth",
+        "Buy Box Strategy"
+      ],
+      "relatedSlugs": [
+        "amazon-selling-mistakes-that-reduce-sales-and-profits",
+        "how-to-sell-on-myntra-seller-onboarding-guide"
+      ],
       "excerpt": "Discover the exact responsibilities of a professional eCommerce account manager and how they multiply your marketplace sales.",
+      "customIntro": "Scaling a consumer brand across Indian marketplaces requires daily algorithmic monitoring, catalog SEO, and profitable PPC advertising.",
       "content": "Full end-to-end marketplace management involves product cataloging, listing optimization, price strategy, Buy Box monitoring, ad campaign management, stock planning, and daily customer sentiment tracking.",
-      "link": "/blogs"
+      "link": "/blogs/ecommerce-account-management",
+      "seo": {
+        "focusKeyword": "eCommerce Account Management",
+        "secondaryKeywords": [
+          "Marketplace Account Manager",
+          "Amazon Seller Management",
+          "Flipkart Account Handling"
+        ],
+        "seoTitle": "eCommerce Account Management: What Does an Account Manager Do? | EcomVanta",
+        "metaDescription": "Discover the exact responsibilities of a professional eCommerce account manager and how they multiply your marketplace sales on Amazon, Flipkart & Blinkit.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs/ecommerce-account-management",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blog/images/ecom-into.png",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blog/images/ecom-into.png",
+        "breadcrumbTitle": "eCommerce Account Management Guide",
+        "schemaType": "BlogPosting",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      }
     },
     {
       "id": "2",
       "slug": "how-to-sell-on-ajio-seller-registration-guide",
       "title": "How to Sell on AJIO: Complete Seller Registration and Account Setup Guide",
       "category": "Ajio",
-      "image": "/header-img/Ajio logo.png",
+      "image": "/blog/images/ajio-into.png",
+      "imageAlt": "How to Sell on AJIO Seller Registration Guide",
+      "imageTitle": "AJIO Seller Onboarding & Registration Guide",
       "author": "Arvind Ajmera",
+      "authorRole": "Fashion Marketplace Consultant",
       "date": "August 22, 2026",
+      "publishedAt": "2026-08-22T10:00:00.000Z",
+      "updatedAt": "2026-09-10T10:00:00.000Z",
+      "status": "published",
+      "showToc": true,
+      "tags": [
+        "AJIO Seller Registration",
+        "Fashion eCommerce",
+        "Reliance Retail",
+        "Apparel Onboarding"
+      ],
+      "relatedSlugs": [
+        "how-to-sell-on-myntra-seller-onboarding-guide",
+        "ecommerce-account-management"
+      ],
       "excerpt": "Step-by-step tutorial on registering as a brand partner on AJIO, listing catalog products, and scaling fashion sales.",
       "content": "AJIO is one of Reliance Retail’s premier digital platforms with strict catalog standards. Learn how to onboard smoothly with brand authorization, trademark certificates, and high-resolution lookbooks.",
-      "link": "/blogs"
+      "link": "/blogs/how-to-sell-on-ajio-seller-registration-guide",
+      "seo": {
+        "focusKeyword": "How to Sell on AJIO",
+        "secondaryKeywords": [
+          "AJIO Seller Registration",
+          "AJIO Onboarding Guide",
+          "Sell Fashion on AJIO"
+        ],
+        "seoTitle": "How to Sell on AJIO: Complete Seller Registration & Setup Guide | EcomVanta",
+        "metaDescription": "Step-by-step tutorial on how to sell on AJIO. Learn the required documents, brand approval workflow, catalog standards, and strategies to scale fashion sales.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs/how-to-sell-on-ajio-seller-registration-guide",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blog/images/ajio-into.png",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blog/images/ajio-into.png",
+        "breadcrumbTitle": "How to Sell on AJIO",
+        "schemaType": "BlogPosting",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      }
     },
     {
       "id": "3",
       "slug": "how-to-sell-on-myntra-seller-onboarding-guide",
       "title": "How to Sell on Myntra: Seller Onboarding Guide 2026",
       "category": "Myntra",
-      "image": "/myntra-logo.webp",
+      "image": "/blog/images/Become a Myntra Seller.jpeg",
+      "imageAlt": "How to Sell on Myntra Seller Onboarding Guide 2026",
+      "imageTitle": "Myntra Seller Onboarding Guide 2026",
       "author": "Arvind Ajmera",
+      "authorRole": "Fashion Marketplace Consultant",
       "date": "August 11, 2026",
+      "publishedAt": "2026-08-11T10:00:00.000Z",
+      "updatedAt": "2026-09-05T10:00:00.000Z",
+      "status": "published",
+      "showToc": true,
+      "tags": [
+        "Myntra Seller Onboarding",
+        "Sell on Myntra",
+        "Fashion Marketplace",
+        "EORS Sale"
+      ],
+      "relatedSlugs": [
+        "how-to-sell-on-ajio-seller-registration-guide",
+        "ecommerce-account-management"
+      ],
       "excerpt": "Complete walkthrough of getting your apparel or lifestyle brand listed on Myntra Seller Portal in 2026.",
       "content": "Myntra provides unprecedented brand prestige in fashion & lifestyle. Here are the core documents, style tag formats, and EORS sale participation guidelines to get approved.",
-      "link": "/blogs"
+      "link": "/blogs/how-to-sell-on-myntra-seller-onboarding-guide",
+      "seo": {
+        "focusKeyword": "How to Sell on Myntra",
+        "secondaryKeywords": [
+          "Myntra Seller Onboarding",
+          "Myntra Partner Registration",
+          "Sell Apparel on Myntra"
+        ],
+        "seoTitle": "How to Sell on Myntra: Complete Seller Onboarding Guide 2026 | EcomVanta",
+        "metaDescription": "Complete walkthrough on how to sell on Myntra in 2026. Learn eligibility criteria, required documents, style cataloging, and EORS growth strategies.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs/how-to-sell-on-myntra-seller-onboarding-guide",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blog/images/Become a Myntra Seller.jpeg",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blog/images/Become a Myntra Seller.jpeg",
+        "breadcrumbTitle": "How to Sell on Myntra",
+        "schemaType": "BlogPosting",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      }
     },
     {
       "id": "4",
       "slug": "amazon-selling-mistakes-that-reduce-sales-and-profits",
       "title": "10 Amazon Selling Mistakes That Reduce Sales and Profits",
       "category": "Amazon",
-      "image": "/images/images/amazon-logo.webp",
+      "image": "/blogs-img/10 Amazon Selling Mistakes That Reduce Sales and Profits.webp",
+      "imageAlt": "10 Amazon Selling Mistakes That Reduce Sales and Profits",
+      "imageTitle": "Top 10 Amazon Selling Mistakes to Avoid",
       "author": "Arvind Ajmera",
+      "authorRole": "Amazon Growth Specialist",
       "date": "July 23, 2026",
+      "publishedAt": "2026-07-23T10:00:00.000Z",
+      "updatedAt": "2026-09-01T10:00:00.000Z",
+      "status": "published",
+      "showToc": true,
+      "tags": [
+        "Amazon Selling Mistakes",
+        "Amazon PPC",
+        "Amazon FBA",
+        "Listing Optimization"
+      ],
+      "relatedSlugs": [
+        "ecommerce-account-management",
+        "blinkit-seller-onboarding-guide"
+      ],
       "excerpt": "Avoid these critical mistakes in keyword targeting, FBA inventory limits, Buy Box pricing, and PPC bidding.",
       "content": "From ignoring negative keywords to poor infographic design and stockouts, learn the top 10 pitfalls costing sellers thousands in lost revenue.",
-      "link": "/blogs"
+      "link": "/blogs/amazon-selling-mistakes-that-reduce-sales-and-profits",
+      "seo": {
+        "focusKeyword": "Amazon Selling Mistakes",
+        "secondaryKeywords": [
+          "Amazon Seller Tips",
+          "Reduce Amazon ACOS",
+          "Amazon FBA Optimization"
+        ],
+        "seoTitle": "10 Amazon Selling Mistakes That Reduce Sales and Profits | EcomVanta",
+        "metaDescription": "Avoid these 10 costly Amazon selling mistakes in keyword targeting, FBA stock planning, Buy Box pricing, and Sponsored Ads PPC bidding.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs/amazon-selling-mistakes-that-reduce-sales-and-profits",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/10 Amazon Selling Mistakes That Reduce Sales and Profits.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/10 Amazon Selling Mistakes That Reduce Sales and Profits.webp",
+        "breadcrumbTitle": "10 Amazon Selling Mistakes",
+        "schemaType": "BlogPosting",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      }
     },
     {
       "id": "5",
       "slug": "blinkit-seller-onboarding-guide",
       "title": "Blinkit Seller Onboarding Guide: How to Sell on Blinkit Successfully",
       "category": "Blinkit Seller",
-      "image": "/header-img/Blinkit-logo.svg",
+      "image": "/blogs-img/Blinkit Seller Onboarding Guide (2026) How to Sell on Blinkit Successfully.webp",
+      "imageAlt": "Blinkit Seller Onboarding Guide - Sell on Quick Commerce",
+      "imageTitle": "Blinkit Seller Onboarding Guide",
       "author": "Arvind Ajmera",
+      "authorRole": "Quick Commerce Lead",
       "date": "July 10, 2026",
+      "publishedAt": "2026-07-10T10:00:00.000Z",
+      "updatedAt": "2026-08-25T10:00:00.000Z",
+      "status": "published",
+      "showToc": true,
+      "tags": [
+        "Blinkit Seller Onboarding",
+        "Quick Commerce India",
+        "Dark Store Listing",
+        "Sell on Blinkit"
+      ],
+      "relatedSlugs": [
+        "zepto-seller-registration-guide",
+        "ecommerce-account-management"
+      ],
       "excerpt": "Quick Commerce is exploding in India. Learn how to list your products in Blinkit dark stores across major metros.",
       "content": "Discover the requirements for FSSAI licenses, GST state registrations, micro-warehouse inventory dispatch, and sponsored banner advertising on Blinkit.",
-      "link": "/blogs"
+      "link": "/blogs/blinkit-seller-onboarding-guide",
+      "seo": {
+        "focusKeyword": "Blinkit Seller Onboarding Guide",
+        "secondaryKeywords": [
+          "How to Sell on Blinkit",
+          "Blinkit Dark Store Registration",
+          "Quick Commerce Onboarding"
+        ],
+        "seoTitle": "Blinkit Seller Onboarding Guide: How to Sell on Blinkit (2026) | EcomVanta",
+        "metaDescription": "Learn how to sell on Blinkit with our step-by-step Blinkit Seller Onboarding Guide. Discover GST, FSSAI, barcode, and dark store PO management rules.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs/blinkit-seller-onboarding-guide",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/Blinkit Seller Onboarding Guide (2026) How to Sell on Blinkit Successfully.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/Blinkit Seller Onboarding Guide (2026) How to Sell on Blinkit Successfully.webp",
+        "breadcrumbTitle": "Blinkit Seller Onboarding Guide",
+        "schemaType": "BlogPosting",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      }
     },
     {
       "id": "6",
       "slug": "zepto-seller-registration-guide",
       "title": "How to Sell on Zepto: Complete Zepto Seller Registration Guide",
       "category": "Zepto Seller",
-      "image": "/header-img/zepto-logo.webp",
+      "image": "/blogs-img/How to Sell on Zepto in 2026- Complete Zepto Seller Registration Guide3.webp",
+      "imageAlt": "Zepto Seller Registration Guide for 10-Minute Delivery Brands",
+      "imageTitle": "Zepto Seller Registration Guide",
       "author": "Arvind Ajmera",
+      "authorRole": "Quick Commerce Lead",
       "date": "June 20, 2026",
+      "publishedAt": "2026-06-20T10:00:00.000Z",
+      "updatedAt": "2026-08-18T10:00:00.000Z",
+      "status": "published",
+      "showToc": true,
+      "tags": [
+        "Zepto Seller Registration",
+        "Quick Commerce",
+        "10 Minute Delivery",
+        "D2C FMCG"
+      ],
+      "relatedSlugs": [
+        "blinkit-seller-onboarding-guide",
+        "ecommerce-account-management"
+      ],
       "excerpt": "Detailed process for D2C FMCG and grocery brands to partner with Zepto for 10-minute delivery.",
       "content": "Zepto seller onboarding requires active inventory allocation and regional pricing sync. Explore our step-by-step guidance on maximizing dark store sales.",
-      "link": "/blogs"
+      "link": "/blogs/zepto-seller-registration-guide",
+      "seo": {
+        "focusKeyword": "Zepto Seller Registration",
+        "secondaryKeywords": [
+          "How to Sell on Zepto",
+          "Zepto Vendor Onboarding",
+          "Quick Commerce India"
+        ],
+        "seoTitle": "How to Sell on Zepto: Complete Zepto Seller Registration Guide | EcomVanta",
+        "metaDescription": "Detailed guide to Zepto Seller Registration for D2C FMCG, beauty, and grocery brands. Learn vendor onboarding, margin setup, and dark store PO fulfillment.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs/zepto-seller-registration-guide",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/How to Sell on Zepto in 2026- Complete Zepto Seller Registration Guide3.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/How to Sell on Zepto in 2026- Complete Zepto Seller Registration Guide3.webp",
+        "breadcrumbTitle": "Zepto Seller Registration Guide",
+        "schemaType": "BlogPosting",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      }
+    },
+    {
+      "id": "7",
+      "slug": "top-20-best-selling-products-on-ecommerce-marketplaces-during-rakhi",
+      "title": "Top 20 Best-Selling Products on eCommerce Marketplaces During Rakhi in India",
+      "category": "Sell Online",
+      "image": "/blog/images/new-blogimag.jpg",
+      "imageAlt": "Top 20 Best-Selling Products on eCommerce Marketplaces During Rakhi in India",
+      "author": "Arvind Ajmera",
+      "date": "August 04, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Discover the highest-converting festive gift hampers, ethnic wear, dry fruits, and personal care categories during the Rakhi marketplace surge.",
+      "content": "<h2>Festive Season Demand Across Indian Marketplaces</h2><p>Festive seasons starting with Raksha Bandhan trigger massive volume spikes across <a href=\"/amazon-seller-account-management-services\">Amazon</a>, <a href=\"/flipkart-account-management-services\">Flipkart</a>, <a href=\"/blinkit-seller-account-management-services\">Blinkit</a>, and <a href=\"/zepto-seller-onboarding-and-account-management-service\">Zepto</a>. Preparing your FBA and dark store inventory 45 days in advance ensures maximum Buy Box share.</p>",
+      "link": "/blogs/top-20-best-selling-products-on-ecommerce-marketplaces-during-rakhi",
+      "imageTitle": "Top 20 Best-Selling Products on eCommerce Marketplaces During Rakhi in India",
+      "tags": [
+        "Sell Online"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blog/images/new-blogimag.jpg",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blog/images/new-blogimag.jpg",
+        "breadcrumbTitle": "Top 20 Best-Selling Products on eCommerce Marketplaces During Rakhi in India",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "8",
+      "slug": "how-to-sell-online-in-india-step-by-step-guide-for-beginners",
+      "title": "How to Sell Online in India: Step-by-Step Guide for Beginners",
+      "category": "Sell Online",
+      "image": "/blogs-img/How to Sell Online in India- Step-by-Step Guide for Beginners1.png",
+      "imageAlt": "How to Sell Online in India Step-by-Step Guide for Beginners",
+      "author": "Arvind Ajmera",
+      "date": "June 18, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Complete beginner roadmap to launching your e-commerce brand in India—from GST registration and trademarking to multi-marketplace onboarding.",
+      "content": "<h2>Launching Your Online Brand in India</h2><p>Learning <strong>How to Sell Online in India</strong> starts with choosing the right marketplace mix—combining <a href=\"/amazon-seller-account-management-services\">Amazon India</a>, <a href=\"/flipkart-account-management-services\">Flipkart</a>, <a href=\"/meesho-account-management-services\">Meesho</a>, and your own <a href=\"/shopify-store-management-services\">Shopify D2C Store</a>.</p>",
+      "link": "/blogs/how-to-sell-online-in-india-step-by-step-guide-for-beginners",
+      "imageTitle": "How to Sell Online in India: Step-by-Step Guide for Beginners",
+      "tags": [
+        "Sell Online"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/How to Sell Online in India- Step-by-Step Guide for Beginners1.png",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/How to Sell Online in India- Step-by-Step Guide for Beginners1.png",
+        "breadcrumbTitle": "How to Sell Online in India: Step-by-Step Guide for Beginners",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "9",
+      "slug": "how-to-solve-flipkart-seller-account-suspension-issues",
+      "title": "How to Solve Flipkart Seller Account Suspension Issues",
+      "category": "Flipkart",
+      "image": "/blogs-img/How to Solve Flipkart Seller Account Suspension Issues.webp",
+      "imageAlt": "How to Solve Flipkart Seller Account Suspension Issues",
+      "author": "Arvind Ajmera",
+      "date": "June 17, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Step-by-step Plan of Action (POA) guide to appealing and reinstating suspended or on-hold Flipkart Seller Hub accounts.",
+      "content": "<h2>Reinstating a Suspended Flipkart Seller Account</h2><p>If your Flipkart seller portal is on hold due to seller cancellations, RTD breaches, or brand infringement notices, our <a href=\"/flipkart-account-management-services\">Flipkart Account Management Services</a> team drafts compliant root-cause Plans of Action (POA) for rapid reactivation.</p>",
+      "link": "/blogs/how-to-solve-flipkart-seller-account-suspension-issues",
+      "imageTitle": "How to Solve Flipkart Seller Account Suspension Issues",
+      "tags": [
+        "Flipkart"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/How to Solve Flipkart Seller Account Suspension Issues.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/How to Solve Flipkart Seller Account Suspension Issues.webp",
+        "breadcrumbTitle": "How to Solve Flipkart Seller Account Suspension Issues",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "10",
+      "slug": "how-to-list-products-on-flipkart-seller-central-2026",
+      "title": "How to List Products on Flipkart Seller Central 2026",
+      "category": "Flipkart",
+      "image": "/blogs-img/How to List Products on Flipkart Seller Central.webp",
+      "imageAlt": "How to List Products on Flipkart Seller Central 2026",
+      "author": "Arvind Ajmera",
+      "date": "May 28, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Master single and bulk Excel catalog uploads, Listing Quality Score (LQS) rules, and image guidelines on Flipkart Seller Hub.",
+      "content": "<h2>Optimizing Flipkart Product Listings for Higher Visibility</h2><p>High Listing Quality Scores (LQS) directly boost organic impressions on Flipkart. Explore our <a href=\"/flipkart-catalogue-product-listing-services\">Flipkart Catalogue &amp; Product Listing Services</a> to scale your catalog effortlessly.</p>",
+      "link": "/blogs/how-to-list-products-on-flipkart-seller-central-2026",
+      "imageTitle": "How to List Products on Flipkart Seller Central 2026",
+      "tags": [
+        "Flipkart"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/How to List Products on Flipkart Seller Central.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/How to List Products on Flipkart Seller Central.webp",
+        "breadcrumbTitle": "How to List Products on Flipkart Seller Central 2026",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "11",
+      "slug": "how-to-create-a-flipkart-seller-account-in-2026",
+      "title": "How to Create a Flipkart Seller Account in 2026 | Step-by-Step Guide",
+      "category": "Flipkart",
+      "image": "/blogs-img/How to Create a Flipkart Seller Account in 2026 Step-by-Step 1.png",
+      "imageAlt": "How to Create a Flipkart Seller Account in 2026 Step-by-Step Guide",
+      "author": "Arvind Ajmera",
+      "date": "May 25, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Everything you need to register on Flipkart Seller Hub: GSTIN, bank verification, pickup pin code setup, and brand approval.",
+      "content": "<h2>Flipkart Seller Registration Walkthrough</h2><p>Starting on Flipkart takes less than 48 hours when your GSTIN, trademark authorization, and pickup address are properly configured. Partner with our <a href=\"/flipkart-account-management-services\">Flipkart Account Management</a> specialists for turnkey onboarding.</p>",
+      "link": "/blogs/how-to-create-a-flipkart-seller-account-in-2026",
+      "imageTitle": "How to Create a Flipkart Seller Account in 2026 | Step-by-Step Guide",
+      "tags": [
+        "Flipkart"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/How to Create a Flipkart Seller Account in 2026 Step-by-Step 1.png",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/How to Create a Flipkart Seller Account in 2026 Step-by-Step 1.png",
+        "breadcrumbTitle": "How to Create a Flipkart Seller Account in 2026 | Step-by-Step Guide",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "12",
+      "slug": "complete-guide-on-how-to-sell-products-online-on-meesho",
+      "title": "A Complete Guide on How to Sell Products Online on Meesho",
+      "category": "Meesho",
+      "image": "/images/A Complete Guide on How to Sell Products Online on Meesho in 2026.webp",
+      "imageAlt": "A Complete Guide on How to Sell Products Online on Meesho",
+      "author": "Arvind Ajmera",
+      "date": "April 08, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Leverage Meesho’s 0% commission model to scale high-volume value fashion, home utility, and lifestyle products across Tier 2 & 3 India.",
+      "content": "<h2>Scaling High-Volume Orders on Meesho</h2><p>Meesho's zero-commission structure allows manufacturers and D2C brands to price competitively. Learn how our <a href=\"/meesho-account-management-services\">Meesho Account Management Services</a> optimize Next-Day Dispatch (NDD) and Meesho Ads.</p>",
+      "link": "/blogs/complete-guide-on-how-to-sell-products-online-on-meesho",
+      "imageTitle": "A Complete Guide on How to Sell Products Online on Meesho",
+      "tags": [
+        "Meesho"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/A Complete Guide on How to Sell Products Online on Meesho in 2026.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/A Complete Guide on How to Sell Products Online on Meesho in 2026.webp",
+        "breadcrumbTitle": "A Complete Guide on How to Sell Products Online on Meesho",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "13",
+      "slug": "understanding-acos-tacos-and-roas-for-amazon-advertising",
+      "title": "Understanding ACoS, TACoS & ROAS for Amazon Advertising",
+      "category": "Amazon",
+      "image": "/images/Understanding ACoS, TACoS & ROAS for Amazon Advertising.webp",
+      "imageAlt": "Understanding ACoS, TACoS & ROAS for Amazon Advertising",
+      "author": "Arvind Ajmera",
+      "date": "Feb 23, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Master the three most important marketplace advertising metrics—ACoS, TACoS, and ROAS—to scale profitable Amazon PPC campaigns.",
+      "content": "<h2>ACoS vs. TACoS vs. ROAS Explained</h2><p>Tracking Advertising Cost of Sales (ACoS) alongside Total Advertising Cost of Sales (TACoS) ensures your <a href=\"/amazon-advertising-ppc-management\">Amazon PPC campaigns</a> build long-term organic velocity.</p>",
+      "link": "/blogs/understanding-acos-tacos-and-roas-for-amazon-advertising",
+      "imageTitle": "Understanding ACoS, TACoS & ROAS for Amazon Advertising",
+      "tags": [
+        "Amazon"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/Understanding ACoS, TACoS & ROAS for Amazon Advertising.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/Understanding ACoS, TACoS & ROAS for Amazon Advertising.webp",
+        "breadcrumbTitle": "Understanding ACoS, TACoS & ROAS for Amazon Advertising",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "14",
+      "slug": "essential-shopify-product-listing-optimization-for-maximum-visibility",
+      "title": "Essential Shopify Product Listing Optimization for Maximum Visibility",
+      "category": "Shopify",
+      "image": "/images/understanding-acos-tacos-and-roas-for-amazon-advertising.jpg",
+      "imageAlt": "Essential Shopify Product Listing Optimization for Maximum Visibility",
+      "author": "Arvind Ajmera",
+      "date": "Feb 12, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Optimize your Shopify D2C product pages for Google organic search, Core Web Vitals speed, and high checkout conversion rates.",
+      "content": "<h2>High-Converting Shopify Product Pages</h2><p>Combine structured product schema, fast WebP imagery, and persuasive copywriting with our <a href=\"/shopify-store-management-services\">Shopify Store Management Services</a>.</p>",
+      "link": "/blogs/essential-shopify-product-listing-optimization-for-maximum-visibility",
+      "imageTitle": "Essential Shopify Product Listing Optimization for Maximum Visibility",
+      "tags": [
+        "Shopify"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/understanding-acos-tacos-and-roas-for-amazon-advertising.jpg",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/understanding-acos-tacos-and-roas-for-amazon-advertising.jpg",
+        "breadcrumbTitle": "Essential Shopify Product Listing Optimization for Maximum Visibility",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "15",
+      "slug": "complete-guide-to-choosing-the-right-etsy-account-management-services",
+      "title": "Complete Guide to Choosing the Right Etsy Account Management Services",
+      "category": "Etsy",
+      "image": "/blogs-img/complete-guide-to-choosing-the-right-etsy-account-management-services.webp",
+      "imageAlt": "Complete Guide to Choosing the Right Etsy Account Management Services",
+      "author": "Arvind Ajmera",
+      "date": "January 27, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "How Indian handicrafts, jewelry, and vintage exporters can scale international sales on Etsy with professional account management.",
+      "content": "<h2>Selling Globally on Etsy from India</h2><p>Optimize your 13 Etsy listing tags, international shipping profiles, and Etsy Offsite Ads with <a href=\"/contact-us\">EcomVanta's global marketplace specialists</a>.</p>",
+      "link": "/blogs/complete-guide-to-choosing-the-right-etsy-account-management-services",
+      "imageTitle": "Complete Guide to Choosing the Right Etsy Account Management Services",
+      "tags": [
+        "Etsy"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/complete-guide-to-choosing-the-right-etsy-account-management-services.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/complete-guide-to-choosing-the-right-etsy-account-management-services.webp",
+        "breadcrumbTitle": "Complete Guide to Choosing the Right Etsy Account Management Services",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "16",
+      "slug": "top-10-essentials-for-high-converting-amazon-product-descriptions",
+      "title": "Top 10 Essentials for High-Converting Amazon Product Descriptions",
+      "category": "Amazon",
+      "image": "/images/how-to-write-high-converting-amazon-product-descriptions.php.webp",
+      "imageAlt": "Top 10 Essentials for High-Converting Amazon Product Descriptions",
+      "author": "Arvind Ajmera",
+      "date": "January 07, 2026",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Write benefit-driven Amazon bullet points, A+ Brand Story modules, and backend search terms that rank and convert.",
+      "content": "<h2>Crafting High-Converting Amazon Listings</h2><p>Our <a href=\"/amazon-product-listing-catalogue-services\">Amazon Product Listing &amp; Catalogue Services</a> combine high-volume keyword placement with persuasive buyer psychology.</p>",
+      "link": "/blogs/top-10-essentials-for-high-converting-amazon-product-descriptions",
+      "imageTitle": "Top 10 Essentials for High-Converting Amazon Product Descriptions",
+      "tags": [
+        "Amazon"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/how-to-write-high-converting-amazon-product-descriptions.php.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/how-to-write-high-converting-amazon-product-descriptions.php.webp",
+        "breadcrumbTitle": "Top 10 Essentials for High-Converting Amazon Product Descriptions",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "17",
+      "slug": "vendor-central-vs-seller-central-migration-when-to-move",
+      "title": "Vendor Central vs. Seller Central Migration: When to Move",
+      "category": "Amazon",
+      "image": "/images/Vendor Central vs. Seller Central Migration When to Move and How an Agency Manages the Transition.webp",
+      "imageAlt": "Vendor Central vs. Seller Central Migration: When to Move",
+      "author": "Arvind Ajmera",
+      "date": "November 24, 2025",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Compare 1P (Vendor Central) vs 3P (Seller Central) control, margins, and hybrid marketplace models on Amazon.",
+      "content": "<h2>1P Vendor Central vs. 3P Seller Central</h2><p>Transitioning from 1P to 3P gives brands full pricing control and faster catalog launches. Explore our <a href=\"/amazon-seller-account-management-services\">Amazon Account Management Services</a> for a zero-downtime migration.</p>",
+      "link": "/blogs/vendor-central-vs-seller-central-migration-when-to-move",
+      "imageTitle": "Vendor Central vs. Seller Central Migration: When to Move",
+      "tags": [
+        "Amazon"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/Vendor Central vs. Seller Central Migration When to Move and How an Agency Manages the Transition.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/Vendor Central vs. Seller Central Migration When to Move and How an Agency Manages the Transition.webp",
+        "breadcrumbTitle": "Vendor Central vs. Seller Central Migration: When to Move",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "18",
+      "slug": "master-amazon-promotions-coupons-deals-and-vouchers-explained",
+      "title": "Master Amazon Promotions: Coupons, Deals & Vouchers Explained",
+      "category": "Amazon",
+      "image": "/images/Master Amazon Promotions Coupons, Deals & Vouchers Explained.webp",
+      "imageAlt": "Master Amazon Promotions: Coupons, Deals & Vouchers Explained",
+      "author": "Arvind Ajmera",
+      "date": "November 24, 2025",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "When to use Lightning Deals, Prime Exclusive Discounts, and clippable Green Coupons to boost click-through and conversion rates.",
+      "content": "<h2>Maximizing Sales Velocity with Amazon Promotions</h2><p>Clippable coupons add an eye-catching badge in search results that lifts CTR by up to 25%. Learn how <a href=\"/amazon-seller-account-management-services\">EcomVanta</a> plans profitable promotional calendars.</p>",
+      "link": "/blogs/master-amazon-promotions-coupons-deals-and-vouchers-explained",
+      "imageTitle": "Master Amazon Promotions: Coupons, Deals & Vouchers Explained",
+      "tags": [
+        "Amazon"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/Master Amazon Promotions Coupons, Deals & Vouchers Explained.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/Master Amazon Promotions Coupons, Deals & Vouchers Explained.webp",
+        "breadcrumbTitle": "Master Amazon Promotions: Coupons, Deals & Vouchers Explained",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "19",
+      "slug": "how-to-optimise-amazon-ppc-campaigns-and-reduce-acos",
+      "title": "How to Optimise Amazon PPC Campaigns and Reduce ACoS",
+      "category": "Amazon",
+      "image": "/images/How to Optimise Amazon PPC Campaigns.webp",
+      "imageAlt": "How to Optimise Amazon PPC Campaigns and Reduce ACoS",
+      "author": "Arvind Ajmera",
+      "date": "November 13, 2025",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Proven bid optimization, negative keyword harvesting, and placement multiplier tactics to lower your Amazon ACoS.",
+      "content": "<h2>Proven Amazon PPC Optimization Framework</h2><p>Isolating high-converting search terms into Exact Match campaigns while negating bleeders is the core of our <a href=\"/amazon-advertising-ppc-management\">Amazon PPC Management</a> strategy.</p>",
+      "link": "/blogs/how-to-optimise-amazon-ppc-campaigns-and-reduce-acos",
+      "imageTitle": "How to Optimise Amazon PPC Campaigns and Reduce ACoS",
+      "tags": [
+        "Amazon"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/How to Optimise Amazon PPC Campaigns.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/How to Optimise Amazon PPC Campaigns.webp",
+        "breadcrumbTitle": "How to Optimise Amazon PPC Campaigns and Reduce ACoS",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "20",
+      "slug": "amazon-advertising-strategy-proven-tactics-to-maximize-roi",
+      "title": "Amazon Advertising Strategy: Proven Tactics to Maximize ROI",
+      "category": "Amazon",
+      "image": "/images/Amazon Advertising Strategy Proven Tactics to Maximize.webp",
+      "imageAlt": "Amazon Advertising Strategy: Proven Tactics to Maximize ROI",
+      "author": "Arvind Ajmera",
+      "date": "November 13, 2025",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Full-funnel Sponsored Products, Sponsored Brands Video, and Sponsored Display retargeting strategies for Indian brands.",
+      "content": "<h2>Full-Funnel Amazon Advertising</h2><p>Combine top-of-search Sponsored Products with defensive ASIN targeting to protect your product pages from competitors. See our <a href=\"/portfolio\">Client Case Studies</a> for verified ROAS proof.</p>",
+      "link": "/blogs/amazon-advertising-strategy-proven-tactics-to-maximize-roi",
+      "imageTitle": "Amazon Advertising Strategy: Proven Tactics to Maximize ROI",
+      "tags": [
+        "Amazon"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/images/Amazon Advertising Strategy Proven Tactics to Maximize.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/images/Amazon Advertising Strategy Proven Tactics to Maximize.webp",
+        "breadcrumbTitle": "Amazon Advertising Strategy: Proven Tactics to Maximize ROI",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "21",
+      "slug": "top-mistakes-sellers-make-when-managing-their-amazon-account",
+      "title": "Top Mistakes Sellers Make When Managing Their Amazon Account",
+      "category": "Amazon",
+      "image": "/blogs-img/Top Mistakes Sellers Make When Managing Their Amazon Account01.webp",
+      "imageAlt": "Top Mistakes Sellers Make When Managing Their Amazon Account",
+      "author": "Arvind Ajmera",
+      "date": "September 10, 2025",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "How to avoid account health warnings, late dispatch rate spikes, and Buy Box suppression on Amazon Seller Central.",
+      "content": "<h2>Protecting Your Amazon Account Health Rating</h2><p>Proactive SLA monitoring and automated inventory alerts prevent costly listing suppressions. Partner with <a href=\"/amazon-seller-account-management-services\">EcomVanta</a> for 360° account protection.</p>",
+      "link": "/blogs/top-mistakes-sellers-make-when-managing-their-amazon-account",
+      "imageTitle": "Top Mistakes Sellers Make When Managing Their Amazon Account",
+      "tags": [
+        "Amazon"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/Top Mistakes Sellers Make When Managing Their Amazon Account01.webp",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/Top Mistakes Sellers Make When Managing Their Amazon Account01.webp",
+        "breadcrumbTitle": "Top Mistakes Sellers Make When Managing Their Amazon Account",
+        "schemaType": "BlogPosting"
+      }
+    },
+    {
+      "id": "22",
+      "slug": "how-to-increase-sales-on-flipkart-tips-for-new-sellers",
+      "title": "How to Increase Sales on Flipkart: Tips for New Sellers",
+      "category": "Flipkart",
+      "image": "/blogs-img/How to Increase Sales on Flipkart Tips for New Sellers.png",
+      "imageAlt": "How to Increase Sales on Flipkart: Tips for New Sellers",
+      "author": "Arvind Ajmera",
+      "date": "August 27, 2025",
+      "status": "published",
+      "showToc": true,
+      "excerpt": "Actionable Flipkart growth tips: Flipkart Assured badge, Smart Fulfilment, PLA campaigns, and Big Billion Days spikes.",
+      "content": "<h2>Multiplying Your Flipkart Order Volume</h2><p>Enrolling in Flipkart Fulfilment (FA) and optimizing PLA ad campaigns are the fastest ways to unlock the F-Assured badge. Explore our <a href=\"/flipkart-account-management-services\">Flipkart Account Management Services</a>.</p>",
+      "link": "/blogs/how-to-increase-sales-on-flipkart-tips-for-new-sellers",
+      "imageTitle": "How to Increase Sales on Flipkart: Tips for New Sellers",
+      "tags": [
+        "Flipkart"
+      ],
+      "seo": {
+        "focusKeyword": "",
+        "secondaryKeywords": [],
+        "seoTitle": "",
+        "metaDescription": "",
+        "canonicalUrl": "",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "/blogs-img/How to Increase Sales on Flipkart Tips for New Sellers.png",
+        "ogType": "article",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "/blogs-img/How to Increase Sales on Flipkart Tips for New Sellers.png",
+        "breadcrumbTitle": "How to Increase Sales on Flipkart: Tips for New Sellers",
+        "schemaType": "BlogPosting"
+      }
     }
   ],
   "careers": [
@@ -1513,7 +2694,7 @@
       "📈 High-Growth Agency",
       "🎓 Continuous Learning & Upskilling"
     ],
-    "bannerImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp",
+    "bannerImage": "/uploads/ecomvanta-team.png",
     "whyJoinTitle": "Why Join EcomVanta?",
     "whyJoinDescription": "At EcomVanta, we believe our talent is our core engine. When you join EcomVanta, you become part of a merit-based culture focused on innovation, autonomy, and continuous growth.",
     "whyJoinPoints": [
@@ -1550,7 +2731,7 @@
   "aboutUs": {
     "heroTitle": "WHO WE ARE & WHAT WE DO",
     "heroSubtitle": "Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
-    "heroImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707303911_ChatGPT_Image_Sep_18__2026__10_24_51_AM.webp",
+    "heroImage": "/uploads/ecomvanta-team.png",
     "storyTitle": "Who We Are & What We Do",
     "storyDesc": "Whether you're just starting out or scaling up, we handle everything — from product listings to ad campaigns. EcomVanta provides complete end-to-end marketplace management helping brands sell smarter, grow faster, and stay stress-free in today's competitive e-commerce world.",
     "missionTitle": "Our Mission",
@@ -1561,13 +2742,13 @@
     "founderDesc": "When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.",
     "founderName": "Shivam Dubey",
     "founderTitle": "Founder & CEO, EcomVanta",
-    "founderImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp",
+    "founderImage": "/uploads/founder_ecomvanta.jpeg",
     "team": [
       {
         "id": "1",
         "name": "Shivam Dubey",
         "designation": "Director & Founder",
-        "image": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790428729318_pp.webp"
+        "image": "/uploads/founder_ecomvanta.jpeg"
       }
     ]
   },
@@ -1577,7 +2758,7 @@
     "heroSubtitle": "The driving force behind EcomVanta’s journey from a bootstrap agency to managing ₹50Cr+ GMV for India’s fastest-growing marketplace brands.",
     "founderName": "Shivam Dubey",
     "founderRole": "Founder & CEO, EcomVanta",
-    "founderImage": "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp",
+    "founderImage": "/uploads/founder_ecomvanta.jpeg",
     "founderQuote": "We Don’t Just Manage Accounts — We Build Enduring E-Commerce Market Leaders.",
     "bioHeading": "The Story Behind EcomVanta",
     "bioParagraphs": [
@@ -1586,15 +2767,47 @@
       "Today, Shivam leads a team of 50+ marketplace specialists, ad analysts, and catalog designers in New Delhi, helping manufacturers, heritage businesses, and innovative consumer brands scale profitably across India and overseas."
     ],
     "milestones": [
-      { "id": "1", "number": "₹50Cr+", "label": "GMV Generated", "desc": "For partner brands across Indian marketplaces" },
-      { "id": "2", "number": "500+", "label": "Brands Scaled", "desc": "From startup sellers to multi-crore enterprises" },
-      { "id": "3", "number": "50+", "label": "In-House Specialists", "desc": "Category experts, ad managers & designers" },
-      { "id": "4", "number": "98%", "label": "Client Retention", "desc": "Long-term partnerships built on verified ROI" }
+      {
+        "id": "1",
+        "number": "₹50Cr+",
+        "label": "GMV Generated",
+        "desc": "For partner brands across Indian marketplaces"
+      },
+      {
+        "id": "2",
+        "number": "500+",
+        "label": "Brands Scaled",
+        "desc": "From startup sellers to multi-crore enterprises"
+      },
+      {
+        "id": "3",
+        "number": "50+",
+        "label": "In-House Specialists",
+        "desc": "Category experts, ad managers & designers"
+      },
+      {
+        "id": "4",
+        "number": "98%",
+        "label": "Client Retention",
+        "desc": "Long-term partnerships built on verified ROI"
+      }
     ],
     "principles": [
-      { "id": "1", "title": "Complete Transparency", "description": "No inflated metrics or vanity reporting. We share real-time analytics, exact ad spend figures, and clear profitability margins." },
-      { "id": "2", "title": "Execution Over Excuses", "description": "Marketplace algorithms change daily. We stay ahead with rapid listing experiments, proactive account health checks, and swift problem resolution." },
-      { "id": "3", "title": "Your Brand, Our Responsibility", "description": "We treat your capital, inventory, and reputation with the same care and scrutiny as if it were our own business." }
+      {
+        "id": "1",
+        "title": "Complete Transparency",
+        "description": "No inflated metrics or vanity reporting. We share real-time analytics, exact ad spend figures, and clear profitability margins."
+      },
+      {
+        "id": "2",
+        "title": "Execution Over Excuses",
+        "description": "Marketplace algorithms change daily. We stay ahead with rapid listing experiments, proactive account health checks, and swift problem resolution."
+      },
+      {
+        "id": "3",
+        "title": "Your Brand, Our Responsibility",
+        "description": "We treat your capital, inventory, and reputation with the same care and scrutiny as if it were our own business."
+      }
     ],
     "visionHeading": "Our Vision for Indian E-Commerce",
     "visionText": "To empower every visionary manufacturer and brand in India with world-class marketplace capabilities, ensuring domestic products dominate online market share globally.",
@@ -1609,5 +2822,1139 @@
     "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.06889754725782!3d28.52758200617607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
     "footerAboutText": "EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites. Powering Brands. Scaling E-commerce.",
     "copyrightText": "© 2026 EcomVanta. All rights reserved. Powering Brands. Scaling E-commerce."
+  },
+  "seoConfig": {
+    "siteUrl": "https://www.ecomvanta.in",
+    "titleSeparator": "|",
+    "globalNoindex": false,
+    "preferredDomain": "www",
+    "forceHttps": true,
+    "defaultOgImage": "/ecomvanta-logo.png",
+    "twitterHandle": "@ecomvanta",
+    "paginationControl": {
+      "noindexPaginated": true,
+      "noindexFiltered": true,
+      "canonicalToBasePage": true,
+      "allowedQueryParams": [
+        "page",
+        "category"
+      ]
+    },
+    "publishPreChecks": {
+      "warnOnMissingFocusKeyword": true,
+      "warnOnMissingMetaDescription": true,
+      "warnOnMissingImageAlt": true,
+      "warnOnSlugChange": true,
+      "autoSuggestRedirectOnSlugChange": true
+    },
+    "templates": {
+      "blog": {
+        "contentType": "blog",
+        "label": "Blog Articles",
+        "titleTemplate": "{{title}} {{sep}} {{siteName}} Blog",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "BlogPosting",
+        "defaultOgType": "article",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "service": {
+        "contentType": "service",
+        "label": "Service & Marketplace Pages",
+        "titleTemplate": "{{title}} {{sep}} {{siteName}}",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "Service",
+        "defaultOgType": "website",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "caseStudy": {
+        "contentType": "caseStudy",
+        "label": "Brand Case Studies",
+        "titleTemplate": "{{title}} {{sep}} {{brandName}} Case Study {{sep}} {{siteName}}",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "Article",
+        "defaultOgType": "article",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "staticPage": {
+        "contentType": "staticPage",
+        "label": "Core Static Pages",
+        "titleTemplate": "{{title}} {{sep}} {{siteName}}",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "WebPage",
+        "defaultOgType": "website",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "category": {
+        "contentType": "category",
+        "label": "Category & Archive Views",
+        "titleTemplate": "{{category}} Articles & Guides {{sep}} {{siteName}}",
+        "descriptionTemplate": "Explore expert {{category}} guides, marketplace onboarding tutorials, and growth strategies by {{siteName}}.",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "CollectionPage",
+        "defaultOgType": "website",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      }
+    },
+    "pageSeo": {
+      "/": {
+        "focusKeyword": "eCommerce Account Management Services",
+        "secondaryKeywords": [
+          "Amazon Account Management",
+          "Flipkart Account Management",
+          "Blinkit Seller Onboarding",
+          "Marketplace Growth Partner"
+        ],
+        "seoTitle": "EcomVanta - Powering Brands. Scaling E-commerce | Marketplace Growth Partner",
+        "metaDescription": "EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
+        "canonicalUrl": "https://www.ecomvanta.in",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Home",
+        "schemaType": "WebPage",
+        "faqSchemaEnabled": true,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/about-us": {
+        "focusKeyword": "EcomVanta Marketplace Growth Agency",
+        "secondaryKeywords": [
+          "About EcomVanta",
+          "Ecommerce Agency India",
+          "Marketplace Specialists"
+        ],
+        "seoTitle": "About Us | EcomVanta - Premier Marketplace Growth Partner in India",
+        "metaDescription": "Learn how EcomVanta helps 500+ brands scale across Amazon, Flipkart, Meesho, Myntra, Blinkit, and D2C websites with end-to-end account management.",
+        "canonicalUrl": "https://www.ecomvanta.in/about-us",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "About Us",
+        "schemaType": "AboutPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/founder": {
+        "focusKeyword": "Shivam Dubey EcomVanta Founder",
+        "secondaryKeywords": [
+          "EcomVanta CEO",
+          "Ecommerce Leadership India"
+        ],
+        "seoTitle": "Meet Shivam Dubey - Founder & CEO | EcomVanta Leadership",
+        "metaDescription": "Discover the vision and leadership of Shivam Dubey, Founder & CEO of EcomVanta, scaling ₹50Cr+ GMV for Indian e-commerce brands.",
+        "canonicalUrl": "https://www.ecomvanta.in/founder",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Founder & CEO",
+        "schemaType": "AboutPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/portfolio": {
+        "focusKeyword": "eCommerce Case Studies and Portfolio",
+        "secondaryKeywords": [
+          "Amazon Sales Growth Proof",
+          "Marketplace Client Results",
+          "D2C Store Portfolio"
+        ],
+        "seoTitle": "Client Portfolio & Marketplace Growth Results | EcomVanta",
+        "metaDescription": "Explore verified Amazon, Flipkart, Brand Storefront, and D2C website growth results delivered by EcomVanta for 500+ partner brands.",
+        "canonicalUrl": "https://www.ecomvanta.in/portfolio",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Portfolio",
+        "schemaType": "CollectionPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/blogs": {
+        "focusKeyword": "eCommerce Seller Guides and Marketplace Blogs",
+        "secondaryKeywords": [
+          "Amazon Selling Tips",
+          "Flipkart Seller Guide",
+          "Blinkit Onboarding Tutorial"
+        ],
+        "seoTitle": "eCommerce Seller Insights, Marketplace Guides & Blogs | EcomVanta",
+        "metaDescription": "Read battle-tested e-commerce marketplace guides on Amazon PPC, Flipkart LQS, Blinkit & Zepto seller onboarding, Myntra cataloging, and D2C scaling.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Blogs & Insights",
+        "schemaType": "CollectionPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/career": {
+        "focusKeyword": "Careers at EcomVanta",
+        "secondaryKeywords": [
+          "Ecommerce Jobs New Delhi",
+          "Amazon Account Manager Jobs",
+          "PPC Specialist Careers"
+        ],
+        "seoTitle": "Careers at EcomVanta | Join Our eCommerce & Digital Growth Team",
+        "metaDescription": "Build your career in e-commerce account management, Amazon/Flipkart PPC advertising, and catalog design at EcomVanta in New Delhi.",
+        "canonicalUrl": "https://www.ecomvanta.in/career",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Careers",
+        "schemaType": "WebPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/contact-us": {
+        "focusKeyword": "Contact EcomVanta",
+        "secondaryKeywords": [
+          "Free Marketplace Audit",
+          "Ecommerce Consultation India"
+        ],
+        "seoTitle": "Contact Us | Book a Free Marketplace Growth Audit | EcomVanta",
+        "metaDescription": "Get in touch with EcomVanta for a free seller account audit and personalized growth strategy for Amazon, Flipkart, Meesho, Blinkit, and Shopify.",
+        "canonicalUrl": "https://www.ecomvanta.in/contact-us",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Contact Us",
+        "schemaType": "ContactPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/ecommerce-service-provider-in-delhi": {
+        "focusKeyword": "Ecommerce Service Provider in Delhi",
+        "secondaryKeywords": [
+          "Amazon Agency Delhi NCR",
+          "Flipkart Account Management Delhi",
+          "Marketplace Cataloging Delhi"
+        ],
+        "seoTitle": "Best Ecommerce Service Provider in Delhi NCR | EcomVanta",
+        "metaDescription": "Looking for a trusted Ecommerce Service Provider in Delhi? EcomVanta offers complete Amazon, Flipkart, Blinkit, Meesho & Shopify account management.",
+        "canonicalUrl": "https://www.ecomvanta.in/ecommerce-service-provider-in-delhi",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Ecommerce Services Delhi",
+        "schemaType": "Service",
+        "faqSchemaEnabled": true,
+        "customFaqs": [],
+        "isCustomized": true
+      }
+    },
+    "redirects": [
+      {
+        "id": "red-1",
+        "source": "/blog",
+        "destination": "/blogs",
+        "type": 301,
+        "enabled": true,
+        "hits": 14,
+        "notes": "Canonicalize singular /blog path to /blogs archive",
+        "createdAt": "2026-09-01T10:00:00.000Z"
+      },
+      {
+        "id": "red-2",
+        "source": "/about",
+        "destination": "/about-us",
+        "type": 301,
+        "enabled": true,
+        "hits": 9,
+        "notes": "Redirect legacy /about path to /about-us",
+        "createdAt": "2026-09-01T10:00:00.000Z"
+      },
+      {
+        "id": "red-3",
+        "source": "/contact",
+        "destination": "/contact-us",
+        "type": 301,
+        "enabled": true,
+        "hits": 21,
+        "notes": "Redirect legacy /contact path to /contact-us",
+        "createdAt": "2026-09-01T10:00:00.000Z"
+      }
+    ],
+    "robotsTxt": {
+      "useCustom": false,
+      "customContent": "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: https://www.ecomvanta.in/sitemap.xml",
+      "extraDisallows": [
+        "/admin/",
+        "/api/"
+      ],
+      "extraAllows": [
+        "/"
+      ]
+    },
+    "sitemapConfig": {
+      "includeBlogs": true,
+      "includeServices": true,
+      "includeCaseStudies": true,
+      "includeStaticPages": true,
+      "excludeNoindex": true,
+      "excludedPaths": [
+        "/admin",
+        "/api"
+      ],
+      "defaultChangeFreq": "weekly"
+    },
+    "schemaOrg": {
+      "enableOrganizationSchema": true,
+      "enableWebSiteSchema": true,
+      "enableSiteSearchSchema": true,
+      "enableBreadcrumbsSchema": true,
+      "orgName": "EcomVanta",
+      "orgLegalName": "EcomVanta Marketplace Solutions",
+      "orgUrl": "https://www.ecomvanta.in",
+      "orgLogo": "https://www.ecomvanta.in/ecomvanta-logo.png",
+      "orgDescription": "EcomVanta is India’s premier marketplace growth partner offering end-to-end account management for Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, and Shopify.",
+      "orgPhone": "+91-8787249407",
+      "orgEmail": "ecomvanta40@gmail.com",
+      "streetAddress": "New Delhi",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "postalCode": "110001",
+      "addressCountry": "IN",
+      "sameAs": [
+        "https://facebook.com/ecomvanta",
+        "https://instagram.com/ecomvanta",
+        "https://linkedin.com/company/ecomvanta",
+        "https://twitter.com/ecomvanta",
+        "https://youtube.com/@ecomvanta"
+      ]
+    },
+    "integrations": {
+      "connected": false,
+      "propertyUrl": "https://www.ecomvanta.in",
+      "verificationMetaTag": "",
+      "ga4MeasurementId": "",
+      "ga4Enabled": false,
+      "bingVerificationMetaTag": ""
+    },
+    "notFoundLogs": [],
+    "seoTasks": [
+      {
+        "id": "task-1",
+        "title": "Add Focus Keywords to all published blog posts",
+        "description": "Ensure every blog post has a primary focus keyword and secondary keywords configured in its SEO panel.",
+        "category": "on-page",
+        "priority": "high",
+        "completed": false,
+        "adminHref": "/admin/blogs",
+        "createdAt": "2026-10-01T09:00:00.000Z"
+      },
+      {
+        "id": "task-2",
+        "title": "Review internal links between blog guides and marketplace service pages",
+        "description": "Connect seller onboarding tutorials to their corresponding service landing pages using contextual anchor text.",
+        "category": "links",
+        "priority": "high",
+        "completed": false,
+        "adminHref": "/admin/seo/internal-links",
+        "createdAt": "2026-10-02T09:00:00.000Z"
+      },
+      {
+        "id": "task-3",
+        "title": "Verify Organization & FAQ Schema Markup across service pages",
+        "description": "Validate JSON-LD structured data output in the Schema Markup Manager.",
+        "category": "schema",
+        "priority": "medium",
+        "completed": false,
+        "adminHref": "/admin/seo/schema",
+        "createdAt": "2026-10-03T09:00:00.000Z"
+      },
+      {
+        "id": "task-4",
+        "title": "Connect Google Search Console property for live search query tracking",
+        "description": "Configure GSC verification meta tag or service credentials to monitor clicks, impressions, and CTR.",
+        "category": "technical",
+        "priority": "medium",
+        "completed": false,
+        "adminHref": "/admin/seo/search-console",
+        "createdAt": "2026-10-04T09:00:00.000Z"
+      }
+    ],
+    "analyzerWeights": {
+      "keywordInTitle": 10,
+      "keywordInDescription": 8,
+      "keywordInSlug": 7,
+      "keywordInIntro": 7,
+      "keywordInHeadings": 8,
+      "keywordDensity": 6,
+      "titleLength": 7,
+      "descriptionLength": 7,
+      "contentLength": 8,
+      "headingHierarchy": 6,
+      "readability": 6,
+      "imageAltText": 6,
+      "internalLinks": 6,
+      "externalLinks": 3,
+      "canonicalAndIndexability": 3,
+      "schemaAvailability": 2
+    },
+    "rolePermissions": {
+      "super_admin": {
+        "role": "super_admin",
+        "label": "Super Administrator",
+        "description": "Full access to all CMS content, SEO tools, technical settings, redirects, and integrations.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": true,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": true,
+          "manageRedirects": true,
+          "manageTechnicalSeo": true,
+          "connectIntegrations": true,
+          "manageBulkSeo": true,
+          "manageRoles": true
+        }
+      },
+      "seo_manager": {
+        "role": "seo_manager",
+        "label": "SEO Manager",
+        "description": "Manage all on-page SEO, bulk metadata, templates, internal linking, redirects, and technical SEO.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": true,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": true,
+          "manageRedirects": true,
+          "manageTechnicalSeo": true,
+          "connectIntegrations": true,
+          "manageBulkSeo": true,
+          "manageRoles": false
+        }
+      },
+      "content_editor": {
+        "role": "content_editor",
+        "label": "Content & Blog Editor",
+        "description": "Write, optimize, preview, schedule, and publish blog articles and edit per-article SEO panels.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": true,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": true,
+          "manageRedirects": false,
+          "manageTechnicalSeo": false,
+          "connectIntegrations": false,
+          "manageBulkSeo": false,
+          "manageRoles": false
+        }
+      },
+      "technical_seo": {
+        "role": "technical_seo",
+        "label": "Technical SEO Specialist",
+        "description": "Configure XML sitemaps, robots.txt, redirects, canonical rules, schema markup, and Search Console.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": false,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": false,
+          "manageRedirects": true,
+          "manageTechnicalSeo": true,
+          "connectIntegrations": true,
+          "manageBulkSeo": true,
+          "manageRoles": false
+        }
+      },
+      "seo_analyst": {
+        "role": "seo_analyst",
+        "label": "SEO Analyst (Read-Only)",
+        "description": "View SEO dashboard, audits, internal link graphs, and Search Console performance without making changes.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": false,
+          "editSeoMetadata": false,
+          "publishOrScheduleArticles": false,
+          "manageRedirects": false,
+          "manageTechnicalSeo": false,
+          "connectIntegrations": false,
+          "manageBulkSeo": false,
+          "manageRoles": false
+        }
+      }
+    }
+  },
+  "seoSystem": {
+    "siteUrl": "https://www.ecomvanta.in",
+    "titleSeparator": "|",
+    "globalNoindex": false,
+    "preferredDomain": "www",
+    "forceHttps": true,
+    "defaultOgImage": "/ecomvanta-logo.png",
+    "twitterHandle": "@ecomvanta",
+    "paginationControl": {
+      "noindexPaginated": true,
+      "noindexFiltered": true,
+      "canonicalToBasePage": true,
+      "allowedQueryParams": [
+        "page",
+        "category"
+      ]
+    },
+    "publishPreChecks": {
+      "warnOnMissingFocusKeyword": true,
+      "warnOnMissingMetaDescription": true,
+      "warnOnMissingImageAlt": true,
+      "warnOnSlugChange": true,
+      "autoSuggestRedirectOnSlugChange": true
+    },
+    "templates": {
+      "blog": {
+        "contentType": "blog",
+        "label": "Blog Articles",
+        "titleTemplate": "{{title}} {{sep}} {{siteName}} Blog",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "BlogPosting",
+        "defaultOgType": "article",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "service": {
+        "contentType": "service",
+        "label": "Service & Marketplace Pages",
+        "titleTemplate": "{{title}} {{sep}} {{siteName}}",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "Service",
+        "defaultOgType": "website",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "caseStudy": {
+        "contentType": "caseStudy",
+        "label": "Brand Case Studies",
+        "titleTemplate": "{{title}} {{sep}} {{brandName}} Case Study {{sep}} {{siteName}}",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "Article",
+        "defaultOgType": "article",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "staticPage": {
+        "contentType": "staticPage",
+        "label": "Core Static Pages",
+        "titleTemplate": "{{title}} {{sep}} {{siteName}}",
+        "descriptionTemplate": "{{excerpt}}",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "WebPage",
+        "defaultOgType": "website",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      },
+      "category": {
+        "contentType": "category",
+        "label": "Category & Archive Views",
+        "titleTemplate": "{{category}} Articles & Guides {{sep}} {{siteName}}",
+        "descriptionTemplate": "Explore expert {{category}} guides, marketplace onboarding tutorials, and growth strategies by {{siteName}}.",
+        "defaultRobotsIndex": "index",
+        "defaultRobotsFollow": "follow",
+        "defaultSchemaType": "CollectionPage",
+        "defaultOgType": "website",
+        "enableBreadcrumbs": true,
+        "autoFallbackIfEmpty": true
+      }
+    },
+    "pageSeo": {
+      "/": {
+        "focusKeyword": "eCommerce Account Management Services",
+        "secondaryKeywords": [
+          "Amazon Account Management",
+          "Flipkart Account Management",
+          "Blinkit Seller Onboarding",
+          "Marketplace Growth Partner"
+        ],
+        "seoTitle": "EcomVanta - Powering Brands. Scaling E-commerce | Marketplace Growth Partner",
+        "metaDescription": "EcomVanta is your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
+        "canonicalUrl": "https://www.ecomvanta.in",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Home",
+        "schemaType": "WebPage",
+        "faqSchemaEnabled": true,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/about-us": {
+        "focusKeyword": "EcomVanta Marketplace Growth Agency",
+        "secondaryKeywords": [
+          "About EcomVanta",
+          "Ecommerce Agency India",
+          "Marketplace Specialists"
+        ],
+        "seoTitle": "About Us | EcomVanta - Premier Marketplace Growth Partner in India",
+        "metaDescription": "Learn how EcomVanta helps 500+ brands scale across Amazon, Flipkart, Meesho, Myntra, Blinkit, and D2C websites with end-to-end account management.",
+        "canonicalUrl": "https://www.ecomvanta.in/about-us",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "About Us",
+        "schemaType": "AboutPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/founder": {
+        "focusKeyword": "Shivam Dubey EcomVanta Founder",
+        "secondaryKeywords": [
+          "EcomVanta CEO",
+          "Ecommerce Leadership India"
+        ],
+        "seoTitle": "Meet Shivam Dubey - Founder & CEO | EcomVanta Leadership",
+        "metaDescription": "Discover the vision and leadership of Shivam Dubey, Founder & CEO of EcomVanta, scaling ₹50Cr+ GMV for Indian e-commerce brands.",
+        "canonicalUrl": "https://www.ecomvanta.in/founder",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Founder & CEO",
+        "schemaType": "AboutPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/portfolio": {
+        "focusKeyword": "eCommerce Case Studies and Portfolio",
+        "secondaryKeywords": [
+          "Amazon Sales Growth Proof",
+          "Marketplace Client Results",
+          "D2C Store Portfolio"
+        ],
+        "seoTitle": "Client Portfolio & Marketplace Growth Results | EcomVanta",
+        "metaDescription": "Explore verified Amazon, Flipkart, Brand Storefront, and D2C website growth results delivered by EcomVanta for 500+ partner brands.",
+        "canonicalUrl": "https://www.ecomvanta.in/portfolio",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Portfolio",
+        "schemaType": "CollectionPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/blogs": {
+        "focusKeyword": "eCommerce Seller Guides and Marketplace Blogs",
+        "secondaryKeywords": [
+          "Amazon Selling Tips",
+          "Flipkart Seller Guide",
+          "Blinkit Onboarding Tutorial"
+        ],
+        "seoTitle": "eCommerce Seller Insights, Marketplace Guides & Blogs | EcomVanta",
+        "metaDescription": "Read battle-tested e-commerce marketplace guides on Amazon PPC, Flipkart LQS, Blinkit & Zepto seller onboarding, Myntra cataloging, and D2C scaling.",
+        "canonicalUrl": "https://www.ecomvanta.in/blogs",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Blogs & Insights",
+        "schemaType": "CollectionPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/career": {
+        "focusKeyword": "Careers at EcomVanta",
+        "secondaryKeywords": [
+          "Ecommerce Jobs New Delhi",
+          "Amazon Account Manager Jobs",
+          "PPC Specialist Careers"
+        ],
+        "seoTitle": "Careers at EcomVanta | Join Our eCommerce & Digital Growth Team",
+        "metaDescription": "Build your career in e-commerce account management, Amazon/Flipkart PPC advertising, and catalog design at EcomVanta in New Delhi.",
+        "canonicalUrl": "https://www.ecomvanta.in/career",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Careers",
+        "schemaType": "WebPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/contact-us": {
+        "focusKeyword": "Contact EcomVanta",
+        "secondaryKeywords": [
+          "Free Marketplace Audit",
+          "Ecommerce Consultation India"
+        ],
+        "seoTitle": "Contact Us | Book a Free Marketplace Growth Audit | EcomVanta",
+        "metaDescription": "Get in touch with EcomVanta for a free seller account audit and personalized growth strategy for Amazon, Flipkart, Meesho, Blinkit, and Shopify.",
+        "canonicalUrl": "https://www.ecomvanta.in/contact-us",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Contact Us",
+        "schemaType": "ContactPage",
+        "faqSchemaEnabled": false,
+        "customFaqs": [],
+        "isCustomized": true
+      },
+      "/ecommerce-service-provider-in-delhi": {
+        "focusKeyword": "Ecommerce Service Provider in Delhi",
+        "secondaryKeywords": [
+          "Amazon Agency Delhi NCR",
+          "Flipkart Account Management Delhi",
+          "Marketplace Cataloging Delhi"
+        ],
+        "seoTitle": "Best Ecommerce Service Provider in Delhi NCR | EcomVanta",
+        "metaDescription": "Looking for a trusted Ecommerce Service Provider in Delhi? EcomVanta offers complete Amazon, Flipkart, Blinkit, Meesho & Shopify account management.",
+        "canonicalUrl": "https://www.ecomvanta.in/ecommerce-service-provider-in-delhi",
+        "robotsIndex": "index",
+        "robotsFollow": "follow",
+        "robotsAdvanced": [
+          "max-snippet:-1",
+          "max-image-preview:large",
+          "max-video-preview:-1"
+        ],
+        "ogTitle": "",
+        "ogDescription": "",
+        "ogImage": "",
+        "ogType": "website",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "",
+        "twitterDescription": "",
+        "twitterImage": "",
+        "breadcrumbTitle": "Ecommerce Services Delhi",
+        "schemaType": "Service",
+        "faqSchemaEnabled": true,
+        "customFaqs": [],
+        "isCustomized": true
+      }
+    },
+    "redirects": [
+      {
+        "id": "red-1",
+        "source": "/blog",
+        "destination": "/blogs",
+        "type": 301,
+        "enabled": true,
+        "hits": 14,
+        "notes": "Canonicalize singular /blog path to /blogs archive",
+        "createdAt": "2026-09-01T10:00:00.000Z"
+      },
+      {
+        "id": "red-2",
+        "source": "/about",
+        "destination": "/about-us",
+        "type": 301,
+        "enabled": true,
+        "hits": 9,
+        "notes": "Redirect legacy /about path to /about-us",
+        "createdAt": "2026-09-01T10:00:00.000Z"
+      },
+      {
+        "id": "red-3",
+        "source": "/contact",
+        "destination": "/contact-us",
+        "type": 301,
+        "enabled": true,
+        "hits": 21,
+        "notes": "Redirect legacy /contact path to /contact-us",
+        "createdAt": "2026-09-01T10:00:00.000Z"
+      }
+    ],
+    "robotsTxt": {
+      "useCustom": false,
+      "customContent": "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: https://www.ecomvanta.in/sitemap.xml",
+      "extraDisallows": [
+        "/admin/",
+        "/api/"
+      ],
+      "extraAllows": [
+        "/"
+      ]
+    },
+    "sitemapConfig": {
+      "includeBlogs": true,
+      "includeServices": true,
+      "includeCaseStudies": true,
+      "includeStaticPages": true,
+      "excludeNoindex": true,
+      "excludedPaths": [
+        "/admin",
+        "/api"
+      ],
+      "defaultChangeFreq": "weekly"
+    },
+    "schemaOrg": {
+      "enableOrganizationSchema": true,
+      "enableWebSiteSchema": true,
+      "enableSiteSearchSchema": true,
+      "enableBreadcrumbsSchema": true,
+      "orgName": "EcomVanta",
+      "orgLegalName": "EcomVanta Marketplace Solutions",
+      "orgUrl": "https://www.ecomvanta.in",
+      "orgLogo": "https://www.ecomvanta.in/ecomvanta-logo.png",
+      "orgDescription": "EcomVanta is India’s premier marketplace growth partner offering end-to-end account management for Amazon, Flipkart, Meesho, Myntra, Blinkit, Zepto, and Shopify.",
+      "orgPhone": "+91-8787249407",
+      "orgEmail": "ecomvanta40@gmail.com",
+      "streetAddress": "New Delhi",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "postalCode": "110001",
+      "addressCountry": "IN",
+      "sameAs": [
+        "https://facebook.com/ecomvanta",
+        "https://instagram.com/ecomvanta",
+        "https://linkedin.com/company/ecomvanta",
+        "https://twitter.com/ecomvanta",
+        "https://youtube.com/@ecomvanta"
+      ]
+    },
+    "integrations": {
+      "connected": false,
+      "propertyUrl": "https://www.ecomvanta.in",
+      "verificationMetaTag": "",
+      "ga4MeasurementId": "",
+      "ga4Enabled": false,
+      "bingVerificationMetaTag": ""
+    },
+    "notFoundLogs": [],
+    "seoTasks": [
+      {
+        "id": "task-1",
+        "title": "Add Focus Keywords to all published blog posts",
+        "description": "Ensure every blog post has a primary focus keyword and secondary keywords configured in its SEO panel.",
+        "category": "on-page",
+        "priority": "high",
+        "completed": false,
+        "adminHref": "/admin/blogs",
+        "createdAt": "2026-10-01T09:00:00.000Z"
+      },
+      {
+        "id": "task-2",
+        "title": "Review internal links between blog guides and marketplace service pages",
+        "description": "Connect seller onboarding tutorials to their corresponding service landing pages using contextual anchor text.",
+        "category": "links",
+        "priority": "high",
+        "completed": false,
+        "adminHref": "/admin/seo/internal-links",
+        "createdAt": "2026-10-02T09:00:00.000Z"
+      },
+      {
+        "id": "task-3",
+        "title": "Verify Organization & FAQ Schema Markup across service pages",
+        "description": "Validate JSON-LD structured data output in the Schema Markup Manager.",
+        "category": "schema",
+        "priority": "medium",
+        "completed": false,
+        "adminHref": "/admin/seo/schema",
+        "createdAt": "2026-10-03T09:00:00.000Z"
+      },
+      {
+        "id": "task-4",
+        "title": "Connect Google Search Console property for live search query tracking",
+        "description": "Configure GSC verification meta tag or service credentials to monitor clicks, impressions, and CTR.",
+        "category": "technical",
+        "priority": "medium",
+        "completed": false,
+        "adminHref": "/admin/seo/search-console",
+        "createdAt": "2026-10-04T09:00:00.000Z"
+      }
+    ],
+    "analyzerWeights": {
+      "keywordInTitle": 10,
+      "keywordInDescription": 8,
+      "keywordInSlug": 7,
+      "keywordInIntro": 7,
+      "keywordInHeadings": 8,
+      "keywordDensity": 6,
+      "titleLength": 7,
+      "descriptionLength": 7,
+      "contentLength": 8,
+      "headingHierarchy": 6,
+      "readability": 6,
+      "imageAltText": 6,
+      "internalLinks": 6,
+      "externalLinks": 3,
+      "canonicalAndIndexability": 3,
+      "schemaAvailability": 2
+    },
+    "rolePermissions": {
+      "super_admin": {
+        "role": "super_admin",
+        "label": "Super Administrator",
+        "description": "Full access to all CMS content, SEO tools, technical settings, redirects, and integrations.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": true,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": true,
+          "manageRedirects": true,
+          "manageTechnicalSeo": true,
+          "connectIntegrations": true,
+          "manageBulkSeo": true,
+          "manageRoles": true
+        }
+      },
+      "seo_manager": {
+        "role": "seo_manager",
+        "label": "SEO Manager",
+        "description": "Manage all on-page SEO, bulk metadata, templates, internal linking, redirects, and technical SEO.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": true,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": true,
+          "manageRedirects": true,
+          "manageTechnicalSeo": true,
+          "connectIntegrations": true,
+          "manageBulkSeo": true,
+          "manageRoles": false
+        }
+      },
+      "content_editor": {
+        "role": "content_editor",
+        "label": "Content & Blog Editor",
+        "description": "Write, optimize, preview, schedule, and publish blog articles and edit per-article SEO panels.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": true,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": true,
+          "manageRedirects": false,
+          "manageTechnicalSeo": false,
+          "connectIntegrations": false,
+          "manageBulkSeo": false,
+          "manageRoles": false
+        }
+      },
+      "technical_seo": {
+        "role": "technical_seo",
+        "label": "Technical SEO Specialist",
+        "description": "Configure XML sitemaps, robots.txt, redirects, canonical rules, schema markup, and Search Console.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": false,
+          "editSeoMetadata": true,
+          "publishOrScheduleArticles": false,
+          "manageRedirects": true,
+          "manageTechnicalSeo": true,
+          "connectIntegrations": true,
+          "manageBulkSeo": true,
+          "manageRoles": false
+        }
+      },
+      "seo_analyst": {
+        "role": "seo_analyst",
+        "label": "SEO Analyst (Read-Only)",
+        "description": "View SEO dashboard, audits, internal link graphs, and Search Console performance without making changes.",
+        "permissions": {
+          "viewSeoReports": true,
+          "editArticleContent": false,
+          "editSeoMetadata": false,
+          "publishOrScheduleArticles": false,
+          "manageRedirects": false,
+          "manageTechnicalSeo": false,
+          "connectIntegrations": false,
+          "manageBulkSeo": false,
+          "manageRoles": false
+        }
+      }
+    }
   }
 }

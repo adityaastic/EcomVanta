@@ -1,16 +1,50 @@
 'use client';
 
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import { DEFAULT_SITE_CONTENT, SiteContentData } from './cmsTypes';
+import {
+  DEFAULT_SITE_CONTENT,
+  SiteContentData,
+  INITIAL_BLOGS,
+  sanitizeRestrictedMediaUrls,
+  LEGACY_BLOG_LOGO_IMAGES,
+} from './cmsTypes';
 
 const STORAGE_KEY = 'ecomvanta_cms_content_v1';
+
+function normalizeClientBlogs(rawBlogs?: any[]) {
+  const inputList = Array.isArray(rawBlogs) && rawBlogs.length > 0 ? [...rawBlogs] : [...INITIAL_BLOGS];
+  if (inputList.length <= 6) {
+    const existingKeys = new Set(
+      inputList.flatMap((b) => [b.id, b.slug, b.title?.toLowerCase().trim()].filter(Boolean))
+    );
+    for (const ib of INITIAL_BLOGS) {
+      if (!existingKeys.has(ib.id) && !existingKeys.has(ib.slug) && !existingKeys.has(ib.title.toLowerCase().trim())) {
+        inputList.push(ib);
+      }
+    }
+  }
+  return inputList.map((b) => {
+    const defaultMatch = INITIAL_BLOGS.find(
+      (ib) => ib.slug === b.slug || ib.id === b.id || ib.title?.toLowerCase() === b.title?.toLowerCase()
+    );
+    const resolvedImage =
+      !b.image || (defaultMatch && LEGACY_BLOG_LOGO_IMAGES.has(b.image))
+        ? defaultMatch?.image || b.image
+        : b.image;
+    return {
+      ...(defaultMatch || {}),
+      ...b,
+      image: resolvedImage,
+    };
+  });
+}
 
 export function getLocalCmsContent(): SiteContentData | null {
   if (typeof window === 'undefined') return null;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const parsed = JSON.parse(raw);
+      const parsed = sanitizeRestrictedMediaUrls(JSON.parse(raw));
       return {
         ...DEFAULT_SITE_CONTENT,
         ...parsed,
@@ -18,7 +52,7 @@ export function getLocalCmsContent(): SiteContentData | null {
         homepage: { ...DEFAULT_SITE_CONTENT.homepage, ...(parsed.homepage || {}) },
         services: { ...DEFAULT_SITE_CONTENT.services, ...(parsed.services || {}) },
         caseStudies: { ...DEFAULT_SITE_CONTENT.caseStudies, ...(parsed.caseStudies || {}) },
-        blogs: parsed.blogs || DEFAULT_SITE_CONTENT.blogs,
+        blogs: normalizeClientBlogs(parsed.blogs),
         careers: parsed.careers || DEFAULT_SITE_CONTENT.careers,
         careerPage: { ...DEFAULT_SITE_CONTENT.careerPage, ...(parsed.careerPage || {}) },
         aboutUs: { ...DEFAULT_SITE_CONTENT.aboutUs, ...(parsed.aboutUs || {}) },
@@ -37,10 +71,10 @@ export function saveLocalCmsContent(content: Partial<SiteContentData>) {
   if (typeof window === 'undefined') return;
   try {
     const existing = getLocalCmsContent() || DEFAULT_SITE_CONTENT;
-    const merged: SiteContentData = {
+    const merged: SiteContentData = sanitizeRestrictedMediaUrls({
       ...existing,
       ...content,
-    };
+    });
     localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
     window.dispatchEvent(new CustomEvent('ecomvanta_cms_updated', { detail: merged }));
   } catch (e) {
@@ -63,14 +97,13 @@ export function CmsProvider({
   initialContent?: SiteContentData;
 }) {
   const [content, setContent] = useState<SiteContentData>(() => {
-    return initialContent || getLocalCmsContent() || DEFAULT_SITE_CONTENT;
+    return initialContent ? sanitizeRestrictedMediaUrls(initialContent) : getLocalCmsContent() || DEFAULT_SITE_CONTENT;
   });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
 
-    // Check localStorage if not initialized with fresh server content
     const local = getLocalCmsContent();
     if (local && !initialContent && isMounted) {
       setContent(local);
@@ -78,7 +111,7 @@ export function CmsProvider({
 
     const handleUpdate = (e: any) => {
       if (e.detail && isMounted) {
-        setContent(e.detail);
+        setContent(sanitizeRestrictedMediaUrls(e.detail));
       }
     };
     window.addEventListener('ecomvanta_cms_updated', handleUpdate);
@@ -92,9 +125,11 @@ export function CmsProvider({
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.data && isMounted) {
-            setContent(json.data);
+            const sanitized = sanitizeRestrictedMediaUrls(json.data);
+            sanitized.blogs = normalizeClientBlogs(sanitized.blogs);
+            setContent(sanitized);
             try {
-              localStorage.setItem(STORAGE_KEY, JSON.stringify(json.data));
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitized));
             } catch (e) {}
           }
         }
@@ -140,7 +175,7 @@ export function useCmsContent() {
 
     const handleUpdate = (e: any) => {
       if (e.detail && isMounted) {
-        setContent(e.detail);
+        setContent(sanitizeRestrictedMediaUrls(e.detail));
       }
     };
     window.addEventListener('ecomvanta_cms_updated', handleUpdate);
@@ -154,9 +189,11 @@ export function useCmsContent() {
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.data && isMounted) {
-            setContent(json.data);
+            const sanitized = sanitizeRestrictedMediaUrls(json.data);
+            sanitized.blogs = normalizeClientBlogs(sanitized.blogs);
+            setContent(sanitized);
             try {
-              localStorage.setItem(STORAGE_KEY, JSON.stringify(json.data));
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitized));
             } catch (e) {}
           }
         }
@@ -177,3 +214,4 @@ export function useCmsContent() {
 
   return { content, loading };
 }
+

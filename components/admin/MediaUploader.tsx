@@ -182,6 +182,13 @@ export default function MediaUploader({
                 finalUploadedUrl = signData.publicUrl;
               }
             }
+
+            if (finalUploadedUrl) {
+              const verifyRes = await fetch(finalUploadedUrl, { method: 'HEAD' }).catch(() => null);
+              if (!verifyRes || !verifyRes.ok) {
+                finalUploadedUrl = '';
+              }
+            }
           }
         }
       } catch (directSignErr) {
