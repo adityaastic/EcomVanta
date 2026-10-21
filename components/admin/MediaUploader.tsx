@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { Upload, X, Check, Image as ImageIcon, Video, Loader2, Copy, ExternalLink, Play, FileText, Download } from 'lucide-react';
+import { Upload, X, Check, Image as ImageIcon, Video, Loader2, Copy, ExternalLink, Play, FileText, Crop } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import ImageCropperModal from './ImageCropperModal';
 
 interface MediaUploaderProps {
   label: string;
@@ -47,7 +48,20 @@ const isPdfFile = (file: File) => {
   return /\.(pdf|doc|docx|ppt|pptx|xls|xlsx)$/i.test(file.name);
 };
 
-async function compressImageFile(file: File, maxWidth = 1200, maxHeight = 1200, quality = 0.85): Promise<File> {
+const isCroppableImageFile = (file: File) => {
+  if (isVideoFile(file) || isPdfFile(file)) return false;
+  if (file.type === 'image/svg+xml' || file.type === 'image/gif') return false;
+  if (file.type && file.type.startsWith('image/')) return true;
+  return /\.(jpg|jpeg|png|webp|bmp|avif)$/i.test(file.name);
+};
+
+const isCroppableImageUrl = (url: string) => {
+  if (!url || isVideoUrl(url) || isPdfUrl(url)) return false;
+  if (/\.svg(\?.*)?$/i.test(url) || /\.gif(\?.*)?$/i.test(url)) return false;
+  return true;
+};
+
+async function compressImageFile(file: File, maxWidth = 1400, maxHeight = 1400, quality = 0.88): Promise<File> {
   // If video, PDF, document, or SVG / GIF animation or non-image, don't compress with canvas
   if (isVideoFile(file) || isPdfFile(file) || !file.type.startsWith('image/') || file.type === 'image/svg+xml' || file.type === 'image/gif') {
     return file;
@@ -80,7 +94,6 @@ async function compressImageFile(file: File, maxWidth = 1200, maxHeight = 1200, 
 
         ctx.drawImage(img, 0, 0, width, height);
 
-        // Convert to lightweight WebP or fallback to original mime
         const targetMime = 'image/webp';
         canvas.toBlob(
           (blob) => {
@@ -118,15 +131,20 @@ export default function MediaUploader({
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [isDragOver, setIsDragOver] = useState(false);
+
+  // Cropper Modal State
+  const [cropModalOpen, setCropModalOpen] = useState(false);
+  const [cropImageSrc, setCropImageSrc] = useState<string>('');
+  const [pendingRawFile, setPendingRawFile] = useState<File | null>(null);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isCurrentVideo = isVideoUrl(value) || label.toLowerCase().includes('video');
   const isCurrentPdf = isPdfUrl(value) || label.toLowerCase().includes('catalog') || label.toLowerCase().includes('brochure') || label.toLowerCase().includes('pdf');
 
-  const uploadFile = async (rawFile: File) => {
+  const uploadFile = async (rawFile: File, skipCompression = false) => {
     if (!rawFile) return;
 
-    // Check size limit: 500MB (Cloudflare R2 supports large videos & documents)
     const MAX_SIZE = 500 * 1024 * 1024;
     if (rawFile.size > MAX_SIZE) {
       setError(`File size (${(rawFile.size / (1024 * 1024)).toFixed(1)}MB) exceeds maximum limit of 500MB.`);
@@ -137,8 +155,7 @@ export default function MediaUploader({
     setError(null);
 
     try {
-      // Auto-compress high-res images in browser before uploading (skips videos and PDFs)
-      const file = await compressImageFile(rawFile);
+      const file = skipCompression ? rawFile : await compressImageFile(rawFile);
       let finalUploadedUrl = '';
 
       // 1. For files > 3.5MB on production, try Direct Presigned PUT to Cloudflare R2 first
@@ -226,16 +243,42 @@ export default function MediaUploader({
     }
   };
 
+  const handleSelectedFile = (file: File) => {
+    if (isCroppableImageFile(file)) {
+      const objectUrl = URL.createObjectURL(file);
+      setPendingRawFile(file);
+      setCropImageSrc(objectUrl);
+      setCropModalOpen(true);
+    } else {
+      uploadFile(file);
+    }
+  };
+
+  const handleOpenReCrop = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!value || !isCroppableImageUrl(value)) return;
+    setPendingRawFile(null);
+    const srcToLoad =
+      value.startsWith('http') && !value.includes('/api/admin/upload?proxyUrl=')
+        ? `/api/admin/upload?proxyUrl=${encodeURIComponent(value)}`
+        : value;
+    setCropImageSrc(srcToLoad);
+    setCropModalOpen(true);
+  };
+
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) uploadFile(file);
+    if (file) handleSelectedFile(file);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragOver(false);
     const file = e.dataTransfer.files?.[0];
-    if (file) uploadFile(file);
+    if (file) handleSelectedFile(file);
   };
 
   const handleCopy = () => {
@@ -247,14 +290,27 @@ export default function MediaUploader({
 
   return (
     <div className="space-y-2">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-wrap justify-between items-center gap-2">
         <label className="block text-xs font-bold text-slate-800 tracking-wide">{label}</label>
         {value && (
           <div className="flex items-center gap-2">
+            {isCroppableImageUrl(value) && (
+              <>
+                <button
+                  type="button"
+                  onClick={handleOpenReCrop}
+                  className="text-[11px] text-[#0066FF] hover:text-blue-800 font-extrabold flex items-center gap-1 bg-blue-50 hover:bg-blue-100 px-2 py-0.5 rounded-md border border-blue-200 transition-colors cursor-pointer"
+                >
+                  <Crop className="w-3 h-3" />
+                  <span>Crop / Adjust</span>
+                </button>
+                <span className="text-slate-300">|</span>
+              </>
+            )}
             <button
               type="button"
               onClick={handleCopy}
-              className="text-[11px] text-slate-600 hover:text-[#0066FF] font-semibold flex items-center gap-1 transition-colors"
+              className="text-[11px] text-slate-600 hover:text-[#0066FF] font-semibold flex items-center gap-1 transition-colors cursor-pointer"
             >
               {copied ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
               <span>{copied ? 'Copied URL!' : 'Copy URL'}</span>
@@ -263,7 +319,7 @@ export default function MediaUploader({
             <button
               type="button"
               onClick={() => onChange('')}
-              className="text-[11px] text-rose-500 hover:text-rose-700 font-semibold flex items-center gap-1 transition-colors"
+              className="text-[11px] text-rose-500 hover:text-rose-700 font-semibold flex items-center gap-1 transition-colors cursor-pointer"
             >
               <X className="w-3 h-3" /> Clear
             </button>
@@ -331,10 +387,19 @@ export default function MediaUploader({
                   }}
                 />
               )}
-              <div className="absolute inset-0 bg-slate-900/60 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xs">
-                <span className="text-[11px] font-bold text-white bg-white/20 border border-white/30 px-3 py-1.5 rounded-lg shadow-sm">
+              <div className="absolute inset-0 bg-slate-900/65 opacity-0 hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 backdrop-blur-xs p-2">
+                <span className="text-[11px] font-bold text-white bg-white/20 border border-white/30 px-3 py-1 rounded-lg shadow-sm">
                   Replace File
                 </span>
+                {isCroppableImageUrl(value) && (
+                  <button
+                    type="button"
+                    onClick={handleOpenReCrop}
+                    className="text-[10px] font-extrabold text-white bg-[#0066FF] hover:bg-blue-500 px-2.5 py-1 rounded-lg shadow-md flex items-center gap-1 cursor-pointer"
+                  >
+                    <Crop className="w-3 h-3" /> Crop / Adjust
+                  </button>
+                )}
               </div>
             </div>
           ) : (
@@ -343,7 +408,7 @@ export default function MediaUploader({
                 {isCurrentPdf ? <FileText className="w-4 h-4 text-red-500" /> : isCurrentVideo ? <Video className="w-4 h-4" /> : <ImageIcon className="w-4 h-4" />}
               </div>
               <span className="text-[11px] font-bold text-slate-700 block">Click / Drop to upload</span>
-              <span className="text-[10px] text-slate-400">{isCurrentPdf ? 'PDF, DOCX, Documents' : 'PNG, WebP, JPG, MP4, PDF'}</span>
+              <span className="text-[10px] text-slate-400">{isCurrentPdf ? 'PDF, DOCX, Documents' : 'PNG, WebP, JPG (with Crop)'}</span>
             </div>
           )}
 
@@ -362,17 +427,29 @@ export default function MediaUploader({
               type="text"
               value={value || ''}
               onChange={(e) => onChange(e.target.value)}
-              placeholder="Enter file URL (e.g. /image/video.mp4 or https://...)"
+              placeholder="Enter file URL or click Upload to crop & upload photo..."
               className="flex-1 px-4 py-2.5 text-xs border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-[#0066FF] bg-slate-50/50 focus:bg-white text-slate-900 font-medium transition-all"
             />
+            {value && isCroppableImageUrl(value) && (
+              <button
+                type="button"
+                onClick={handleOpenReCrop}
+                disabled={uploading}
+                className="px-3.5 py-2.5 bg-blue-50 hover:bg-blue-100 text-[#0066FF] border border-blue-200 rounded-xl text-xs font-extrabold transition-all flex items-center gap-1.5 shrink-0 cursor-pointer"
+                title="Crop, Zoom, Rotate or Adjust this photo"
+              >
+                <Crop className="w-3.5 h-3.5" />
+                <span className="hidden md:inline">Adjust</span>
+              </button>
+            )}
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
               disabled={uploading}
-              className="px-4 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold hover:from-slate-800 hover:to-slate-700 transition-all flex items-center gap-1.5 shrink-0 shadow-sm disabled:opacity-50"
+              className="px-4 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold hover:from-slate-800 hover:to-slate-700 transition-all flex items-center gap-1.5 shrink-0 shadow-sm disabled:opacity-50 cursor-pointer"
             >
               <Upload className="w-3.5 h-3.5 text-[#00C2FF]" />
-              <span>{uploading ? 'Uploading...' : isCurrentPdf ? 'Upload PDF' : isCurrentVideo ? 'Upload Video' : 'Upload File'}</span>
+              <span>{uploading ? 'Uploading...' : isCurrentPdf ? 'Upload PDF' : isCurrentVideo ? 'Upload Video' : 'Upload Photo'}</span>
             </button>
             <input
               ref={fileInputRef}
@@ -399,7 +476,42 @@ export default function MediaUploader({
           {error && <p className="text-xs text-rose-600 font-bold bg-rose-50 p-2 rounded-lg border border-rose-200">{error}</p>}
         </div>
       </div>
+
+      {/* Interactive Photo Crop & Adjust Modal */}
+      <ImageCropperModal
+        isOpen={cropModalOpen}
+        imageSrc={cropImageSrc}
+        fileName={pendingRawFile?.name || value?.split('/').pop() || 'photo.webp'}
+        label={label}
+        canSkipCrop={!!pendingRawFile}
+        onClose={() => {
+          setCropModalOpen(false);
+          if (cropImageSrc.startsWith('blob:')) {
+            URL.revokeObjectURL(cropImageSrc);
+          }
+          setPendingRawFile(null);
+        }}
+        onSkipCrop={() => {
+          setCropModalOpen(false);
+          if (cropImageSrc.startsWith('blob:')) {
+            URL.revokeObjectURL(cropImageSrc);
+          }
+          if (pendingRawFile) {
+            uploadFile(pendingRawFile);
+          }
+          setPendingRawFile(null);
+        }}
+        onConfirm={(croppedFile) => {
+          setCropModalOpen(false);
+          if (cropImageSrc.startsWith('blob:')) {
+            URL.revokeObjectURL(cropImageSrc);
+          }
+          setPendingRawFile(null);
+          uploadFile(croppedFile, true);
+        }}
+      />
     </div>
   );
 }
+
 

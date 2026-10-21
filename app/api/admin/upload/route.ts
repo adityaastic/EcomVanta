@@ -13,8 +13,27 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 export const maxDuration = 60;
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
+    const { searchParams } = new URL(req.url);
+    const proxyUrl = searchParams.get('proxyUrl');
+    if (proxyUrl && /^https?:\/\//i.test(proxyUrl)) {
+      const upstream = await fetch(proxyUrl, { cache: 'no-store' });
+      if (!upstream.ok) {
+        return new NextResponse('Failed to fetch image', { status: upstream.status });
+      }
+      const arrayBuffer = await upstream.arrayBuffer();
+      const contentType = upstream.headers.get('content-type') || 'image/webp';
+      return new NextResponse(arrayBuffer, {
+        status: 200,
+        headers: {
+          'Content-Type': contentType,
+          'Cache-Control': 'no-store',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
     let mediaList: any[] = [];
 
     // 1. Primary: List from Cloudflare R2 bucket

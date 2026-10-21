@@ -13,8 +13,10 @@ import {
   Trash2,
   X,
   Eye,
-  Filter
+  Filter,
+  Crop
 } from 'lucide-react';
+import ImageCropperModal from '@/components/admin/ImageCropperModal';
 
 interface MediaItem {
   name: string;
@@ -34,6 +36,12 @@ export default function MediaLibraryPage() {
   const [deletingName, setDeletingName] = useState<string | null>(null);
   const [dragActive, setDragActive] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [cropperState, setCropperState] = useState<{
+    imageSrc: string;
+    fileName: string;
+    originalFile?: File;
+    objectUrlToRevoke?: string;
+  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const showToast = (msg: string) => {
@@ -60,7 +68,14 @@ export default function MediaLibraryPage() {
     fetchMedia();
   }, []);
 
-  const handleFileUpload = async (files: FileList | null) => {
+  const closeCropper = () => {
+    if (cropperState?.objectUrlToRevoke) {
+      URL.revokeObjectURL(cropperState.objectUrlToRevoke);
+    }
+    setCropperState(null);
+  };
+
+  const uploadFilesArray = async (files: File[]) => {
     if (!files || files.length === 0) return;
 
     setUploading(true);
@@ -141,6 +156,45 @@ export default function MediaLibraryPage() {
         fileInputRef.current.value = '';
       }
     }
+  };
+
+  const handleFileUpload = async (files: FileList | null) => {
+    if (!files || files.length === 0) return;
+
+    // If a single raster image is selected, open the Photo Crop & Adjust Studio first
+    if (files.length === 1) {
+      const singleFile = files[0];
+      const isEditableRaster =
+        singleFile.type.startsWith('image/') &&
+        !singleFile.type.includes('svg') &&
+        !singleFile.type.includes('gif');
+
+      if (isEditableRaster) {
+        const objUrl = URL.createObjectURL(singleFile);
+        setCropperState({
+          imageSrc: objUrl,
+          fileName: singleFile.name,
+          originalFile: singleFile,
+          objectUrlToRevoke: objUrl,
+        });
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
+        return;
+      }
+    }
+
+    await uploadFilesArray(Array.from(files));
+  };
+
+  const openRecropExistingItem = (item: MediaItem) => {
+    const src = item.url.startsWith('http')
+      ? `/api/admin/upload?proxyUrl=${encodeURIComponent(item.url)}`
+      : item.url;
+    setCropperState({
+      imageSrc: src,
+      fileName: item.name || 'cropped-photo.webp',
+    });
   };
 
   const handleDelete = async (filename: string) => {
@@ -402,6 +456,16 @@ export default function MediaLibraryPage() {
                       )}
                     </button>
 
+                    {!isVid && (
+                      <button
+                        onClick={() => openRecropExistingItem(item)}
+                        title="Crop / Adjust Photo"
+                        className="p-1.5 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg transition-colors"
+                      >
+                        <Crop className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+
                     <button
                       onClick={() => handleDelete(item.name)}
                       disabled={isDeleting}
@@ -477,6 +541,18 @@ export default function MediaLibraryPage() {
               </a>
 
               <div className="flex gap-2">
+                {!isVideo(previewImage.name) && (
+                  <button
+                    onClick={() => {
+                      const item = previewImage;
+                      setPreviewImage(null);
+                      openRecropExistingItem(item);
+                    }}
+                    className="px-3 py-1.5 bg-red-600 text-white rounded-xl text-xs font-bold hover:bg-red-700 transition-colors flex items-center gap-1.5"
+                  >
+                    <Crop className="w-3.5 h-3.5" /> Crop / Adjust
+                  </button>
+                )}
                 <button
                   onClick={() => handleCopy(previewImage.url)}
                   className="px-4 py-1.5 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition-colors flex items-center gap-1.5"
@@ -493,6 +569,31 @@ export default function MediaLibraryPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Interactive Photo Crop & Adjust Modal */}
+      {cropperState && (
+        <ImageCropperModal
+          isOpen={true}
+          imageSrc={cropperState.imageSrc}
+          fileName={cropperState.fileName}
+          label="Media Library Photo"
+          canSkipCrop={Boolean(cropperState.originalFile)}
+          onClose={closeCropper}
+          onConfirm={(croppedFile) => {
+            closeCropper();
+            uploadFilesArray([croppedFile]);
+          }}
+          onSkipCrop={
+            cropperState.originalFile
+              ? () => {
+                  const origFile = cropperState.originalFile!;
+                  closeCropper();
+                  uploadFilesArray([origFile]);
+                }
+              : undefined
+          }
+        />
       )}
     </div>
   );
