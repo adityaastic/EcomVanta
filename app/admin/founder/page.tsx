@@ -31,7 +31,7 @@ const DEFAULT_FOUNDER: FounderPageContent = {
   heroSubtitle: 'The driving force behind EcomVanta’s journey from a bootstrap agency to managing ₹50Cr+ GMV for India’s fastest-growing marketplace brands.',
   founderName: 'Shivam Dubey',
   founderRole: 'Founder & CEO, EcomVanta',
-  founderImage: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp',
+  founderImage: '',
   founderQuote: 'We Don’t Just Manage Accounts — We Build Enduring E-Commerce Market Leaders.',
   bioHeading: 'The Story Behind EcomVanta',
   bioParagraphs: [

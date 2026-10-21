@@ -17,10 +17,10 @@ interface VideoHeroSectionProps {
 }
 
 function extractYouTubeId(url: string): string {
-  if (!url) return 'VCPGMjCW0is';
+  if (!url) return '';
   const cleanUrl = url.trim();
   const match = cleanUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
-  return match ? match[1] : cleanUrl.length === 11 ? cleanUrl : 'VCPGMjCW0is';
+  return match ? match[1] : cleanUrl.length === 11 ? cleanUrl : '';
 }
 
 function isDirectVideoUrl(url: string): boolean {
@@ -36,11 +36,15 @@ function isDirectVideoUrl(url: string): boolean {
 }
 
 export default function VideoHeroSection({
-  videoUrl = 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+  videoUrl = '',
 }: VideoHeroSectionProps) {
   const isDirect = isDirectVideoUrl(videoUrl);
   const videoId = isDirect ? '' : extractYouTubeId(videoUrl);
   const [videoLoaded, setVideoLoaded] = useState(false);
+
+  if (!videoUrl) {
+    return null;
+  }
 
   return (
     <section
@@ -48,7 +52,7 @@ export default function VideoHeroSection({
       className="relative w-full mt-[88px] md:mt-[130px] aspect-video sm:aspect-auto sm:h-[480px] md:h-[560px] lg:h-[640px] xl:h-[720px] overflow-hidden bg-black"
     >
       {/* Fallback Poster Background while video loads (for YouTube) */}
-      {!isDirect && (
+      {!isDirect && videoId && (
         <div
           className={`absolute inset-0 z-0 transition-opacity duration-700 ${
             videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
@@ -67,6 +71,7 @@ export default function VideoHeroSection({
       <div className="w-full h-full overflow-hidden relative z-10">
         {isDirect ? (
           <video
+            key={videoUrl}
             src={videoUrl}
             autoPlay
             muted
@@ -76,7 +81,7 @@ export default function VideoHeroSection({
             className="w-full h-full object-cover"
             onLoadedData={() => setVideoLoaded(true)}
           />
-        ) : (
+        ) : videoId ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1`}
             title="Hero Video Banner"
@@ -85,7 +90,7 @@ export default function VideoHeroSection({
             allowFullScreen
             onLoad={() => setVideoLoaded(true)}
           />
-        )}
+        ) : null}
       </div>
 
       {/* Subtle white layer & very very light blue effect overlay */}

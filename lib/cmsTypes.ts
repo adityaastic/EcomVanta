@@ -840,7 +840,7 @@ export const DEFAULT_CAREER_PAGE_CONTENT: CareerPageContent = {
   heroSubtitle: 'Build Your Career in eCommerce, Digital Marketing & Brand Growth. Join an elite team scaling top brands on Amazon, Flipkart, Myntra, Zepto, and Blinkit.',
   pitchText: "Whether you're an experienced marketplace strategist or looking to launch your career in the hyper-growing e-commerce ecosystem, EcomVanta offers dynamic opportunities to learn, execute, and make a measurable impact.",
   pitchBadges: ['📍 New Delhi, India', '📈 High-Growth Agency', '🎓 Continuous Learning & Upskilling'],
-  bannerImage: '/uploads/ecomvanta-team.png',
+  bannerImage: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483048007_Corporate_Team_Portrait_in_Modern_Office.webp',
   whyJoinTitle: 'Why Join EcomVanta?',
   whyJoinDescription: 'At EcomVanta, we believe our talent is our core engine. When you join EcomVanta, you become part of a merit-based culture focused on innovation, autonomy, and continuous growth.',
   whyJoinPoints: [
@@ -879,7 +879,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       twitter: 'https://twitter.com/ecomvanta',
       youtube: 'https://youtube.com/@ecomvanta',
     },
-    catalogPdfUrl: '/uploads/ecomvanta-catalog.pdf',
+    catalogPdfUrl: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/ecomvanta-catalog.pdf',
     catalogButtonText: 'Download Catalog',
     showCatalogInHeader: true,
     showCatalogInHero: true,
@@ -889,7 +889,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
   homepage: {
     videoHero: {
       enabled: true,
-      videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+      videoUrl: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792413483168_ecomvanta.mp4',
       title: '',
       subtitle: 'From Strategy to Execution',
       buttonText: 'Get Started',
@@ -910,7 +910,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       primaryCtaLink: '/contact-us',
       secondaryCtaText: 'View Case Studies',
       secondaryCtaLink: '/portfolio',
-      heroImage: '/uploads/ecomvanta-team.png',
+      heroImage: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483339632_Blue_E-Commerce_Shopping_Experience__1_.webp',
       heroBadgeNumber: '₹50Cr+',
       heroBadgeText: 'GMV Generated for Clients',
       trustRating: '4.9 / 5.0',
@@ -923,18 +923,19 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       { id: '4', number: '99.4%', label: 'Listing Accuracy & SLA', description: 'Zero policy strikes or BuyBox loss' },
     ],
     brandLogosHeading: 'We Provide Services For These Leading Brands',
-    heroVideo: '/uploads/ecomvanta-hero.mp4',
+    heroVideo: '',
     brandLogos: [
-      { id: '1', name: 'Deshi', logo: '/Deshi.png' },
-      { id: '2', name: 'Krishna', logo: '/Krishna logo .png' },
-      { id: '3', name: 'Forest Found', logo: '/Forest Found.png' },
-      { id: '4', name: 'SS Logo', logo: '/SS logo .png' },
-      { id: '5', name: 'RPURE', logo: '/RPURE logo .png' },
-      { id: '6', name: 'Nufyt', logo: '/Nufyt.png' },
-      { id: '7', name: 'Rasaveda', logo: '/Rasaveda.png' },
-      { id: '8', name: 'Bubz', logo: '/Bubz.png' },
-      { id: '9', name: 'Ninety Two', logo: '/Ninety Two.png' },
-      { id: '10', name: 'Snackes', logo: '/Snackes .png' },
+      { id: '1', name: 'Deshi', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411028874_WhatsApp_Image_2026-09-20_at_22.38.58.webp' },
+      { id: '2', name: 'Krishna', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411056777_WhatsApp_Image_2026-09-20_at_22.38.59.webp' },
+      { id: '3', name: 'Forest Found', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411068757_WhatsApp_Image_2026-09-20_at_22.38.59__1_.webp' },
+      { id: '4', name: 'SS Logo', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411085966_WhatsApp_Image_2026-09-20_at_22.38.59__2_.webp' },
+      { id: '5', name: 'RPURE', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411103331_WhatsApp_Image_2026-09-20_at_22.39.00.webp' },
+      { id: '6', name: 'Nufyt', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411116049_WhatsApp_Image_2026-09-20_at_22.39.00__1_.webp' },
+      { id: '7', name: 'Rasaveda', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411127029_WhatsApp_Image_2026-09-20_at_22.54.41.webp' },
+      { id: '8', name: 'Bubz', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411145787_WhatsApp_Image_2026-09-20_at_22.54.41__1_.webp' },
+      { id: '9', name: 'Ninety Two', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411154728_WhatsApp_Image_2026-09-20_at_22.54.41__2_.webp' },
+      { id: '10', name: 'Snackes', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411164147_WhatsApp_Image_2026-09-20_at_22.54.42.webp' },
+      { id: '1792411167580', name: 'New Brand', logo: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792411171816_WhatsApp_Image_2026-09-20_at_22.54.42__1_.webp' },
     ],
     platforms: [
       {
@@ -1035,10 +1036,10 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
       ],
     },
     clientVideos: [
-      { id: '1', name: 'Amardeep', role: 'Founder, Home & Kitchen Brand', videoUrl: '/image/Amardeep.mp4', quote: 'EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.', rating: 5 },
-      { id: '2', name: 'Arjun', role: 'D2C Apparel Brand Owner', videoUrl: '/image/Arjun.mp4', quote: 'Their Flipkart ad management reduced our ACOS from 34% down to 15%.', rating: 5 },
-      { id: '3', name: 'Diksha', role: 'Cosmetics Brand Director', videoUrl: '/image/Diksha.mp4', quote: 'The onboarding on Blinkit & Zepto was seamless and super fast!', rating: 5 },
-      { id: '4', name: 'Kamna', role: 'Ayurvedic Wellness Brand', videoUrl: '/image/Kamna Video.mp4', quote: 'Best eCommerce agency. Professional, responsive, and always available.', rating: 5 },
+      { id: '1', name: 'Amardeep', role: 'Founder, Home & Kitchen Brand', videoUrl: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412051639_ECOMMANTA.mp4', quote: 'EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.', rating: 5 },
+      { id: '2', name: 'Arjun', role: 'D2C Apparel Brand Owner', videoUrl: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412150240_online_shop.mp4', quote: 'Their Flipkart ad management reduced our ACOS from 34% down to 15%.', rating: 5 },
+      { id: '3', name: 'Diksha', role: 'Cosmetics Brand Director', videoUrl: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792482972281_ecomvanta__2_.mp4', quote: 'The onboarding on Blinkit & Zepto was seamless and super fast!', rating: 5 },
+      { id: '4', name: 'Kamna', role: 'Ayurvedic Wellness Brand', videoUrl: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412677396_reel3.mp4', quote: 'Best eCommerce agency. Professional, responsive, and always available.', rating: 5 },
     ],
     faqs: [
       {
@@ -1073,9 +1074,9 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
         '100% Policy-Safe Listing & Account Health Protection',
       ],
       buttonText: 'Book a Free Consultation',
-      videoUrl: '/image/Amardeep.mp4',
+      videoUrl: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412051639_ECOMMANTA.mp4',
       quote: '“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”',
-      author: 'Amardeep, Home & Kitchen Brand',
+      author: 'Verified Brand Partner',
       rating: 5,
     },
     bottomCta: {
@@ -1147,7 +1148,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
   aboutUs: {
     heroTitle: 'WHO WE ARE & WHAT WE DO',
     heroSubtitle: 'Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.',
-    heroImage: '/uploads/ecomvanta-team.png',
+    heroImage: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483048007_Corporate_Team_Portrait_in_Modern_Office.webp',
     storyTitle: 'Who We Are & What We Do',
     storyDesc: 'Whether you\'re just starting out or scaling up, we handle everything — from product listings to ad campaigns. EcomVanta provides complete end-to-end marketplace management helping brands sell smarter, grow faster, and stay stress-free in today\'s competitive e-commerce world.',
     missionTitle: 'Our Mission',
@@ -1158,9 +1159,9 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     founderDesc: 'When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.',
     founderName: 'Shivam Dubey',
     founderTitle: 'Founder & CEO, EcomVanta',
-    founderImage: '/uploads/founder_ecomvanta.jpeg',
+    founderImage: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp',
     team: [
-      { id: '1', name: 'Shivam Dubey', designation: 'Director & Founder', image: '/uploads/founder_ecomvanta.jpeg' },
+      { id: '1', name: 'Shivam Dubey', designation: 'Director & Founder', image: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp' },
     ],
   },
   founder: {
@@ -1169,7 +1170,7 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
     heroSubtitle: 'The driving force behind EcomVanta’s journey from a bootstrap agency to managing ₹50Cr+ GMV for India’s fastest-growing marketplace brands.',
     founderName: 'Shivam Dubey',
     founderRole: 'Founder & CEO, EcomVanta',
-    founderImage: '/uploads/founder_ecomvanta.jpeg',
+    founderImage: 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp',
     founderQuote: 'We Don’t Just Manage Accounts — We Build Enduring E-Commerce Market Leaders.',
     bioHeading: 'The Story Behind EcomVanta',
     bioParagraphs: [
@@ -1207,39 +1208,29 @@ export const DEFAULT_SITE_CONTENT: SiteContentData = {
 };
 
 export const RESTRICTED_SUPABASE_URL_MAP: Record<string, string> = {
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317947318_catelog.pdf': '/uploads/ecomvanta-catalog.pdf',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp': '/uploads/ecomvanta-team.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707303911_ChatGPT_Image_Sep_18__2026__10_24_51_AM.webp': '/uploads/ecomvanta-team.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp': '/uploads/founder_ecomvanta.jpeg',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789927645231_WhatsApp_Image_2026-09-20_at_22.54.42__2_.webp': '/uploads/founder_ecomvanta.jpeg',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790428729318_pp.webp': '/uploads/founder_ecomvanta.jpeg',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707331605_WhatsApp_Image_2026-09-18_at_10.21.32_AM.webp': '/uploads/founder_ecomvanta.jpeg',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317012442_12Ecomvanta.mp4': '/uploads/ecomvanta-hero.mp4',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317671050_1Ecommanta.mp4': '/uploads/ecomvanta-hero.mp4',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790315813852_2Ecommanta.mp4': '/image/Amardeep.mp4',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790316735605_12Ecomvanta.mp4': '/image/Arjun.mp4',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571128769_1790427955026_Ecomvanta-Digital.mp4': '/image/Diksha.mp4',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571138292_1790428640547_Online1Shop.mp4': '/image/Kamna Video.mp4',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317947318_catelog.pdf': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/ecomvanta-catalog.pdf',
+  '/uploads/ecomvanta-catalog.pdf': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/ecomvanta-catalog.pdf',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483339632_Blue_E-Commerce_Shopping_Experience__1_.webp',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707303911_ChatGPT_Image_Sep_18__2026__10_24_51_AM.webp': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483048007_Corporate_Team_Portrait_in_Modern_Office.webp',
+  '/uploads/ecomvanta-team.png': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483048007_Corporate_Team_Portrait_in_Modern_Office.webp',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789927645231_WhatsApp_Image_2026-09-20_at_22.54.42__2_.webp': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790428729318_pp.webp': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707331605_WhatsApp_Image_2026-09-18_at_10.21.32_AM.webp': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp',
+  '/uploads/founder_ecomvanta.jpeg': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317012442_12Ecomvanta.mp4': '',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790317671050_1Ecommanta.mp4': '',
+  '/uploads/ecomvanta-hero.mp4': '',
+  'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792413483168_ecomvanta.mp4',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790315813852_2Ecommanta.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412051639_ECOMMANTA.mp4',
+  '/image/Amardeep.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412051639_ECOMMANTA.mp4',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790316735605_12Ecomvanta.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412150240_online_shop.mp4',
+  '/image/Arjun.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412150240_online_shop.mp4',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571128769_1790427955026_Ecomvanta-Digital.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792482972281_ecomvanta__2_.mp4',
+  '/image/Diksha.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792482972281_ecomvanta__2_.mp4',
+  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790571138292_1790428640547_Online1Shop.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412677396_reel3.mp4',
+  '/image/Kamna Video.mp4': 'https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412677396_reel3.mp4',
   'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707560459_ChatGPT_Image_Sep_18__2026__10_28_59_AM.webp': '/service-img/Amazon-left-img.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562322977_1.webp': '/Deshi.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562333805_2.webp': '/Krishna logo .png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562333286_2.webp': '/Krishna logo .png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562343898_3.webp': '/Forest Found.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562338237_3.webp': '/Forest Found.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562356483_4.webp': '/SS logo .png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562343224_4.webp': '/SS logo .png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562367007_5.webp': '/RPURE logo .png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562347752_5.webp': '/RPURE logo .png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562377052_6.webp': '/Nufyt.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562361360_7.webp': '/Nufyt.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562386327_7.webp': '/Rasaveda.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926514641_WhatsApp_Image_2026-09-20_at_22.54.41.webp': '/Rasaveda.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562396521_8.webp': '/Bubz.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926552550_WhatsApp_Image_2026-09-20_at_22.54.42__1_.webp': '/Bubz.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926565031_WhatsApp_Image_2026-09-20_at_22.39.00__1_.webp': '/Ninety Two.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926559447_WhatsApp_Image_2026-09-20_at_22.54.41__1_.webp': '/Ninety Two.png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926577132_WhatsApp_Image_2026-09-20_at_22.39.00.webp': '/Snackes .png',
-  'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789926577132_WhatsApp_Image_2026-09-20_at_22.54.42.webp': '/Snackes .png',
 };
 
 export const LEGACY_BLOG_LOGO_IMAGES = new Set([
@@ -1255,12 +1246,12 @@ export function sanitizeRestrictedMediaUrls<T>(input: T): T {
   if (!input) return input;
   if (typeof input === 'string') {
     const trimmed = input.trim();
-    if (RESTRICTED_SUPABASE_URL_MAP[trimmed]) {
+    if (trimmed in RESTRICTED_SUPABASE_URL_MAP) {
       return RESTRICTED_SUPABASE_URL_MAP[trimmed] as unknown as T;
     }
     if (trimmed.includes('pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/')) {
       const baseUrl = trimmed.split('?')[0];
-      if (RESTRICTED_SUPABASE_URL_MAP[baseUrl]) {
+      if (baseUrl in RESTRICTED_SUPABASE_URL_MAP) {
         return RESTRICTED_SUPABASE_URL_MAP[baseUrl] as unknown as T;
       }
     }

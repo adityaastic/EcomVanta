@@ -3,10 +3,10 @@
     "siteName": "EcomVanta",
     "siteTagline": "Powering Brands. Scaling E-commerce.",
     "metaDescription": "EcomVanta is India premier marketplace account management agency.",
-    "headerLogo": "/ecomvanta-logo.png",
-    "darkLogo": "/ecomvanta-logo.png",
-    "footerLogo": "/ecomvanta-logo.png",
-    "favicon": "/icon.png",
+    "headerLogo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792558238730_ecomvantalogo.webp",
+    "darkLogo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792558242071_ecomvantalogo.webp",
+    "footerLogo": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792558242071_ecomvantalogo.webp",
+    "favicon": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792558249043_ecomvantalogo.webp",
     "topbarPhone": "+918787249407",
     "tollFreePhone": "+91 878 724 9407",
     "email": "ecomvanta40@gmail.com",
@@ -28,7 +28,7 @@
   "homepage": {
     "videoHero": {
       "enabled": true,
-      "videoUrl": "https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv",
+      "videoUrl": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792413483168_ecomvanta.mp4",
       "title": "",
       "subtitle": "From Strategy to Execution",
       "buttonText": "Get Started",
@@ -61,7 +61,7 @@
       "primaryCtaLink": "/contact-us",
       "secondaryCtaText": "View Case Studies",
       "secondaryCtaLink": "/portfolio",
-      "heroImage": "/uploads/ecomvanta-team.png",
+      "heroImage": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483339632_Blue_E-Commerce_Shopping_Experience__1_.webp",
       "heroBadgeNumber": "₹50Cr+",
       "heroBadgeText": "GMV Generated for Clients",
       "trustRating": "4.9 / 5.0",
@@ -94,7 +94,7 @@
       }
     ],
     "brandLogosHeading": "We Provide Services For These Leading Brands",
-    "heroVideo": "/uploads/ecomvanta-hero.mp4",
+    "heroVideo": "",
     "brandLogos": [
       {
         "id": "1789926480082",
@@ -271,15 +271,15 @@
         "id": "1",
         "name": "satyam",
         "role": "EcomVanta Team (Digital Team)",
-        "videoUrl": "/image/Amardeep.mp4",
+        "videoUrl": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412051639_ECOMMANTA.mp4",
         "quote": "",
         "rating": 5
       },
       {
         "id": "2",
-        "name": "Arjun",
+        "name": "Nitish",
         "role": "EcomVanta Team (Digital Team)",
-        "videoUrl": "/image/Arjun.mp4",
+        "videoUrl": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412150240_online_shop.mp4",
         "quote": "",
         "rating": 5
       },
@@ -287,7 +287,7 @@
         "id": "3",
         "name": "Jatin",
         "role": "EcomVanta Team",
-        "videoUrl": "/image/Diksha.mp4",
+        "videoUrl": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792482972281_ecomvanta__2_.mp4",
         "quote": "",
         "rating": 5
       },
@@ -295,7 +295,7 @@
         "id": "4",
         "name": "Nitish",
         "role": "EcomVanta Team",
-        "videoUrl": "/image/Kamna Video.mp4",
+        "videoUrl": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412677396_reel3.mp4",
         "quote": "",
         "rating": 5
       }
@@ -333,7 +333,7 @@
         "100% Policy-Safe Listing & Account Health Protection"
       ],
       "buttonText": "Book a Free Consultation",
-      "videoUrl": "/uploads/ecomvanta-hero.mp4",
+      "videoUrl": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792412051639_ECOMMANTA.mp4",
       "quote": "“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”",
       "author": "Amardeep, Home & Kitchen Brand",
       "rating": 5
@@ -2699,7 +2699,7 @@
       "📈 High-Growth Agency",
       "🎓 Continuous Learning & Upskilling"
     ],
-    "bannerImage": "/uploads/ecomvanta-team.png",
+    "bannerImage": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483048007_Corporate_Team_Portrait_in_Modern_Office.webp",
     "whyJoinTitle": "Why Join EcomVanta?",
     "whyJoinDescription": "At EcomVanta, we believe our talent is our core engine. When you join EcomVanta, you become part of a merit-based culture focused on innovation, autonomy, and continuous growth.",
     "whyJoinPoints": [
@@ -2736,7 +2736,7 @@
   "aboutUs": {
     "heroTitle": "WHO WE ARE & WHAT WE DO",
     "heroSubtitle": "Welcome to your one-stop solution for Account Management Services on Amazon, Flipkart, Meesho, Myntra, Blinkit, BigBasket, Moglix, B2B Marketplaces, and Brand Websites.",
-    "heroImage": "/uploads/ecomvanta-team.png",
+    "heroImage": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483048007_Corporate_Team_Portrait_in_Modern_Office.webp",
     "storyTitle": "Who We Are & What We Do",
     "storyDesc": "Whether you're just starting out or scaling up, we handle everything — from product listings to ad campaigns. EcomVanta provides complete end-to-end marketplace management helping brands sell smarter, grow faster, and stay stress-free in today's competitive e-commerce world.",
     "missionTitle": "Our Mission",
@@ -2747,13 +2747,13 @@
     "founderDesc": "When we founded EcomVanta, our goal was simple: provide complete transparency, elite execution, and true growth partnership to sellers. Today, our 50+ e-commerce specialists manage hundreds of successful brands across India and global marketplaces.",
     "founderName": "Shivam Dubey",
     "founderTitle": "Founder & CEO, EcomVanta",
-    "founderImage": "/uploads/founder_ecomvanta.jpeg",
+    "founderImage": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp",
     "team": [
       {
         "id": "1",
         "name": "Shivam Dubey",
         "designation": "Director & Founder",
-        "image": "/uploads/founder_ecomvanta.jpeg"
+        "image": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp"
       }
     ]
   },
@@ -2763,7 +2763,7 @@
     "heroSubtitle": "The driving force behind EcomVanta’s journey from a bootstrap agency to managing ₹50Cr+ GMV for India’s fastest-growing marketplace brands.",
     "founderName": "Shivam Dubey",
     "founderRole": "Founder & CEO, EcomVanta",
-    "founderImage": "/uploads/founder_ecomvanta.jpeg",
+    "founderImage": "https://pub-91fbf9d4fa5f4d0c945a1423b54df277.r2.dev/1792483057022_WhatsApp_Image_2026-10-20_at_10.11.15_AM.webp",
     "founderQuote": "We Don’t Just Manage Accounts — We Build Enduring E-Commerce Market Leaders.",
     "bioHeading": "The Story Behind EcomVanta",
     "bioParagraphs": [

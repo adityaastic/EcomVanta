@@ -258,7 +258,7 @@ export default function HomepageEditorPage() {
             <div className="space-y-4">
               <MediaUploader
                 label="Hero Video File (Upload MP4/WebM or Paste YouTube Link)"
-                value={homepage.videoHero?.videoUrl || 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv'}
+                value={homepage.videoHero?.videoUrl || ''}
                 onChange={(url) =>
                   setHomepage({
                     ...homepage,
@@ -289,7 +289,7 @@ export default function HomepageEditorPage() {
                         ...homepage,
                         videoHero: {
                           ...(homepage.videoHero || {
-                            videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+                            videoUrl: '',
                             subtitle: 'From Strategy to Execution',
                             buttonText: 'Get Started',
                           }),
@@ -313,7 +313,7 @@ export default function HomepageEditorPage() {
                         ...homepage,
                         videoHero: {
                           ...(homepage.videoHero || {
-                            videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+                            videoUrl: '',
                             title: 'Enabling E-commerce Globally',
                             buttonText: 'Get Started',
                           }),
@@ -338,7 +338,7 @@ export default function HomepageEditorPage() {
                       ...homepage,
                       videoHero: {
                         ...(homepage.videoHero || {
-                          videoUrl: 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv',
+                          videoUrl: '',
                           title: 'Enabling E-commerce Globally',
                           subtitle: 'From Strategy to Execution',
                         }),
@@ -753,7 +753,7 @@ export default function HomepageEditorPage() {
           <div className="space-y-4">
             <MediaUploader
               label="Growth Partners Left Banner Image"
-              value={aboutUs?.heroImage || '/ecommerce-growth-partners.webp'}
+              value={aboutUs?.heroImage || ''}
               onChange={(url) => {
                 setAboutUs((prev) =>
                   prev
@@ -791,7 +791,7 @@ export default function HomepageEditorPage() {
                       : {
                           heroTitle: 'WHO WE ARE & WHAT WE DO',
                           heroSubtitle: 'Welcome to your one-stop solution for Account Management Services...',
-                          heroImage: '/ecommerce-growth-partners.webp',
+                          heroImage: '',
                           storyTitle: 'Who We Are & What We Do',
                           storyDesc: val,
                           missionTitle: 'Our Mission',
@@ -825,7 +825,7 @@ export default function HomepageEditorPage() {
               onClick={() => {
                 const newBrands = [
                   ...homepage.brandLogos,
-                  { id: Date.now().toString(), name: 'New Brand', logo: '/Deshi.png' },
+                  { id: Date.now().toString(), name: 'New Brand', logo: '' },
                 ];
                 setHomepage({ ...homepage, brandLogos: newBrands });
               }}
@@ -1457,7 +1457,7 @@ export default function HomepageEditorPage() {
             <div className="p-4 bg-blue-50/50 rounded-2xl border border-blue-100 space-y-4">
               <MediaUploader
                 label="Spotlight Video File (MP4, WebM, MOV - Up to 50MB)"
-                value={homepage.sellerSpotlight?.videoUrl || '/image/Amardeep.mp4'}
+                value={homepage.sellerSpotlight?.videoUrl || ''}
                 onChange={(url) =>
                   setHomepage({
                     ...homepage,
@@ -1467,7 +1467,7 @@ export default function HomepageEditorPage() {
                     },
                   })
                 }
-                helperText="Upload any high-res MP4 reel/video from your machine. Bypasses limits and uploads directly to Supabase cloud storage."
+                helperText="Upload any high-res MP4 reel/video from your machine. Bypasses limits and uploads directly to Cloudflare R2 storage."
                 previewHeight="h-44"
               />
 
@@ -1572,7 +1572,7 @@ export default function HomepageEditorPage() {
                 </label>
                 <input
                   type="text"
-                  value={homepage.sellerSpotlight?.author || 'Amardeep, Home & Kitchen Brand'}
+                  value={homepage.sellerSpotlight?.author || 'Verified Brand Partner'}
                   onChange={(e) =>
                     setHomepage({
                       ...homepage,
@@ -1606,7 +1606,7 @@ export default function HomepageEditorPage() {
                       id: Date.now().toString(),
                       name: 'Client Name',
                       role: 'Brand Founder',
-                      videoUrl: '/image/Amardeep.mp4',
+                      videoUrl: '',
                       quote: 'Outstanding growth results with EcomVanta team.',
                       rating: 5,
                     },

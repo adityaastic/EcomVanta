@@ -36,7 +36,7 @@ export default function FounderPage() {
     heroSubtitle: 'The driving force behind EcomVanta’s journey from a bootstrap agency to managing ₹50Cr+ GMV for India’s fastest-growing marketplace brands.',
     founderName: 'Shivam Dubey',
     founderRole: 'Founder & CEO, EcomVanta',
-    founderImage: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp',
+    founderImage: '',
     founderQuote: 'We Don’t Just Manage Accounts — We Build Enduring E-Commerce Market Leaders.',
     bioHeading: 'The Story Behind EcomVanta',
     bioParagraphs: [
@@ -61,7 +61,7 @@ export default function FounderPage() {
     calloutDesc: 'Schedule an exclusive 1-on-1 marketplace growth audit and uncover hidden revenue opportunities in your catalog.',
   };
 
-  const founderImg = founder.founderImage || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp';
+  const founderImg = content.aboutUs?.founderImage || founder.founderImage || '';
   const founderName = founder.founderName || 'Shivam Dubey';
   const founderRole = founder.founderRole || 'Founder & CEO, EcomVanta';
 
@@ -104,12 +104,14 @@ export default function FounderPage() {
                 <div className="relative w-full max-w-md">
                   <div className="absolute -inset-3 bg-gradient-to-tr from-[#0066FF] to-cyan-400 rounded-3xl blur-xl opacity-30 animate-pulse" />
                   
-                  <div className="relative rounded-3xl overflow-hidden bg-slate-950 border-4 border-white shadow-2xl">
-                    <img
-                      src={founderImg}
-                      alt={`${founderName} - ${founderRole}`}
-                      className="w-full h-auto object-cover aspect-[4/5] hover:scale-103 transition-transform duration-700"
-                    />
+                  <div className="relative rounded-3xl overflow-hidden bg-slate-950 border-4 border-white shadow-2xl min-h-[360px]">
+                    {founderImg && (
+                      <img
+                        src={founderImg}
+                        alt={`${founderName} - ${founderRole}`}
+                        className="w-full h-auto object-cover aspect-[4/5] hover:scale-103 transition-transform duration-700"
+                      />
+                    )}
 
                     {/* Gradient Overlay at Bottom with Name & Role */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-6 sm:p-8">

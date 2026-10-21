@@ -354,7 +354,7 @@ export default function AboutUsAdminPage() {
           </div>
           <MediaUploader
             label="Founder / Leadership Photo"
-            value={aboutUs.founderImage || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp'}
+            value={aboutUs.founderImage || ''}
             onChange={(url) => setAboutUs({ ...aboutUs, founderImage: url })}
             helperText="Upload the founder image displayed next to the quote"
             previewHeight="h-44"
@@ -383,7 +383,7 @@ export default function AboutUsAdminPage() {
             onClick={() => {
               const newTeam = [
                 ...aboutUs.team,
-                { id: Date.now().toString(), name: 'Team Member', designation: 'Specialist', image: '/image/Aadil.png' },
+                { id: Date.now().toString(), name: 'Team Member', designation: 'Specialist', image: '' },
               ];
               setAboutUs({ ...aboutUs, team: newTeam });
             }}

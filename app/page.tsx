@@ -123,7 +123,7 @@ export default function HomePage() {
         
         {/* SECTION 1: First Hero Section — Video Background Banner */}
         <VideoHeroSection
-          videoUrl={hp.videoHero?.videoUrl || 'https://youtu.be/VCPGMjCW0is?si=jRCSoA1B7x_wNaAv'}
+          videoUrl={hp.videoHero?.videoUrl || ''}
         />
 
         {/* SECTION 1.1: 4-Column Live Stats & Growth Counter Strip (Directly below Video Hero, Full Page Width) */}
@@ -294,13 +294,15 @@ export default function HomePage() {
               <div className="relative w-full max-w-[580px] lg:max-w-[640px]">
                 
                 {/* Main Hero Card Container */}
-                <div className="relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-gradient-to-br from-white via-blue-50/70 to-indigo-50/50 p-4 sm:p-6 shadow-2xl border-4 border-white backdrop-blur-md">
-                  <img
-                    src={hero.heroImage || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789563560397_ChatGPT_Image_Sep_16__2026__06_29_10_PM.webp'}
-                    alt={hero.titlePart1 || 'E-Commerce Seller Account Management'}
-                    className="w-full h-auto object-contain relative z-10 max-h-[540px] lg:max-h-[620px] scale-105 transition-transform duration-500 hover:scale-110"
-                  />
-                </div>
+                {hero.heroImage && (
+                  <div className="relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-gradient-to-br from-white via-blue-50/70 to-indigo-50/50 p-4 sm:p-6 shadow-2xl border-4 border-white backdrop-blur-md">
+                    <img
+                      src={hero.heroImage}
+                      alt={hero.titlePart1 || 'E-Commerce Seller Account Management'}
+                      className="w-full h-auto object-contain relative z-10 max-h-[540px] lg:max-h-[620px] scale-105 transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                )}
 
                 {/* Floating Stat Card 1: Top Left - Positioned Higher Up (Upper) */}
                 <div className="absolute -top-7 -left-3 sm:-top-9 sm:-left-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-2xl border border-blue-100 flex items-center gap-3.5 z-30 animate-float-slow">
@@ -460,26 +462,28 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
               
               <div className="lg:col-span-6 relative">
-                <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-white relative group">
-                  <img
-                    src={content.aboutUs?.heroImage || '/ecommerce-growth-partners.webp'}
-                    alt="E-Commerce Growth Partners"
-                    className="w-full h-auto object-cover max-h-[480px] group-hover:scale-102 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex items-end">
-                    <div className="bg-slate-950/85 backdrop-blur-md border border-white/20 p-4 sm:p-5 rounded-2xl text-white shadow-2xl w-full">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse"></span>
-                        <p className="text-xs font-black uppercase tracking-widest text-[#00C2FF] drop-shadow-sm">
-                          Proven Multi-Channel Scale
-                        </p>
+                {content.aboutUs?.heroImage && (
+                  <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-white relative group">
+                    <img
+                      src={content.aboutUs.heroImage}
+                      alt="E-Commerce Growth Partners"
+                      className="w-full h-auto object-cover max-h-[480px] group-hover:scale-102 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex items-end">
+                      <div className="bg-slate-950/85 backdrop-blur-md border border-white/20 p-4 sm:p-5 rounded-2xl text-white shadow-2xl w-full">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse"></span>
+                          <p className="text-xs font-black uppercase tracking-widest text-[#00C2FF] drop-shadow-sm">
+                            Proven Multi-Channel Scale
+                          </p>
+                        </div>
+                        <h4 className="text-lg sm:text-xl font-black text-white leading-tight drop-shadow-md">
+                          Driving 3X to 10X Revenue Multipliers
+                        </h4>
                       </div>
-                      <h4 className="text-lg sm:text-xl font-black text-white leading-tight drop-shadow-md">
-                        Driving 3X to 10X Revenue Multipliers
-                      </h4>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
 
               <div className="lg:col-span-6 space-y-6">
@@ -794,12 +798,13 @@ export default function HomePage() {
               '100% Policy-Safe Listing & Account Health Protection',
             ],
             buttonText: 'Book a Free Consultation',
-            videoUrl: '/image/Amardeep.mp4',
+            videoUrl: '',
             quote: '“EcomVanta scaled our Amazon monthly sales from ₹2L to over ₹18L in just 90 days.”',
-            author: 'Amardeep, Home & Kitchen Brand',
+            author: 'Verified Brand Partner',
             rating: 5,
           };
-          const videoSrc = spotlight.videoUrl || '/image/Amardeep.mp4';
+          const rawSpotlightUrl = spotlight.videoUrl && !spotlight.videoUrl.startsWith('/image/') ? spotlight.videoUrl : '';
+          const videoSrc = rawSpotlightUrl || clientVideos[0]?.videoUrl || '';
           const pointsList: string[] = (spotlight.points && spotlight.points.length > 0)
             ? spotlight.points
             : [
@@ -816,7 +821,7 @@ export default function HomePage() {
                   
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
                     
-                    <div className="lg:col-span-7 space-y-6">
+                    <div className={videoSrc ? 'lg:col-span-7 space-y-6' : 'lg:col-span-12 space-y-6'}>
                       <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 text-[#00C2FF] text-xs font-black tracking-wider uppercase border border-cyan-400/30">
                         <Sparkles className="w-3.5 h-3.5" /> {spotlight.badgeText || 'SELLER SPOTLIGHT'}
                       </span>
@@ -852,33 +857,35 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div className="lg:col-span-5">
-                      <div className="rounded-3xl overflow-hidden bg-black/60 border-2 border-white/20 shadow-2xl backdrop-blur-md p-2">
-                        <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-black max-h-[440px] mx-auto">
-                          <video
-                            key={videoSrc}
-                            src={videoSrc}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            controls
-                            className="w-full h-full object-cover"
-                          />
-                          {(spotlight.quote || spotlight.author) && (
-                            <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/75 backdrop-blur-md text-white pointer-events-none">
-                              <div className="flex text-amber-400 text-xs font-black mb-1">★★★★★</div>
-                              {spotlight.quote && (
-                                <p className="text-xs font-bold leading-snug">{spotlight.quote}</p>
-                              )}
-                              {spotlight.author && (
-                                <p className="text-[10px] text-cyan-300 font-extrabold mt-1">— {spotlight.author}</p>
-                              )}
-                            </div>
-                          )}
+                    {videoSrc && (
+                      <div className="lg:col-span-5">
+                        <div className="rounded-3xl overflow-hidden bg-black/60 border-2 border-white/20 shadow-2xl backdrop-blur-md p-2">
+                          <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-black max-h-[440px] mx-auto">
+                            <video
+                              key={videoSrc}
+                              src={videoSrc}
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
+                              controls
+                              className="w-full h-full object-cover"
+                            />
+                            {(spotlight.quote || spotlight.author) && (
+                              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/75 backdrop-blur-md text-white pointer-events-none">
+                                <div className="flex text-amber-400 text-xs font-black mb-1">★★★★★</div>
+                                {spotlight.quote && (
+                                  <p className="text-xs font-bold leading-snug">{spotlight.quote}</p>
+                                )}
+                                {spotlight.author && (
+                                  <p className="text-[10px] text-cyan-300 font-extrabold mt-1">— {spotlight.author}</p>
+                                )}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
 
                   </div>
                 </div>
@@ -900,19 +907,21 @@ export default function HomePage() {
                 <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#00C2FF]/10 rounded-full blur-[120px] pointer-events-none" />
                 
                 <div className="lg:col-span-4 flex justify-center">
-                  <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl bg-[#0B1E36] group">
-                    <img
-                      src={content.founder?.founderImage || content.aboutUs?.founderImage || "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp"}
-                      alt={content.founder?.founderName || "Shivam Dubey - Founder & CEO"}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                      <div>
-                        <p className="text-white font-black text-lg">{content.founder?.founderName || "Shivam Dubey"}</p>
-                        <p className="text-cyan-400 text-xs font-semibold">{content.founder?.founderRole || "Founder & CEO, EcomVanta"}</p>
+                  {(content.aboutUs?.founderImage || content.founder?.founderImage) && (
+                    <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl bg-[#0B1E36] group">
+                      <img
+                        src={content.aboutUs?.founderImage || content.founder?.founderImage}
+                        alt={content.founder?.founderName || "Shivam Dubey - Founder & CEO"}
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                        <div>
+                          <p className="text-white font-black text-lg">{content.founder?.founderName || "Shivam Dubey"}</p>
+                          <p className="text-cyan-400 text-xs font-semibold">{content.founder?.founderRole || "Founder & CEO, EcomVanta"}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 <div className="lg:col-span-8 space-y-5 relative z-10">

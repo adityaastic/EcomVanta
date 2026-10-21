@@ -80,13 +80,15 @@ export default function AboutUsPage() {
               </div>
 
               <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-                  <img
-                    src={about?.heroImage || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789707303911_ChatGPT_Image_Sep_18__2026__10_24_51_AM.webp'}
-                    alt="About EcomVanta"
-                    className="w-full h-auto object-cover max-h-[450px]"
-                  />
-                </div>
+                {about?.heroImage && (
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+                    <img
+                      src={about.heroImage}
+                      alt="About EcomVanta"
+                      className="w-full h-auto object-cover max-h-[450px]"
+                    />
+                  </div>
+                )}
               </div>
 
             </div>
@@ -193,13 +195,15 @@ export default function AboutUsPage() {
             <div className="bg-gradient-to-br from-[#081325] via-[#0B1E36] to-[#07101E] rounded-3xl p-8 sm:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border border-blue-900/40">
               
               <div className="lg:col-span-4 flex justify-center">
-                <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl bg-[#0B1E36]">
-                  <img
-                    src={about?.founderImage || "https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790413735027_ChatGPT_Image_Sep_26__2026__02_38_44_PM.webp"}
-                    alt={about?.founderName || "Shivam Dubey - Founder & CEO"}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
+                {(about?.founderImage || content.founder?.founderImage) && (
+                  <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-4 border-[#0066FF] shadow-2xl bg-[#0B1E36]">
+                    <img
+                      src={about?.founderImage || content.founder?.founderImage}
+                      alt={about?.founderName || "Shivam Dubey - Founder & CEO"}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="lg:col-span-8 space-y-4">
@@ -235,13 +239,15 @@ export default function AboutUsPage() {
               <div className="flex flex-wrap justify-center gap-6">
                 {about.team.map((member, idx) => (
                   <div key={member.id || idx} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center flex flex-col items-center hover:shadow-xl hover:border-blue-200 transition-all w-full sm:w-64">
-                    <div className="w-36 h-36 rounded-2xl overflow-hidden mb-4 border-2 border-blue-500/20 shadow-md bg-slate-100">
-                      <img
-                        src={member.image || 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1790428729318_pp.webp'}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                    {member.image && (
+                      <div className="w-36 h-36 rounded-2xl overflow-hidden mb-4 border-2 border-blue-500/20 shadow-md bg-slate-100">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
                     <h3 className="text-base font-bold text-gray-900">{member.name}</h3>
                     <p className="text-xs text-[#0066FF] font-semibold mt-1">{member.designation}</p>
                   </div>

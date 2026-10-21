@@ -1,30 +1,17 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { useCmsContent } from '@/lib/useCmsContent';
-
-const DEFAULT_LOGOS = [
-  { logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562322977_1.webp', name: 'Deshi' },
-  { logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562333286_2.webp', name: 'Krishna' },
-  { logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562338237_3.webp', name: 'Forest Found' },
-  { logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562343224_4.webp', name: 'SS Logo' },
-  { logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562347752_5.webp', name: 'RPURE' },
-  { logo: 'https://pcnaagdekwrpgnjfnvcs.supabase.co/storage/v1/object/public/media/1789562361360_7.webp', name: 'Nufyt' },
-  { logo: '/Rasaveda.png', name: 'Rasaveda' },
-  { logo: '/Bubz.png', name: 'Bubz' },
-  { logo: '/Ninety Two.png', name: 'Ninety Two' },
-  { logo: '/home-img/Lenskart-logo.webp', name: 'Lenskart' },
-  { logo: '/home-img/Skin-logo.webp', name: 'Skin Elements' },
-  { logo: '/home-img/Ustra-logo.webp', name: 'Ustraa' },
-  { logo: '/home-img/fnp-logo.webp', name: 'Ferns N Petals' },
-  { logo: '/home-img/Happilo-logo.webp', name: 'Happilo' },
-  { logo: '/home-img/ankit-international-logo.webp', name: 'Ankit International' },
-];
 
 export default function BrandLogoSlider() {
   const { content } = useCmsContent();
-  const brandLogos = content?.homepage?.brandLogos?.length ? content.homepage.brandLogos : DEFAULT_LOGOS;
+  const brandLogos = (content?.homepage?.brandLogos || []).filter(
+    (b: any) => (b?.logo || b?.src) && String(b?.logo || b?.src).trim().length > 0
+  );
+
+  if (brandLogos.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-14 bg-white overflow-hidden border-b border-gray-100">
@@ -39,13 +26,13 @@ export default function BrandLogoSlider() {
             {/* First Set */}
             {brandLogos.map((brand: any, idx: number) => (
               <div
-                key={`brand-1-${idx}`}
-                                className="w-96 h-48 sm:w-[28rem] sm:h-[14rem] flex items-center justify-center p-4 bg-white rounded-xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:border-[#0066FF]/30 hover:scale-105 flex-shrink-0"
+                key={`brand-1-${brand.id || idx}`}
+                className="w-96 h-48 sm:w-[28rem] sm:h-[14rem] flex items-center justify-center p-4 bg-white rounded-xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:border-[#0066FF]/30 hover:scale-105 flex-shrink-0"
               >
                 <img
                   src={brand.logo || brand.src}
-                  alt={brand.name || brand.alt}
-                                    className="max-h-60 max-w-[600px] w-auto object-contain transition-all duration-300"
+                  alt={brand.name || brand.alt || 'Brand Logo'}
+                  className="max-h-60 max-w-[600px] w-auto object-contain transition-all duration-300"
                 />
               </div>
             ))}
@@ -53,13 +40,13 @@ export default function BrandLogoSlider() {
             {/* Duplicate Set for Seamless Loop */}
             {brandLogos.map((brand: any, idx: number) => (
               <div
-                key={`brand-2-${idx}`}
-                              className="w-96 h-48 sm:w-[28rem] sm:h-[14rem] flex items-center justify-center p-4 bg-white rounded-xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:border-[#0066FF]/30 hover:scale-105 flex-shrink-0"
+                key={`brand-2-${brand.id || idx}`}
+                className="w-96 h-48 sm:w-[28rem] sm:h-[14rem] flex items-center justify-center p-4 bg-white rounded-xl border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:border-[#0066FF]/30 hover:scale-105 flex-shrink-0"
               >
                 <img
                   src={brand.logo || brand.src}
-                  alt={brand.name || brand.alt}
-                                  className="max-h-60 max-w-[600px] w-auto object-contain transition-all duration-300"
+                  alt={brand.name || brand.alt || 'Brand Logo'}
+                  className="max-h-60 max-w-[600px] w-auto object-contain transition-all duration-300"
                 />
               </div>
             ))}

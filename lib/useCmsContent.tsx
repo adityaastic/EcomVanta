@@ -9,7 +9,7 @@ import {
   LEGACY_BLOG_LOGO_IMAGES,
 } from './cmsTypes';
 
-const STORAGE_KEY = 'ecomvanta_cms_content_v1';
+const STORAGE_KEY = 'ecomvanta_cms_content_v2';
 
 function normalizeClientBlogs(rawBlogs?: any[]) {
   const inputList = Array.isArray(rawBlogs) && rawBlogs.length > 0 ? [...rawBlogs] : [...INITIAL_BLOGS];
