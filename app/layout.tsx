@@ -56,6 +56,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={sora.variable}>
       <head>
+        <meta name="google-site-verification" content="YVIBgFCwQo5dpS5L_RmCykYbATbhfPMZ9S9t7mS5jPU" />
         <link rel="icon" href="/favicon.ico?v=20260908" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260908" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260908" />
