@@ -3,6 +3,7 @@ import { getLatestContentFromCloud } from './cms';
 import { DEFAULT_SEO_CONFIG } from './seoTypes';
 import { resolveEffectiveSeoMeta } from './seoAnalyzer';
 import { isScheduledBlogLive, generateJsonLdForRoute } from './seoEngine';
+import { SERVICES_DATABASE } from './serviceData';
 
 export async function buildNextMetadataForRoute(
   urlPath: string,
@@ -100,20 +101,35 @@ export async function buildNextMetadataForRoute(
 
   // Check if this is a service route or case study or static page
   const rawSlug = cleanPath.slice(1);
-  const serviceMatch =
+  const dbSrv = SERVICES_DATABASE[rawSlug];
+  const cmsSrv = content.services?.[rawSlug];
+  const amazonFallback = {
+    title: 'Amazon Seller Account Management Services',
+    subtitle: 'Scale your Amazon business with end-to-end Seller Central handling, A+ cataloging, FBA inventory planning, and Sponsored Ads PPC optimization.',
+    heroImage: '/home-img/Amazon-account-management.webp',
+  };
+  const serviceMatch: Partial<typeof amazonFallback & { seoTitle?: string; metaDescription?: string }> | undefined =
     rawSlug === 'amazon-seller-account-management-services'
       ? {
-          title: 'Amazon Seller Account Management Services',
-          subtitle: 'Scale your Amazon business with end-to-end Seller Central handling, A+ cataloging, FBA inventory planning, and Sponsored Ads PPC optimization.',
-          heroImage: '/home-img/Amazon-account-management.webp',
+          ...amazonFallback,
+          ...(dbSrv || {}),
+          ...(cmsSrv || {}),
         }
-      : content.services?.[rawSlug];
+      : dbSrv || cmsSrv
+      ? { ...(dbSrv || {}), ...(cmsSrv || {}) }
+      : undefined;
   const caseStudyMatch = content.caseStudies?.[rawSlug];
-  const pageSeo = cfg.pageSeo?.[cleanPath];
+  const rawPageSeo = cfg.pageSeo?.[cleanPath];
+  const pageSeo = {
+    ...(serviceMatch?.seoTitle ? { seoTitle: serviceMatch.seoTitle } : {}),
+    ...(serviceMatch?.metaDescription ? { metaDescription: serviceMatch.metaDescription } : {}),
+    ...(rawPageSeo || {}),
+  };
 
   const contentType = serviceMatch ? 'service' : caseStudyMatch ? 'caseStudy' : 'staticPage';
   const baseTitle =
     options?.fallbackTitle ||
+    serviceMatch?.seoTitle ||
     serviceMatch?.title ||
     caseStudyMatch?.title ||
     pageSeo?.breadcrumbTitle ||
@@ -121,6 +137,7 @@ export async function buildNextMetadataForRoute(
     'EcomVanta';
   const baseDesc =
     options?.fallbackDescription ||
+    serviceMatch?.metaDescription ||
     serviceMatch?.subtitle ||
     caseStudyMatch?.subtitle ||
     content.branding?.metaDescription ||
