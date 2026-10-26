@@ -112,7 +112,7 @@ export default function ClientReviewsSlider() {
         
         {/* Header matching original .manual-add-review-header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1f2937]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
             What Our Clients Say About Us
           </h2>
         </div>
@@ -121,7 +121,7 @@ export default function ClientReviewsSlider() {
         <div className="relative px-2 sm:px-8">
           <button
             onClick={handlePrev}
-            className="absolute -left-2 sm:left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#0066FF] hover:text-white transition-all cursor-pointer hover:border-[#0066FF]"
+            className="absolute -left-2 sm:left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-[#0066FF] hover:text-white transition-all cursor-pointer hover:border-[#0066FF]"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -129,7 +129,7 @@ export default function ClientReviewsSlider() {
 
           <button
             onClick={handleNext}
-            className="absolute -right-2 sm:right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#0066FF] hover:text-white transition-all cursor-pointer hover:border-[#0066FF]"
+            className="absolute -right-2 sm:right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-[#0066FF] hover:text-white transition-all cursor-pointer hover:border-[#0066FF]"
             aria-label="Next review"
           >
             <ChevronRight className="w-5 h-5" />
@@ -162,7 +162,7 @@ export default function ClientReviewsSlider() {
                       </div>
                     )}
                     <div>
-                      <p className="font-bold text-gray-900 text-sm tracking-wide">{review.name}</p>
+                      <p className="font-bold text-slate-900 text-sm tracking-wide">{review.name}</p>
                     </div>
                   </div>
 
@@ -174,13 +174,13 @@ export default function ClientReviewsSlider() {
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-[#374151] text-sm leading-relaxed line-clamp-3">
+                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
                     {review.text}
                   </p>
                 </div>
 
                 {/* Footer with Google Icon */}
-                <div className="mt-5 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
+                <div className="mt-5 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-slate-600">
                   <div className="flex items-center gap-1.5">
                     <Image
                       src="/images/googleg_32dp.png"
@@ -195,7 +195,7 @@ export default function ClientReviewsSlider() {
                         href="https://www.google.com/search?q=ecomvanta"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-gray-800 font-semibold hover:underline"
+                        className="text-slate-900 font-semibold hover:underline"
                       >
                         Google
                       </a>

@@ -26,13 +26,12 @@ export default function FloatingActions() {
           className="group relative flex items-center justify-center w-14 h-14 bg-gradient-to-tr from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 text-white rounded-2xl shadow-[0_8px_30px_rgba(225,29,72,0.35)] border border-rose-300/40 transition-all duration-300 ease-out hover:-translate-y-1.5 active:scale-95"
         >
           <div className="relative flex flex-col items-center">
-            <FileText className="w-5 h-5 text-white" />
-            <span className="text-[8px] font-black uppercase tracking-tighter text-rose-100 -mt-0.5">PDF</span>
+            <FileText className="w-6 h-6 text-white" />
           </div>
           <span className="absolute inset-0 rounded-2xl bg-rose-400/30 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           
           {/* Tooltip on Hover */}
-          <span className="absolute right-16 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 text-white text-[11px] font-bold rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+          <span className="absolute right-16 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-slate-900 text-white text-xs font-bold rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             {branding.catalogButtonText || 'Download Catalog'}
           </span>
         </a>

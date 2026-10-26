@@ -49,10 +49,10 @@ export default function FaqAccordion({
     <section className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+          <span className="text-xs font-extrabold text-[#0066FF] tracking-wide">
             Got Questions?
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mt-2">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
             {title}
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-[#0066FF] to-[#00C2FF] mx-auto mt-3 rounded-full" />
@@ -72,7 +72,7 @@ export default function FaqAccordion({
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full px-6 py-5 text-left flex justify-between items-center font-bold text-gray-900 text-base sm:text-lg bg-transparent hover:bg-blue-50/40 transition-colors cursor-pointer"
+                  className="w-full px-6 py-5 text-left flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg bg-transparent hover:bg-blue-50/40 transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span className="pr-4">{faq.question}</span>
@@ -84,7 +84,7 @@ export default function FaqAccordion({
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-gray-600 text-sm sm:text-base leading-relaxed border-t border-blue-100/50 bg-white/60 animate-in fade-in-50 duration-200">
+                  <div className="px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-blue-100/50 bg-white/60 animate-in fade-in-50 duration-200">
                     {faq.answer}
                   </div>
                 )}

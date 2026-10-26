@@ -16,7 +16,7 @@ export default function BrandLogoSlider() {
   return (
     <section className="py-14 bg-white overflow-hidden border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-center text-[#1A1A1A] mb-10">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-slate-900 mb-10">
           {content?.homepage?.brandLogosHeading || 'We Provide Services For These Leading Brands'}
         </h2>
 
