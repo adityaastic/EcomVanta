@@ -10,6 +10,7 @@ import BrandLogoSlider from '@/components/BrandLogoSlider';
 import ClientReviewsSlider from '@/components/ClientReviewsSlider';
 import FaqAccordion from '@/components/FaqAccordion';
 import ContactSection from '@/components/ContactSection';
+import { useCmsContent } from '@/lib/useCmsContent';
 import { CheckCircle2, TrendingUp, Zap, ShieldCheck } from 'lucide-react';
 
 const SERVICES_GRID = [
@@ -90,6 +91,7 @@ const ADVANTAGES = [
 
 export default function AmazonServicesPage() {
   const [popupOpen, setPopupOpen] = useState(false);
+  const { content } = useCmsContent();
 
   return (
     <>
@@ -127,10 +129,10 @@ export default function AmazonServicesPage() {
                     Get Free Account Audit
                   </button>
                   <a
-                    href="tel:+916377709027"
+                    href={`tel:${content.branding?.topbarPhone || '+918787249407'}`}
                     className="px-8 py-4 rounded-full bg-white border border-gray-300 text-gray-800 font-bold text-sm hover:bg-blue-50/50 hover:border-blue-300 transition-colors"
                   >
-                    Call: +91 6377709027
+                    Call: {content.branding?.tollFreePhone || '+91 878 724 9407'}
                   </a>
                 </div>
               </div>
