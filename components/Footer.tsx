@@ -197,7 +197,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm text-slate-300 mb-6">
               <li><Link href="/about-us" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">About {siteName}</Link></li>
-              <li><Link href="/founder" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all font-medium text-cyan-300">Meet Our Founder</Link></li>
+              <li><Link href="/founder" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all font-medium text-[#00C2FF]">Meet Our Founder</Link></li>
               <li><Link href="/portfolio" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">Success Portfolio</Link></li>
               <li><Link href="/blogs" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">E-commerce Insights Blog</Link></li>
               <li><Link href="/career" className="hover:text-[#00C2FF] hover:translate-x-1 inline-block transition-all">Careers &amp; Openings</Link></li>
@@ -206,10 +206,10 @@ export default function Footer() {
 
             {caseStudiesList.length > 0 && (
               <>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">
+                <h4 className="text-xs font-bold text-[#00C2FF] mb-2">
                   Featured Case Studies
                 </h4>
-                <ul className="space-y-1.5 text-xs text-slate-400">
+                <ul className="space-y-1.5 text-xs text-slate-300">
                   {caseStudiesList.map((cs: any) => (
                     <li key={cs.slug}>
                       <Link href={`/${cs.slug}`} className="hover:text-white transition-colors">
@@ -225,29 +225,29 @@ export default function Footer() {
           {/* Column 4: Contact Us */}
           <div className="space-y-4">
             <h3 className="text-base font-bold text-white mb-6 border-b border-blue-500/30 pb-2 inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span className="w-2 h-2 rounded-full bg-[#00C2FF]"></span>
               Connect With Us
             </h3>
             
             <div className="flex items-start gap-3 text-sm text-slate-300">
-              <MapPin className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" />
+              <MapPin className="w-5 h-5 text-[#00C2FF] flex-shrink-0 mt-1" />
               <p className="leading-relaxed">
                 {address}
               </p>
             </div>
 
             <div className="flex items-center gap-3 text-sm text-slate-300">
-              <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-              <a href={`mailto:${email}`} className="hover:text-cyan-300 transition-colors">
+              <Mail className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
+              <a href={`mailto:${email}`} className="hover:text-[#00C2FF] transition-colors">
                 {email}
               </a>
             </div>
 
             <div className="flex items-center gap-3 text-sm text-slate-300">
-              <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+              <Phone className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
               <div>
-                <p className="text-[11px] text-slate-400 font-medium">Direct Support</p>
-                <a href={`tel:${phone}`} className="font-bold text-white hover:text-cyan-300 transition-colors">
+                <p className="text-xs text-slate-300 font-medium">Direct Support</p>
+                <a href={`tel:${phone}`} className="font-bold text-white hover:text-[#00C2FF] transition-colors">
                   {phone}
                 </a>
               </div>
@@ -269,7 +269,7 @@ export default function Footer() {
 
               <Link
                 href="/contact-us"
-                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#00C2FF] text-white text-xs font-bold shadow-lg shadow-blue-500/20 hover:brightness-110 transition-all"
+                className="inline-flex items-center justify-center w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0052cc] text-white text-xs font-bold shadow-lg shadow-blue-500/20 hover:brightness-110 transition-all"
               >
                 Schedule Free Audit Call
               </Link>
@@ -279,7 +279,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright and Legal Links */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-300 gap-4">
           <p>
             {contactFooter.copyrightText || `Copyright © ${new Date().getFullYear()} ${siteName}. All rights reserved. Powering Brands. Scaling E-commerce.`}
           </p>

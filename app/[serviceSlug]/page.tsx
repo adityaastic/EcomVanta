@@ -134,15 +134,15 @@ export default function DynamicServicePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               <div className="lg:col-span-7 space-y-6">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200 text-xs font-bold uppercase tracking-wider">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200 text-xs font-bold">
                   {badge}
                 </span>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
+                <h1 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
                   {formattedTitle}
                 </h1>
 
-                <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
                   {subtitle}
                 </p>
 
@@ -157,13 +157,13 @@ export default function DynamicServicePage() {
                     href={`https://wa.me/918787249407?text=${encodeURIComponent(`Hi EcomVanta, I want to enquire about ${formattedTitle}`)}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-6 py-4 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold text-sm hover:bg-emerald-100 transition-colors"
+                    className="px-6 py-4 rounded-full bg-white border border-slate-300 text-slate-900 font-bold text-sm hover:bg-blue-50/50 hover:border-blue-300 transition-colors"
                   >
                     WhatsApp us: {content.branding?.tollFreePhone || '+91 878 724 9407'}
                   </a>
                   <a
                     href={`tel:${content.branding?.topbarPhone || '+918787249407'}`}
-                    className="px-6 py-4 rounded-full bg-white border border-gray-300 text-gray-800 font-bold text-sm hover:bg-blue-50/50 hover:border-blue-300 transition-colors"
+                    className="px-6 py-4 rounded-full bg-white border border-slate-300 text-slate-900 font-bold text-sm hover:bg-blue-50/50 hover:border-blue-300 transition-colors"
                   >
                     Call: {content.branding?.tollFreePhone || '+91 878 724 9407'}
                   </a>
@@ -202,13 +202,13 @@ export default function DynamicServicePage() {
               </div>
 
               <div className="lg:col-span-7 space-y-6">
-                <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+                <span className="text-xs font-extrabold text-[#0066FF] tracking-wide">
                   Service Overview
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-gray-900">
+                <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
                   {aboutTitle}
                 </h2>
-                <p className="text-gray-600 text-base leading-relaxed">
+                <p className="text-slate-600 text-base leading-relaxed">
                   {aboutDesc}
                 </p>
                 <div className="pt-2">
@@ -230,10 +230,10 @@ export default function DynamicServicePage() {
         <section className="py-20 bg-gray-50/60 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+              <span className="text-xs font-extrabold text-[#0066FF] tracking-wide">
                 Tailored Capabilities
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black text-gray-900 mt-2">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
                 What We Deliver
               </h2>
             </div>
@@ -248,8 +248,8 @@ export default function DynamicServicePage() {
                     <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center p-2.5 mb-6 border border-blue-100">
                       <img src={srv.icon} alt={srv.title} className="max-w-full max-h-full object-contain" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{srv.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{srv.desc}</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{srv.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{srv.desc}</p>
                   </div>
                 </div>
               ))}
@@ -262,8 +262,8 @@ export default function DynamicServicePage() {
           <section className="py-20 bg-white border-b border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">Why EcomVanta</span>
-                <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mt-2">
+                <span className="text-xs font-extrabold text-[#0066FF] tracking-wide">Why EcomVanta</span>
+                <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
                   Why Choose EcomVanta?
                 </h2>
               </div>
@@ -280,8 +280,8 @@ export default function DynamicServicePage() {
                       </div>
                     )}
                     <div>
-                      <h4 className="font-bold text-gray-900 text-base mb-1">{adv.title}</h4>
-                      <p className="text-xs text-gray-600 leading-relaxed">{adv.desc}</p>
+                      <h3 className="font-bold text-slate-900 text-base mb-1">{adv.title}</h3>
+                      <p className="text-xs text-slate-600 leading-relaxed">{adv.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -302,19 +302,19 @@ export default function DynamicServicePage() {
                     setPopupOpen(true);
                   }
                 }}
-                className="service-doc-content text-slate-700 leading-relaxed space-y-4
+                className="service-doc-content text-slate-600 leading-relaxed space-y-4
                   [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_h2]:font-black [&_h2]:text-slate-900 [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:pt-6 [&_h2]:border-t [&_h2]:border-slate-100 first:[&_h2]:mt-0 first:[&_h2]:pt-0 first:[&_h2]:border-t-0
                   [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-extrabold [&_h3]:text-slate-900 [&_h3]:mt-7 [&_h3]:mb-2.5
-                  [&_p]:text-[15px] [&_p]:sm:text-base [&_p]:text-slate-600 [&_p]:leading-relaxed [&_p]:mb-4
-                  [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ul]:mb-5 [&_ul]:text-[15px] [&_ul]:text-slate-600
-                  [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2.5 [&_ol]:mb-5 [&_ol]:text-[15px] [&_ol]:text-slate-600
+                  [&_p]:text-base [&_p]:text-slate-600 [&_p]:leading-relaxed [&_p]:mb-4
+                  [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ul]:mb-5 [&_ul]:text-base [&_ul]:text-slate-600
+                  [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2.5 [&_ol]:mb-5 [&_ol]:text-base [&_ol]:text-slate-600
                   [&_li]:leading-relaxed
                   [&_strong]:font-bold [&_strong]:text-slate-900
                   [&_a]:text-[#0066FF] [&_a]:font-bold [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-[#0052cc]
                   [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:rounded-2xl [&_table]:overflow-hidden [&_table]:border [&_table]:border-slate-200 [&_table]:text-sm
                   [&_thead]:bg-slate-900 [&_thead]:text-white
-                  [&_th]:py-3.5 [&_th]:px-4 [&_th]:text-left [&_th]:font-bold [&_th]:text-xs [&_th]:uppercase [&_th]:tracking-wider
-                  [&_td]:py-3.5 [&_td]:px-4 [&_td]:border-t [&_td]:border-slate-200 [&_td]:text-slate-700 [&_td]:align-top
+                  [&_th]:py-3.5 [&_th]:px-4 [&_th]:text-left [&_th]:font-bold [&_th]:text-xs
+                  [&_td]:py-3.5 [&_td]:px-4 [&_td]:border-t [&_td]:border-slate-200 [&_td]:text-slate-600 [&_td]:align-top
                   [&_tbody_tr:nth-child(even)]:bg-slate-50/70"
                 dangerouslySetInnerHTML={{ __html: longContentHtml }}
               />

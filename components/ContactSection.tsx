@@ -88,7 +88,7 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
           {/* Left Column: Information & Value Pillars */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 backdrop-blur-md border border-cyan-500/20 text-[#00C2FF] text-xs font-bold tracking-wider uppercase shadow-inner">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 backdrop-blur-md border border-cyan-500/20 text-[#00C2FF] text-xs font-bold shadow-inner">
                 <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping" />
                 Connect With Us
               </span>
@@ -112,8 +112,8 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                   <TrendingUp className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm">Data-Driven Marketplace Growth</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">Custom PPC, catalogue SEO &amp; inventory algorithms</p>
+                  <h3 className="text-white font-bold text-sm">Data-Driven Marketplace Growth</h3>
+                  <p className="text-xs text-slate-300 mt-0.5">Custom PPC, catalogue SEO &amp; inventory algorithms</p>
                 </div>
               </div>
 
@@ -125,8 +125,8 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                   <Zap className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm">End-to-End Account Management</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">From onboarding to daily orders &amp; customer queries</p>
+                  <h3 className="text-white font-bold text-sm">End-to-End Account Management</h3>
+                  <p className="text-xs text-slate-300 mt-0.5">From onboarding to daily orders &amp; customer queries</p>
                 </div>
               </div>
 
@@ -138,8 +138,8 @@ export default function ContactSection({ sourcePage = 'Website Lead Section' }: 
                   <ShieldCheck className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm">100% Policy Compliance &amp; Support</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">Dedicated key account manager for fast scaling</p>
+                  <h3 className="text-white font-bold text-sm">100% Policy Compliance &amp; Support</h3>
+                  <p className="text-xs text-slate-300 mt-0.5">Dedicated key account manager for fast scaling</p>
                 </div>
               </div>
             </div>

@@ -108,16 +108,16 @@ export default function AmazonServicesPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               <div className="lg:col-span-7 space-y-6">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200 text-xs font-bold uppercase tracking-wider">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200 text-xs font-bold tracking-wide">
                   Amazon SPN Certified Growth Partner
                 </span>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
+                <h1 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
                   Amazon Seller Account <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#00C2FF]">Management Services</span>
                 </h1>
 
-                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                   Scale your Amazon business with end-to-end management. From high-converting A+ catalog design and listing SEO to high-ROI Sponsored Ads and inventory management.
                 </p>
 
@@ -130,7 +130,7 @@ export default function AmazonServicesPage() {
                   </button>
                   <a
                     href={`tel:${content.branding?.topbarPhone || '+918787249407'}`}
-                    className="px-8 py-4 rounded-full bg-white border border-gray-300 text-gray-800 font-bold text-sm hover:bg-blue-50/50 hover:border-blue-300 transition-colors"
+                    className="px-6 py-4 rounded-full bg-white border border-slate-200 text-slate-900 font-bold text-sm hover:bg-blue-50/50 hover:border-blue-300 transition-colors"
                   >
                     Call: {content.branding?.tollFreePhone || '+91 878 724 9407'}
                   </a>
@@ -159,10 +159,10 @@ export default function AmazonServicesPage() {
         <section className="py-20 bg-white border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">
+              <span className="text-xs font-extrabold text-[#0066FF] tracking-wide">
                 Comprehensive 360° Management
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black text-gray-900 mt-2">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
                 Our Amazon Management Services
               </h2>
             </div>
@@ -177,8 +177,8 @@ export default function AmazonServicesPage() {
                     <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 border border-blue-100">
                       <Image src={srv.icon} alt={srv.title} width={36} height={36} className="w-8 h-8 object-contain" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{srv.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{srv.desc}</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{srv.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{srv.desc}</p>
                   </div>
                 </div>
               ))}
@@ -190,8 +190,8 @@ export default function AmazonServicesPage() {
         <section className="py-20 bg-gray-50/60">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs uppercase font-extrabold text-[#0066FF] tracking-widest">Why Choose Us</span>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mt-2">
+              <span className="text-xs font-extrabold text-[#0066FF] tracking-wide">Why Choose Us</span>
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
                 Why Sellers Partner with EcomVanta
               </h2>
             </div>
@@ -206,8 +206,8 @@ export default function AmazonServicesPage() {
                     <Image src={adv.icon} alt={adv.title} width={32} height={32} className="w-7 h-7 object-contain" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-base mb-1">{adv.title}</h4>
-                    <p className="text-xs text-gray-600 leading-relaxed">{adv.desc}</p>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">{adv.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">{adv.desc}</p>
                   </div>
                 </div>
               ))}

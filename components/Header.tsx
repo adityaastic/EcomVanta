@@ -58,7 +58,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                 <span className="font-medium">Direct Support: {branding.tollFreePhone || '+91 878 724 9407'}</span>
               </a>
             </div>
-            <div className="flex items-center gap-4 text-slate-400">
+            <div className="flex items-center gap-4 text-slate-300">
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#00C2FF]" />
                 <span>{branding.workingHours || '9:00 AM to 7:00 PM (Mon - Sat)'}</span>
@@ -72,7 +72,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               >
                 Sitemap
               </a>
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-500/10 text-cyan-400 text-[11px] font-semibold border border-cyan-500/20">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-500/10 text-[#00C2FF] text-xs font-semibold border border-cyan-500/20">
                 <Sparkles className="w-3 h-3" /> E-commerce Growth Partner
               </span>
             </div>
@@ -92,7 +92,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-7 xl:gap-8 text-[15px] font-bold text-slate-800">
+            <nav className="hidden lg:flex items-center gap-7 xl:gap-8 text-sm font-bold text-slate-900">
               <Link href="/" className="hover:text-[#0066FF] transition-colors py-2">
                 Home
               </Link>
