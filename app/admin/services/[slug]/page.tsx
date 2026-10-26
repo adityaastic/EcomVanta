@@ -184,7 +184,8 @@ function parseDocTextIntoService(rawText: string, currentService: ServiceData, c
   const htmlParts: string[] = [];
   let idx = 0;
   let firstH2 = '';
-  let firstH2Para = '';
+  const firstH2Paras: string[] = [];
+  let inFirstH2Section = false;
 
   const autoLinkText = (text: string) => {
     let t = text
@@ -211,6 +212,7 @@ function parseDocTextIntoService(rawText: string, currentService: ServiceData, c
 
     // 1. Check for pipe table | ... |
     if (line.startsWith('|')) {
+      inFirstH2Section = false;
       const tableRows: string[][] = [];
       while (idx < mainContentLines.length && mainContentLines[idx].startsWith('|')) {
         const rawRow = mainContentLines[idx];
@@ -238,6 +240,7 @@ function parseDocTextIntoService(rawText: string, currentService: ServiceData, c
 
     // 2. Check for "The problem: / What we do: / What to expect:" consecutive lines -> <ul>
     if (/^(The problem|What we do|What to expect|What we manage directly|Account ownership)\s*:/i.test(line)) {
+      inFirstH2Section = false;
       const listItems: string[] = [];
       while (
         idx < mainContentLines.length &&
@@ -258,15 +261,21 @@ function parseDocTextIntoService(rawText: string, currentService: ServiceData, c
         !/^(What |Who |Why |How |Meesho |Benefits |Ongoing |Product |Talk to )/i.test(line);
       if (!firstH2 && !isSubHeading) {
         firstH2 = line;
+        inFirstH2Section = true;
+        idx++;
+        continue;
       }
+      inFirstH2Section = false;
       htmlParts.push(isSubHeading ? `<h3>${line}</h3>` : `<h2>${line}</h2>`);
       idx++;
       continue;
     }
 
-    // 4. Paragraph
-    if (firstH2 && !firstH2Para) {
-      firstH2Para = line;
+    // 4. Paragraph: if inside the first H2 section, store in firstH2Paras (for About section) instead of repeating in longContentHtml
+    if (inFirstH2Section) {
+      firstH2Paras.push(line);
+      idx++;
+      continue;
     }
     htmlParts.push(`<p>${autoLinkText(line)}</p>`);
     idx++;
@@ -279,9 +288,9 @@ function parseDocTextIntoService(rawText: string, currentService: ServiceData, c
       title: mainTitle || currentService.title,
       seoTitle: seoTitle || currentService.seoTitle,
       metaDescription: metaDescription || currentService.metaDescription,
-      subtitle: newSubtitle,
+      subtitle: introParagraphs.join(' ') || newSubtitle,
       aboutTitle: firstH2 || currentService.aboutTitle,
-      aboutDesc: firstH2Para || introParagraphs.slice(1).join(' ') || currentService.aboutDesc,
+      aboutDesc: firstH2Paras.join(' ') || currentService.aboutDesc,
       longContentHtml: htmlParts.join('\n'),
       faqs: extractedFaqs.length > 0 ? extractedFaqs : currentService.faqs,
     },

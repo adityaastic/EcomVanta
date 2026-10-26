@@ -103,18 +103,13 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
     title: 'Meesho Seller Account Management Services in India',
     seoTitle: 'Meesho Seller Account Management Services in India | Ecomvanta',
     metaDescription: 'Meesho seller account management services for Indian sellers, including account setup, orders, inventory, ads and reporting. Request a free account audit call.',
-    subtitle: "Selling on Meesho looks simple at the start. Register, upload a catalogue, ship orders. The workload builds up fast: stock that drifts out of sync, orders to dispatch on time, returns to follow up, ads to tune, and a seller panel that needs checking every day. Ecomvanta's Meesho seller account management services take that routine work off your plate while the account stays in your name.",
+    subtitle: "Selling on Meesho looks simple at the start. Register, upload a catalogue, ship orders. The workload builds up fast: stock that drifts out of sync, orders to dispatch on time, returns to follow up, ads to tune, and a seller panel that needs checking every day. Ecomvanta's Meesho seller account management services take that routine work off your plate while the account stays in your name. We work with Indian Meesho sellers, manufacturers and brands, from our team in New Delhi. Whether you are opening your first account or running a growing catalogue, we agree a scope with you first and then handle the day-to-day operations inside it.",
     heroImage: '/Meesho/meesho-web-about.webp',
     aboutImage: '/Meesho/Meesho Product Listing Services.webp',
     aboutTitle: 'What Are Meesho Seller Account Management Services?',
-    aboutDesc: "We work with Indian Meesho sellers, manufacturers and brands, from our team in New Delhi. Whether you are opening your first account or running a growing catalogue, we agree a scope with you first and then handle the day-to-day operations inside it. Meesho seller account management services involve a team handling the recurring operations of your Meesho Supplier Panel account on your behalf — covering account setup, order and inventory follow-up, advertising, pricing checks, issue identification and reporting.",
+    aboutDesc: "Meesho seller account management services involve a team handling the recurring operations of your Meesho Supplier Panel account on your behalf. This usually covers account setup, order and inventory follow-up, advertising, pricing checks, issue identification and reporting. The exact scope is agreed before work starts. Meesho's Supplier Panel can be managed yourself, and many sellers do this when they start. The difference with a provider is time and routine. A team that reviews your account regularly can spot a stock mismatch or a declining metric earlier than someone checking between other responsibilities. One limit is worth stating plainly: a provider works within Meesho's rules and does not have special access to Meesho or control over its decisions.",
     longContentHtml: `
-<h2>What Are Meesho Seller Account Management Services?</h2>
-<p>Meesho seller account management services involve a team handling the recurring operations of your Meesho Supplier Panel account on your behalf. This usually covers account setup, order and inventory follow-up, advertising, pricing checks, issue identification and reporting. The exact scope is agreed before work starts.</p>
-<p>Meesho's Supplier Panel can be managed yourself, and many sellers do this when they start. The difference with a provider is time and routine. A team that reviews your account regularly can spot a stock mismatch or a declining metric earlier than someone checking between other responsibilities.</p>
-<p>One limit is worth stating plainly. A provider works within Meesho's rules and does not have special access to Meesho or control over its decisions.</p>
-
-<h3>Managing it yourself vs. getting account management support</h3>
+<h2>Managing it yourself vs. getting account management support</h2>
 <table>
   <thead>
     <tr>
@@ -162,44 +157,6 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
 </ul>
 <p>Not every seller needs this. If you have a small catalogue and time to spare, managing the account yourself for a few weeks can help you understand where you actually need support.</p>
 
-<h2>Meesho Seller Services We Offer</h2>
-<p>We agree on the scope with each seller. Here is what a Meesho account management expert on our team can handle.</p>
-
-<h3>Account setup and onboarding</h3>
-<ul>
-  <li><strong>The problem:</strong> Incorrect registration details, bank verification issues and pickup-address mismatches can delay new sellers.</li>
-  <li><strong>What we do:</strong> Guide you through registration, check your documents and details before submission, and help configure the account.</li>
-  <li><strong>What to expect:</strong> A cleaner start. Meesho verifies and approves accounts, so we cannot control approvals or timing.</li>
-</ul>
-
-<h3>Order, inventory and daily operations</h3>
-<ul>
-  <li><strong>The problem:</strong> Stock counts can drift out of sync, orders can wait too long to be dispatched, and cancellations can increase.</li>
-  <li><strong>What we do:</strong> Monitor orders, coordinate inventory updates across your channels, and follow up on dispatch and return queries within the access you grant.</li>
-  <li><strong>What to expect:</strong> Fewer missed updates and quicker follow-up. Physical stock, packing and handover remain your responsibility.</li>
-</ul>
-
-<h3>Meesho Ads Management</h3>
-<ul>
-  <li><strong>The problem:</strong> Ad budgets can be spent without a clear view of the results they generate.</li>
-  <li><strong>What we do:</strong> Set up and review Meesho Ads campaigns, allocate budgets and make adjustments based on results.</li>
-  <li><strong>What to expect:</strong> Regular review of ad spend against the orders it generates. Results vary by category, price and competition.</li>
-</ul>
-
-<h3>Price and competitor checks</h3>
-<ul>
-  <li><strong>The problem:</strong> A price that is too high can reduce orders, while a price that is too low can erode margins.</li>
-  <li><strong>What we do:</strong> Benchmark your prices against similar products and flag where a change may be worth testing.</li>
-  <li><strong>What to expect:</strong> Better-informed pricing decisions. We make recommendations; you make the final decision.</li>
-</ul>
-
-<h3>Reporting and review</h3>
-<ul>
-  <li><strong>The problem:</strong> Sellers often cannot see which products and actions are actually working.</li>
-  <li><strong>What we do:</strong> Share regular reports on orders, returns and ad performance, and review next steps with you.</li>
-  <li><strong>What to expect:</strong> A clear picture of account performance, not a promise of fixed growth.</li>
-</ul>
-
 <h2>Meesho Account Setup</h2>
 <p>Meesho states that registration requires an active bank account and either a GSTIN (for GST sellers) or an Enrolment ID / UIN (for non-GST sellers). It also states that registration is completed through its supplier site and that it charges 0% commission. Rules for non-GST sellers differ from those for GST sellers, including where orders can be shipped, so check Meesho's current terms before choosing a route.</p>
 <p><strong>Where Ecomvanta helps:</strong></p>
@@ -242,16 +199,7 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
   <li><strong>Reporting and review.</strong> You get regular reports and a periodic review of results and next steps.</li>
 </ol>
 
-<h2>Why Choose Ecomvanta?</h2>
-<ul>
-  <li>A team based in New Delhi, serving Indian sellers across Meesho, Amazon, Flipkart, Myntra and quick-commerce platforms.</li>
-  <li>Founder-led. Shivam Dubey leads the company.</li>
-  <li>A free account audit call before you commit to anything</li>
-  <li>Written scope and regular reporting, so you know what you are paying for</li>
-  <li>One team across marketplaces, useful if your stock and pricing span several channels</li>
-</ul>
-
-<h3>How to choose a Meesho account management expert</h3>
+<h2>How to choose a Meesho account management expert</h2>
 <p>Whoever you hire, check five things:</p>
 <ol>
   <li><strong>Account ownership:</strong> your registered details stay on the account.</li>
@@ -281,49 +229,44 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
       {
         icon: '/abt-img/Meesho Account set-up and verification.png',
         title: 'Account setup and onboarding',
-        desc: 'Guide you through registration, check your GST/Enrolment ID, bank and pickup address details before submission, and help configure the Supplier Panel.',
+        desc: 'The problem: Incorrect registration details, bank verification issues and pickup-address mismatches can delay new sellers. What we do: Guide you through registration, check your documents and details before submission, and help configure the account. What to expect: A cleaner start (Meesho verifies and approves accounts).',
       },
       {
         icon: '/abt-img/Meesho Inventory management.png',
         title: 'Order, inventory and daily operations',
-        desc: 'Monitor orders, coordinate inventory updates across your channels, and follow up on dispatch and return queries within the access you grant.',
+        desc: 'The problem: Stock counts can drift out of sync, orders can wait too long to be dispatched, and cancellations can increase. What we do: Monitor orders, coordinate inventory updates across channels, and follow up on dispatch and return queries. What to expect: Fewer missed updates and quicker follow-up.',
       },
       {
         icon: '/abt-img/Meesho Advertising and promotion.png',
         title: 'Meesho Ads Management',
-        desc: 'Set up and review Meesho Ads campaigns, allocate budgets and make adjustments based on order performance.',
+        desc: 'The problem: Ad budgets can be spent without a clear view of the results they generate. What we do: Set up and review Meesho Ads campaigns, allocate budgets and make adjustments based on results. What to expect: Regular review of ad spend against orders generated.',
       },
       {
         icon: '/abt-img/Meesho Performance monitoring.png',
         title: 'Price and competitor checks',
-        desc: 'Benchmark your prices against similar products and flag where a change may be worth testing to protect orders and margins.',
+        desc: 'The problem: A price that is too high can reduce orders, while a price that is too low can erode margins. What we do: Benchmark your prices against similar products and flag where a change may be worth testing. What to expect: Better-informed pricing decisions; you make the final decision.',
       },
       {
         icon: '/abt-img/Meesho Order management.png',
         title: 'Reporting and review',
-        desc: 'Share regular reports on orders, returns and ad performance, and review next steps with a clear picture of account performance.',
-      },
-      {
-        icon: '/abt-img/Meesho Chronic listing and catalogue management.png',
-        title: 'Ongoing Meesho Seller Support',
-        desc: 'Identify causes for rejected catalogues, payment queries or flagged metrics and raise issues through Meesho support channels alongside you.',
+        desc: 'The problem: Sellers often cannot see which products and actions are actually working. What we do: Share regular reports on orders, returns and ad performance, and review next steps with you. What to expect: A clear picture of account performance, not a promise of fixed growth.',
       },
     ],
     advantages: [
       {
         icon: '/css/Special expertise (2).png',
         title: 'New Delhi Team & Founder-Led',
-        desc: 'Led by Shivam Dubey, serving Indian sellers across Meesho, Amazon, Flipkart, Myntra and quick-commerce platforms.',
+        desc: 'A team based in New Delhi led by Shivam Dubey, serving Indian sellers across Meesho, Amazon, Flipkart, Myntra and quick-commerce platforms.',
       },
       {
         icon: '/css/Time efficiency (2).png',
         title: 'Written Scope & Regular Reporting',
-        desc: 'Clear written scope of what we handle vs. what you handle, with structured periodic reports so you know what you are paying for.',
+        desc: 'Written scope and regular reporting, so you know what you are paying for, plus one team across marketplaces if your stock and pricing span several channels.',
       },
       {
         icon: '/css/Active issue resolution (2).png',
         title: 'Free Account Audit Call First',
-        desc: 'We review your account, discuss your goals and suggest a scope before you commit to anything, while you keep full ownership.',
+        desc: 'A free account audit call before you commit to anything — we review your account, discuss your goals and suggest a scope while your details stay on the account.',
       },
     ],
     faqs: [
