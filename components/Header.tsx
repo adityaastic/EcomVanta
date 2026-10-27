@@ -101,53 +101,53 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               <div className="relative menuItem py-6 cursor-pointer group">
                 <span className="flex items-center gap-1.5 hover:text-[#0066FF] transition-colors font-semibold">
                   Services
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-400 group-hover:text-[#0066FF]" />
+                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-600 group-hover:text-[#0066FF]" />
                 </span>
 
                 <div className="megaMenu fixed left-1/2 -translate-x-1/2 top-24 w-[92vw] max-w-[1240px] bg-white p-8 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,102,255,0.18)] border border-blue-100 z-50">
                   <div className="grid grid-cols-4 gap-8">
                     {/* Col 1: Marketplace Management */}
                     <div className="border-r border-slate-100 pr-6">
-                      <h3 className="text-xs font-black text-[#0066FF] uppercase tracking-wider mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
+                      <h3 className="text-xs font-black text-[#0066FF] tracking-wide mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#0066FF]"></span>
                         Marketplace Management
                       </h3>
                       <div className="flex flex-col space-y-3 text-sm">
-                        <Link href="/amazon-seller-account-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/amazon-seller-account-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Amazon-logo.webp" alt="Amazon" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Amazon Account Mgmt</span>
                         </Link>
-                        <Link href="/flipkart-account-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/flipkart-account-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Flipkart-logo.jpg" alt="Flipkart" width={24} height={24} className="w-5 h-5 object-contain rounded" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Flipkart Account Mgmt</span>
                         </Link>
-                        <Link href="/meesho-account-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/meesho-account-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Meesho Logo.webp" alt="Meesho" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Meesho Account Mgmt</span>
                         </Link>
-                        <Link href="/shopify-store-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
-                          <ShoppingBag className="w-5 h-5 text-emerald-600" />
+                        <Link href="/shopify-store-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
+                          <ShoppingBag className="w-5 h-5 text-[#0066FF]" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Shopify Account Mgmt</span>
                         </Link>
-                        <Link href="/myntra-account-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
-                          <Store className="w-5 h-5 text-pink-600" />
+                        <Link href="/myntra-account-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
+                          <Store className="w-5 h-5 text-[#0066FF]" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Myntra Account Mgmt</span>
                         </Link>
-                        <Link href="/amazon-product-listing-catalogue-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/amazon-product-listing-catalogue-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Amazon-logo.webp" alt="Amazon" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Amazon Product Listing</span>
                         </Link>
-                        <Link href="/etsy-account-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/etsy-account-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Etsy-logo.png" alt="Etsy" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Etsy Account Mgmt</span>
                         </Link>
-                        <Link href="/ecommerce-rating-and-review-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-rating-and-review-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <div className="w-5 h-5 rounded-md bg-amber-50 flex items-center justify-center text-amber-500 flex-shrink-0">
                             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
                           </div>
                           <span className="group-hover/item:translate-x-1 transition-transform font-bold text-[#0066FF]">Rating & Review Mgmt</span>
                         </Link>
-                        <Link href="/ecommerce-product-listing-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-product-listing-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Arvian_Listing_Logo.png" alt="Listing" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Ecommerce Cataloging</span>
                         </Link>
@@ -156,36 +156,36 @@ export default function Header({ onOpenPopup }: HeaderProps) {
 
                     {/* Col 2: Marketplace Onboarding */}
                     <div className="border-r border-slate-100 pr-6">
-                      <h3 className="text-xs font-black text-[#0066FF] uppercase tracking-wider mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
+                      <h3 className="text-xs font-black text-[#0066FF] tracking-wide mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#00C2FF]"></span>
                         Quick Commerce & Onboarding
                       </h3>
                       <div className="flex flex-col space-y-3 text-sm">
-                        <Link href="/blinkit-seller-account-management-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/blinkit-seller-account-management-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Blinkit-logo.svg" alt="Blinkit" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Blinkit Onboarding</span>
                         </Link>
-                        <Link href="/swiggy-instamart-seller-account-management-and-onboarding" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/swiggy-instamart-seller-account-management-and-onboarding" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/instamart-logo.png" alt="Instamart" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Swiggy Instamart</span>
                         </Link>
-                        <Link href="/zepto-seller-onboarding-and-account-management-service" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/zepto-seller-onboarding-and-account-management-service" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/zepto-logo.webp" alt="Zepto" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Zepto Seller Onboarding</span>
                         </Link>
-                        <Link href="/ajio-seller-onboarding-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ajio-seller-onboarding-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Ajio logo.png" alt="Ajio" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Ajio Seller Onboarding</span>
                         </Link>
-                        <Link href="/tata-cliq-seller-onboarding-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/tata-cliq-seller-onboarding-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Tata-Cliq.webp" alt="Tata Cliq" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Tata Cliq Onboarding</span>
                         </Link>
-                        <Link href="/nykaa-seller-onboarding-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/nykaa-seller-onboarding-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/nykaa-logo.png" alt="Nykaa" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Nykaa Seller Onboarding</span>
                         </Link>
-                        <Link href="/myntra-seller-onboarding-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/myntra-seller-onboarding-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Myntra-logo.png" alt="Myntra" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Myntra Onboarding</span>
                         </Link>
@@ -194,44 +194,44 @@ export default function Header({ onOpenPopup }: HeaderProps) {
 
                     {/* Col 3: Digital Marketing */}
                     <div className="border-r border-slate-100 pr-6">
-                      <h3 className="text-xs font-black text-[#0066FF] uppercase tracking-wider mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                      <h3 className="text-xs font-black text-[#0066FF] tracking-wide mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#0066FF]"></span>
                         Ads & Performance Growth
                       </h3>
                       <div className="flex flex-col space-y-3 text-sm">
-                        <Link href="/seo-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/seo-company-in-india" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/SEO_logo.png" alt="SEO" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Search Engine Optimization</span>
                         </Link>
-                        <Link href="/meta-ads-management-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/meta-ads-management-company-in-india" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/meta-ads-logo.png" alt="Meta Ads" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Meta Ads Management</span>
                         </Link>
-                        <Link href="/google-ads-management-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/google-ads-management-company-in-india" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Google Ads logo.avif" alt="Google Ads" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Google Ads Management</span>
                         </Link>
-                        <Link href="/performance-marketing-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/performance-marketing-company-in-india" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Arvian_Performance_marketing_Logo.png" alt="Performance" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Performance Marketing</span>
                         </Link>
-                        <Link href="/social-media-optimization-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/social-media-optimization-company-in-india" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/SMO_logo.jpg" alt="SMO" width={24} height={24} className="w-5 h-5 object-contain rounded" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Social Media Optimization</span>
                         </Link>
-                        <Link href="/whatsapp-integration-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
-                          <div className="w-5 h-5 rounded-md bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0">
-                            <MessageCircle className="w-3.5 h-3.5 fill-emerald-500 text-emerald-600" />
+                        <Link href="/whatsapp-integration-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
+                          <div className="w-5 h-5 rounded-md bg-blue-50 flex items-center justify-center text-[#0066FF] flex-shrink-0">
+                            <MessageCircle className="w-3.5 h-3.5 fill-blue-500 text-[#0066FF]" />
                           </div>
-                          <span className="group-hover/item:translate-x-1 transition-transform font-bold text-emerald-700">WhatsApp Integration</span>
+                          <span className="group-hover/item:translate-x-1 transition-transform font-bold text-[#0066FF]">WhatsApp Integration</span>
                         </Link>
-                        <Link href="/sms-voice-call-whatsapp-marketing-services" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
-                          <div className="w-5 h-5 rounded-md bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
-                            <PhoneCall className="w-3.5 h-3.5 text-blue-600" />
+                        <Link href="/sms-voice-call-whatsapp-marketing-services" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
+                          <div className="w-5 h-5 rounded-md bg-blue-50 flex items-center justify-center text-[#0066FF] flex-shrink-0">
+                            <PhoneCall className="w-3.5 h-3.5 text-[#0066FF]" />
                           </div>
                           <span className="group-hover/item:translate-x-1 transition-transform font-bold text-[#0066FF]">SMS, Voice & WhatsApp Marketing</span>
                         </Link>
-                        <Link href="/graphic-design-company-in-india" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/graphic-design-company-in-india" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/graphics-logo.webp" alt="Graphics" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Graphic & A+ Design</span>
                         </Link>
@@ -240,32 +240,32 @@ export default function Header({ onOpenPopup }: HeaderProps) {
 
                     {/* Col 4: Web Development */}
                     <div>
-                      <h3 className="text-xs font-black text-[#0066FF] uppercase tracking-wider mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                      <h3 className="text-xs font-black text-[#0066FF] tracking-wide mb-5 pb-2 border-b border-blue-100 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#0066FF]"></span>
                         Brand Web Development
                       </h3>
                       <div className="flex flex-col space-y-3 text-sm">
-                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/wordpress_logo.png" alt="WordPress" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">WordPress Development</span>
                         </Link>
-                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/shopify_logo.png" alt="Shopify" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Shopify Brand Stores</span>
                         </Link>
-                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/wocommerce-logo.svg" alt="WooCommerce" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">WooCommerce Development</span>
                         </Link>
-                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/Wix_logo.png" alt="Wix" width={24} height={24} className="w-5 h-5 object-contain" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Wix Ecommerce Setup</span>
                         </Link>
-                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/custom-web.jpg" alt="Custom Web" width={24} height={24} className="w-5 h-5 object-contain rounded" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Custom Next.js & React</span>
                         </Link>
-                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-700 hover:text-[#0066FF] transition-colors group/item">
+                        <Link href="/ecommerce-service-provider-in-delhi" className="flex items-center gap-3 text-slate-600 hover:text-[#0066FF] transition-colors group/item">
                           <Image src="/header-img/web-maint.jpg" alt="Maintenance" width={24} height={24} className="w-5 h-5 object-contain rounded" />
                           <span className="group-hover/item:translate-x-1 transition-transform">Website Maintenance</span>
                         </Link>
@@ -279,24 +279,24 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               <div className="relative menuItem py-6 cursor-pointer group">
                 <span className="flex items-center gap-1.5 hover:text-[#0066FF] transition-colors font-semibold">
                   Case Studies
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-400 group-hover:text-[#0066FF]" />
+                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-600 group-hover:text-[#0066FF]" />
                 </span>
 
                 <div className="megaMenu absolute left-0 top-18 w-64 bg-white p-5 rounded-2xl shadow-xl border border-blue-100 z-50">
                   <div className="flex flex-col space-y-3 text-sm">
-                    <Link href="/kay-kay-industries-amazon-case-study" className="text-slate-700 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
+                    <Link href="/kay-kay-industries-amazon-case-study" className="text-slate-600 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
                       <span>Kay Kay Industries</span>
                       <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/cs:opacity-100 transition-opacity text-[#0066FF]" />
                     </Link>
-                    <Link href="/gataca-performance-supplements-amazon-case-study" className="text-slate-700 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
+                    <Link href="/gataca-performance-supplements-amazon-case-study" className="text-slate-600 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
                       <span>GATACA Supplements</span>
                       <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/cs:opacity-100 transition-opacity text-[#0066FF]" />
                     </Link>
-                    <Link href="/sai-gallery-agarbatti-brand-amazon-case-study" className="text-slate-700 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
+                    <Link href="/sai-gallery-agarbatti-brand-amazon-case-study" className="text-slate-600 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
                       <span>Sai Gallery</span>
                       <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/cs:opacity-100 transition-opacity text-[#0066FF]" />
                     </Link>
-                    <Link href="/nut-o-nut-dry-fruits-brand-amazon-case-study" className="text-slate-700 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
+                    <Link href="/nut-o-nut-dry-fruits-brand-amazon-case-study" className="text-slate-600 hover:text-[#0066FF] transition-colors py-1 flex items-center justify-between group/cs">
                       <span>Nut o Nut</span>
                       <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/cs:opacity-100 transition-opacity text-[#0066FF]" />
                     </Link>
@@ -315,7 +315,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               <div className="relative menuItem py-6 cursor-pointer group">
                 <span className="flex items-center gap-1.5 hover:text-[#0066FF] transition-colors font-semibold">
                   More
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-400 group-hover:text-[#0066FF]" />
+                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-slate-600 group-hover:text-[#0066FF]" />
                 </span>
 
                 <div className="megaMenu absolute right-0 top-18 w-72 bg-white p-3.5 rounded-2xl shadow-[0_20px_50px_rgba(0,102,255,0.14)] border border-blue-100 z-50">
@@ -323,7 +323,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                     {/* Blog */}
                     <Link
                       href="/blogs"
-                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#0066FF] transition-all group/item"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-600 hover:text-[#0066FF] transition-all group/item"
                     >
                       <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#0066FF] border border-blue-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-[#0066FF] group-hover/item:text-white transition-all">
                         <FileText className="w-4 h-4" />
@@ -331,43 +331,43 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
                           <span className="font-bold text-slate-900 group-hover/item:text-[#0066FF]">Blog</span>
-                          <span className="text-[10px] font-semibold text-slate-400">Insights</span>
+                          <span className="text-xs font-semibold text-slate-600">Insights</span>
                         </div>
-                        <p className="text-[11px] text-slate-500 line-clamp-1">E-commerce guides &amp; articles</p>
+                        <p className="text-xs text-slate-600 line-clamp-1">E-commerce guides &amp; articles</p>
                       </div>
                     </Link>
 
                     {/* Career */}
                     <Link
                       href="/career"
-                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#0066FF] transition-all group/item"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-600 hover:text-[#0066FF] transition-all group/item"
                     >
-                      <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-emerald-600 group-hover/item:text-white transition-all">
+                      <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#0066FF] border border-blue-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-[#0066FF] group-hover/item:text-white transition-all">
                         <Briefcase className="w-4 h-4" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
                           <span className="font-bold text-slate-900 group-hover/item:text-[#0066FF]">Careers</span>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">Hiring</span>
+                          <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200">Hiring</span>
                         </div>
-                        <p className="text-[11px] text-slate-500 line-clamp-1">Join our high-growth team</p>
+                        <p className="text-xs text-slate-600 line-clamp-1">Join our high-growth team</p>
                       </div>
                     </Link>
 
                     {/* Founder */}
                     <Link
                       href="/founder"
-                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#0066FF] transition-all group/item"
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/80 text-slate-600 hover:text-[#0066FF] transition-all group/item"
                     >
-                      <div className="w-9 h-9 rounded-lg bg-cyan-50 text-cyan-600 border border-cyan-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-cyan-600 group-hover/item:text-white transition-all">
+                      <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#0066FF] border border-blue-100 flex items-center justify-center shrink-0 group-hover/item:scale-105 group-hover/item:bg-[#0066FF] group-hover/item:text-white transition-all">
                         <Users className="w-4 h-4" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
                           <span className="font-bold text-slate-900 group-hover/item:text-[#0066FF]">Founder</span>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200">Leadership</span>
+                          <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-50 text-[#0066FF] border border-blue-200">Leadership</span>
                         </div>
-                        <p className="text-[11px] text-slate-500 line-clamp-1">Meet Shivam Dubey &amp; Story</p>
+                        <p className="text-xs text-slate-600 line-clamp-1">Meet Shivam Dubey &amp; Story</p>
                       </div>
                     </Link>
 
@@ -386,9 +386,9 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
                             <span className="font-bold text-[#0066FF]">Download Catalogue</span>
-                            <span className="text-[10px] font-bold text-cyan-700 uppercase bg-white/80 px-1.5 py-0.5 rounded">PDF</span>
+                            <span className="text-xs font-bold text-[#0066FF] uppercase bg-white/80 px-1.5 py-0.5 rounded">PDF</span>
                           </div>
-                          <p className="text-[11px] text-slate-600 line-clamp-1">Full Service Deck &amp; Overview</p>
+                          <p className="text-xs text-slate-600 line-clamp-1">Full Service Deck &amp; Overview</p>
                         </div>
                       </a>
                     </div>
@@ -405,7 +405,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                   target={branding.catalogPdfUrl ? '_blank' : undefined}
                   rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
                   download={branding.catalogPdfUrl ? true : undefined}
-                  className="px-4 py-2.5 rounded-full border border-blue-200 hover:border-blue-400 bg-blue-50/70 hover:bg-blue-100/70 text-[#0066FF] font-bold text-xs tracking-wide transition-all flex items-center gap-1.5 shadow-xs group"
+                  className="px-4 py-2.5 rounded-full border border-slate-200 hover:border-blue-300 bg-white hover:bg-blue-50/50 text-slate-900 font-bold text-xs tracking-wide transition-all flex items-center gap-1.5 shadow-xs group"
                 >
                   <Download className="w-3.5 h-3.5 text-[#0066FF] group-hover:-translate-y-0.5 transition-transform" />
                   <span>{branding.catalogButtonText || 'Download Catalog'}</span>
@@ -424,7 +424,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 text-slate-700 hover:text-[#0066FF] focus:outline-none"
+              className="lg:hidden p-2 text-slate-900 hover:text-[#0066FF] focus:outline-none"
               aria-label="Open Navigation Menu"
             >
               <Menu className="w-7 h-7" />
@@ -455,13 +455,13 @@ export default function Header({ onOpenPopup }: HeaderProps) {
           />
           <button 
             onClick={() => setMobileMenuOpen(false)}
-            className="p-2 text-slate-500 hover:text-blue-600 rounded-full hover:bg-blue-50"
+            className="p-2 text-slate-600 hover:text-[#0066FF] rounded-full hover:bg-blue-50"
           >
             <X className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="mt-6 flex flex-col space-y-4 text-base font-semibold text-slate-800">
+        <div className="mt-6 flex flex-col space-y-4 text-base font-semibold text-slate-900">
           <Link 
             href="/" 
             onClick={() => setMobileMenuOpen(false)}
@@ -482,7 +482,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
 
             {mobileServicesOpen && (
               <div className="pl-3 mt-2 space-y-3 text-sm text-slate-600 max-h-72 overflow-y-auto pr-2">
-                <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider pt-2">Marketplace Management</p>
+                <p className="text-xs font-bold text-[#0066FF] tracking-wide pt-2">Marketplace Management</p>
                 <Link href="/amazon-seller-account-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Amazon Account Management</Link>
                 <Link href="/flipkart-account-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Flipkart Account Management</Link>
                 <Link href="/meesho-account-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Meesho Account Management</Link>
@@ -494,17 +494,17 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                   <span>Rating & Review Mgmt</span>
                 </Link>
                 
-                <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider pt-2">Quick Commerce</p>
+                <p className="text-xs font-bold text-[#0066FF] tracking-wide pt-2">Quick Commerce</p>
                 <Link href="/blinkit-seller-account-management-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Blinkit Onboarding</Link>
                 <Link href="/swiggy-instamart-seller-account-management-and-onboarding" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Swiggy Instamart</Link>
                 <Link href="/zepto-seller-onboarding-and-account-management-service" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Zepto Onboarding</Link>
                 
-                <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider pt-2">Ads & Digital Marketing</p>
+                <p className="text-xs font-bold text-[#0066FF] tracking-wide pt-2">Ads & Digital Marketing</p>
                 <Link href="/seo-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Search Engine Optimization</Link>
                 <Link href="/meta-ads-management-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Meta Ads Management</Link>
                 <Link href="/google-ads-management-company-in-india" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF]">Google Ads Management</Link>
-                <Link href="/whatsapp-integration-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1.5">
-                  <MessageCircle className="w-3.5 h-3.5 fill-emerald-500 text-emerald-600 inline" />
+                <Link href="/whatsapp-integration-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 font-bold text-[#0066FF] hover:underline flex items-center gap-1.5">
+                  <MessageCircle className="w-3.5 h-3.5 fill-blue-500 text-[#0066FF] inline" />
                   <span>WhatsApp Integration</span>
                 </Link>
                 <Link href="/sms-voice-call-whatsapp-marketing-services" onClick={() => setMobileMenuOpen(false)} className="block py-1 font-bold text-[#0066FF] hover:underline flex items-center gap-1.5">
@@ -558,21 +558,21 @@ export default function Header({ onOpenPopup }: HeaderProps) {
               <div className="pl-3 mt-2 space-y-2.5 text-sm text-slate-600">
                 <Link href="/blogs" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF] flex items-center justify-between">
                   <span className="flex items-center gap-2 font-medium">
-                    <FileText className="w-3.5 h-3.5 text-blue-600" /> Blog
+                    <FileText className="w-3.5 h-3.5 text-[#0066FF]" /> Blog
                   </span>
-                  <span className="text-[10px] text-slate-400 font-semibold">Articles</span>
+                  <span className="text-xs text-slate-600 font-semibold">Articles</span>
                 </Link>
                 <Link href="/career" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF] flex items-center justify-between">
                   <span className="flex items-center gap-2 font-medium">
-                    <Briefcase className="w-3.5 h-3.5 text-emerald-600" /> Careers
+                    <Briefcase className="w-3.5 h-3.5 text-[#0066FF]" /> Careers
                   </span>
-                  <span className="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full font-bold">Hiring</span>
+                  <span className="text-xs bg-blue-50 text-[#0066FF] border border-blue-200 px-2 py-0.5 rounded-full font-bold">Hiring</span>
                 </Link>
                 <Link href="/founder" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#0066FF] flex items-center justify-between">
                   <span className="flex items-center gap-2 font-medium text-slate-900">
-                    <Users className="w-3.5 h-3.5 text-cyan-600" /> Founder
+                    <Users className="w-3.5 h-3.5 text-[#0066FF]" /> Founder
                   </span>
-                  <span className="text-[10px] bg-blue-50 text-[#0066FF] border border-blue-200 px-2 py-0.5 rounded-full font-bold">Leadership</span>
+                  <span className="text-xs bg-blue-50 text-[#0066FF] border border-blue-200 px-2 py-0.5 rounded-full font-bold">Leadership</span>
                 </Link>
                 <a
                   href={branding.catalogPdfUrl || '/contact-us'}
@@ -585,12 +585,12 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                   <span className="flex items-center gap-2">
                     <Download className="w-3.5 h-3.5" /> Download Catalogue
                   </span>
-                  <span className="text-[10px] uppercase font-bold text-cyan-700 bg-white px-1.5 py-0.5 rounded">PDF</span>
+                  <span className="text-xs uppercase font-bold text-[#0066FF] bg-white px-1.5 py-0.5 rounded">PDF</span>
                 </a>
               </div>
             )}
           </div>
-          <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50 block text-slate-700">
+          <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="py-2 hover:text-[#0066FF] border-b border-slate-50 block text-slate-600">
             Sitemap
           </a>
 
@@ -602,7 +602,7 @@ export default function Header({ onOpenPopup }: HeaderProps) {
                 rel={branding.catalogPdfUrl ? 'noreferrer' : undefined}
                 download={branding.catalogPdfUrl ? true : undefined}
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-blue-200 bg-blue-50 text-[#0066FF] font-bold text-sm shadow-xs hover:bg-blue-100 transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl border border-slate-200 bg-white text-slate-900 font-bold text-sm shadow-xs hover:bg-blue-50/50 transition-colors"
               >
                 <Download className="w-4 h-4 text-[#0066FF]" />
                 <span>{branding.catalogButtonText || 'Download Catalog'}</span>
