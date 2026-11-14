@@ -104,8 +104,10 @@ export async function buildNextMetadataForRoute(
   const dbSrv = SERVICES_DATABASE[rawSlug];
   const cmsSrv = content.services?.[rawSlug];
   const amazonFallback = {
-    title: 'Amazon Seller Account Management Services',
-    subtitle: 'Scale your Amazon business with end-to-end Seller Central handling, A+ cataloging, FBA inventory planning, and Sponsored Ads PPC optimization.',
+    title: 'Amazon Account Management Services in India',
+    seoTitle: 'Amazon Account Management Services in India | Ecomvanta',
+    metaDescription: 'Amazon account management services for Indian sellers: listings, ads, FBA, orders and account health. See the scope and request a free audit call.',
+    subtitle: 'Amazon account management services for Indian sellers: listings, ads, FBA, orders and account health. See the scope and request a free audit call.',
     heroImage: '/home-img/Amazon-account-management.webp',
   };
   const serviceMatch: Partial<typeof amazonFallback & { seoTitle?: string; metaDescription?: string }> | undefined =

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getSiteContent, saveSiteContent, SiteContentData, DEFAULT_SITE_CONTENT, getLatestContentFromCloud, mergeWithDefaults, mergeSeoConfig, normalizeBlogs } from '@/lib/cms';
 import { supabaseAdmin, supabase } from '@/lib/supabase';
 import { putR2Object } from '@/lib/r2';
@@ -166,6 +167,13 @@ export async function POST(req: Request) {
 
     // 4. Save to runtime memory cache and local disk if available
     saveSiteContent(updatedContent);
+
+    // 5. Revalidate Next.js ISR cache immediately so admin updates appear live right away
+    try {
+      revalidatePath('/', 'layout');
+    } catch (revalErr) {
+      console.warn('Revalidate warning:', revalErr);
+    }
 
     return NextResponse.json(
       {

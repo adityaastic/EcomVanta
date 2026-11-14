@@ -16,9 +16,25 @@ import { useCmsContent } from '@/lib/useCmsContent';
 import { SERVICES_DATABASE } from '@/lib/serviceData';
 import { CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
 
-export default function DynamicServicePage() {
+function parseServiceDesc(desc: string) {
+  if (!desc || typeof desc !== 'string') return null;
+  const problemMatch = desc.match(/The problem:\s*([\s\S]*?)(?=(?:What we do:|What to expect:|$))/i);
+  const whatWeDoMatch = desc.match(/What we do:\s*([\s\S]*?)(?=(?:What to expect:|$))/i);
+  const expectMatch = desc.match(/What to expect:\s*([\s\S]*?)$/i);
+
+  if (problemMatch && whatWeDoMatch) {
+    return {
+      problem: problemMatch[1]?.trim(),
+      whatWeDo: whatWeDoMatch[1]?.trim(),
+      whatToExpect: expectMatch ? expectMatch[1]?.trim() : '',
+    };
+  }
+  return null;
+}
+
+export default function DynamicServicePage({ fixedSlug }: { fixedSlug?: string } = {}) {
   const params = useParams();
-  const rawSlug = (params?.serviceSlug as string) || '';
+  const rawSlug = fixedSlug || (params?.serviceSlug as string) || '';
   const slug = rawSlug.replace(/\.php$/i, '');
   const [popupOpen, setPopupOpen] = useState(false);
   const { content } = useCmsContent();
@@ -31,6 +47,8 @@ export default function DynamicServicePage() {
         ...dbService,
         ...cmsService,
         longContentHtml: cmsService?.longContentHtml || dbService?.longContentHtml || '',
+        servicesHeading: cmsService?.servicesHeading || dbService?.servicesHeading || 'What We Deliver',
+        servicesSubheading: cmsService?.servicesSubheading || dbService?.servicesSubheading || '',
       }
     : undefined;
 
@@ -234,25 +252,89 @@ export default function DynamicServicePage() {
                 Tailored Capabilities
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
-                What We Deliver
+                {serviceData?.servicesHeading || 'What We Deliver'}
               </h2>
+              {serviceData?.servicesSubheading && (
+                <p className="text-slate-600 text-base mt-3 leading-relaxed">
+                  {serviceData.servicesSubheading}
+                </p>
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {servicesGrid.map((srv: any) => (
-                <div
-                  key={srv.title}
-                  className="p-8 rounded-3xl bg-white border border-gray-200 hover:border-[#0066FF]/40 shadow-xs hover:shadow-xl hover:shadow-blue-500/5 transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center p-2.5 mb-6 border border-blue-100">
-                      <img src={srv.icon} alt={srv.title} className="max-w-full max-h-full object-contain" />
+              {servicesGrid.map((srv: any, idx: number) => {
+                const structured = parseServiceDesc(srv.desc);
+                return (
+                  <div
+                    key={srv.title || idx}
+                    className="group relative p-7 sm:p-8 rounded-3xl bg-white border border-gray-200/90 hover:border-[#0066FF]/40 shadow-xs hover:shadow-xl hover:shadow-blue-500/8 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div>
+                      {/* Top Header */}
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-14 h-14 rounded-2xl bg-white shadow-xs border border-slate-200/90 flex items-center justify-center p-2.5 group-hover:scale-105 group-hover:border-blue-300 group-hover:shadow-md transition-all duration-300">
+                          <img src={srv.icon} alt={srv.title} className="max-w-full max-h-full object-contain" />
+                        </div>
+                        <span className="text-xs font-bold text-slate-600 font-mono tracking-wide bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200/60">
+                          #{String(idx + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-black text-slate-900 mb-4 group-hover:text-[#0066FF] transition-colors leading-snug">
+                        {srv.title}
+                      </h3>
+
+                      {structured ? (
+                        <div className="space-y-3 pt-1">
+                          {/* Problem */}
+                          <div className="bg-rose-50/70 border border-rose-100/90 rounded-2xl p-3.5 transition-colors group-hover:bg-rose-50">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 tracking-wide mb-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                              <span>The Problem</span>
+                            </div>
+                            <p
+                              className="text-xs text-slate-600 leading-relaxed font-normal [&_a]:text-[#0066FF] [&_a]:font-bold [&_a]:underline"
+                              dangerouslySetInnerHTML={{ __html: structured.problem }}
+                            />
+                          </div>
+
+                          {/* What We Do */}
+                          <div className="bg-blue-50/60 border border-blue-100/90 rounded-2xl p-3.5 transition-colors group-hover:bg-blue-50">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-[#0066FF] tracking-wide mb-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF]"></span>
+                              <span>What We Do</span>
+                            </div>
+                            <p
+                              className="text-xs text-slate-600 leading-relaxed font-normal [&_a]:text-[#0066FF] [&_a]:font-bold [&_a]:underline"
+                              dangerouslySetInnerHTML={{ __html: structured.whatWeDo }}
+                            />
+                          </div>
+
+                          {/* What To Expect */}
+                          {structured.whatToExpect && (
+                            <div className="bg-emerald-50/60 border border-emerald-100/90 rounded-2xl p-3.5 transition-colors group-hover:bg-emerald-50">
+                              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 tracking-wide mb-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                <span>What To Expect</span>
+                              </div>
+                              <p
+                                className="text-xs text-slate-600 leading-relaxed font-medium [&_a]:text-[#0066FF] [&_a]:font-bold [&_a]:underline"
+                                dangerouslySetInnerHTML={{ __html: structured.whatToExpect }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <p
+                          className="text-slate-600 text-sm leading-relaxed pt-1 [&_a]:text-[#0066FF] [&_a]:font-bold [&_a]:underline"
+                          dangerouslySetInnerHTML={{ __html: srv.desc }}
+                        />
+                      )}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{srv.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{srv.desc}</p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

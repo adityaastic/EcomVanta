@@ -84,9 +84,10 @@ export default function FaqAccordion({
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-blue-100/50 bg-white/60 animate-in fade-in-50 duration-200">
-                    {faq.answer}
-                  </div>
+                  <div
+                    className="px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-blue-100/50 bg-white/60 animate-in fade-in-50 duration-200 [&_a]:text-[#0066FF] [&_a]:font-bold [&_a]:underline"
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                  />
                 )}
               </div>
             );

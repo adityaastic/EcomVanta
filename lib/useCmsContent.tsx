@@ -97,17 +97,12 @@ export function CmsProvider({
   initialContent?: SiteContentData;
 }) {
   const [content, setContent] = useState<SiteContentData>(() => {
-    return initialContent ? sanitizeRestrictedMediaUrls(initialContent) : getLocalCmsContent() || DEFAULT_SITE_CONTENT;
+    return initialContent || getLocalCmsContent() || DEFAULT_SITE_CONTENT;
   });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
-
-    const local = getLocalCmsContent();
-    if (local && !initialContent && isMounted) {
-      setContent(local);
-    }
 
     const handleUpdate = (e: any) => {
       if (e.detail && isMounted) {
@@ -116,29 +111,31 @@ export function CmsProvider({
     };
     window.addEventListener('ecomvanta_cms_updated', handleUpdate);
 
-    async function fetchContent() {
-      try {
-        const res = await fetch('/api/admin/content', {
-          cache: 'no-store',
-          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' },
-        });
-        if (res.ok) {
-          const json = await res.json();
-          if (json.success && json.data && isMounted) {
-            const sanitized = sanitizeRestrictedMediaUrls(json.data);
-            sanitized.blogs = normalizeClientBlogs(sanitized.blogs);
-            setContent(sanitized);
-            try {
-              localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitized));
-            } catch (e) {}
+    // Only fetch live from API if initialContent was not provided by SSR, or when inside /admin
+    const isAdminRoute = typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
+    if (!initialContent || isAdminRoute) {
+      async function fetchContent() {
+        try {
+          const res = await fetch('/api/admin/content', {
+            cache: 'no-store',
+          });
+          if (res.ok) {
+            const json = await res.json();
+            if (json.success && json.data && isMounted) {
+              const sanitized = sanitizeRestrictedMediaUrls(json.data);
+              sanitized.blogs = normalizeClientBlogs(sanitized.blogs);
+              setContent(sanitized);
+              try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitized));
+              } catch (e) {}
+            }
           }
+        } catch (err) {
+          console.warn('Using existing content due to fetch error:', err);
         }
-      } catch (err) {
-        console.warn('Using existing content due to fetch error:', err);
       }
+      fetchContent();
     }
-
-    fetchContent();
 
     return () => {
       isMounted = false;

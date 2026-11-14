@@ -212,11 +212,11 @@ export function getSiteContent(): SiteContentData {
 }
 
 export async function getLatestContentFromCloud(): Promise<SiteContentData> {
-  // Use in-memory cache if refreshed within the last 10 seconds
+  // Use in-memory cache if refreshed within the last 5 minutes (300 seconds) to minimize serverless CPU usage
   if (
     globalThis.__SITE_CONTENT_CACHE__ &&
     globalThis.__SITE_CONTENT_CACHE_TIME__ &&
-    Date.now() - globalThis.__SITE_CONTENT_CACHE_TIME__ < 10_000
+    Date.now() - globalThis.__SITE_CONTENT_CACHE_TIME__ < 300_000
   ) {
     return globalThis.__SITE_CONTENT_CACHE__;
   }
@@ -264,9 +264,8 @@ export async function getLatestContentFromCloud(): Promise<SiteContentData> {
   try {
     const { data: pubData } = client.storage.from('media').getPublicUrl('cms/site_content.json');
     if (pubData?.publicUrl) {
-      const res = await fetch(`${pubData.publicUrl}?t=${Date.now()}`, {
-        cache: 'no-store',
-        headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' },
+      const res = await fetch(pubData.publicUrl, {
+        next: { revalidate: 300 },
       });
       if (res.ok) {
         const parsed = await res.json();
