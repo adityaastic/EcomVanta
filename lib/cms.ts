@@ -211,9 +211,10 @@ export function getSiteContent(): SiteContentData {
   return DEFAULT_SITE_CONTENT;
 }
 
-export async function getLatestContentFromCloud(): Promise<SiteContentData> {
+export async function getLatestContentFromCloud(forceFresh = false): Promise<SiteContentData> {
   // Use in-memory cache if refreshed within the last 5 minutes (300 seconds) to minimize serverless CPU usage
   if (
+    !forceFresh &&
     globalThis.__SITE_CONTENT_CACHE__ &&
     globalThis.__SITE_CONTENT_CACHE_TIME__ &&
     Date.now() - globalThis.__SITE_CONTENT_CACHE_TIME__ < 300_000
@@ -223,7 +224,7 @@ export async function getLatestContentFromCloud(): Promise<SiteContentData> {
 
   // 1. Primary Cloud Storage: Cloudflare R2 (Zero Egress, Unlimited Bandwidth)
   try {
-    const r2Text = await getR2ObjectText('cms/site_content.json');
+    const r2Text = await getR2ObjectText('cms/site_content.json', forceFresh);
     if (r2Text) {
       const parsed = JSON.parse(r2Text);
       if (parsed && typeof parsed === 'object') {

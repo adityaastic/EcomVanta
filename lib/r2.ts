@@ -181,16 +181,23 @@ export async function putR2Object(
 /**
  * Fetches an object from Cloudflare R2 as text (used for CMS JSON config).
  */
-export async function getR2ObjectText(key: string): Promise<string | null> {
+export async function getR2ObjectText(key: string, forceFresh = false): Promise<string | null> {
   const cleanKey = key.replace(/^\/+/, '');
 
   // 1. Try Public CDN URL first (fastest, Edge cached)
   try {
-    const pubUrl = `${getR2PublicUrl(cleanKey)}?t=${Date.now()}`;
-    const res = await fetch(pubUrl, {
-      cache: 'no-store',
-      headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' },
-    });
+    const pubUrl = forceFresh ? `${getR2PublicUrl(cleanKey)}?t=${Date.now()}` : getR2PublicUrl(cleanKey);
+    const res = await fetch(
+      pubUrl,
+      forceFresh
+        ? {
+            cache: 'no-store',
+            headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' },
+          }
+        : {
+            next: { revalidate: 300 },
+          }
+    );
     if (res.ok) {
       return await res.text();
     }
@@ -201,7 +208,7 @@ export async function getR2ObjectText(key: string): Promise<string | null> {
     const encodedKey = encodeURIComponent(cleanKey);
     const apiUrl = `https://api.cloudflare.com/client/v4/accounts/${R2_CONFIG.accountId}/r2/buckets/${R2_CONFIG.bucketName}/objects/${encodedKey}`;
     const res = await fetch(apiUrl, {
-      cache: 'no-store',
+      ...(forceFresh ? { cache: 'no-store' as const } : { next: { revalidate: 300 } }),
       headers: {
         Authorization: `Bearer ${R2_CONFIG.apiToken}`,
       },

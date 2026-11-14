@@ -9,7 +9,7 @@ export const revalidate = 0;
 
 export async function GET() {
   try {
-    const content = await getLatestContentFromCloud();
+    const content = await getLatestContentFromCloud(true);
 
     return NextResponse.json(
       { success: true, data: content },
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     const { section, data } = body;
 
     // 1. Fetch current content so we never lose other sections
-    const current = await getLatestContentFromCloud();
+    const current = await getLatestContentFromCloud(true);
     let updatedContent: SiteContentData;
 
     if (section && data) {
