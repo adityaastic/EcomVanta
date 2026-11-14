@@ -261,7 +261,7 @@ export default function DynamicServicePage({ fixedSlug }: { fixedSlug?: string }
               )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className={`grid grid-cols-1 md:grid-cols-2 ${servicesGrid.length === 8 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'} gap-8`}>
               {servicesGrid.map((srv: any, idx: number) => {
                 const structured = parseServiceDesc(srv.desc);
                 return (
@@ -393,6 +393,8 @@ export default function DynamicServicePage({ fixedSlug }: { fixedSlug?: string }
                   [&_li]:leading-relaxed
                   [&_strong]:font-bold [&_strong]:text-slate-900
                   [&_a]:text-[#0066FF] [&_a]:font-bold [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-[#0052cc]
+                  [&_a[href='#audit']]:inline-flex [&_a[href='#audit']]:items-center [&_a[href='#audit']]:px-6 [&_a[href='#audit']]:py-3 [&_a[href='#audit']]:rounded-full [&_a[href='#audit']]:bg-[#0066FF] [&_a[href='#audit']]:text-white [&_a[href='#audit']]:text-sm [&_a[href='#audit']]:font-bold [&_a[href='#audit']]:no-underline [&_a[href='#audit']]:shadow-md [&_a[href='#audit']]:mr-2 [&_a[href='#audit']]:my-1 hover:[&_a[href='#audit']]:bg-[#0052cc] hover:[&_a[href='#audit']]:text-white
+                  [&_a[href='#quote']]:inline-flex [&_a[href='#quote']]:items-center [&_a[href='#quote']]:px-6 [&_a[href='#quote']]:py-3 [&_a[href='#quote']]:rounded-full [&_a[href='#quote']]:bg-[#0066FF] [&_a[href='#quote']]:text-white [&_a[href='#quote']]:text-sm [&_a[href='#quote']]:font-bold [&_a[href='#quote']]:no-underline [&_a[href='#quote']]:shadow-md [&_a[href='#quote']]:my-1 hover:[&_a[href='#quote']]:bg-[#0052cc] hover:[&_a[href='#quote']]:text-white
                   [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:rounded-2xl [&_table]:overflow-hidden [&_table]:border [&_table]:border-slate-200 [&_table]:text-sm
                   [&_thead]:bg-slate-900 [&_thead]:text-white
                   [&_th]:py-3.5 [&_th]:px-4 [&_th]:text-left [&_th]:font-bold [&_th]:text-xs

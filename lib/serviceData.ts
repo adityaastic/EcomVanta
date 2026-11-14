@@ -37,7 +37,7 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
     metaDescription: 'Amazon account management services for Indian sellers: listings, ads, FBA, orders and account health. See the scope and request a free audit call.',
     subtitle: "Running an Amazon seller account is daily work. Listings need upkeep, stock needs planning, ads need tuning, orders need tracking, and account-health alerts need answers. Ecomvanta's Amazon account management services take that routine work off your team. The account stays in your name and under your control. We work with Amazon.in sellers, brands and manufacturers from our team in New Delhi. Scope covers Seller Central handling, A+ catalogue content, FBA inventory planning and Sponsored Ads, depending on what you need.",
     heroImage: '/home-img/Amazon-account-management.webp',
-    aboutImage: '/home-img/Amazon-account-management.webp',
+    aboutImage: '/service-img/Amazon-left-img.png',
     aboutTitle: 'What Are Amazon Account Management Services?',
     aboutDesc: "Amazon account management services mean a team handles the recurring operations of your Seller Central account on your behalf. Typical areas are listings, inventory, orders, advertising, account health and reporting. The exact scope is agreed upfront, because no two sellers need the same mix. There is one limit worth stating plainly. A provider works inside Amazon's rules. It does not control Amazon's decisions regarding approvals, restrictions, or suspensions.",
     servicesHeading: 'Amazon Seller Account Management Services We Offer',
@@ -308,7 +308,6 @@ export const SERVICES_DATABASE: Record<string, ServiceData> = {
   <li><strong>Email:</strong> <a href="mailto:ecomvanta40@gmail.com">ecomvanta40@gmail.com</a></li>
   <li><strong>Working Hours:</strong> 9:00 AM to 7:00 PM (Mon - Sat)</li>
 </ul>
-<p><a href="#audit">Talk to Our Flipkart Team →</a></p>
 <p><strong>Security Notice:</strong> For account-security reasons, never share your OTP, Seller Hub password, UPI PIN or other sensitive credentials with anyone claiming to be a marketplace representative.</p>
 
 <h2>Get Your Flipkart Account Reviewed by EcomVanta</h2>
